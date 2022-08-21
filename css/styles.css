@@ -64,6 +64,7 @@ section header {
   align-items: center;
   margin-right: 60px;
   height: 60px;
+  transition: var(--long-transition);
 }
 
 .nav-link {
@@ -412,7 +413,26 @@ footer .icon {
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 900px) {
+  .nav-group {
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-group {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav-group {
+    gap: 10px;
+  }
+}
+
+/* Experimental Section */
+/*@media (max-width: 400px) {
   .nav-bar {
     flex-direction: column;
     justify-content: center;
@@ -463,6 +483,4 @@ footer .icon {
   #projects {
     scroll-margin-top: 140px;
   }
-}
-
-/* Experimental Section */
+} */
