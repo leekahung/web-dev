@@ -412,7 +412,7 @@ footer .icon {
   }
 }
 
-@media (max-width: 350px) {
+@media (max-width: 400px) {
   .nav-bar {
     flex-direction: column;
     justify-content: center;
