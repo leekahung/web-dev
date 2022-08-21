@@ -393,6 +393,26 @@ footer .icon {
 }
 
 @media (max-width: 1080px) {
+  .self-photo {
+    width: 225px;
+    transition: var(--long-transition);
+  }
+
+  .project-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    transition: var(--long-transition);
+  }
+
+  .project-card:hover {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 600px) {
   .nav-bar {
     flex-direction: column;
     justify-content: center;
@@ -442,24 +462,6 @@ footer .icon {
 
   #projects {
     scroll-margin-top: 140px;
-  }
-
-  .self-photo {
-    width: 225px;
-    transition: var(--long-transition);
-  }
-
-  .project-container {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-    transition: var(--long-transition);
-  }
-
-  .project-card:hover {
-    margin-top: 20px;
-    margin-bottom: 20px;
   }
 }
 
