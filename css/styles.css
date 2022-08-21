@@ -50,6 +50,7 @@ section header {
   position: fixed;
   top: 0;
   background-color: lightgrey;
+  height: 62px;
   width: 100%;
   z-index: 999;
   border-bottom: 1px solid black;
@@ -478,6 +479,15 @@ footer .icon {
 @media (max-width: 360px) {
   .nav-group {
     gap: 0;
+    transform: translateX(20%);
+  }
+
+  .nav-link {
+    font-size: 18px;
+  }
+
+  .toggler {
+    transform: translateX(0%);
   }
 }
 
