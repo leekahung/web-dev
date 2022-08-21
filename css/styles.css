@@ -393,6 +393,57 @@ footer .icon {
 }
 
 @media (max-width: 1080px) {
+  .nav-bar {
+    flex-direction: column;
+    justify-content: center;
+    height: 140px;
+  }
+
+  .nav-group {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    margin: 0;
+    width: 100vw;
+  }
+
+  .nav-group li {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+  }
+
+  .nav-group li:nth-child(2) {
+    border: 1px solid black;
+    padding: 12px 0;
+  }
+
+  .nav-link {
+    padding: 0;
+  }
+
+  .toggler {
+    position: fixed;
+    top: -5%;
+    left: -5%;
+    opacity: 0;
+  }
+
+  #home {
+    scroll-margin-top: 140px;
+  }
+
+  #about {
+    scroll-margin-top: 140px;
+  }
+
+  #projects {
+    scroll-margin-top: 140px;
+  }
+
   .self-photo {
     width: 225px;
     transition: var(--long-transition);
