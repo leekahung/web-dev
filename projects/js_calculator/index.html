@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JavaScript Calculator</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <h1>JavaScript Calculator</h1>
+    <div class="calculator">
+      <div id="calc-display">
+        <div id="calc-input"></div>
+        <div id="calc-output"></div>
+      </div>
+      <div id="calc-buttons"></div>
+    </div>
+    <div class="rules">
+      <h3>Features/Limitations</h3>
+      <ul>
+        <li>Character limit on inputs is 31 before it overflows off the display</li>
+        <li>Inputs follows conventional orders of operations for outputs (including parentheses and exponents)</li>
+        <li>Outputs beyond 10<sup>14</sup> or below 10<sup>-6</sup> gets converted to scientific E notation automatically</li>
+      </ul> 
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,131 @@
+* {
+  font-family: Arial;
+  scroll-behavior: smooth;
+  scroll-margin-top: 20px;
+}
+
+p, li {
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 15px;
+  line-height: 20px;
+}
+
+p {
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+li {
+  margin-left: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+ul li ul li {
+  margin-left: 20px;
+}
+
+code {
+  display: block;
+  font-family: monospace;
+  margin-left: 60px;
+  font-size: 13px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+/* Main Documentation Section */
+
+#main-doc header {
+  font-size: 30px;
+}
+
+#main-doc {
+  position: fixed;
+  height: calc(100% - 70px);
+  width: auto;
+  padding: 20px 30px;
+  margin: 0;
+  top: 0;
+  left: 350px;
+  overflow: scroll;
+}
+
+/* Navigation Section */
+
+#navbar {
+  position: fixed;
+  width: 350px;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-right: 2px solid gray;
+  margin: 0;
+}
+
+#navbar header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 40px;
+  font-size: 30px;
+}
+
+.nav-link {
+  display: block;
+  font-size: 17px;
+  color: rgba(0, 0, 0, 0.6);
+  border-top: 1px solid gray;
+  padding: 12px 40px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  background-color: rgb(0, 127, 255);
+  color: white;
+  transition: background-color 0.05s;
+}
+
+.return-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  color: blue;
+  font-size: 12px;
+}
+
+button {
+  filter: blur(0px);
+  background-color: black;
+}
+
+/* Responsive Design */
+
+@media (max-width: 1000px) {
+  #main-doc {
+    margin-top: 10px;
+    height: calc(100% - 330px);
+    top: 268px;
+    left: 0;
+  }
+
+  #navbar {
+    height: 200px;
+    width: 100%;
+  }
+
+  .nav-group {
+    height: 200px;
+    overflow: scroll;
+    border-top: 1px solid black;
+    border-bottom: 3px solid black;
+  }
+}

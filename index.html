@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Ka Hung's Developer Portfolio</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/styles.css" />                 
+  </head>
+  <body>
+    <header>
+      <nav class="nav-bar">
+        <ul class="nav-group">
+          <li><a href="#home" class="nav-link">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+        </ul>
+        <label class="toggler">
+          <input type="checkbox" id="toggle" onclick="darkLightMode()">
+          <span class="slider">
+          </span>
+        </label>
+      </nav>
+    </header>
+    <main>
+      <section id="home">
+        <div class="introduction">
+          <h1>Hi, my name is Ka Hung!</h1>
+        </div>
+        <p>I am a web developer!</p>
+      </section>
+      <section id="about">
+        <header>
+          <h1>About Me</h1>
+        </header>
+        <div class="about-container">
+          <img class="self-photo" src="./images/self_photo.png" alt="picture of Ka Hung">
+          <p class="about-me">
+            Originally a self-taught programmer based in Portland, Oregon, I'm currently working with HTML, CSS, and JavaScript to develop fully interactive websites on my journey to become a full fledged developer!
+            <br>
+            <br>
+            Check out some of my creative projects below!
+          </p>
+        </div>
+      </section>
+      <section id="projects">
+        <header>
+          <h1>Projects</h1>
+        </header>
+        <div class="project-container">
+          <div>
+            <a class="project-card" href="./projects/documentation_page/index.html" target="_blank">
+              <div class="card-top">
+                <img id="documentation-project" src="./images/mock_documentation_page.png" alt="preview image of documentation page">
+                <p class="project-description">
+                  A documentation page for basic JavaScript. Coded using HTML & CSS.
+                </p>
+              </div>
+              <p class="card-bottom">
+                Mock Documentation
+              </p>
+            </a>
+          </div>
+          <div>
+            <a class="project-card" href="./projects/product_page/index.html" target="_blank">
+              <div class="card-top">
+                <img id="product-page" src="./images/product_page.png" alt="preview image of documentation page">
+                <p class="project-description">
+                  A product page for Trombones coded using HTML & CSS.
+                </p>
+              </div>
+              <p class="card-bottom">
+                Product Page 
+              </p>
+            </a>
+          </div>
+          <div>
+            <a class="project-card" href="./projects/digital_clock/index.html" target="_blank">
+              <div class="card-top darkBackground">
+                <img id="digital-clock" src="./images/digital_clock.png" alt="preview image of documentation page">
+                <p class="project-description darkBackground">
+                  An online clock that keeps track of the local time. Designed and coded using HTML, CSS, and JavaScript.
+                </p>
+              </div>
+              <p class="card-bottom">
+                Digital Clock
+              </p>
+            </a>
+          </div>
+        </div>
+      </section>
+      <section id="contact">
+        <div class="social-container">
+          <div class="icon github-icon">
+            <a href="https://github.com/leekahung" target="_blank">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" />
+            </a>
+          </div>
+          <div class="icon">
+            <a href="https://www.linkedin.com/in/ka-hung-lee-090634a7/" target="_blank">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" />
+            </a>
+          </div>
+        </div>
+        <p>Created and Designed by Ka Hung Lee</p>
+      </section>
+    </main>
+    <footer>
+      <a href="#home">
+        <div class="top-button">
+          <img class="icon" src="./images/back_to_top_icon.png" alt="swipe up icon">
+        </div>
+      </a>
+      <p>Back to Top</p>
+    </footer>
+    <script src="js/index.js"></script>
+  </body>
+</html>
