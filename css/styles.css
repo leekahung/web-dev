@@ -225,6 +225,7 @@ section header {
   align-items: center;
   justify-content: center;
   gap: 60px;
+  flex-wrap: wrap;
 }
 
 .project-card {
