@@ -250,17 +250,14 @@ section header {
   width: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .card-top .project-description {
   position: absolute;
-  width: 100%;
-  height: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   text-align: center;
+  width: 85%;
   opacity: 0;
   color: black;
 }
