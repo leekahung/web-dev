@@ -21,30 +21,30 @@ function makeGrid(rows, cols) {
     if (calcInputs.get(i) === "CE") {
       calcButtons.appendChild(buttons).style.backgroundColor = "rgba(200, 0, 0, 0.6)";
       calcButtons.appendChild(buttons).addEventListener("mouseover", (event) => {
-        event.target.style.backgroundColor = "rgba(200, 0, 0, 0.5)", true
+        event.target.style.backgroundColor = "rgba(200, 0, 0, 0.5)", true;
       });
       calcButtons.appendChild(buttons).addEventListener("mouseout", (event) => {
-        event.target.style.backgroundColor = "rgba(200, 0, 0, 0.6)", true
+        event.target.style.backgroundColor = "rgba(200, 0, 0, 0.6)", true;
       });
       calcButtons.appendChild(buttons).addEventListener("mousedown", (event) => {
-        event.target.style.backgroundColor = "rgba(200, 0, 0, 0.3)", true
+        event.target.style.backgroundColor = "rgba(200, 0, 0, 0.3)", true;
       });
       calcButtons.appendChild(buttons).addEventListener("mouseup", (event) => {
-        event.target.style.backgroundColor = "rgb(200, 0, 0, 0.5)", true
+        event.target.style.backgroundColor = "rgb(200, 0, 0, 0.5)", true;
       });
     } else if (calcInputs.get(i) === "=") {
       calcButtons.appendChild(buttons).style.backgroundColor = "rgba(255, 127, 0, 0.6)";
       calcButtons.appendChild(buttons).addEventListener("mouseover", (event) => {
-        event.target.style.backgroundColor = "rgba(255, 127, 0, 0.5)", true
+        event.target.style.backgroundColor = "rgba(255, 127, 0, 0.5)", true;
       });
       calcButtons.appendChild(buttons).addEventListener("mouseout", (event) => {
-        event.target.style.backgroundColor = "rgba(255, 127, 0, 0.6)", true
+        event.target.style.backgroundColor = "rgba(255, 127, 0, 0.6)", true;
       });
       calcButtons.appendChild(buttons).addEventListener("mousedown", (event) => {
-        event.target.style.backgroundColor = "rgba(255, 127, 0, 0.3)", true
+        event.target.style.backgroundColor = "rgba(255, 127, 0, 0.3)", true;
       });
       calcButtons.appendChild(buttons).addEventListener("mouseup", (event) => {
-        event.target.style.backgroundColor = "rgb(255, 127, 0, 0.5)", true
+        event.target.style.backgroundColor = "rgb(255, 127, 0, 0.5)", true;
       });
     }
     calcButtons.appendChild(buttons).onclick = function() {
