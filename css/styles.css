@@ -397,7 +397,7 @@ footer .icon {
     transition: var(--long-transition);
   }
 
-  .project-container {
+/*  .project-container {
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -408,7 +408,7 @@ footer .icon {
   .project-card:hover {
     margin-top: 20px;
     margin-bottom: 20px;
-  }
+  }*/
 
   .nav-group {
     transform: translateX(-30%);
@@ -430,6 +430,19 @@ footer .icon {
 @media (max-width: 768px) {
   .self-photo {
     width: 180px;
+  }
+
+  .project-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    transition: var(--long-transition);
+  }
+
+  .project-card:hover {
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
 
   .nav-group {
