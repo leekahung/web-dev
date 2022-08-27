@@ -10,7 +10,7 @@ const calcButtons = document.getElementById("calc-buttons");
 const numInput = document.getElementById("calc-input");
 const numOutput = document.getElementById("calc-output");
 
-function makeGrid(rows, cols) {
+const makeGrid = (rows, cols) => {
   calcButtons.style.setProperty("--grid-rows", rows);
   calcButtons.style.setProperty("--grid-cols", cols);
   for (let i = 0; i < rows * cols; i++) {
@@ -48,60 +48,122 @@ function makeGrid(rows, cols) {
       });
     }
     calcButtons.appendChild(buttons).onclick = function() {
-      let displayed = numInput.innerHTML;
-      checkOperations(displayed, i);
+      checkOperations(i);
     };
   }
 }
 
 makeGrid(5, 5);
 
-function checkOperations(rawInput, index) {
+const checkOperations = (index) => {
   const symbols = ["+", "-", "/", "x", ".", "^"];
-  if (calcInputs.get(index) === "CE") {
-    numInput.innerHTML = "0";
-    numOutput.innerHTML = "0";
-  /* Deletion rules*/
-  } else if (calcInputs.get(index) === "Del" && rawInput.length > 1) {
-    numInput.innerHTML = rawInput.slice(0, rawInput.length - 1);
-  } else if (calcInputs.get(index) === "Del" && rawInput.length == 1) {
-    numInput.innerHTML = "0";
-  /* Duplicate rules for symbols */
-  } else if ([...symbols].includes(calcInputs.get(index)) && ["0", "."].includes(rawInput)) {
-    numInput.innerHTML += calcInputs.get(index);
-  } else if (symbols.includes(calcInputs.get(index)) && symbols.includes(rawInput.slice(-1))) {
-    numInput.innerHTML = rawInput.slice(0, rawInput.length - 1) + calcInputs.get(index);
-  /* Output rules, conversions & workaround for floating point error */
-  } else if (calcInputs.get(index) === "=") {
-    rawInput = rawInput.replace(/x/g, "*").replace(/\^/g, "**")
-                       .replace(/\π/g, "Math.PI").replace(/e/g, "Math.E");
-    if (rawInput.search(/a/g) !== -1) {
-      rawInput = rawInput.replace("abs", "Math.abs");
+  const absFunc = ["|a|"];
+  const calcFuncs = ["Del", "CE", "=", "ans"];
+  const inp = calcInputs.get(index);
+  if (numInput.innerHTML === "0") {
+    switch (true) {
+      case ([...symbols].includes(inp)):
+        numInput.innerHTML += inp;
+        break;
+      case ([...calcFuncs].includes(inp)):
+        initializeNums();
+        break;
+      case ([...absFunc].includes(inp)):
+        numInput.innerHTML = "abs(";
+        break;
+      default:
+        numInput.innerHTML = inp;
+        break;
     }
-    let result = Math.round(10**14 * Function("return " + rawInput)()) / (10**14);
-    if (result > 10**14) {
-      numOutput.innerHTML = (result).toExponential();
-    } else {
-      numOutput.innerHTML = result;
-    }
-  /* Rules for absolute value */
-  } else if (calcInputs.get(index) === "|a|" && rawInput === "0") {
-    numInput.innerHTML = "abs("
-  } else if (calcInputs.get(index) === "|a|") {
-    numInput.innerHTML += "abs("
-  /* Default rules for storing numbers in "ans" and displayed Input */
-  } else if (calcInputs.get(index) === "ans") {
-    numInput.innerHTML = numOutput.innerHTML;
-  } else if (rawInput === "0") {
-    numInput.innerHTML = calcInputs.get(index);
   } else {
-    numInput.innerHTML += calcInputs.get(index);
+    if ([...symbols].includes(numInput.innerHTML.slice(-1))) {
+      switch (inp) {
+        case "CE":
+          initializeNums();
+          break;
+        case "Del":
+          delFunc(numInput.innerHTML);
+          break;
+        case "=":
+          if (inp === ")") {
+            displayOutput(numInput.innerHTML);
+            break;
+          } else {
+            break;
+          }
+        case "|a|":
+          numInput.innerHTML += "abs(";
+          break;
+        default:
+          if ([...symbols].includes(inp)) {
+            if ((numInput.innerHTML.search(/a/g) !== -1) && (numInput.innerHTML.slice(-1) === ")")) {
+              numInput.innerHTML += inp;
+              break;
+            } else {
+              numInput.innerHTML = numInput.innerHTML.slice(0, numInput.innerHTML.length - 1) + inp;
+              break;
+            }
+          } else {
+            numInput.innerHTML += inp;
+            break;
+          }
+      }
+    } else {
+      switch (inp) {
+        case "CE":
+          initializeNums();
+          break;
+        case "Del":
+          delFunc(numInput.innerHTML);
+          break;
+        case "=":
+          displayOutput(numInput.innerHTML);
+          break;
+        case "|a|":
+          numInput.innerHTML += "abs(";
+          break;
+        case "ans":
+          numInput.innerHTML = numOutput.innerHTML;
+          break;
+        default:
+          numInput.innerHTML += inp;
+          break;
+      }
+    }
   }
 }
 
-function initializeNums() {
+const displayOutput = (displayedInp) => {
+  if ((displayedInp.search(/[\(\)]/) !== -1) && (displayedInp.match(/\(/g).length !== displayedInp.match(/\)/g).length)) {
+    return;
+  }
+
+  displayedInp = displayedInp.replace(/x/g, "*").replace(/\^/g, "**")
+                             .replace(/\π/g, "Math.PI").replace(/e/g, "Math.E");
+  if (displayedInp.search(/a/g) !== -1) {
+    displayedInp = displayedInp.replace(/abs/g, "Math.abs");
+  }
+
+  const result = Math.round(10**14 * Function("return " + displayedInp)()) / (10**14);
+  //console.log(result);
+  if (result > 10**14) {
+    numOutput.innerHTML = (result).toExponential(7);
+  } else {
+    numOutput.innerHTML = result;
+  }
+}
+
+const delFunc = (displayedInp) => {
+  if (displayedInp.length === 1) {
+    numInput.innerHTML = "0";
+  } else {
+    numInput.innerHTML = displayedInp.slice(0, displayedInp.length - 1);
+  }
+}
+
+const initializeNums = () => {
   numInput.innerHTML = "0";
   numOutput.innerHTML = "0";
-};
+}
 
 initializeNums();

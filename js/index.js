@@ -1,10 +1,10 @@
-let darkModeSet = {
+const darkModeSet = {
   backgroundColor: "rgb(40, 40, 40)",
   fontColor: "lightgrey",
   navbarColor: "lightgrey"
 }
 
-let lightModeColors = {
+const lightModeColors = {
   backgroundColor: "rgba(0, 127, 255, 0.4)",
   fontColor: "black",
   navbarColor: "orange"
