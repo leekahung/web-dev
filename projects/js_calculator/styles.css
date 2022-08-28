@@ -134,6 +134,7 @@ body {
 
   body {
     background-color: rgb(40, 40, 40);
+    gap: 0;
   }
 
   .calculator {
