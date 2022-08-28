@@ -5,6 +5,15 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+img {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+  transition: 1s;
+}
+
 /* Location Search Section */
 
 #loc-search {
@@ -21,18 +30,33 @@
   width: 20vw;
 }
 
-#submit-search {
-  width: 10vw;
+#submit-search,
+#locate-me {
+  width: 7.5vw;
 }
 
 /* Location Name */
-#loc-name {
+#loc-header {
   position: fixed;
-  top: 20%;
+  top: 16.5%;
   left: calc(50% - 25vw);
   width: 50vw;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+#loc-name-header,
+#loc-name {
   font-size: 1.4em;
+}
+
+.btn-container {
+  display: flex;
+  gap: 10px;
 }
 
 /* Current Weather Section */
@@ -57,6 +81,7 @@
   height: 30vh;
   border: 1px solid black;
   border-radius: 20px;
+  background-color: white;
 }
 
 .ctnr-body-top {
