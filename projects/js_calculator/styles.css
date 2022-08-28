@@ -138,15 +138,21 @@ body {
 
   .calculator {
     width: 100%;
-    height: 80vh;
+    height: 80%;
+    min-width: 0;
+    min-height: 0;
     background-color: white;  
   }
 
+  .grid-buttons {
+    font-size: 1.5em;
+  }
+
   #calc-input {
-    font-size: 2em;
+    font-size: 1em;
   }
 
   #calc-output {
-    font-size: 3.5em;
+    font-size: 2em;
   }
 }
