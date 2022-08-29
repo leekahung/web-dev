@@ -191,7 +191,7 @@ section header {
 
 .about-me {
   font-size: 1.1rem;
-  width: max(60%, 400px);
+  width: max(60%, 340px);
   line-height: 2rem;
   transition: var(--long-transition);
 }
