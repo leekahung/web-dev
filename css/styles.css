@@ -131,7 +131,7 @@ section header {
 }
 
 #toggle:checked + .slider:before{
-  transform: translateX(28px);
+  transform: translateX(30px);
 }
 
 #toggle:focus + .slider {
