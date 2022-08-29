@@ -10,6 +10,7 @@ const calcButtons = document.getElementById("calc-buttons");
 const numInput = document.getElementById("calc-input");
 const numOutput = document.getElementById("calc-output");
 
+/* Main Grid for Calculator Buttons */
 const makeGrid = (rows, cols) => {
   calcButtons.style.setProperty("--grid-rows", rows);
   calcButtons.style.setProperty("--grid-cols", cols);
@@ -18,34 +19,13 @@ const makeGrid = (rows, cols) => {
     buttons.innerText = calcInputs.get(i);
     calcButtons.appendChild(buttons).className = "grid-buttons";
     calcButtons.appendChild(buttons).style.cursor = "pointer";
-    if (calcInputs.get(i) === "CE") {
-      calcButtons.appendChild(buttons).style.backgroundColor = "rgba(200, 0, 0, 0.6)";
-      calcButtons.appendChild(buttons).addEventListener("mouseover", (event) => {
-        event.target.style.backgroundColor = "rgba(200, 0, 0, 0.5)", true;
-      });
-      calcButtons.appendChild(buttons).addEventListener("mouseout", (event) => {
-        event.target.style.backgroundColor = "rgba(200, 0, 0, 0.6)", true;
-      });
-      calcButtons.appendChild(buttons).addEventListener("mousedown", (event) => {
-        event.target.style.backgroundColor = "rgba(200, 0, 0, 0.3)", true;
-      });
-      calcButtons.appendChild(buttons).addEventListener("mouseup", (event) => {
-        event.target.style.backgroundColor = "rgb(200, 0, 0, 0.5)", true;
-      });
-    } else if (calcInputs.get(i) === "=") {
-      calcButtons.appendChild(buttons).style.backgroundColor = "rgba(255, 127, 0, 0.6)";
-      calcButtons.appendChild(buttons).addEventListener("mouseover", (event) => {
-        event.target.style.backgroundColor = "rgba(255, 127, 0, 0.5)", true;
-      });
-      calcButtons.appendChild(buttons).addEventListener("mouseout", (event) => {
-        event.target.style.backgroundColor = "rgba(255, 127, 0, 0.6)", true;
-      });
-      calcButtons.appendChild(buttons).addEventListener("mousedown", (event) => {
-        event.target.style.backgroundColor = "rgba(255, 127, 0, 0.3)", true;
-      });
-      calcButtons.appendChild(buttons).addEventListener("mouseup", (event) => {
-        event.target.style.backgroundColor = "rgb(255, 127, 0, 0.5)", true;
-      });
+    switch (calcInputs.get(i)) {
+      case "CE":
+        specBtnListener(calcButtons.appendChild(buttons), "CE");
+        break;
+      case "=":
+        specBtnListener(calcButtons.appendChild(buttons), "=");
+        break;
     }
     calcButtons.appendChild(buttons).onclick = function() {
       checkOperations(i);
@@ -53,7 +33,29 @@ const makeGrid = (rows, cols) => {
   }
 }
 
-makeGrid(5, 5);
+/* Helper functions for style, event listening, and button operations */
+const specBtnListener = (elem, inp) => {
+  const opacVals = ["0.5", "0.6", " 0.3", "0.5"];
+  const colorSchemeColor = ["200, 0, 0", "255, 127, 0"];
+  const eventTypes = ["mouseover", "mouseout", "mousedown", "mouseup"];
+  const addEvents = (colorInp) => {
+    elem.style.backgroundColor = `rgba(${colorInp},${opacVals[1]})`;
+    for (let i = 0; i < eventTypes.length; i++) {
+      elem.addEventListener(eventTypes[i], (event) => {
+        event.target.style.backgroundColor = `rgba(${colorInp},${opacVals[i]})`; 
+      });
+    };
+  }
+
+  let colorScheme = "";  
+  if (inp === "CE") {
+    colorScheme = colorSchemeColor[0]
+    addEvents(colorScheme);
+  } else if (inp === "=") {
+    colorScheme = colorSchemeColor[1];
+    addEvents(colorScheme);
+  }
+};
 
 const checkOperations = (index) => {
   const symbols = ["+", "-", "/", "x", ".", "^"];
@@ -135,11 +137,10 @@ const checkOperations = (index) => {
 
 const displayOutput = (displayedInp) => {
   if ((displayedInp.search(/[\(\)]/) !== -1) && (displayedInp.match(/\(/g).length !== displayedInp.match(/\)/g).length)) {
-    return;
+    return; 
   }
 
-  displayedInp = displayedInp.replace(/x/g, "*").replace(/\^/g, "**")
-                             .replace(/\π/g, "Math.PI").replace(/e/g, "Math.E");
+  displayedInp = displayedInp.replace(/x/g, "*").replace(/\^/g, "**").replace(/\π/g, "Math.PI").replace(/e/g, "Math.E");
   if (displayedInp.search(/a/g) !== -1) {
     displayedInp = displayedInp.replace(/abs/g, "Math.abs");
   }
@@ -151,7 +152,7 @@ const displayOutput = (displayedInp) => {
   } else {
     numOutput.innerHTML = result;
   }
-}
+};
 
 const delFunc = (displayedInp) => {
   if (displayedInp.length === 1) {
@@ -159,11 +160,12 @@ const delFunc = (displayedInp) => {
   } else {
     numInput.innerHTML = displayedInp.slice(0, displayedInp.length - 1);
   }
-}
+};
 
 const initializeNums = () => {
   numInput.innerHTML = "0";
   numOutput.innerHTML = "0";
-}
+};
 
+makeGrid(5, 5);
 initializeNums();

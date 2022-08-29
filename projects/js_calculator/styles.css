@@ -1,3 +1,4 @@
+/* Global */
 :root {
   --grid-rows: 1;
   --grid-cols: 1;
@@ -21,15 +22,19 @@ body {
   position: fixed;
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 30px;
   height: 100vh;
   width: 100vw;
   justify-content: center;
   align-items: center;
 }
 
-.rules {
+div {
   display: flex;
+}
+
+/* Main Body */
+.rules {
   flex-direction: column;
   width: 600px;
   gap: 10px;
@@ -50,10 +55,9 @@ body {
 
 .calculator {
   position: relative;
-  display: flex;
   flex-direction: column;
-  min-height: 500px;
-  min-width: 350px;
+  min-height: 450px;
+  min-width: 325px;
 }
 
 #calc-display {
@@ -62,7 +66,6 @@ body {
   width: 100%;
   background-color: rgb(94, 196, 150);
   padding: 15px;
-  display: flex;
   flex-direction: column;
   gap: 5px;
   border: 1px solid black;
@@ -89,7 +92,6 @@ body {
 #calc-buttons {
   position: absolute;
   top: 20%;
-  display: flex;
   height: 80%;
   width: 100%;
   display: grid;
@@ -98,7 +100,6 @@ body {
 }
 
 .grid-buttons {
-  display: flex;
   align-items: center;
   justify-content: center;
   border: none;
