@@ -1,10 +1,10 @@
-const darkModeSet = {
+const darkMode = {
   backgroundColor: "rgb(40, 40, 40)",
-  fontColor: "lightgrey",
-  navbarColor: "lightgrey"
+  fontColor: "rgb(240, 240, 240)",
+  navbarColor: "rgb(240, 240, 240)"
 }
 
-const lightModeColors = {
+const lightMode = {
   backgroundColor: "rgba(0, 127, 255, 0.4)",
   fontColor: "black",
   navbarColor: "orange"
@@ -12,16 +12,18 @@ const lightModeColors = {
 
 function darkLightMode() {
   if (document.getElementById("toggle").checked == false) {
-    document.body.style.backgroundColor = darkModeSet["backgroundColor"];
-    document.body.style.color = darkModeSet["fontColor"];
-    document.querySelector(".nav-bar").style.backgroundColor = darkModeSet["navbarColor"];
+    document.querySelector(".nav-bar").style.backgroundColor = darkMode["navbarColor"];
     document.querySelector(".github-icon").style.filter = "brightness(100)";
-    document.documentElement.style.setProperty("--animation-border-color-end", "lightgrey");
+    document.documentElement.style.setProperty("--animation-border-color-end", darkMode["fontColor"]);
+    document.documentElement.style.setProperty("--color-back", darkMode["backgroundColor"]);
+    document.documentElement.style.setProperty("--color-sec", darkMode["navbarColor"]);
+    document.documentElement.style.setProperty("--color-font", darkMode["fontColor"]);
   } else {
-    document.body.style.backgroundColor = lightModeColors["backgroundColor"];
-    document.body.style.color = lightModeColors["fontColor"];
-    document.querySelector(".nav-bar").style.backgroundColor = lightModeColors["navbarColor"];
+    document.querySelector(".nav-bar").style.backgroundColor = lightMode["navbarColor"];
     document.querySelector(".github-icon").style.filter = "brightness(0)";
-    document.documentElement.style.setProperty("--animation-border-color-end", "black");
+    document.documentElement.style.setProperty("--animation-border-color-end", lightMode["fontColor"]);
+    document.documentElement.style.setProperty("--color-back", lightMode["backgroundColor"]);
+    document.documentElement.style.setProperty("--color-sec", lightMode["navbarColor"]);
+    document.documentElement.style.setProperty("--color-font", lightMode["fontColor"]);
   }
 }

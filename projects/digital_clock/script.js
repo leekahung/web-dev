@@ -1,7 +1,7 @@
-const yourTime = document.getElementById("time");
+const localTime = document.getElementById("time");
 const amTime = document.getElementById("am");
 const pmTime = document.getElementById("pm");
-const yourTZ = document.getElementById("localTZ");
+const localTZ = document.getElementById("localTZ");
 
 function getTime() {
   let date = Date();
@@ -9,26 +9,26 @@ function getTime() {
   let time = date.match(/\d{2}:\d{2}:\d{2}/g)[0];
   let hours = time.slice(0, 2);
   if (hours[0] === "0") {
-      yourTime.innerHTML = time;
+      localTime.innerHTML = time;
       amTime.style.opacity = 1;
-      yourTZ.innerHTML = localTZ;
+      localTZ.innerHTML = localTZ;
   } else {
     if (Number(hours) < 12) {
-        yourTime.innerHTML = time;
+        localTime.innerHTML = time;
         amTime.style.opacity = 1;
-        yourTZ.innerHTML = localTZ;
+        localTZ.innerHTML = localTZ;
     } else if (Number(hours) == 12) {
-        yourTime.innerHTML = time;
+        localTime.innerHTML = time;
         pmTime.style.opacity = 1;
-        yourTZ.innerHTML = localTZ;
+        localTZ.innerHTML = localTZ;
     } else if (Number(hours) < 22) {
-        yourTime.innerHTML = "0" + String(hours - 12) + time.slice(2);
+        localTime.innerHTML = "0" + String(hours - 12) + time.slice(2);
         pmTime.style.opacity = 1;
-        yourTZ.innerHTML = localTZ;
+        localTZ.innerHTML = localTZ;
     } else {
-        yourTime.innerHTML = String(hours - 12) + time.slice(2);
+        localTime.innerHTML = String(hours - 12) + time.slice(2);
         pmTime.style.opacity = 1;
-        yourTZ.innerHTML = localTZ;
+        localTZ.innerHTML = localTZ;
     }
   }
 }
