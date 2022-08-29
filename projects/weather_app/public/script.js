@@ -219,6 +219,7 @@ async function getWeather(latInp, lonInp) {
   document.querySelector(".weather-desc").innerHTML = myData.weather[0].description[0].toUpperCase() + myData.weather[0].description.slice(1);
 
   const weatherImg = document.createElement("img");
+  weatherImg.id = "cond-pic";
   const weatherID = myData.weather[0].id;
 
   switch (String(weatherID)[0]) {
@@ -271,9 +272,14 @@ async function getWeather(latInp, lonInp) {
         weatherImg.alt = "clear";
         break;
       }
-  } 
+  }
 
-  document.body.appendChild(weatherImg);
+  if (document.getElementById("cond-pic") !== null) {
+    document.getElementById("cond-pic").src = weatherImg.src;
+    document.getElementById("cond-pic").alt = weatherImg.alt;
+  } else {
+    document.body.appendChild(weatherImg);
+  }
 
   controller.abort();
 }
