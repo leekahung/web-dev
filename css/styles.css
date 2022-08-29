@@ -314,7 +314,7 @@ section header {
 .github-icon {
   display: unset;
   filter: brightness(100);
-  transition: var(--long-transition);
+  transition: var(--very-short-transition);
 }
 
 #contact .icon:hover {
