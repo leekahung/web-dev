@@ -21,25 +21,22 @@ body {
   color: rgb(240, 240, 240);
 }
 
-button {
-  padding: 10px 20px;
-  font-size: 1rem; 
+body div,
+body span {
+  position: absolute;
 }
 
 /* Main Body */
 .header {
-  position: absolute;
   flex-direction: column;
   top: 10%;
   text-align: center;
-  font-size: clamp(1.5rem, 2.5vw, 3.5rem);
-  font-weight: 100;
+  font-size: clamp(2rem, 2.5vw, 3.5rem);
   letter-spacing: 1px;
   gap: 20px;
 }
 
 .clock {
-  position: absolute;
   top: 30%;
   flex-direction: row;
   justify-content: space-evenly;
@@ -51,7 +48,6 @@ button {
 }
 
 .footer {
-  position: absolute;
   bottom: 10%;
   flex-direction: column;
   gap: 20px;
@@ -62,8 +58,8 @@ button {
   font-size: clamp(1.5rem, 2.5vw, 3.5rem);
 }
 
+/* Displayed Content */
 #time {
-  position: absolute;
   left: 8%;
   flex-direction: column;
   align-items: flex-start;
@@ -71,19 +67,20 @@ button {
 }
 
 .ante-post {
-  position: absolute;
   right: 10%;
   flex-direction: column;
   letter-spacing: 3px;
   font-size: clamp(1.2rem, 3vw, 15rem);
 }
 
+#localTZ {
+  position: static;
+}
+
 #am {
-  position: absolute;
   opacity: 0;
 }
 
 #pm {
-  position: absolute;
   opacity: 0;
 }
