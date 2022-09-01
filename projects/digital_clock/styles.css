@@ -21,8 +21,7 @@ body {
   color: rgb(240, 240, 240);
 }
 
-body div,
-body span {
+body div {
   position: absolute;
 }
 
@@ -37,10 +36,10 @@ body span {
 }
 
 .clock {
-  top: 30%;
+  top: 32.5%;
   flex-direction: row;
   justify-content: space-evenly;
-  height: 30vh;
+  height: clamp(20vh, 25vh, 30vh);
   width: 75vw;
   gap: 5%;
   border: 2px solid rgb(240, 240, 240);
@@ -66,21 +65,13 @@ body span {
   font-size: clamp(1rem, 13vw, 18rem);
 }
 
-.ante-post {
-  right: 10%;
+#ante-post {
+  right: 5%;
   flex-direction: column;
   letter-spacing: 3px;
-  font-size: clamp(1.2rem, 3vw, 15rem);
+  font-size: clamp(1.2rem, 5vw, 15rem);
 }
 
 #localTZ {
   position: static;
-}
-
-#am {
-  opacity: 0;
-}
-
-#pm {
-  opacity: 0;
 }
