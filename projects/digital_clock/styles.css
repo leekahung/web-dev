@@ -21,21 +21,30 @@ body {
   color: rgb(240, 240, 240);
 }
 
+button {
+  padding: 10px 20px;
+  font-size: 1rem; 
+}
+
 /* Main Body */
 .header {
   position: absolute;
-  top: 20%;
+  flex-direction: column;
+  top: 10%;
   text-align: center;
-  font-size: 6vh;
+  font-size: clamp(1.5rem, 2.5vw, 3.5rem);
   font-weight: 100;
   letter-spacing: 1px;
+  gap: 20px;
 }
 
 .clock {
+  position: absolute;
+  top: 30%;
   flex-direction: row;
   justify-content: space-evenly;
   height: 30vh;
-  width: 65vw;
+  width: 75vw;
   gap: 5%;
   border: 2px solid rgb(240, 240, 240);
   border-radius: 50px;
@@ -50,22 +59,23 @@ body {
 
 .footer p,
 .footer div {
-  font-size: 5vh;
+  font-size: clamp(1.5rem, 2.5vw, 3.5rem);
 }
 
 #time {
+  position: absolute;
+  left: 8%;
   flex-direction: column;
   align-items: flex-start;
-  font-size: 24vh;
-  font-size: 12vw;
+  font-size: clamp(1rem, 13vw, 18rem);
 }
 
 .ante-post {
-  position: relative;
+  position: absolute;
+  right: 10%;
   flex-direction: column;
-  font-size: 7vh;
-  font-size: 3.5vw;
   letter-spacing: 3px;
+  font-size: clamp(1.2rem, 3vw, 15rem);
 }
 
 #am {
