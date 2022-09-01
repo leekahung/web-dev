@@ -1,9 +1,9 @@
 const calcInputs = new Map([
-  [0, "Del"], [ 1, "^"],  [2, "("],   [3, ")"],  [4, "+"], 
-    [5, "e"],  [6, "7"],  [7, "8"],   [8, "9"],  [9, "-"],
-   [10, "π"], [11, "4"], [12, "5"],  [13, "6"], [14, "x"],
- [15, "|a|"], [16, "1"], [17, "2"],  [18, "3"], [19, "/"],
- [20, "ans"], [21, "0"], [22, "."], [23, "CE"], [24, "="]
+  [0, "Del"], [1, "^"], [2, "("], [3, ")"], [4, "+"],
+  [5, "e"], [6, "7"], [7, "8"], [8, "9"], [9, "-"],
+  [10, "π"], [11, "4"], [12, "5"], [13, "6"], [14, "x"],
+  [15, "|a|"], [16, "1"], [17, "2"], [18, "3"], [19, "/"],
+  [20, "ans"], [21, "0"], [22, "."], [23, "CE"], [24, "="]
 ]);
 
 const calcButtons = document.getElementById("calc-buttons");
@@ -27,13 +27,13 @@ const makeGrid = (rows, cols) => {
         specBtnListener(calcButtons.appendChild(buttons), "=");
         break;
     }
-    calcButtons.appendChild(buttons).onclick = function() {
-      checkOperations(i);
+    calcButtons.appendChild(buttons).onclick = function () {
+      checkOperations(i, "click");
     };
   }
-}
+};
 
-/* Helper functions for style, event listening, and button operations */
+/* Helper functions for styling, event listening, and button operations */
 const specBtnListener = (elem, inp) => {
   const opacVals = ["0.5", "0.6", " 0.3", "0.5"];
   const colorSchemeColor = ["200, 0, 0", "255, 127, 0"];
@@ -42,26 +42,29 @@ const specBtnListener = (elem, inp) => {
     elem.style.backgroundColor = `rgba(${colorInp},${opacVals[1]})`;
     for (let i = 0; i < eventTypes.length; i++) {
       elem.addEventListener(eventTypes[i], (event) => {
-        event.target.style.backgroundColor = `rgba(${colorInp},${opacVals[i]})`; 
+        event.target.style.backgroundColor = `rgba(${colorInp},${opacVals[i]})`;
       });
     };
-  }
+  };
 
-  let colorScheme = "";  
   if (inp === "CE") {
-    colorScheme = colorSchemeColor[0]
-    addEvents(colorScheme);
+    addEvents(colorSchemeColor[0]);
   } else if (inp === "=") {
-    colorScheme = colorSchemeColor[1];
-    addEvents(colorScheme);
+    addEvents(colorSchemeColor[1]);
   }
 };
 
-const checkOperations = (index) => {
+/* Main Operations Function */
+const checkOperations = (index, inpType) => {
   const symbols = ["+", "-", "/", "x", ".", "^"];
   const absFunc = ["|a|"];
   const calcFuncs = ["Del", "CE", "=", "ans"];
-  const inp = calcInputs.get(index);
+  let inp;
+  if (inpType == "click") {
+    inp = calcInputs.get(index);
+  } else {
+    inp = index;
+  }
   if (numInput.innerHTML === "0") {
     switch (true) {
       case ([...symbols].includes(inp)):
@@ -133,11 +136,13 @@ const checkOperations = (index) => {
       }
     }
   }
-}
+};
 
+/* Secondary Operations Functions */
 const displayOutput = (displayedInp) => {
-  if ((displayedInp.search(/[\(\)]/) !== -1) && (displayedInp.match(/\(/g).length !== displayedInp.match(/\)/g).length)) {
-    return; 
+  if ((displayedInp.search(/[\(\)]/) !== -1) &&
+    (displayedInp.match(/\(/g).length !== displayedInp.match(/\)/g).length)) {
+    return;
   }
 
   displayedInp = displayedInp.replace(/x/g, "*").replace(/\^/g, "**").replace(/\π/g, "Math.PI").replace(/e/g, "Math.E");
@@ -145,9 +150,8 @@ const displayOutput = (displayedInp) => {
     displayedInp = displayedInp.replace(/abs/g, "Math.abs");
   }
 
-  const result = Math.round(10**14 * Function("return " + displayedInp)()) / (10**14);
-  //console.log(result);
-  if (result > 10**14) {
+  const result = Math.round(10 ** 14 * Function("return " + displayedInp)()) / (10 ** 14);
+  if (result > 10 ** 14) {
     numOutput.innerHTML = (result).toExponential(7);
   } else {
     numOutput.innerHTML = result;
@@ -169,3 +173,58 @@ const initializeNums = () => {
 
 makeGrid(5, 5);
 initializeNums();
+
+/* Keyboard Listener */
+document.addEventListener("keydown", (event) => {
+  switch (event.key) {
+    case "0":
+    case "1":
+    case "2":
+    case "3":
+    case "4":
+    case "5":
+    case "6":
+    case "7":
+    case "8":
+    case "9":
+    case "+":
+    case "-":
+    case "/":
+    case "(":
+    case ")":
+    case "^":
+    case ".":
+      checkOperations(event.key, "keyboard");
+      break;
+    case "x":
+    case "*":
+      checkOperations("x", "keyboard");
+      console.log(event);
+      break;
+    case "Backspace":
+      if (event.shiftKey === false) {
+        checkOperations("Del", "keyboard");
+        break;
+      } else {
+        checkOperations("CE", "keyboard");
+        break;
+      }
+    case "=":
+    case "Enter":
+      checkOperations("=", "keyboard");
+      break;
+    case "e":
+      checkOperations("e", "keyboard");
+      break;
+    case "a":
+      checkOperations("|a|", "keyboard");
+      break;
+    case "p":
+      checkOperations("π", "keyboard");
+      break;
+    default:
+      console.log(event.key);
+      console.log(event);
+      break;
+  }
+});
