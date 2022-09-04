@@ -93,7 +93,7 @@ section header {
   height: 30px;
 }
 
-.toggler input {
+.toggler #toggle {
   opacity: 0;
   width: 0;
   height: 0;
@@ -292,6 +292,12 @@ section header {
   position: relative;
   height: 100%;
   width: 100%;
+  object-fit: cover;
+}
+
+#js-calculator {
+  position: relative;
+  height: 100%;
   object-fit: cover;
 }
 
