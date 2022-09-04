@@ -9,16 +9,18 @@
   <body>
     <div class="header">
       <p class="header-title">Digital Clock</p>
+    </div>
+    <div class="switch-container">
+      <label id="switch">
+        <input class="toggler" id="toggler" type="checkbox">
+        <div class="slider">
+          <span class="slider-cover"></span>
+        </div>
+      </label>
       <button id="power-btn">
-        <img class="power-icon" src="./img/power.png" alt="power icon">
+        <img class="power-icon" src="./img/power_icon.png" alt="power icon">
       </button>
     </div>
-    <label id="switch">
-      <input class="toggler" id="toggler" type="checkbox">
-      <div class="slider">
-        <span class="slider-cover"></span>
-      </div>
-    </label>
     <div class="clock">
       <div id="time"></div>
       <div id="ante-post"></div>
