@@ -241,6 +241,7 @@ section header {
   position: absolute;
   display: flex;
   text-align: center;
+  justify-content: center;
   width: 85%;
   opacity: 0;
   color: black;
