@@ -7,12 +7,21 @@
   </head>
   <body>
     <div class="header">
-      <p>Digital Clock</p>
+      <p class="header-title">Digital Clock</p>
+      <button id="power-btn">
+        <img class="power-icon" src="./img/power.png" alt="power icon">
+      </button>
     </div>
+    <label id="switch">
+      <input class="toggler" id="toggler" type="checkbox">
+      <div class="slider">
+        <span class="slider-cover"></span>
+      </div>
+    </label>
     <div class="clock">
       <div id="time"></div>
       <div id="ante-post"></div>
-    </div>
+    </div> 
     <div class="footer">
       <p>Local Time</p>
       <div id="localTZ"></div>

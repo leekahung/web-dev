@@ -1,4 +1,9 @@
 /* Global */
+:root {
+  --time-styling: 8%;
+  --clock-size: 75vw;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -25,14 +30,84 @@ body div {
   position: absolute;
 }
 
+/* Switches and Power Button */
+#switch {
+  position: absolute;
+  display: inline-block;
+  width: 100px;
+  height: 34px;
+  top: 20%;
+  border: 1px solid white;
+  cursor: pointer;
+}
+
+#switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  height: 34px;
+  width: 100px;
+  top: 0;
+  left: 0;
+  background-color: rgb(240, 240, 240);
+  color: rgb(40, 40, 40);
+  font-size: 1rem;
+}
+
+.slider-cover {
+  position: absolute;
+  height: 30px;
+  width: 48px;
+  top: 2px;
+  left: 2px;
+  border: 2px solid rgb(40, 40, 40);
+  background-color: white;
+  z-index: 2;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  left: 8px;
+  content: "24hr";
+}
+
+.slider:after {
+  position: absolute;
+  right: 8px;
+  content: "12hr";
+}
+
+.toggler:checked + .slider .slider-cover {
+  transform: translateX(48px);
+}
+
+#power-btn {
+  cursor: pointer;
+  background-color: rgb(40, 40, 40);
+  border: 1px solid rgb(240, 240, 240);
+  padding: 10px;
+  border-radius: 30px;
+}
+
+.power-icon {
+  height: 3vh;
+  filter: invert(100%);
+}
+
 /* Main Body */
 .header {
-  flex-direction: column;
   top: 10%;
   text-align: center;
+  align-items: center;
+  justify-content: center;
   font-size: clamp(2rem, 2.5vw, 3.5rem);
   letter-spacing: 1px;
-  gap: 20px;
+  gap: 30px;
 }
 
 .clock {
@@ -40,7 +115,7 @@ body div {
   flex-direction: row;
   justify-content: space-evenly;
   height: clamp(20vh, 25vh, 30vh);
-  width: 75vw;
+  width: var(--clock-size);
   gap: 5%;
   border: 2px solid rgb(240, 240, 240);
   border-radius: 50px;
@@ -59,9 +134,9 @@ body div {
 
 /* Displayed Content */
 #time {
-  left: 8%;
+  position: absolute;
+  left: var(--time-styling);
   flex-direction: column;
-  align-items: flex-start;
   font-size: clamp(1rem, 13vw, 18rem);
 }
 

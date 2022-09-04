@@ -276,6 +276,8 @@ section header {
 #documentation-project {
   position: relative;
   height: 100%;
+  object-fit: cover;
+  object-position: left;
 }
 
 #product-page {
