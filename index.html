@@ -10,15 +10,19 @@
   <body>
     <header>
       <nav class="nav-bar">
-        <ul class="nav-group">
-          <li><a href="#home" class="nav-link">Home</a></li>
-          <li><a href="#about" class="nav-link">About</a></li>
-          <li><a href="#projects" class="nav-link">Projects</a></li>
-        </ul>
-        <label class="toggler">
-          <input type="checkbox" id="toggle" onclick="darkLightMode()">
-          <span class="slider"></span>
-        </label>
+        <div class="nav-ctnr">
+          <ul class="nav-group">
+            <a href="#home" class="nav-link"><li>Home</li></a>
+            <a href="#about" class="nav-link"><li>About</li></a>
+            <a href="#projects" class="nav-link"><li>Projects</li></a>
+          </ul>
+        </div>
+        <div class="nav-ctnr toggler-ctnr">
+          <label class="toggler">
+            <input type="checkbox" id="toggle" onclick="darkLightMode()">
+            <span class="slider"></span>
+          </label>
+        </div>
       </nav>
     </header>
     <main>
