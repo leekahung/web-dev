@@ -16,7 +16,7 @@
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   scroll-behavior: smooth;
-  -webkit-tap-highlight-color: transparent; /* Non-standard property: unsupported on versions of Safari */
+  -webkit-tap-highlight-color: transparent; /* Non-standard property: Safari and Firefox calls property as invalid in inspect mode */
 }
 
 body {
@@ -438,6 +438,18 @@ footer .icon {
   }
 }
 
+@media (min-width: 480px) {
+  #home p {
+    width: 330px;
+    font-size: 2rem;
+    transition: var(--short-transition);
+  }
+
+  @keyframes typing {
+    from {width: 0%; transition: var(--short-transition);}
+    to {width: 330px; transition: var(--short-transition);}
+  }}
+
 @media (max-width: 480px) {
   .introduction h1 {
     font-size: 2.5rem;
@@ -445,13 +457,14 @@ footer .icon {
   }
 
   #home p {
+    width: 250px;
     font-size: 1.5rem;
     transition: var(--short-transition);
   }
 
   @keyframes typing {
-    from {width: 0%;}
-    to {width: 250px;}
+    from {width: 0%; transition: var(--short-transition);}
+    to {width: 250px; transition: var(--short-transition);}
   }
 
   .nav-link,
