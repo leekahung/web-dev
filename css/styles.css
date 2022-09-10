@@ -47,7 +47,6 @@ section header {
 }
 
 /* Nav Section */
-
 .nav-bar,
 .nav-group,
 .nav-link {
@@ -78,12 +77,11 @@ section header {
   text-decoration: none;
   font-size: 20px;
   height: 60px;
-  transition: var(--long-transition);
 }
 
 .nav-link:hover {
   background-color: gray;
-  color: white;
+  color: rgb(240, 240, 240);
 }
 
 .nav-link,
@@ -99,7 +97,6 @@ section header {
 .nav-ctnr.toggler-ctnr {
   margin-left: 0;
   margin-right: 60px;
-  transition: var(--long-transition);
 }
 
 .toggler {
@@ -120,13 +117,9 @@ section header {
   display: flex;
   align-items: center;
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  inset: 0;
   background-color: grey;
   border-radius: 20px;
-  transition: var(--short-transition);
   cursor: pointer;
 }
 
@@ -163,12 +156,12 @@ section header {
   text-align: center;
 }
 
-.introduction h1 {
+#intro-header {
   font-size: 3.5em;
   padding: 30px;
 }
 
-#home p {
+#intro-statement {
   white-space: nowrap;
   border-right: 2px solid var(--color-sec);
   width: 330px;
@@ -257,9 +250,7 @@ section header {
 
 .card-top .project-description {
   position: absolute;
-  display: flex;
   text-align: center;
-  justify-content: center;
   width: 85%;
   opacity: 0;
   color: black;
@@ -284,7 +275,7 @@ section header {
   transition: var(--super-short-transition);
 }
 
-.project-card:hover p {
+.project-card:hover div {
   opacity: 1;
 }
 
@@ -292,31 +283,25 @@ section header {
   color: white;
 }
 
-#documentation-project {
-  position: relative;
-  height: 100%;
-  object-fit: cover;
-  object-position: left;
-}
-
-#product-page {
-  position: relative;
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
-
-#digital-clock {
-  position: relative;
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
-
+#documentation-project,
+#product-page,
+#digital-clock,
 #js-calculator {
   position: relative;
   height: 100%;
   object-fit: cover;
+}
+
+#documentation-project {
+  object-position: left;
+}
+
+#product-page {
+  width: 100%;
+}
+
+#digital-clock {
+  width: 100%;
 }
 
 /* Contact Section */
@@ -339,9 +324,7 @@ section header {
 }
 
 .github-icon {
-  display: unset;
   filter: brightness(100);
-  transition: var(--very-short-transition);
 }
 
 #contact .icon:hover {
@@ -400,6 +383,7 @@ footer .icon {
   .project-card:hover {
     margin-top: 20px;
     margin-bottom: 20px;
+    transform: unset;
   }
 
   .self-photo {
@@ -422,6 +406,10 @@ footer .icon {
   .nav-group {
     gap: 10px;
   }
+  
+  .project-container {
+    gap: 20px;
+  }
 }
 
 @media (max-width: 550px) {
@@ -439,7 +427,7 @@ footer .icon {
 }
 
 @media (min-width: 480px) {
-  #home p {
+  #intro-statement {
     width: 330px;
     font-size: 2rem;
     transition: var(--short-transition);
@@ -451,12 +439,12 @@ footer .icon {
   }}
 
 @media (max-width: 480px) {
-  .introduction h1 {
+  #intro-header {
     font-size: 2.5rem;
     transition: var(--short-transition);
   }
 
-  #home p {
+  #intro-statement {
     width: 250px;
     font-size: 1.5rem;
     transition: var(--short-transition);
@@ -483,8 +471,44 @@ footer .icon {
 
 @media (max-width: 360px) {
   .nav-link {
-    font-size: 18px;
+    font-size: 1.1rem;
   }
 }
 
-/* Experimental Section */
+@media (max-width: 280px) {
+  .nav-ctnr {
+    margin-left: 10px;
+  }
+
+  .nav-ctnr.toggler-ctnr {
+    margin-right: 10px;
+  }  
+
+  #intro-header {
+    font-size: 2.1rem;
+  }
+
+  #intro-statement {
+    width: 180px;
+    font-size: 1.1rem;
+    transition: var(--short-transition);
+  }
+
+  @keyframes typing {
+    from {width: 0%; transition: var(--short-transition);}
+    to {width: 180px; transition: var(--short-transition);}
+  }
+
+  .about-me {
+    font-size: 1rem;
+    width: 90%;
+  }
+
+  .nav-link {
+    font-size: 1rem;
+  }
+
+  #created-by {
+    font-size: 0.9rem;
+  }
+}
