@@ -22,7 +22,7 @@
 body {
   background-color: var(--color-back);
   color: var(--color-font);
-  transition: var(--long-transition);
+  transition: var(--short-transition);
   animation: loading 2s linear;
 }
 
@@ -159,6 +159,7 @@ section header {
 #intro-header {
   font-size: 3.5em;
   padding: 30px;
+  transition: var(--short-transition);
 }
 
 #intro-statement {
@@ -168,6 +169,7 @@ section header {
   top: 57%;
   font-size: 2em;
   overflow: hidden;
+  transition: var(--short-transition);
   animation:
     typing 2s steps(21) 3.5s 1 normal both,
     blinking 800ms steps(21) infinite;
@@ -191,6 +193,7 @@ section header {
   align-items: center;
   text-align: center;
   scroll-margin-top: 30px;
+  transition: var(--short-transition);
 }
 
 .about-container {
@@ -202,7 +205,6 @@ section header {
   font-size: 1.1rem;
   width: max(60%, 340px);
   line-height: 2rem;
-  transition: var(--long-transition);
 }
 
 .self-photo {
@@ -218,6 +220,7 @@ section header {
   justify-content: flex-start;
   scroll-margin-top: 30px;
   margin-bottom: 50px;
+  transition: var(--short-transition);
 }
 
 .project-container {
@@ -331,6 +334,10 @@ section header {
   transform: scale(1.2);
 }
 
+#created-by {
+  transition: var(--short-transition);
+}
+
 /* Footer */
 footer {
   position: fixed;
@@ -434,25 +441,23 @@ footer .icon {
   }
 
   @keyframes typing {
-    from {width: 0%; transition: var(--short-transition);}
-    to {width: 330px; transition: var(--short-transition);}
+    from {width: 0%;}
+    to {width: 330px;}
   }}
 
 @media (max-width: 480px) {
   #intro-header {
     font-size: 2.5rem;
-    transition: var(--short-transition);
   }
 
   #intro-statement {
     width: 250px;
     font-size: 1.5rem;
-    transition: var(--short-transition);
   }
 
   @keyframes typing {
-    from {width: 0%; transition: var(--short-transition);}
-    to {width: 250px; transition: var(--short-transition);}
+    from {width: 0%;}
+    to {width: 250px;}
   }
 
   .nav-link,
@@ -491,12 +496,11 @@ footer .icon {
   #intro-statement {
     width: 180px;
     font-size: 1.1rem;
-    transition: var(--short-transition);
   }
 
   @keyframes typing {
-    from {width: 0%; transition: var(--short-transition);}
-    to {width: 180px; transition: var(--short-transition);}
+    from {width: 0%;}
+    to {width: 180px;}
   }
 
   .about-me {
