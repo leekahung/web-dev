@@ -1,5 +1,5 @@
 /* Setup and function for nav-links*/
-const navGroup = document.querySelector(".nav-group")
+const navGroup = document.querySelector(".nav-group");
 
 const navLinks = [
   "Introduction", "What you should already know", "JavaScript and Java",
@@ -15,7 +15,7 @@ const createNavGroup = (inp) => {
     navGroup.appendChild(elem).href = `#${inp[i].replace(/\s/g, "_")}`;
     navGroup.appendChild(elem).innerHTML = inp[i];
   }
-}
+};
 
 createNavGroup(navLinks);
 
@@ -23,7 +23,7 @@ createNavGroup(navLinks);
 const tabSlider = document.getElementById("slider-tab");
 const navContainer = document.querySelector(".nav-container");
 const mainBody = document.getElementById("main-doc");
-const tabArrowSym = {left: "&#9664", right: "&#9654"};
+const tabArrowSym = { left: "&#9664", right: "&#9654" };
 
 const tabArrow = document.createElement("div");
 let arrowFacing = "left";
@@ -31,7 +31,7 @@ let arrowFacing = "left";
 tabSlider.appendChild(tabArrow).innerHTML = tabArrowSym[arrowFacing];
 tabSlider.appendChild(tabArrow).id = "tab-arrow";
 
-const slideTabs = () => {
+tabSlider.addEventListener("click", () => {
   const tabArrowContent = document.getElementById("tab-arrow");
   if (arrowFacing == "left") {
     arrowFacing = "right";
@@ -41,7 +41,7 @@ const slideTabs = () => {
   } else if (arrowFacing == "right") {
     arrowFacing = "left";
     tabArrowContent.innerHTML = tabArrowSym[arrowFacing];
-    navContainer.style.left = "0"; 
+    navContainer.style.left = "0";
     mainBody.style.left = "350px";
   }
-}
+});
