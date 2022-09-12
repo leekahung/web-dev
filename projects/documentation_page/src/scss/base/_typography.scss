@@ -1,0 +1,23 @@
+/* Typography */
+p, li, code {
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+a {
+  cursor: pointer;
+}
+
+code {
+  display: block;
+  font-family: monospace;
+  margin: 30px 0 30px 60px;
+  font-size: 1rem;
+  overflow-wrap: break-word;
+}
+
+.nav-header,
+.unit-header {
+  font-size: 1.8rem;
+}

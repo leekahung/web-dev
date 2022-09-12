@@ -1,0 +1,55 @@
+/* base imports */
+@use "./base/reset";
+@use "./base/typography";
+
+/* layout imports */
+@use "./layout/navigation";
+
+/* components imports */
+@use "./components/slider";
+@use "./components/returntop";
+
+/* pages imports */
+@use "./pages/document";
+
+/* Responsive Design */
+@media (max-width: 1000px) {
+  .nav-container {
+    left: 0 !important;
+    height: 250px;
+    width: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    border-bottom: 2px solid black;
+
+    #navbar {
+      border-right: none;
+      width: 100% !important;
+
+      .nav-group {
+        .nav-link:first-child {
+          border-top: 1px solid black;
+        }
+      
+        .nav-link:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+  
+    #slider-tab {
+      border: 2px solid black;
+    }
+  }
+
+  #main-doc {
+    top: 250px;
+    left: 0 !important;
+    height: calc(100% - 250px);
+    width: 100%;
+  }
+
+  .return-ctnr {
+    height: 30px;
+  }
+}

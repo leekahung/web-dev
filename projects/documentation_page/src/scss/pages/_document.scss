@@ -1,0 +1,34 @@
+/* Main Documentation */
+#main-doc,
+.main-section {
+  display: flex;
+  flex-direction: column;
+}
+
+#main-doc {
+  position: fixed;
+  height: 100%;
+  padding: 0 30px;
+  top: 0;
+  left: 350px;
+  overflow-y: scroll;
+  gap: 20px;
+  transition: 1s;
+
+  .main-section {
+    gap: 20px;
+
+    &:last-child {
+      margin-bottom: 60px;
+    }
+    
+    & ul {
+      margin-left: 40px;
+    }
+    
+    & ul li,
+    & ul li ul  {
+      margin-left: 20px;
+    }
+  }
+}
