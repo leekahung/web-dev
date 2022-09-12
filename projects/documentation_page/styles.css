@@ -21,6 +21,7 @@ code {
   font-size: 1rem;
   margin-top: 30px;
   margin-bottom: 30px;
+  overflow-wrap: break-word;
 }
 
 .nav-header,
@@ -49,7 +50,7 @@ code {
 }
 
 .main-section:last-child {
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 }
 
 .main-section ul {
@@ -64,10 +65,18 @@ code {
   margin-left: 20px;
 }
 
-.return-top {
+.return-ctnr {
   position: fixed;
-  right: 3vw;
-  bottom: 3vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  bottom: 0;
+  height: 5vh;
+  width: 99vw;
+  background-color: white;
+}
+
+.return-top {
   color: blue;
   font-size: 0.8rem;
 }
@@ -149,6 +158,7 @@ code {
     height: 250px;
     width: 100%;
     overflow-y: scroll;
+    overflow-x: hidden;
     border-bottom: 2px solid black;
   }
 
@@ -178,5 +188,9 @@ code {
     left: 0 !important;
     height: calc(100% - 250px);
     width: 100%;
+  }
+
+  .return-ctnr {
+    width: 95vw;
   }
 }
