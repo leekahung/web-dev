@@ -199,7 +199,6 @@ document.addEventListener("keydown", (event) => {
     case "x":
     case "*":
       checkOperations("x", "keyboard");
-      console.log(event);
       break;
     case "Backspace":
       if (event.shiftKey === false) {
@@ -223,8 +222,18 @@ document.addEventListener("keydown", (event) => {
       checkOperations("π", "keyboard");
       break;
     default:
-      console.log(event.key);
-      console.log(event);
       break;
+  }
+});
+
+const moveCalcBtn = document.getElementById("move-calc-btn");
+
+moveCalcBtn.addEventListener("click", () => {
+  if (moveCalcBtn.innerHTML === "Move Calculator Left") {
+    moveCalcBtn.innerHTML = "Move Calculator Right";
+    document.body.style.flexDirection = "row";
+  } else {
+    moveCalcBtn.innerHTML = "Move Calculator Left";
+    document.body.style.flexDirection = "row-reverse";
   }
 });

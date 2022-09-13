@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>JavaScript Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Online Calculator using HTML, CSS, JS" />
+    <link rel="stylesheet" href="./scss/main.scss" />
+  </head>
+  <body>
+    <div id="calculator-grp">
+      <h1 id="app-header">JavaScript Calculator</h1>
+      <div id="calculator">
+        <div id="calc-display">
+          <div id="calc-input"></div>
+          <div id="calc-output"></div>
+        </div>
+        <div id="calc-buttons"></div>
+      </div>
+    </div>
+    <div id="bottom-grp">
+      <div id="rules">
+        <h1 id="rules-header">Features/Limitations</h1>
+        <ul>
+          <li>Character limit on inputs is 31 before it overflows off the display</li>
+          <li>Inputs follows conventional orders of operations for outputs (including parentheses and exponents)</li>
+          <li>Outputs beyond 10<sup>14</sup> or below 10<sup>-6</sup> gets converted to scientific E notation automatically</li>
+          <li>Can accept keyboard inputs equivalent to the buttons shown on calculator, with a few rules: "Del" is "Backspace" or &#9003;, "π" is "p", "|a|" is "a"</li>
+          <li>Both "x" and "*" can be used for multiplication (display will show "x")</li>
+          <li>The clear everything button "CE" can be inputted using ("shift" + "Backspace" or &#8679;&#9003;)</li>
+          <li>Storing output as input using "ans" is an exception and must be done manually via click</li>
+        </ul>
+      </div>
+      <button id="move-calc-btn">Move Calculator Left</button>
+    </div>
+    <script src="./script.js" type="module"></script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+/* Site Layout */
+#calculator-grp,
+#bottom-grp,
+#rules {
+  flex-direction: column;
+}
+
+#calculator-grp {
+  gap: 30px;
+
+  #app-header {
+    text-align: center;
+    text-decoration: underline;
+  }
+}
+
+#bottom-grp {
+  margin-top: 20px;
+  gap: 20px;
+
+  #rules {
+    width: 600px;
+    gap: 10px;
+    white-space: normal;
+    border: 1px solid black;
+    padding: 10px;
+  
+    ul {
+      margin-left: 20px;
+    }
+  }
+}
