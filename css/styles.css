@@ -319,11 +319,20 @@ section header {
 }
 
 #contact .icon:hover {
-  transform: scale(1.2);
+  animation: shake-n-grow 0.2s;
+  transform: scale(1.1);
 }
 
 #created-by {
   transition: var(--short-transition);
+}
+
+@keyframes shake-n-grow {
+  0% {transform: rotate(0deg) scale(1.02);}
+  25% {transform: rotate(-5deg) scale(1.04);}
+  50% {transform: rotate(0deg) scale(1.06);}
+  75% {transform: rotate(5deg) scale(1.08);}
+  100% {transform: rotate(0deg) scale(1.1);}
 }
 
 /* Footer */
