@@ -43,6 +43,10 @@ section header {
   padding: 50px;
 }
 
+section {
+  margin: 50px auto;
+}
+
 @keyframes loading {
   from {filter: blur(100px);}
   to {filter: blur(0);}
@@ -274,7 +278,8 @@ section header {
 
 .project-card:hover {
   opacity: 0.8;
-  transform: scale(1.1) translateY(-20px);
+  transform: scale(1.1);
+  transform-origin: center;
   box-shadow: 0 0 10px 5px orange;
 }
 
@@ -306,7 +311,6 @@ footer {
   flex-direction: column;
   margin-top: 50px;
   height: 15vh;
-  width: 100vw;
   gap: 20px;
 }
 
@@ -377,28 +381,20 @@ footer {
     gap: 40px;
   }
 
-  .project-container {
-    gap: 40px;
-    transition: var(--long-transition);
-  }
-
   .project-card {
     height: 350px;
     width: 250px;
   }
 
   .project-card:hover {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    transform: unset;
+    transform-origin: center;
   }
 
   .self-photo {
-    opacity: 0;
+    display: none;
   }
 
   .about-me {
-    position: absolute;
     line-height: 1.8em;
   }
 
@@ -419,7 +415,7 @@ footer {
   }
   
   .project-container {
-    gap: 20px;
+    gap: 40px;
   }
 }
 
