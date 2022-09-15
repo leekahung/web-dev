@@ -109,6 +109,11 @@ section header {
   outline: none;
 }
 
+.toggler:hover {
+  border-radius: 20px;
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.3);
+}
+
 #toggle {
   opacity: 0;
   width: 0;
@@ -270,7 +275,7 @@ section header {
 .project-card:hover {
   opacity: 0.8;
   transform: scale(1.1) translateY(-20px);
-  border: 10px solid orange;
+  box-shadow: 0 0 10px 5px orange;
 }
 
 .project-card:hover img {
@@ -320,7 +325,7 @@ footer {
   filter: brightness(100);
 }
 
-#contact .icon:hover {
+.social-container .icon:hover {
   animation: shake-n-grow 0.2s;
   transform: scale(1.1);
 }
