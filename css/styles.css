@@ -274,6 +274,7 @@ section {
   background-color: rgb(80, 80, 80);
   color: rgb(240, 240, 240);
   font-size: clamp(16px, 20px, 24px);
+  z-index: 5;
  }
 
 .project-card:hover {
@@ -285,6 +286,7 @@ section {
 
 .project-card:hover img {
   filter: blur(10px);
+  transform: scale(1.05);
   transition: var(--super-short-transition);
 }
 
