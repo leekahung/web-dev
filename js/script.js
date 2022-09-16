@@ -35,7 +35,9 @@ function darkLightMode() {
 }
 
 /* Function to deal with scrolling animation */
-const hiddenSections = document.querySelectorAll(".hidden");
+const hiddenSections = document.querySelectorAll("section");
+const homePage = document.getElementById("home");
+const topBtn = document.getElementById("top-btn-container");
 
 const sectObserver = new IntersectionObserver(
   (entries, observer) => {
@@ -48,8 +50,27 @@ const sectObserver = new IntersectionObserver(
   },
   {
     root: document.body.main,
-    threshold: "0.50",
+    threshold: "0.35",
   }
 );
 
+const btnObserver = new IntersectionObserver(
+  (entries, observer) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) {
+        topBtn.classList.add("slideIn");
+        topBtn.classList.remove("slideOut");
+      } else {
+        topBtn.classList.add("slideOut");
+        topBtn.classList.remove("slideIn");
+      }
+    });
+  },
+  {
+    root: document.body.main,
+    threshold: "0.8"
+  }
+)
+
 hiddenSections.forEach((sect) => sectObserver.observe(sect));
+btnObserver.observe(homePage);

@@ -46,14 +46,33 @@ section header {
 .hidden {
   opacity: 0;
   filter: blur(20px);
-  transition: 
-    opacity 1s,
-    filter 1s;
 }
 
 .show {
   opacity: 1;
   filter: blur(0);
+}
+
+.hidden, .show {
+  transition: 
+    opacity 1s,
+    filter 1s;
+}
+
+.slideIn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slideOut {
+  opacity: 0;
+  transform: translateY(10vh);
+}
+
+.slideIn, .slideOut {
+  transition:
+    opacity 1s,
+    transform 1s;
 }
 
 /* Nav Section */
@@ -404,7 +423,7 @@ footer {
   }
 
   footer {
-    margin-bottom: 80px;
+    margin-bottom: 100px;
   }
 }
 
@@ -435,6 +454,11 @@ footer {
 
   .nav-ctnr.toggler-ctnr {
     margin-right: 40px;
+  }
+
+  .project-card {
+    height: 325px;
+    width: 225px;
   }
 }
 
