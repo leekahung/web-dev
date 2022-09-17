@@ -1,28 +1,36 @@
 /* Function to change theme color */
-const darkMode = {
-  backgroundColor: "rgb(40, 45, 45)",
-  fontColor: "rgb(240, 240, 240)",
-  navbarColor: "rgb(50, 55, 55)",
-  fontColorHover: "rgb(160, 240, 240)"
-};
-
-const lightMode = {
-  backgroundColor: "rgba(240, 240, 240)",
-  fontColor: "black",
-  navbarColor: "rgb(200, 200, 200)",
-  fontColorHover: "rgb(80, 80, 80)"
-};
-
-const rootVariables = ["--animation-border-color-end", "--color-back", "--color-sec", "--color-font", "--color-font-hover"];
-const colorOrder = ["fontColor", "backgroundColor", "navbarColor", "fontColor", "fontColorHover"];
-
-const getTheme = (theme) => {
-  for (let i = 0; i < rootVariables.length; i++) {
-    document.documentElement.style.setProperty(rootVariables[i], theme[colorOrder[i]]);
-  }
-};
-
 function darkLightMode() {
+  const darkMode = {
+    backgroundColor: "rgb(40, 45, 45)",
+    fontColor: "rgb(240, 240, 240)",
+    navbarColor: "rgb(50, 55, 55)",
+    fontColorHover: "rgb(160, 240, 240)",
+  };
+
+  const lightMode = {
+    backgroundColor: "rgba(240, 240, 240)",
+    fontColor: "black",
+    navbarColor: "rgb(200, 200, 200)",
+    fontColorHover: "rgb(80, 80, 80)",
+  };
+
+  const setColorScheme = [
+    ["--animation-border-color-end", "fontColor"],
+    ["--color-back", "backgroundColor"],
+    ["--color-sec", "navbarColor"],
+    ["--color-font", "fontColor"],
+    ["--color-font-hover", "fontColorHover"],
+  ];
+
+  const getTheme = (theme) => {
+    for (let i = 0; i < setColorScheme.length; i++) {
+      document.documentElement.style.setProperty(
+        setColorScheme[i][0],
+        theme[setColorScheme[i][1]]
+      );
+    }
+  };
+
   if (document.getElementById("toggle").checked == false) {
     document.querySelector(".nav-bar").style.backgroundColor = darkMode["navbarColor"];
     document.querySelector(".github-icon").style.filter = "brightness(100)";
@@ -57,8 +65,8 @@ const sectObserver = new IntersectionObserver(
 );
 
 const btnObserver = new IntersectionObserver(
-  (entries, observer) => {
-    entries.forEach(entry => {
+  (entries) => {
+    entries.forEach((entry) => {
       if (!entry.isIntersecting) {
         topBtn.classList.add("slideIn");
         topBtn.classList.remove("slideOut");
@@ -70,9 +78,9 @@ const btnObserver = new IntersectionObserver(
   },
   {
     root: document.body.main,
-    threshold: "0.8"
+    threshold: "0.8",
   }
-)
+);
 
 hiddenSections.forEach((sect) => sectObserver.observe(sect));
 btnObserver.observe(homePage);
