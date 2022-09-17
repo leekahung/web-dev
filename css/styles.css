@@ -6,16 +6,17 @@
   --short-transition: 0.4s;
   --long-transition: 0.7s;
   --super-long-transition: 2s;
-  --color-back: rgb(40, 40, 40);
-  --color-sec: rgb(240, 240, 240);
+  --color-back: rgb(40, 45, 45);
+  --color-sec: rgb(50, 55, 55);
   --color-font: rgb(240, 240, 240);
+  --color-font-hover: rgb(160, 240, 240);
 }
 
 * {
   padding: 0;
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
   scroll-behavior: smooth;
+  font-family: "Open Sans", sans-serif;
   -webkit-tap-highlight-color: transparent; /* Non-standard property: Safari and Firefox calls property as invalid in inspect mode */
 }
 
@@ -102,15 +103,15 @@ section header {
 }
 
 .nav-link {
-  color: black;
+  color: var(--color-font);
   text-decoration: none;
   font-size: 20px;
+  font-weight: 800;
   height: 60px;
 }
 
 .nav-link:hover {
-  background-color: gray;
-  color: rgb(240, 240, 240);
+  color: var(--color-font-hover);
 }
 
 .nav-link,
@@ -170,7 +171,7 @@ section header {
 }
 
 #toggle:checked + .slider {
-  background-color: rgb(0, 127, 255);
+  background-color: grey;
 }
 
 #toggle:checked + .slider:before {
@@ -178,7 +179,7 @@ section header {
 }
 
 #toggle:focus + .slider {
-  box-shadow: 0 0 1px rgb(0, 127, 255);
+  box-shadow: 0 0 1px grey;
 }
 
 /* About Section */
@@ -303,7 +304,7 @@ section header {
   opacity: 0.8;
   transform: scale(1.1);
   transform-origin: center;
-  box-shadow: 0 0 10px 5px orange;
+  box-shadow: 0 0 10px 5px rgb(190, 143, 0);
 }
 
 .project-card:hover img {
@@ -391,7 +392,7 @@ footer {
 }
 
 .top-button:hover {
-  border: 1px solid white;
+  border: 1px solid var(--color-font);
 }
 
 .top-button .icon {

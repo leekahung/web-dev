@@ -1,18 +1,20 @@
 /* Function to change theme color */
 const darkMode = {
-  backgroundColor: "rgb(40, 40, 40)",
+  backgroundColor: "rgb(40, 45, 45)",
   fontColor: "rgb(240, 240, 240)",
-  navbarColor: "rgb(240, 240, 240)"
+  navbarColor: "rgb(50, 55, 55)",
+  fontColorHover: "rgb(160, 240, 240)"
 };
 
 const lightMode = {
-  backgroundColor: "rgba(0, 127, 255, 0.4)",
+  backgroundColor: "rgba(240, 240, 240)",
   fontColor: "black",
-  navbarColor: "orange"
+  navbarColor: "rgb(200, 200, 200)",
+  fontColorHover: "rgb(80, 80, 80)"
 };
 
-const rootVariables = ["--animation-border-color-end", "--color-back", "--color-sec", "--color-font"];
-const colorOrder = ["fontColor", "backgroundColor", "navbarColor", "fontColor"];
+const rootVariables = ["--animation-border-color-end", "--color-back", "--color-sec", "--color-font", "--color-font-hover"];
+const colorOrder = ["fontColor", "backgroundColor", "navbarColor", "fontColor", "fontColorHover"];
 
 const getTheme = (theme) => {
   for (let i = 0; i < rootVariables.length; i++) {
