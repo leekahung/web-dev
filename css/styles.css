@@ -124,22 +124,20 @@ section header {
   transition: var(--long-transition);
 }
 
+/* Navbar Theme Toggler */
 .toggler-ctnr {
+  height: 60px;
   margin-left: 0;
   margin-right: 60px;
 }
 
 .toggler {
   position: relative;
-  display: inline-block;
   width: 60px;
   height: 30px;
-  outline: none;
-}
-
-.toggler:hover {
+  background-color: grey;
   border-radius: 20px;
-  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
 }
 
 #toggle {
@@ -150,32 +148,21 @@ section header {
 }
 
 .slider {
-  display: flex;
-  align-items: center;
   position: absolute;
-  inset: 0;
-  background-color: grey;
-  border-radius: 20px;
-  cursor: pointer;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
   height: 22px;
   width: 22px;
   left: 4px;
   bottom: 4px;
   background-color: white;
-  border-radius: 50%;
+  border-radius: 20px;
   transition: var(--short-transition);
 }
 
-#toggle:checked + .slider {
-  background-color: grey;
+.toggler:hover {
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.3);
 }
 
-#toggle:checked + .slider:before {
+#toggle:checked + .slider {
   transform: translateX(30px);
 }
 
