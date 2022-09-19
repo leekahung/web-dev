@@ -11,7 +11,7 @@ function darkLightMode() {
     backgroundColor: "rgba(240, 240, 240)",
     fontColor: "black",
     navbarColor: "rgb(200, 200, 200)",
-    fontColorHover: "rgb(80, 80, 80)",
+    fontColorHover: "rgba(0, 127, 255)",
   };
 
   const setColorScheme = [
