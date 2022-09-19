@@ -10,6 +10,7 @@
   --color-sec: rgb(50, 55, 55);
   --color-font: rgb(240, 240, 240);
   --color-font-hover: rgb(160, 240, 240);
+  --color-toggler-hover: rgba(240, 240, 240, 0.4);
 }
 
 * {
@@ -159,7 +160,7 @@ section header {
 }
 
 .toggler:hover {
-  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 5px 1px var(--color-toggler-hover);
 }
 
 #toggle:checked + .slider {
@@ -387,7 +388,7 @@ footer {
 }
 
 .top-button:hover {
-  border: 1px solid var(--color-font);
+  box-shadow: 0 0 5px 1px var(--color-toggler-hover);
 }
 
 .top-button .icon {

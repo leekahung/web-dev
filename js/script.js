@@ -5,6 +5,7 @@ function darkLightMode() {
     fontColor: "rgb(240, 240, 240)",
     navbarColor: "rgb(50, 55, 55)",
     fontColorHover: "rgb(160, 240, 240)",
+    togglerColorHover: "rgba(240, 240, 240, 0.4)",
   };
 
   const lightMode = {
@@ -12,6 +13,7 @@ function darkLightMode() {
     fontColor: "black",
     navbarColor: "rgb(200, 200, 200)",
     fontColorHover: "rgba(0, 127, 255)",
+    togglerColorHover: "rgba(0, 0, 0, 0.4)",
   };
 
   const setColorScheme = [
@@ -20,6 +22,7 @@ function darkLightMode() {
     ["--color-sec", "navbarColor"],
     ["--color-font", "fontColor"],
     ["--color-font-hover", "fontColorHover"],
+    ["--color-toggler-hover", "togglerColorHover"],
   ];
 
   const getTheme = (theme) => {
