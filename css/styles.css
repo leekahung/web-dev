@@ -179,13 +179,13 @@ section header {
   text-align: center;
 }
 
-#intro-header {
+#intro-head {
   font-size: 3.5em;
   padding: 30px;
   transition: var(--short-transition);
 }
 
-#intro-statement {
+#intro {
   white-space: nowrap;
   border-right: 2px solid var(--color-sec);
   width: 340px;
@@ -217,7 +217,7 @@ section header {
   transition: var(--short-transition);
 }
 
-.about-container {
+.about-ctnr {
   width: 80%;
   gap: 50px;
 }
@@ -235,7 +235,7 @@ section header {
   opacity: 0.7;
 }
 
-/* Project Section */
+/* Projects Section */
 
 #projects {
   flex-direction: column;
@@ -245,26 +245,41 @@ section header {
   transition: var(--short-transition);
 }
 
-.project-container {
+.proj-ctnr {
   gap: 60px;
   flex-wrap: wrap;
   transition: var(--long-transition);
 }
 
-.project-card {
+.proj-ctnr-links {
+  transition: var(--short-transition);
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.repo-link {
+  position: absolute;
+  bottom: 25%;
+  text-decoration: none;
+  color: white;
+  background-color: grey;
+  border-radius: 20px;
+  padding: 5px 10px;
+  visibility: hidden;
+}
+
+.proj-card {
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 400px;
   width: 300px;
   border: none;
-  border-radius: 20px;
-  overflow: hidden;
   text-decoration: none;
   transition: 
     opacity var(--short-transition),
-    transform var(--short-transition),
-    border var(--short-transition);
+    transform var(--short-transition);
 }
 
 .card-top {
@@ -273,12 +288,18 @@ section header {
   width: 100%;
 }
 
-.card-top .project-description {
+.proj-desc {
   position: absolute;
   text-align: center;
-  width: 85%;
+  height: 100%;
+  width: 100%;
   opacity: 0;
   color: black;
+}
+
+.desc {
+  display: inline-block;
+  width: 85%;
 }
 
 .card-bottom {
@@ -290,24 +311,31 @@ section header {
   z-index: 5;
  }
 
-.project-card:hover {
+.proj-ctnr-links:hover {
   opacity: 0.8;
   transform: scale(1.1);
   transform-origin: center;
-  box-shadow: 0 0 10px 5px rgb(190, 143, 0);
 }
 
-.project-card:hover img {
+.proj-ctnr-links:hover img {
   filter: blur(10px);
   transform: scale(1.05);
   transition: var(--super-short-transition);
 }
 
-.project-card:hover div {
+.proj-ctnr-links:hover div {
   opacity: 1;
 }
 
-.project-description.darkBackground {
+.proj-ctnr-links:hover .repo-link {
+  visibility: visible;
+}
+
+.repo-link:hover {
+  transition: var(--super-short-transition);
+}
+
+.dark-back {
   color: white;
 }
 
@@ -330,7 +358,7 @@ footer {
   gap: 20px;
 }
 
-.social-container {
+.social-ctnr {
   gap: 20px;
 }
 
@@ -350,7 +378,7 @@ footer {
   filter: brightness(100);
 }
 
-.social-container .icon:hover {
+.social-ctnr .icon:hover {
   animation: shake-n-grow 0.2s;
   transform: scale(1.1);
 }
@@ -368,7 +396,7 @@ footer {
 }
 
 /* To Top Button */
-#top-btn-container {
+#top-btn-ctnr {
   position: fixed;
   bottom: 30px;
   right: 30px;
@@ -376,7 +404,7 @@ footer {
   gap: 10px;
 }
 
-.top-button {
+.top-btn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -387,11 +415,11 @@ footer {
   transition: border var(--short-transition);
 }
 
-.top-button:hover {
+.top-btn:hover {
   box-shadow: 0 0 5px 1px var(--color-toggler-hover);
 }
 
-.top-button .icon {
+.top-btn .icon {
   height: 20px;
   width: 20px;
 }
@@ -402,12 +430,12 @@ footer {
     gap: 40px;
   }
 
-  .project-card {
+  .proj-card {
     height: 350px;
     width: 250px;
   }
 
-  .project-card:hover {
+  .proj-card:hover {
     transform-origin: center;
   }
 
@@ -435,7 +463,7 @@ footer {
     gap: 10px;
   }
   
-  .project-container {
+  .proj-ctnr {
     gap: 40px;
   }
 }
@@ -453,14 +481,14 @@ footer {
     margin-right: 40px;
   }
 
-  .project-card {
+  .proj-card {
     height: 325px;
     width: 225px;
   }
 }
 
 @media (min-width: 480px) {
-  #intro-statement {
+  #intro {
     width: 340px;
     font-size: 2rem;
     transition: var(--short-transition);
@@ -472,11 +500,11 @@ footer {
   }}
 
 @media (max-width: 480px) {
-  #intro-header {
+  #intro-head {
     font-size: 2.5rem;
   }
 
-  #intro-statement {
+  #intro {
     width: 260px;
     font-size: 1.5rem;
   }
@@ -515,11 +543,11 @@ footer {
     margin-right: 10px;
   }  
 
-  #intro-header {
+  #intro-head {
     font-size: 2.1rem;
   }
 
-  #intro-statement {
+  #intro {
     width: 190px;
     font-size: 1.1rem;
   }

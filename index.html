@@ -34,15 +34,15 @@
     <main>
       <section id="home" class="hidden">
         <div class="introduction">
-          <h1 id="intro-header">Hi, my name is Ka Hung!</h1>
+          <h1 id="intro-head">Hi, my name is Ka Hung!</h1>
         </div>
-        <p id="intro-statement">I am a web developer!</p>
+        <p id="intro">I am a web developer!</p>
       </section>
       <section id="about" class="hidden">
         <header>
           <h1>About Me</h1>
         </header>
-        <div class="about-container">
+        <div class="about-ctnr">
           <img class="self-photo" src="./images/self_photo.webp" alt="picture of Ka Hung">
           <p class="about-me">
             Originally a self-taught programmer based in Portland, Oregon, I'm currently working with HTML, CSS, and JavaScript to develop fully interactive websites/web apps that would work for both mobile and desktop browers on my journey to become a full fledged front-end developer!
@@ -56,64 +56,68 @@
         <header>
           <h1>Projects</h1>
         </header>
-        <div class="project-container">
-          <div>
-            <a class="project-card" href="./projects/documentation_page/dist/index.html" target="_blank">
+        <div class="proj-ctnr">
+          <div class="proj-ctnr-links">
+            <a class="proj-card" href="./projects/documentation_page/dist/index.html" target="_blank">
               <div class="card-top">
-                <img id="documentation-project" src="./images/mock_documentation_page.webp" alt="preview image of documentation page">
-                <div class="project-description">
-                  A mock documentation page for basic JavaScript.
+                <img id="documentation-proj" src="./images/mock_documentation_page.webp" alt="preview image of documentation page">
+                <div class="proj-desc">
+                  <p class="desc">A mock documentation page for basic JavaScript.</p>
                 </div>
               </div>
               <div class="card-bottom">
                 Mock Documentation
               </div>
             </a>
+            <a class="repo-link" href="https://github.com/leekahung/web-dev/tree/main/projects/documentation_page" target="_blank">View Source Code</a>
           </div>
-          <div>
-            <a class="project-card" href="./projects/digital_clock/index.html" target="_blank">
-              <div class="card-top darkBackground">
+          <div class="proj-ctnr-links">
+            <a class="proj-card" href="./projects/digital_clock/index.html" target="_blank">
+              <div class="card-top dark-back">
                 <img id="digital-clock" src="./images/digital_clock.webp" alt="preview image of digtial clock">
-                <div class="project-description darkBackground">
-                  An online clock that keeps track of local time in 12hr or 24hr format.
+                <div class="proj-desc dark-back">
+                  <p class="desc">An online clock that keeps track of local time in 12hr or 24hr format.</p>
                 </div>
               </div>
               <div class="card-bottom">
                 Digital Clock
               </div>
             </a>
+            <a class="repo-link" href="https://github.com/leekahung/web-dev/tree/main/projects/digital_clock" target="_blank">View Source Code</a>
           </div>
-          <div>
-            <a class="project-card" href="./projects/js_calculator/dist/index.html" target="_blank">
+          <div class="proj-ctnr-links">
+            <a class="proj-card" href="./projects/js_calculator/dist/index.html" target="_blank">
               <div class="card-top">
                 <img id="js-calculator" src="./images/js_calculator.webp" alt="preview image of js calculator">
-                <div class="project-description">
-                  A functional online calculator that could take both mouse and keyboard commands.
+                <div class="proj-desc">
+                  <p class="desc">A functional online calculator that could take both mouse and keyboard commands.</p>
                 </div>
               </div>
               <div class="card-bottom">
                 JavaScript Calculator
               </div>
             </a>
+            <a class="repo-link" href="https://github.com/leekahung/web-dev/tree/main/projects/js_calculator" target="_blank">View Source Code</a>
           </div>
-          <div>
-            <a class="project-card" href="https://khl-weather-app.netlify.app" target="_blank">
+          <div class="proj-ctnr-links">
+            <a class="proj-card" href="https://khl-weather-app.netlify.app" target="_blank">
               <div class="card-top">
                 <img id="weather-app" src="./images/weather_app.webp" alt="preview image of weather app">
-                <div class="project-description">
-                  A weather app that utilizes OpenWeatherMap API to run and Netlify serverless functions to fetch weather data.
+                <div class="proj-desc">
+                  <p class="desc">A weather app that utilizes OpenWeatherMap API to run and Netlify serverless functions to fetch weather data.</p>
                 </div>
               </div>
               <div class="card-bottom">
                 Weather App
               </div>
             </a>
+            <a class="repo-link" href="https://github.com/leekahung/weather-app-netlify" target="_blank">View Source Code</a>
           </div>
         </div>
       </section>
     </main>
     <footer>
-      <div class="social-container">
+      <div class="social-ctnr">
         <div class="icon github-icon">
           <a href="https://github.com/leekahung" target="_blank">
             <img class="icon-pic" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="github icon">
@@ -127,9 +131,9 @@
       </div>
       <p id="created-by">Created and Designed by Ka Hung Lee</p>
     </footer>
-    <div id="top-btn-container" class="slideOut">
+    <div id="top-btn-ctnr" class="slideOut">
       <a href="#home">
-        <div class="top-button">
+        <div class="top-btn">
           <img class="icon" src="./images/back_to_top_icon.webp" alt="swipe up icon">
         </div>
       </a>

@@ -47,10 +47,37 @@ function darkLightMode() {
   }
 }
 
+/* Function to deal with project card animation */
+const projCtnr = document.querySelector(".proj-ctnr");
+
+projCtnr.addEventListener("mouseover", (event) => {
+  if (["card-bottom", "proj-desc", "desc"].includes(event.target.classList[0])) {
+    event.target.closest(".proj-ctnr-links").style.boxShadow = "0 0 10px 5px var(--color-font-hover)";
+  } else if (event.target.classList.value === "repo-link") {
+    event.target.style.boxShadow = "0 0 10px 5px var(--color-font-hover)";
+  }
+})
+
+projCtnr.addEventListener("onmousedown", (event) => {
+  if (["card-bottom", "proj-desc", "desc"].includes(event.target.classList[0])) {
+    event.target.closest(".proj-ctnr-links").style.boxShadow = "0 0 10px 5px var(--color-font-hover)";
+  } else if (event.target.classList.value === "repo-link") {
+    event.target.style.boxShadow = "0 0 10px 5px var(--color-font-hover)";
+  }
+})
+
+projCtnr.addEventListener("mouseout", (event) => {
+  if (["card-bottom", "proj-desc", "desc"].includes(event.target.classList[0])) {
+    event.target.closest(".proj-ctnr-links").style.boxShadow = "unset";
+  } else if (event.target.classList.value === "repo-link") {
+    event.target.style.boxShadow = "unset";
+  }
+})
+
 /* Function to deal with scrolling animation */
 const hiddenSections = document.querySelectorAll("section");
 const homePage = document.getElementById("home");
-const topBtn = document.getElementById("top-btn-container");
+const topBtn = document.getElementById("top-btn-ctnr");
 
 const sectObserver = new IntersectionObserver(
   (entries, observer) => {
