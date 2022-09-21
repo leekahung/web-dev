@@ -78,15 +78,15 @@ section header {
 }
 
 /* Nav Section */
-.nav-bar,
-.nav-group,
+#nav-bar,
+#nav-group,
 .nav-link {
   display: flex;
   align-items: center;
-  transition: var(--long-transition);
+  transition: var(--super-short-transition);
 }
 
-.nav-bar {
+#nav-bar {
   justify-content: space-between;
   position: fixed;
   top: 0;
@@ -97,7 +97,7 @@ section header {
   z-index: 999;
 }
 
-.nav-group {
+#nav-group {
   list-style: none;
   justify-content: center;
   gap: 60px;
@@ -122,7 +122,7 @@ section header {
 
 .nav-ctnr {
   margin-left: 60px;
-  transition: var(--long-transition);
+  transition: var(--short-transition);
 }
 
 /* Navbar Theme Toggler */
@@ -159,6 +159,7 @@ section header {
   transition: var(--short-transition);
 }
 
+/* Toggle Animations */
 .toggler:hover {
   box-shadow: 0 0 5px 1px var(--color-toggler-hover);
 }
@@ -179,13 +180,13 @@ section header {
   text-align: center;
 }
 
-#intro-head {
+#home h1 {
   font-size: 3.5em;
   padding: 30px;
   transition: var(--short-transition);
 }
 
-#intro {
+#home p {
   white-space: nowrap;
   border-right: 2px solid var(--color-sec);
   width: 340px;
@@ -209,20 +210,18 @@ section header {
 }
 
 /* About Section */
-
 #about {
   flex-direction: column;
   text-align: center;
   scroll-margin-top: 30px;
-  transition: var(--short-transition);
 }
 
-.about-ctnr {
+#about-ctnr {
   width: 80%;
   gap: 50px;
 }
 
-.about-me {
+#about-me {
   font-size: 1.1rem;
   width: max(60%, 340px);
   line-height: 2rem;
@@ -236,26 +235,24 @@ section header {
 }
 
 /* Projects Section */
-
 #projects {
   flex-direction: column;
   justify-content: flex-start;
   scroll-margin-top: 30px;
   margin-bottom: 50px;
-  transition: var(--short-transition);
 }
 
 .proj-ctnr {
   gap: 60px;
   flex-wrap: wrap;
-  transition: var(--long-transition);
+  transition: var(--short-transition);
 }
 
 .proj-ctnr-links {
-  transition: var(--short-transition);
+  position: relative;
   border-radius: 20px;
   overflow: hidden;
-  position: relative;
+  transition: var(--short-transition);
 }
 
 .repo-link {
@@ -311,6 +308,17 @@ section header {
   z-index: 5;
  }
 
+#documentation-project,
+#digital-clock,
+#js-calculator,
+#weather-app {
+  position: relative;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+ 
+ /* Project Card Hover Animations */
 .proj-ctnr-links:hover {
   opacity: 0.8;
   transform: scale(1.1);
@@ -332,21 +340,12 @@ section header {
 }
 
 .repo-link:hover {
-  transition: var(--super-short-transition);
+  transform: scale(1.1);
+  transition: var(--short-transition);
 }
 
 .dark-back {
   color: white;
-}
-
-#documentation-project,
-#digital-clock,
-#js-calculator,
-#weather-app {
-  position: relative;
-  height: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
 }
 
 /* Footer */
@@ -374,7 +373,7 @@ footer {
   width: 100%;
 }
 
-.github-icon {
+#github-icon {
   filter: brightness(100);
 }
 
@@ -405,14 +404,10 @@ footer {
 }
 
 .top-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   border: 1px solid black;
   height: 40px;
   width: 40px;
   background-color: rgb(240, 240, 240);
-  transition: border var(--short-transition);
 }
 
 .top-btn:hover {
@@ -426,7 +421,7 @@ footer {
 
 /* Responsive */
 @media (max-width: 768px) {
-  .nav-group {
+  #nav-group {
     gap: 40px;
   }
 
@@ -443,7 +438,7 @@ footer {
     display: none;
   }
 
-  .about-me {
+  #about-me {
     line-height: 1.8em;
   }
 
@@ -453,13 +448,13 @@ footer {
 }
 
 @media (max-width: 650px) {
-  .nav-group {
+  #nav-group {
     gap: 20px;
   }
 }
 
 @media (max-width: 600px) {
-  .nav-group {
+  #nav-group {
     gap: 10px;
   }
   
@@ -488,7 +483,7 @@ footer {
 }
 
 @media (min-width: 480px) {
-  #intro {
+  #home p {
     width: 340px;
     font-size: 2rem;
     transition: var(--short-transition);
@@ -500,11 +495,11 @@ footer {
   }}
 
 @media (max-width: 480px) {
-  #intro-head {
+  #home h1 {
     font-size: 2.5rem;
   }
 
-  #intro {
+  #home p {
     width: 260px;
     font-size: 1.5rem;
   }
@@ -543,11 +538,11 @@ footer {
     margin-right: 10px;
   }  
 
-  #intro-head {
+  #home h1 {
     font-size: 2.1rem;
   }
 
-  #intro {
+  #home p {
     width: 190px;
     font-size: 1.1rem;
   }
@@ -557,7 +552,7 @@ footer {
     to {width: 190px;}
   }
 
-  .about-me {
+  #about-me {
     font-size: 1rem;
     width: 90%;
   }

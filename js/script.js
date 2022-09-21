@@ -35,13 +35,13 @@ function darkLightMode() {
   };
 
   if (document.getElementById("toggle").checked == false) {
-    document.querySelector(".nav-bar").style.backgroundColor = darkMode["navbarColor"];
-    document.querySelector(".github-icon").style.filter = "brightness(100)";
+    document.getElementById("nav-bar").style.backgroundColor = darkMode["navbarColor"];
+    document.getElementById("github-icon").style.filter = "brightness(100)";
     document.querySelector(".self-photo").style.opacity = 0.7;
     getTheme(darkMode);
   } else {
-    document.querySelector(".nav-bar").style.backgroundColor = lightMode["navbarColor"];
-    document.querySelector(".github-icon").style.filter = "brightness(0)";
+    document.getElementById("nav-bar").style.backgroundColor = lightMode["navbarColor"];
+    document.getElementById("github-icon").style.filter = "brightness(0)";
     document.querySelector(".self-photo").style.opacity = 1;
     getTheme(lightMode);
   }
