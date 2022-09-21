@@ -114,3 +114,15 @@ const btnObserver = new IntersectionObserver(
 
 hiddenSections.forEach((sect) => sectObserver.observe(sect));
 btnObserver.observe(homePage);
+
+/* Removing internal anchor tags when changing sections */
+const internalLinks = document.querySelectorAll(".nav-link");
+
+internalLinks.forEach(link => {
+  const anchor = document.querySelector(link.hash);
+
+  link.addEventListener("click", (event) => {
+    anchor.scrollIntoView();
+    event.preventDefault();
+  })
+})
