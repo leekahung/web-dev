@@ -5,9 +5,27 @@
   height: 60px;
   width: 90px;
   background-color: white;
+  opacity: 1;
 
   .return-top {
     color: blue;
     font-size: 0.8rem;
   }
+}
+
+/* Animation styling */
+.slideIn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slideOut {
+  opacity: 0;
+  transform: translateY(10vh);
+}
+
+.slideIn, .slideOut {
+  transition:
+    opacity 1s,
+    transform 1s;
 }

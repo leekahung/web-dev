@@ -45,3 +45,31 @@ tabSlider.addEventListener("click", () => {
     mainBody.style.left = "350px";
   }
 });
+
+/* Creating observer for return-top link */
+const allSections = document.querySelectorAll("section");
+const introSect = document.getElementById("Introduction");
+const jsJavaSect = document.getElementById("JavaScript_and_Java");
+const toTopLink = document.querySelector(".return-ctnr");
+
+const sectObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        toTopLink.classList.remove("slideIn");
+        toTopLink.classList.add("slideOut");
+      } else {
+        toTopLink.classList.add("slideIn");
+        toTopLink.classList.remove("slideOut");
+      }
+    });
+  }
+);
+
+const mediaQuery = window.matchMedia("(max-width: 768px)")
+
+if (mediaQuery.matches) {
+  sectObserver.observe(introSect);
+} else {
+  sectObserver.observe(jsJavaSect);
+}
