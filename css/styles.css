@@ -39,8 +39,8 @@ section, div, footer {
   align-items: center;
 }
 
-section header {
-  font-size: 24px;
+section h1 {
+  font-size: 36px;
   padding: 50px;
 }
 
@@ -352,9 +352,27 @@ section header {
 footer {
   display: flex;
   flex-direction: column;
-  margin-top: 50px;
-  height: 15vh;
+  height: 30vh;
+  padding: 20px;
+  background-color: var(--color-sec);
   gap: 20px;
+}
+
+footer h1 {
+  font-size: 36px;
+}
+
+.contact-info a {
+  color: var(--color-font);
+  transition: var(--short-transition);
+}
+
+.contact-info p {
+  padding: 0 10px;
+}
+
+.contact-info p:not(:last-child) {
+  border-right: 1px solid var(--color-font);
 }
 
 .social-ctnr {
@@ -365,7 +383,6 @@ footer {
   display: unset;
   height: 40px;
   width: 40px;
-  transition: transform var(--short-transition);
 }
 
 .icon-pic {
@@ -383,6 +400,7 @@ footer {
 }
 
 #created-by {
+  color: var(--color-font);
   transition: var(--short-transition);
 }
 
@@ -443,7 +461,16 @@ footer {
   }
 
   footer {
-    margin-bottom: 100px;
+    padding: 40px 0 140px;
+  }
+
+  .contact-info {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .contact-info p:not(:last-child) {
+    border: none;
   }
 }
 
