@@ -50,21 +50,15 @@ function darkLightMode() {
 /* Function to deal with project card animation */
 const projCtnr = document.querySelector(".proj-ctnr");
 
-projCtnr.addEventListener("mouseover", (event) => {
-  if (["card-bottom", "proj-desc", "desc"].includes(event.target.classList[0])) {
-    event.target.closest(".proj-ctnr-links").style.boxShadow = "0 0 10px 5px var(--color-font-hover)";
-  } else if (event.target.classList.value === "repo-link") {
-    event.target.style.boxShadow = "0 0 10px 5px var(--color-font-hover)";
-  }
-})
-
-projCtnr.addEventListener("onmousedown", (event) => {
-  if (["card-bottom", "proj-desc", "desc"].includes(event.target.classList[0])) {
-    event.target.closest(".proj-ctnr-links").style.boxShadow = "0 0 10px 5px var(--color-font-hover)";
-  } else if (event.target.classList.value === "repo-link") {
-    event.target.style.boxShadow = "0 0 10px 5px var(--color-font-hover)";
-  }
-})
+["mouseover", "onmousedown"].forEach(eventType => {
+  projCtnr.addEventListener(eventType, (event) => {
+    if (["card-bottom", "proj-desc", "desc"].includes(event.target.classList[0])) {
+      event.target.closest(".proj-ctnr-links").style.boxShadow = "0 0 10px 5px var(--color-font-hover)";
+    } else if (event.target.classList.value === "repo-link") {
+      event.target.style.boxShadow = "0 0 10px 5px var(--color-font-hover)";
+    }
+  });
+});
 
 projCtnr.addEventListener("mouseout", (event) => {
   if (["card-bottom", "proj-desc", "desc"].includes(event.target.classList[0])) {
@@ -72,7 +66,7 @@ projCtnr.addEventListener("mouseout", (event) => {
   } else if (event.target.classList.value === "repo-link") {
     event.target.style.boxShadow = "unset";
   }
-})
+});
 
 /* Function to deal with scrolling animation */
 const hiddenSections = document.querySelectorAll("section");
@@ -115,14 +109,15 @@ const btnObserver = new IntersectionObserver(
 hiddenSections.forEach((sect) => sectObserver.observe(sect));
 btnObserver.observe(homePage);
 
-/* Removing internal anchor tags when changing sections */
+/* Removing internal anchor tags when changing sections or using to Top button */
 const internalLinks = document.querySelectorAll(".nav-link");
+const topBtnLink = document.getElementById("top-btn-link");
 
-internalLinks.forEach(link => {
+[...internalLinks, topBtnLink].forEach((link) => {
   const anchor = document.querySelector(link.hash);
 
   link.addEventListener("click", (event) => {
     anchor.scrollIntoView();
     event.preventDefault();
-  })
-})
+  });
+});
