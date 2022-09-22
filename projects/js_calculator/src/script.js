@@ -65,51 +65,51 @@ const checkOperations = (index, inpType) => {
   } else {
     inp = index;
   }
-  if (numInput.innerHTML === "0") {
+  if (numInput.innerText === "0") {
     switch (true) {
       case ([...symbols].includes(inp)):
-        numInput.innerHTML += inp;
+        numInput.innerText += inp;
         break;
       case ([...calcFuncs].includes(inp)):
         initializeNums();
         break;
       case ([...absFunc].includes(inp)):
-        numInput.innerHTML = "abs(";
+        numInput.innerText = "abs(";
         break;
       default:
-        numInput.innerHTML = inp;
+        numInput.innerText = inp;
         break;
     }
   } else {
-    if ([...symbols].includes(numInput.innerHTML.slice(-1))) {
+    if ([...symbols].includes(numInput.innerText.slice(-1))) {
       switch (inp) {
         case "CE":
           initializeNums();
           break;
         case "Del":
-          delFunc(numInput.innerHTML);
+          delFunc(numInput.innerText);
           break;
         case "=":
           if (inp === ")") {
-            displayOutput(numInput.innerHTML);
+            displayOutput(numInput.innerText);
             break;
           } else {
             break;
           }
         case "|a|":
-          numInput.innerHTML += "abs(";
+          numInput.innerText += "abs(";
           break;
         default:
           if ([...symbols].includes(inp)) {
-            if ((numInput.innerHTML.search(/a/g) !== -1) && (numInput.innerHTML.slice(-1) === ")")) {
-              numInput.innerHTML += inp;
+            if ((numInput.innerText.search(/a/g) !== -1) && (numInput.innerText.slice(-1) === ")")) {
+              numInput.innerText += inp;
               break;
             } else {
-              numInput.innerHTML = numInput.innerHTML.slice(0, numInput.innerHTML.length - 1) + inp;
+              numInput.innerText = numInput.innerText.slice(0, numInput.innerText.length - 1) + inp;
               break;
             }
           } else {
-            numInput.innerHTML += inp;
+            numInput.innerText += inp;
             break;
           }
       }
@@ -119,19 +119,19 @@ const checkOperations = (index, inpType) => {
           initializeNums();
           break;
         case "Del":
-          delFunc(numInput.innerHTML);
+          delFunc(numInput.innerText);
           break;
         case "=":
-          displayOutput(numInput.innerHTML);
+          displayOutput(numInput.innerText);
           break;
         case "|a|":
-          numInput.innerHTML += "abs(";
+          numInput.innerText += "abs(";
           break;
         case "ans":
-          numInput.innerHTML = numOutput.innerHTML;
+          numInput.innerText = numOutput.innerText;
           break;
         default:
-          numInput.innerHTML += inp;
+          numInput.innerText += inp;
           break;
       }
     }
@@ -152,23 +152,23 @@ const displayOutput = (displayedInp) => {
 
   const result = Math.round(10 ** 14 * Function("return " + displayedInp)()) / (10 ** 14);
   if (result > 10 ** 14) {
-    numOutput.innerHTML = (result).toExponential(7);
+    numOutput.innerText = (result).toExponential(7);
   } else {
-    numOutput.innerHTML = result;
+    numOutput.innerText = result;
   }
 };
 
 const delFunc = (displayedInp) => {
   if (displayedInp.length === 1) {
-    numInput.innerHTML = "0";
+    numInput.innerText = "0";
   } else {
-    numInput.innerHTML = displayedInp.slice(0, displayedInp.length - 1);
+    numInput.innerText = displayedInp.slice(0, displayedInp.length - 1);
   }
 };
 
 const initializeNums = () => {
-  numInput.innerHTML = "0";
-  numOutput.innerHTML = "0";
+  numInput.innerText = "0";
+  numOutput.innerText = "0";
 };
 
 makeGrid(5, 5);
@@ -229,11 +229,11 @@ document.addEventListener("keydown", (event) => {
 const moveCalcBtn = document.getElementById("move-calc-btn");
 
 moveCalcBtn.addEventListener("click", () => {
-  if (moveCalcBtn.innerHTML === "Move Calculator Left") {
-    moveCalcBtn.innerHTML = "Move Calculator Right";
+  if (moveCalcBtn.innerText === "Move Calculator Left") {
+    moveCalcBtn.innerText = "Move Calculator Right";
     document.body.style.flexDirection = "row";
   } else {
-    moveCalcBtn.innerHTML = "Move Calculator Left";
+    moveCalcBtn.innerText = "Move Calculator Left";
     document.body.style.flexDirection = "row-reverse";
   }
 });

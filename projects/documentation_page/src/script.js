@@ -13,7 +13,7 @@ const createNavGroup = (inp) => {
     const elem = document.createElement("a");
     navGroup.appendChild(elem).className = "nav-link";
     navGroup.appendChild(elem).href = `#${inp[i].replace(/\s/g, "_")}`;
-    navGroup.appendChild(elem).innerHTML = inp[i];
+    navGroup.appendChild(elem).innerText = inp[i];
   }
 };
 
@@ -23,24 +23,24 @@ createNavGroup(navLinks);
 const tabSlider = document.getElementById("slider-tab");
 const navContainer = document.querySelector(".nav-container");
 const mainBody = document.getElementById("main-doc");
-const tabArrowSym = { left: "&#9664", right: "&#9654" };
+const tabArrowSym = { left: "\u25C0", right: "\u25B6" };
 
 const tabArrow = document.createElement("div");
 let arrowFacing = "left";
 
-tabSlider.appendChild(tabArrow).innerHTML = tabArrowSym[arrowFacing];
+tabSlider.appendChild(tabArrow).innerText = tabArrowSym[arrowFacing];
 tabSlider.appendChild(tabArrow).id = "tab-arrow";
 
 tabSlider.addEventListener("click", () => {
   const tabArrowContent = document.getElementById("tab-arrow");
   if (arrowFacing == "left") {
     arrowFacing = "right";
-    tabArrowContent.innerHTML = tabArrowSym[arrowFacing];
+    tabArrowContent.innerText = tabArrowSym[arrowFacing];
     navContainer.style.left = "calc(-350px * 0.95)";
     mainBody.style.left = "20px";
   } else if (arrowFacing == "right") {
     arrowFacing = "left";
-    tabArrowContent.innerHTML = tabArrowSym[arrowFacing];
+    tabArrowContent.innerText = tabArrowSym[arrowFacing];
     navContainer.style.left = "0";
     mainBody.style.left = "350px";
   }

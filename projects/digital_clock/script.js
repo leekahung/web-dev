@@ -10,11 +10,11 @@ function runClock() {
     let localTZ = date.match(/\([a-zA-Z\s]+/g)[0].slice(1);
     let time = date.match(/\d{2}:\d{2}:\d{2}/g)[0];
 
-    localTimeZone.innerHTML = localTZ;
+    localTimeZone.innerText = localTZ;
 
     if (twelveOrMil.checked) {
-      localTime.innerHTML = time;
-      amPM.innerHTML = "";
+      localTime.innerText = time;
+      amPM.innerText = "";
       document.documentElement.style.setProperty("--time-styling", "auto");
       document.documentElement.style.setProperty("--clock-size", "65vw");
     } else {
@@ -23,20 +23,20 @@ function runClock() {
       let hours = time.slice(0, 2);
 
       if (hours < 12 || hours == 24) {
-        amPM.innerHTML = "AM";
+        amPM.innerText = "AM";
         if (hours == 24) {
-          localTime.innerHTML = "00" + time.slice(2);
+          localTime.innerText = "00" + time.slice(2);
         } else {
-          localTime.innerHTML = time;
+          localTime.innerText = time;
         }
       } else {
-        amPM.innerHTML = "PM";
+        amPM.innerText = "PM";
         if (hours == 12) {
-          localTime.innerHTML = time;
+          localTime.innerText = time;
         } else if (hours < 22) {
-          localTime.innerHTML = "0" + String(hours - 12) + time.slice(2);
+          localTime.innerText = "0" + String(hours - 12) + time.slice(2);
         } else {
-          localTime.innerHTML = String(hours - 12) + time.slice(2);
+          localTime.innerText = String(hours - 12) + time.slice(2);
         }
       }
     }
@@ -49,9 +49,9 @@ function runClock() {
   document.getElementById("power-btn").addEventListener("click", () => {
     if (state === "on") {
       clearInterval(myInterval);
-      localTime.innerHTML = "";
-      amPM.innerHTML = "";
-      localTimeZone.innerHTML = "";
+      localTime.innerText = "";
+      amPM.innerText = "";
+      localTimeZone.innerText = "";
       state = "off";
     } else {
       myInterval = setInterval(getTime, 1000);
