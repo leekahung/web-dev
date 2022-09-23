@@ -19,7 +19,6 @@
   scroll-behavior: smooth;
   font-family: "Open Sans", sans-serif;
   -webkit-tap-highlight-color: transparent; /* Non-standard property: Safari and Firefox calls property as invalid in inspect mode */
-  transition: var(--super-short-transition);
 }
 
 html {
@@ -64,6 +63,12 @@ h1 {
 
 section h1 {
   padding: 50px;
+}
+
+h1,
+p,
+a {
+  transition: color var(--super-short-transition);
 }
 
 .toggler,
@@ -114,7 +119,6 @@ section h1 {
 #nav-group,
 .nav-link,
 .toggler-ctnr {
-  transition: var(--super-short-transition);
   height: 60px;
 }
 
@@ -266,6 +270,7 @@ section h1 {
 .proj-ctnr-links {
   position: relative;
   overflow: hidden;
+  transition: var(--short-transition);
 }
 
 .repo-link {
@@ -506,7 +511,6 @@ footer {
   #home p {
     width: 340px;
     font-size: 3.2rem;
-    transition: var(--short-transition);
   }
 
   @keyframes typing {
