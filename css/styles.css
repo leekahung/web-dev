@@ -11,6 +11,8 @@
   --color-font: rgb(240, 240, 240);
   --color-font-hover: rgb(160, 240, 240);
   --color-toggler-hover: rgba(240, 240, 240, 0.4);
+  --proj-card-box-shadow: 0 0 10px 5px var(--color-font-hover);
+  --focus-visible-shadow: 0 0 5px 1px var(--color-font-hover);
 }
 
 * {
@@ -18,6 +20,7 @@
   margin: 0;
   scroll-behavior: smooth;
   font-family: "Open Sans", sans-serif;
+  outline: none;
   -webkit-tap-highlight-color: transparent; /* Non-standard property: Safari and Firefox calls property as invalid in inspect mode */
 }
 
@@ -144,11 +147,14 @@ a {
   font-weight: 800;
 }
 
-.nav-link:hover {
+.nav-link:hover,
+.nav-link:focus-visible {
   color: var(--color-font-hover);
+  box-shadow: var(--focus-visible-shadow);
 }
 
-.nav-link, .toggler-ctnr {
+.nav-link,
+.toggler-ctnr {
   padding: 0 20px;
 }
 
@@ -258,7 +264,8 @@ a {
   margin-bottom: 50px;
 }
 
-.repo-link, .proj-card {
+.repo-link,
+.proj-card {
   text-decoration: none;
 }
 
@@ -279,7 +286,7 @@ a {
   color: white;
   background-color: grey;
   padding: 5px 10px;
-  visibility: hidden;
+  opacity: 0;
 }
 
 .proj-card {
@@ -327,8 +334,8 @@ a {
   aspect-ratio: 1 / 1;
   object-fit: cover;
 }
- 
- /* Project Card Hover Animations */
+
+/* Project Card Hover Animations */
 .proj-ctnr-links:hover {
   opacity: 0.8;
   transform: scale(1.1);
@@ -346,12 +353,38 @@ a {
 }
 
 .proj-ctnr-links:hover .repo-link {
-  visibility: visible;
+  opacity: 1;
 }
 
 .repo-link:hover {
   transform: scale(1.1);
   transition: var(--super-short-transition);
+}
+
+.focus-hover {
+  opacity: 0.8;
+  transform: scale(1.1);
+  transform-origin: center;
+  box-shadow: var(--proj-card-box-shadow);
+}
+
+.focus-hover img {
+  filter: blur(10px);
+  transform: scale(1.05);
+  transition: var(--super-short-transition); 
+}
+
+.focus-hover div {
+  opacity: 1;
+}
+
+.focus-hover .repo-link {
+  opacity: 1;
+}
+
+.repo-hover {
+  transform: scale(1.1);
+  transition: var(--super-short-transition); 
 }
 
 .dark-back {
@@ -363,7 +396,7 @@ footer {
   height: 30vh;
   padding: 20px;
   background-color: var(--color-sec);
-  gap: 20px;
+  gap: 25px;
 }
 
 .contact-info a {
@@ -379,13 +412,20 @@ footer {
 }
 
 .social-ctnr {
-  gap: 20px;
+  gap: 30px;
 }
 
 .icon {
   display: unset;
   height: 40px;
   width: 40px;
+}
+
+.icon a:focus-visible,
+.icon a:hover {
+  box-shadow:
+    6px 2px 6px 2px var(--color-font-hover),
+    -6px 2px 6px 2px var(--color-font-hover);
 }
 
 .icon-pic {
@@ -401,8 +441,16 @@ footer {
   transform: scale(1.1);
 }
 
+#email,
 #created-by {
   color: var(--color-font);
+}
+
+#email:focus-visible,
+#email:hover,
+#created-by:focus-visible,
+#created-by:hover {
+  box-shadow: var(--focus-visible-shadow);
 }
 
 @keyframes shake-n-grow {
@@ -429,8 +477,9 @@ footer {
   background-color: rgb(240, 240, 240);
 }
 
-.top-btn:hover {
-  box-shadow: 0 0 5px 1px var(--color-toggler-hover);
+.top-btn:hover,
+.top-btn:focus-visible {
+  box-shadow: var(--focus-visible-shadow);
 }
 
 .top-btn .icon {
