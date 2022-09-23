@@ -236,7 +236,7 @@ section h1 {
 }
 
 #about-me {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   width: max(60%, 340px);
   line-height: 3rem;
 }
@@ -453,6 +453,7 @@ footer {
   }
 
   #about-me {
+    font-size: 1.6rem;
     line-height: 1.8em;
   }
 
@@ -480,6 +481,11 @@ footer {
   #nav-group {
     gap: 10px;
   }
+
+  .proj-card {
+    height: 325px;
+    width: 225px;
+  }
 }
 
 @media (max-width: 550px) {
@@ -493,11 +499,6 @@ footer {
 
   .toggler-ctnr {
     margin-right: 40px;
-  }
-
-  .proj-card {
-    height: 325px;
-    width: 225px;
   }
 }
 
