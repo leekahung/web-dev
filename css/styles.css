@@ -18,14 +18,13 @@
 * {
   padding: 0;
   margin: 0;
-  scroll-behavior: smooth;
-  font-family: "Open Sans", sans-serif;
-  outline: none;
-  -webkit-tap-highlight-color: transparent; /* Non-standard property: Safari and Firefox calls property as invalid in inspect mode */
 }
 
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
+  font-family: "Open Sans", sans-serif;
+  -webkit-tap-highlight-color: transparent; /* Non-standard property: Safari and Firefox calls property as invalid in inspect mode */
 }
 
 body {
@@ -72,6 +71,10 @@ h1,
 p,
 a {
   transition: color var(--super-short-transition);
+}
+
+a {
+  outline: none;
 }
 
 .toggler,
@@ -325,10 +328,7 @@ a {
   z-index: 5;
  }
 
-#documentation-project,
-#digital-clock,
-#js-calculator,
-#weather-app {
+.proj-img {
   position: relative;
   height: 100%;
   aspect-ratio: 1 / 1;

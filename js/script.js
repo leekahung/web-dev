@@ -48,53 +48,70 @@ function darkLightMode() {
 }
 
 /* Function to deal with project card animation */
-const projCtnr = document.querySelector(".proj-ctnr");
+const handleHover = (event) => {
+  const source = event.target;
 
-["mouseover", "onmousedown"].forEach((eventType) => {
-  projCtnr.addEventListener(eventType, (event) => {
-    if (["card-bottom", "proj-desc", "desc"].includes(event.target.classList[0])) {
-      event.target.closest(".proj-ctnr-links").style.boxShadow = "var(--proj-card-box-shadow)";
-    } else if (event.target.classList.value === "repo-link") {
-      event.target.style.boxShadow = "var(--proj-card-box-shadow)";
-    }
-  });
-});
-
-projCtnr.addEventListener("mouseout", (event) => {
-  if (["card-bottom", "proj-desc", "desc"].includes(event.target.classList[0])) {
-    event.target.closest(".proj-ctnr-links").style.boxShadow = "unset";
-  } else if (event.target.classList.value === "repo-link") {
-    event.target.style.boxShadow = "unset";
+  if (source.classList.value === "proj-ctnr") {
+    return;
   }
-});
 
-const projCard = document.querySelectorAll(".proj-card");
+  const localCtnrLink = source.closest(".proj-ctnr-links");
+  const localRepoLink = localCtnrLink.children[1]; 
 
-projCard.forEach((card) =>
-  card.addEventListener("focusin", (event) => {
-    const parent = event.target.parentElement;
+  if (event.type !== "mouseout") {
+    if (localCtnrLink !== null && localCtnrLink.classList.length > 1) {
+      localCtnrLink.classList.remove("focus-hover");
+    }
+  
+    if (["card-bottom", "proj-desc", "desc"].includes(source.classList[0])) {
+      localCtnrLink.style.boxShadow = "var(--proj-card-box-shadow)";
+      localRepoLink.style.boxShadow = "unset";    
+    } else if (source.classList.value === "repo-link") {
+      source.style.boxShadow = "var(--proj-card-box-shadow)";
+    }
+  } else {
+    if (["card-bottom", "proj-desc", "desc"].includes(source.classList[0])) {
+      localCtnrLink.style.boxShadow = "unset";
+    } else if (source.classList.value === "repo-link") {
+      source.style.boxShadow = "unset";
+    }
+  }
+};
+
+const handleFocus = (event) => {
+  const parent = event.target.parentElement;
+  const localCtnrLink = parent.closest(".proj-ctnr-links");
+  const localRepoLink = localCtnrLink.children[1];
+
+  if (event.type === "focusin") {
     parent.classList.add("focus-hover");
     parent.style.boxShadow = "var(--proj-card-box-shadow)";
+   
+    localRepoLink.addEventListener("focusin", () => {
+      parent.classList.add("focus-hover");
+      localRepoLink.style.boxShadow = "var(--proj-card-box-shadow";
+    });
+    localRepoLink.addEventListener("focusout", () => {
+      parent.classList.remove("focus-hover");
+      localRepoLink.style.boxShadow = "unset";
+    })
+  } else {
+    parent.style.boxShadow = "unset";
+  }
+};
 
-    event.target.nextElementSibling.addEventListener("focusin",
-      (sibling) => {
-        parent.classList.add("focus-hover");
-        sibling.target.style.boxShadow = "var(--proj-card-box-shadow)";
-        sibling.target.style.outlineStyle = "none";
-      });
-    event.target.nextElementSibling.addEventListener("focusout",
-      (sibling) => {
-        parent.classList.remove("focus-hover");
-        sibling.target.style.boxShadow = "unset";
-      });
-  })
+const projCtnr = document.querySelector(".proj-ctnr");
+const projCard = document.querySelectorAll(".proj-card");
+
+["mouseover", "onmousedown", "mouseout"].forEach((eventType) =>
+  projCtnr.addEventListener(eventType, (event) => handleHover(event))
 );
 
-projCard.forEach((card) =>
-  card.addEventListener("focusout", (event) => {
-    event.target.parentElement.style.boxShadow = "unset";
-  })
-);
+projCard.forEach((card) => {
+  ["focusin", "focusout"].forEach((eventType) => {
+    card.addEventListener(eventType, (event) => handleFocus(event));
+  });
+});
 
 /* Function to deal with scrolling animation */
 const hiddenSections = document.querySelectorAll("section");
