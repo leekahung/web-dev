@@ -1,5 +1,6 @@
 /* Global */
 :root {
+  --hero-header-url: url(../images/clear_night.webp);
   --animation-border-color-start: transparent;
   --animation-border-color-end: rgb(240, 240, 240);
   --super-short-transition: 0.2s;
@@ -103,8 +104,8 @@ a:not(.icon a):focus-visible {
 .hidden,
 .show {
   transition: 
-    opacity 1s,
-    filter 1s;
+    opacity 2s,
+    filter 2s;
 }
 
 .slideIn {
@@ -122,6 +123,36 @@ a:not(.icon a):focus-visible {
   transition:
     opacity 1s,
     transform 1s;
+}
+
+/* Hero Header */
+#home:before {
+  animation: fadeIn 2s ease-in forwards;
+  background: var(--hero-header-url) no-repeat bottom;
+  background-size: cover;
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  transition: 4s;
+}
+
+#home:after {
+  background: linear-gradient(to bottom, transparent, var(--color-back));
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  transition: 4s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.5;
+  }
 }
 
 /* Nav Section */
@@ -225,19 +256,19 @@ a:not(.icon a):focus-visible {
 
 #home p {
   white-space: nowrap;
-  border-right: 2px solid var(--color-sec);
+  border-right: 2px solid transparent;
   width: 340px;
   top: 57%;
   font-size: 3.2rem;
   overflow: hidden;
   animation:
-    typing 2s steps(21) 1.5s 1 normal both,
-    blinking 800ms steps(21) infinite;
+    typing 2s steps(21, jump-end) 4.5s 1 normal both,
+    blinking 800ms steps(21) 3s infinite;
 }
 
 @keyframes typing {
-  from {width: 0%;}
-  to {width: 340px;}
+  from {width: 0;}
+  to {width: 340px; border-right: 2px solid var(--color-sec);}
 }
 
 @keyframes blinking {
@@ -427,6 +458,10 @@ footer {
   width: 40px;
 }
 
+#github-icon {
+  filter: brightness(100);
+}
+
 .icon a:focus-visible,
 .icon a:hover {
   box-shadow:
@@ -434,12 +469,15 @@ footer {
     -6px 2px 6px 2px var(--color-font-hover);
 }
 
-.icon-pic {
-  inset: 0;
+#github-icon a:focus-visible,
+#github-icon a:hover {
+  box-shadow:
+  6px 2px 6px 2px rgb(240, 240, 240),
+  -6px 2px 6px 2px rgb(240, 240, 240);
 }
 
-#github-icon {
-  filter: brightness(100);
+.icon-pic {
+  inset: 0;
 }
 
 .social-ctnr .icon:hover {

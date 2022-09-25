@@ -6,6 +6,7 @@ function darkLightMode() {
     navbarColor: "rgb(50, 55, 55)",
     fontColorHover: "rgb(160, 240, 240)",
     togglerColorHover: "rgba(240, 240, 240, 0.4)",
+    backgroundImg: "url(../images/clear_night.webp)",
   };
 
   const lightMode = {
@@ -14,6 +15,7 @@ function darkLightMode() {
     navbarColor: "rgb(200, 200, 200)",
     fontColorHover: "rgba(0, 127, 255)",
     togglerColorHover: "rgba(0, 0, 0, 0.4)",
+    backgroundImg: "url(../images/overcast.webp)",
   };
 
   const setColorScheme = [
@@ -23,6 +25,7 @@ function darkLightMode() {
     ["--color-font", "fontColor"],
     ["--color-font-hover", "fontColorHover"],
     ["--color-toggler-hover", "togglerColorHover"],
+    ["--hero-header-url", "backgroundImg"],
   ];
 
   const getTheme = (theme) => {
@@ -56,16 +59,16 @@ const handleHover = (event) => {
   }
 
   const localCtnrLink = source.closest(".proj-ctnr-links");
-  const localRepoLink = localCtnrLink.children[1]; 
+  const localRepoLink = localCtnrLink.children[1];
 
   if (event.type !== "mouseout") {
     if (localCtnrLink !== null && localCtnrLink.classList.length > 1) {
       localCtnrLink.classList.remove("focus-hover");
     }
-  
+
     if (["card-bottom", "proj-desc", "desc"].includes(source.classList[0])) {
       localCtnrLink.style.boxShadow = "var(--proj-card-box-shadow)";
-      localRepoLink.style.boxShadow = "unset";    
+      localRepoLink.style.boxShadow = "unset";
     } else if (source.classList.value === "repo-link") {
       source.style.boxShadow = "var(--proj-card-box-shadow)";
     }
@@ -86,7 +89,7 @@ const handleFocus = (event) => {
   if (event.type === "focusin") {
     parent.classList.add("focus-hover");
     parent.style.boxShadow = "var(--proj-card-box-shadow)";
-   
+
     localRepoLink.addEventListener("focusin", () => {
       parent.classList.add("focus-hover");
       localRepoLink.style.boxShadow = "var(--proj-card-box-shadow";
@@ -94,7 +97,7 @@ const handleFocus = (event) => {
     localRepoLink.addEventListener("focusout", () => {
       parent.classList.remove("focus-hover");
       localRepoLink.style.boxShadow = "unset";
-    })
+    });
   } else {
     parent.style.boxShadow = "unset";
   }

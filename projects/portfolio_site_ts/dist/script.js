@@ -6,6 +6,7 @@ function darkLightMode() {
         navbarColor: "rgb(50, 55, 55)",
         fontColorHover: "rgb(160, 240, 240)",
         togglerColorHover: "rgba(240, 240, 240, 0.4)",
+        backgroundImg: "url(../images/clear_night.webp)",
     };
     const lightMode = {
         backgroundColor: "rgba(240, 240, 240)",
@@ -13,6 +14,7 @@ function darkLightMode() {
         navbarColor: "rgb(200, 200, 200)",
         fontColorHover: "rgba(0, 127, 255)",
         togglerColorHover: "rgba(0, 0, 0, 0.4)",
+        backgroundImg: "url(../images/overcast.webp)",
     };
     const setColorScheme = [
         ["--animation-border-color-end", "fontColor"],
@@ -21,6 +23,7 @@ function darkLightMode() {
         ["--color-font", "fontColor"],
         ["--color-font-hover", "fontColorHover"],
         ["--color-toggler-hover", "togglerColorHover"],
+        ["--hero-header-url", "backgroundImg"],
     ];
     const getTheme = (theme) => {
         for (let i = 0; i < setColorScheme.length; i++) {

@@ -6,6 +6,7 @@ function darkLightMode() {
     navbarColor: "rgb(50, 55, 55)",
     fontColorHover: "rgb(160, 240, 240)",
     togglerColorHover: "rgba(240, 240, 240, 0.4)",
+    backgroundImg: "url(../images/clear_night.webp)",
   };
 
   const lightMode = {
@@ -14,6 +15,7 @@ function darkLightMode() {
     navbarColor: "rgb(200, 200, 200)",
     fontColorHover: "rgba(0, 127, 255)",
     togglerColorHover: "rgba(0, 0, 0, 0.4)",
+    backgroundImg: "url(../images/overcast.webp)",
   };
 
   const setColorScheme = [
@@ -23,15 +25,17 @@ function darkLightMode() {
     ["--color-font", "fontColor"],
     ["--color-font-hover", "fontColorHover"],
     ["--color-toggler-hover", "togglerColorHover"],
+    ["--hero-header-url", "backgroundImg"],
   ];
 
   type Theme = {
-    backgroundColor: string,
-    fontColor: string,
-    navbarColor: string,
-    fontColorHover: string,
-    togglerColorHover: string,
-  }
+    backgroundColor: string;
+    fontColor: string;
+    navbarColor: string;
+    fontColorHover: string;
+    togglerColorHover: string;
+    backgroundImg: string;
+  };
 
   const getTheme = (theme: Theme) => {
     for (let i = 0; i < setColorScheme.length; i++) {
@@ -77,7 +81,7 @@ const handleHover = (event: Event) => {
     if (localCtnrLink !== null && localCtnrLink.classList.length > 1) {
       localCtnrLink.classList.remove("focus-hover");
     }
-  
+
     if (["card-bottom", "proj-desc", "desc"].includes(source.classList[0])) {
       localCtnrLink.style.boxShadow = "var(--proj-card-box-shadow)";
       localRepoLink.style.boxShadow = "unset";
@@ -102,7 +106,7 @@ const handleFocus = (event: Event) => {
   if (event.type === "focusin") {
     parent.classList.add("focus-hover");
     parent.style.boxShadow = "var(--proj-card-box-shadow)";
-   
+
     localRepoLink.addEventListener("focusin", () => {
       parent.classList.add("focus-hover");
       localRepoLink.style.boxShadow = "var(--proj-card-box-shadow";
@@ -110,7 +114,7 @@ const handleFocus = (event: Event) => {
     localRepoLink.addEventListener("focusout", () => {
       parent.classList.remove("focus-hover");
       localRepoLink.style.boxShadow = "unset";
-    })
+    });
   } else {
     parent.style.boxShadow = "unset";
   }
@@ -121,7 +125,7 @@ const projCard = document.querySelectorAll<HTMLElement>(".proj-card");
 
 ["mouseover", "onmousedown", "mouseout"].forEach((eventType) => {
   if (projCtnr) {
-    projCtnr.addEventListener(eventType, (event) => handleHover(event))
+    projCtnr.addEventListener(eventType, (event) => handleHover(event));
   }
 });
 
