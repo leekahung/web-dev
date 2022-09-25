@@ -34,16 +34,16 @@ function darkLightMode() {
     }
   };
 
-  if (document.getElementById("toggle").checked == false) {
-    document.getElementById("nav-bar").style.backgroundColor = darkMode["navbarColor"];
-    document.getElementById("github-icon").style.filter = "brightness(100)";
-    document.querySelector(".self-photo").style.opacity = 0.7;
-    getTheme(darkMode);
-  } else {
+  if (document.getElementById("toggle").checked) {
     document.getElementById("nav-bar").style.backgroundColor = lightMode["navbarColor"];
     document.getElementById("github-icon").style.filter = "brightness(0)";
     document.querySelector(".self-photo").style.opacity = 1;
     getTheme(lightMode);
+  } else {
+    document.getElementById("nav-bar").style.backgroundColor = darkMode["navbarColor"];
+    document.getElementById("github-icon").style.filter = "brightness(100%)";
+    document.querySelector(".self-photo").style.opacity = 0.7;
+    getTheme(darkMode);
   }
 }
 
@@ -128,8 +128,7 @@ const sectObserver = new IntersectionObserver(
     });
   },
   {
-    root: document.body.main,
-    threshold: "0.35",
+    threshold: 0.35,
   }
 );
 
@@ -146,8 +145,7 @@ const btnObserver = new IntersectionObserver(
     });
   },
   {
-    root: document.body.main,
-    threshold: "0.8",
+    threshold: 0.8,
   }
 );
 
