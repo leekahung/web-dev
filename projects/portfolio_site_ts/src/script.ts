@@ -146,7 +146,7 @@ const sectObserver = new IntersectionObserver(
     });
   },
   {
-    threshold: 0.35,
+    threshold: 0.2,
   }
 );
 
@@ -163,7 +163,7 @@ const btnObserver = new IntersectionObserver(
     });
   },
   {
-    threshold: 0.8,
+    threshold: 0.2,
   }
 );
 

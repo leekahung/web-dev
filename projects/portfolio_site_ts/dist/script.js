@@ -118,7 +118,7 @@ const sectObserver = new IntersectionObserver((entries, observer) => {
         }
     });
 }, {
-    threshold: 0.35,
+    threshold: 0.2,
 });
 const btnObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -132,7 +132,7 @@ const btnObserver = new IntersectionObserver((entries) => {
         }
     });
 }, {
-    threshold: 0.8,
+    threshold: 0.2,
 });
 hiddenSections.forEach((sect) => sectObserver.observe(sect));
 btnObserver.observe(homePage);
