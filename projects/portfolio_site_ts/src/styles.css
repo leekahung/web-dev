@@ -77,7 +77,7 @@ a {
   outline: none;
 }
 
-a:focus-visible {
+a:not(.icon a):focus-visible {
   box-shadow: var(--focus-visible-shadow);
 }
 
@@ -255,6 +255,10 @@ a:focus-visible {
   font-size: 1.8rem;
   width: max(60%, 340px);
   line-height: 3rem;
+}
+
+#about-me a {
+  color: var(--color-font);
 }
 
 .self-photo {
