@@ -4,3 +4,4 @@ images_orig/
 # Project directories
 projects/*/node_modules
 projects/*/.parcel-cache
+projects/*/src/images

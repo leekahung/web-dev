@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Ka Hung's Developer Portfolio</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Ka Hung's Web Developer Portfolio" />
+    <link rel="stylesheet" href="./dist/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet"></noscript>
+  </head>
+  <body>
+    <header>
+      <nav id="nav-bar">
+        <div class="nav-ctnr">
+          <ul id="nav-group">
+            <li><a href="#home" class="nav-link">Home</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#projects" class="nav-link">Projects</a></li>
+          </ul>
+        </div>
+        <div class="nav-ctnr">
+          <div class="toggler-ctnr">
+            <label class="toggler">
+              <input type="checkbox" id="toggle" onclick="darkLightMode()">
+              <div class="slider"></div>
+            </label>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section id="home" class="hidden">
+        <h1>Hi, my name is Ka Hung!</h1>
+        <p>I am a web developer!</p>
+      </section>
+      <section id="about" class="hidden">
+        <h1>About Me</h1>
+        <div id="about-ctnr">
+          <img class="self-photo" src="../images/self_photo.webp" alt="picture of Ka Hung">
+          <p id="about-me">
+            Originally a self-taught programmer based in Portland, Oregon, I'm currently working with HTML, CSS, and JavaScript to develop fully interactive websites/web apps that would work for both mobile and desktop browers on my journey to become a full fledged front-end developer!
+            <br>
+            <br>
+            Check out some of my creative projects below either on your mobile browser or on your desktop!
+          </p>
+        </div>
+      </section>
+      <section id="projects" class="hidden">
+        <header>
+          <h1>Projects</h1>
+        </header>
+        <div class="proj-ctnr">
+          <div class="proj-ctnr-links">
+            <a class="proj-card" href="../documentation_page/dist/index.html" target="_blank">
+              <div class="card-top">
+                <img class="proj-img" src="../images/mock_documentation_page.webp" alt="preview image of documentation page">
+                <div class="proj-desc">
+                  <p class="desc">A mock documentation page for basic JavaScript.</p>
+                </div>
+              </div>
+              <div class="card-bottom">
+                Mock Documentation
+              </div>
+            </a>
+            <a class="repo-link" href="https://github.com/leekahung/web-dev/tree/main/projects/documentation_page" target="_blank">View Source Code</a>
+          </div>
+          <div class="proj-ctnr-links">
+            <a class="proj-card" href="../digital_clock/index.html" target="_blank">
+              <div class="card-top dark-back">
+                <img class="proj-img" src="../images/digital_clock.webp" alt="preview image of digtial clock">
+                <div class="proj-desc dark-back">
+                  <p class="desc">An online clock that keeps track of local time in 12hr or 24hr format.</p>
+                </div>
+              </div>
+              <div class="card-bottom">
+                Digital Clock
+              </div>
+            </a>
+            <a class="repo-link" href="https://github.com/leekahung/web-dev/tree/main/projects/digital_clock" target="_blank">View Source Code</a>
+          </div>
+          <div class="proj-ctnr-links">
+            <a class="proj-card" href="../js_calculator/dist/index.html" target="_blank">
+              <div class="card-top">
+                <img class="proj-img" src="../images/js_calculator.webp" alt="preview image of js calculator">
+                <div class="proj-desc">
+                  <p class="desc">A functional online calculator that could take both mouse and keyboard commands.</p>
+                </div>
+              </div>
+              <div class="card-bottom">
+                JavaScript Calculator
+              </div>
+            </a>
+            <a class="repo-link" href="https://github.com/leekahung/web-dev/tree/main/projects/js_calculator" target="_blank">View Source Code</a>
+          </div>
+          <div class="proj-ctnr-links">
+            <a class="proj-card" href="https://khl-weather-app.netlify.app" target="_blank">
+              <div class="card-top">
+                <img class="proj-img" src="../images/weather_app.webp" alt="preview image of weather app">
+                <div class="proj-desc">
+                  <p class="desc">A weather app that utilizes OpenWeatherMap API to run and Netlify serverless functions to fetch weather data.</p>
+                </div>
+              </div>
+              <div class="card-bottom">
+                Weather App
+              </div>
+            </a>
+            <a class="repo-link" href="https://github.com/leekahung/weather-app-netlify" target="_blank">View Source Code</a>
+          </div>
+        </div>
+        <div class="proj-ctnr-links">
+          <a class="proj-card" href="https://khl-weather-app.netlify.app" target="_blank">
+            <div class="card-top">
+              <img class="proj-img" src="../images/weather_app.webp" alt="preview image of weather app">
+              <div class="proj-desc">
+                <p class="desc">My main portfolio site, except it's using TypeScript instead of vanilla JavaScript.</p>
+              </div>
+            </div>
+            <div class="card-bottom">
+              Web Portfolio with TS
+            </div>
+          </a>
+          <a class="repo-link" href="https://github.com/leekahung/weather-app-netlify" target="_blank">View Source Code</a>
+        </div>
+      </div>
+      </section>
+    </main>
+    <footer>
+      <h1>Contacts</h1>
+      <div class="contact-info">
+        <p>Email: <a id="email" href="mailto:lee.kahung414@gmail.com">lee.kahung414@gmail.com</a></p>
+        <p>Phone: (503)-914-7790</p>
+        <p>Location: Portland, OR, USA</p>
+      </div>
+      <div class="social-ctnr">
+        <div class="icon" id="github-icon">
+          <a href="https://github.com/leekahung" target="_blank">
+            <img class="icon-pic" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="github icon">
+          </a>
+        </div>
+        <div class="icon">
+          <a href="https://www.linkedin.com/in/ka-hung-lee-090634a7/" target="_blank">
+            <img class="icon-pic" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="linkedin icon">
+          </a>
+        </div>
+      </div>
+      <a id="created-by" href="https://github.com/leekahung/web-dev">&#169; 2022 Ka Hung Lee</a>
+    </footer>
+    <div id="top-btn-ctnr" class="slideOut">
+      <a id="top-btn-link" href="#home">
+        <div class="top-btn">
+          <img class="icon" src="./dist/images/back_to_top_icon.webp" alt="swipe up icon">
+        </div>
+      </a>
+      <p>Back to Top</p>
+    </div>
+    <script src="./dist/script.js"></script>
+  </body>
+</html>
