@@ -262,7 +262,7 @@ a:not(.icon a):focus-visible {
 }
 
 .self-photo {
-  width: max(20vw, 180px);
+  width: max(20vw, 250px);
   aspect-ratio: 3 / 4;
   z-index: -1;
   opacity: 0.7;
@@ -491,6 +491,16 @@ footer {
 }
 
 /* Responsive */
+@media (max-width: 1200px) {
+  #about-ctnr {
+    flex-direction: column;
+  }
+
+  #about-me {
+    width: 90vw;
+  }
+}
+
 @media (max-width: 768px) {
   #nav-group {
     gap: 40px;
@@ -505,10 +515,6 @@ footer {
     transform-origin: center;
   }
 
-  .self-photo {
-    display: none;
-  }
-
   #about-me {
     font-size: 1.6rem;
     line-height: 1.8em;
@@ -516,6 +522,7 @@ footer {
 
   footer {
     padding: 40px 0 140px;
+    height: 35vh;
   }
 
   .contact-info {
@@ -610,6 +617,10 @@ footer {
     margin-left: 10px;
   }
 
+  .nav-link {
+    font-size: 1.4rem;
+  }
+
   .toggler-ctnr {
     margin-right: 10px;
   }  
@@ -631,10 +642,6 @@ footer {
   #about-me {
     font-size: 1.6rem;
     width: 90%;
-  }
-
-  .nav-link {
-    font-size: 1.6rem;
   }
 
   #created-by {
