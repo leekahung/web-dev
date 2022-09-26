@@ -117,7 +117,18 @@ const sectObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
             entry.target.classList.add("show");
-            observer.unobserve(entry.target);
+            const targetFirstChild = entry.target.firstElementChild;
+            const targetLastChild = entry.target.lastElementChild;
+            if (targetFirstChild && targetLastChild) {
+                targetFirstChild.classList.add("slide-down-header");
+                if (targetLastChild.id !== "home-intro") {
+                    targetLastChild.classList.add("show-delay");
+                    observer.unobserve(entry.target);
+                }
+                else {
+                    observer.unobserve(entry.target);
+                }
+            }
         }
     });
 }, {

@@ -126,7 +126,13 @@ const sectObserver = new IntersectionObserver(
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add("show");
-        observer.unobserve(entry.target);
+        entry.target.firstElementChild.classList.add("slide-down-header");
+        if (entry.target.lastElementChild.id !== "home-intro") {
+          entry.target.lastElementChild.classList.add("show-delay");
+          observer.unobserve(entry.target);
+        } else {
+          observer.unobserve(entry.target);
+        }
       }
     });
   },
