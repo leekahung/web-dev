@@ -1,6 +1,15 @@
 /* Function to change theme color */
 function darkLightMode() {
-  const darkMode = {
+  type Theme = {
+    backgroundColor: string;
+    fontColor: string;
+    navbarColor: string;
+    fontColorHover: string;
+    togglerColorHover: string;
+    backgroundImg: string;
+  };
+  
+  const darkMode: Theme = {
     backgroundColor: "rgb(40, 45, 45)",
     fontColor: "rgb(240, 240, 240)",
     navbarColor: "rgb(50, 55, 55)",
@@ -9,7 +18,7 @@ function darkLightMode() {
     backgroundImg: "url(../images/clear_night.webp)",
   };
 
-  const lightMode = {
+  const lightMode: Theme = {
     backgroundColor: "rgba(240, 240, 240)",
     fontColor: "black",
     navbarColor: "rgb(200, 200, 200)",
@@ -28,15 +37,6 @@ function darkLightMode() {
     ["--hero-header-url", "backgroundImg"],
   ];
 
-  type Theme = {
-    backgroundColor: string;
-    fontColor: string;
-    navbarColor: string;
-    fontColorHover: string;
-    togglerColorHover: string;
-    backgroundImg: string;
-  };
-
   const getTheme = (theme: Theme) => {
     for (let i = 0; i < setColorScheme.length; i++) {
       document.documentElement.style.setProperty(
@@ -47,8 +47,8 @@ function darkLightMode() {
   };
 
   const toggle = document.getElementById("toggle") as HTMLInputElement;
-  const navbar = document.getElementById("nav-bar")!;
-  const githubIcon = document.getElementById("github-icon")!;
+  const navbar = document.getElementById("nav-bar");
+  const githubIcon = document.getElementById("github-icon");
   const selfPhoto = document.querySelector<HTMLElement>(".self-photo");
 
   if (toggle && navbar && githubIcon && selfPhoto) {

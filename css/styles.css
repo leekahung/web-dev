@@ -126,10 +126,8 @@ a:not(.icon a):focus-visible {
 }
 
 /* Hero Header */
-#home:before {
-  animation: fadeIn 2s ease-in forwards;
-  background: var(--hero-header-url) no-repeat bottom;
-  background-size: cover;
+#home:before,
+#home:after {
   content: "";
   position: absolute;
   inset: 0;
@@ -137,13 +135,14 @@ a:not(.icon a):focus-visible {
   transition: 4s;
 }
 
+#home:before {
+  animation: fadeIn 2s ease-in forwards;
+  background: var(--hero-header-url) no-repeat bottom;
+  background-size: cover;
+}
+
 #home:after {
   background: linear-gradient(to bottom, transparent, var(--color-back));
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  transition: 4s;
 }
 
 @keyframes fadeIn {
@@ -151,7 +150,7 @@ a:not(.icon a):focus-visible {
     opacity: 0;
   }
   100% {
-    opacity: 0.5;
+    opacity: 0.7;
   }
 }
 
@@ -176,6 +175,7 @@ a:not(.icon a):focus-visible {
 #nav-group {
   list-style: none;
   gap: 60px;
+  transition: var(--short-transition);
 }
 
 .nav-link {
@@ -313,6 +313,7 @@ a:not(.icon a):focus-visible {
 .proj-ctnr {
   gap: 50px;
   flex-wrap: wrap;
+  transition: var(--short-transition);
 }
 
 .proj-ctnr-links {
@@ -340,7 +341,6 @@ a:not(.icon a):focus-visible {
 }
 
 .card-top {
-  position: relative;
   height: 80%;
   width: 100%;
 }
@@ -355,6 +355,7 @@ a:not(.icon a):focus-visible {
 .desc {
   display: inline-block;
   width: 85%;
+  margin-bottom: 100px;
 }
 
 .card-bottom {
@@ -363,7 +364,7 @@ a:not(.icon a):focus-visible {
   background-color: grey;
   color: rgb(240, 240, 240);
   font-size: clamp(1.6rem, 2rem, 2.4rem);
-  z-index: 5;
+  z-index: 1;
  }
 
 .proj-img {
@@ -374,54 +375,31 @@ a:not(.icon a):focus-visible {
 }
 
 /* Project Card Hover Animations */
-.proj-ctnr-links:hover {
-  opacity: 0.8;
-  transform: scale(1.1);
-  transform-origin: center;
-}
-
-.proj-ctnr-links:hover img {
-  filter: blur(10px);
-  transform: scale(1.05);
-  transition: var(--super-short-transition);
-}
-
-.proj-ctnr-links:hover div {
-  opacity: 1;
-}
-
-.proj-ctnr-links:hover .repo-link {
-  opacity: 1;
-}
-
-.repo-link:hover {
-  transform: scale(1.1);
-  transition: var(--super-short-transition);
-}
-
+.proj-ctnr-links:hover,
 .focus-hover {
   opacity: 0.8;
   transform: scale(1.1);
   transform-origin: center;
 }
 
+.proj-ctnr-links:hover img,
 .focus-hover img {
   filter: blur(10px);
   transform: scale(1.05);
-  transition: var(--super-short-transition); 
+  transition: var(--super-short-transition);
 }
 
-.focus-hover div {
-  opacity: 1;
-}
-
+.proj-ctnr-links:hover div,
+.proj-ctnr-links:hover .repo-link,
+.focus-hover div,
 .focus-hover .repo-link {
   opacity: 1;
 }
 
+.repo-link:hover,
 .repo-hover {
   transform: scale(1.1);
-  transition: var(--super-short-transition); 
+  transition: var(--super-short-transition);
 }
 
 .dark-back {
@@ -575,18 +553,18 @@ footer {
 
 @media (max-width: 650px) {
   #nav-group {
-    gap: 20px;
+    gap: clamp(10px, 2vw, 20px);
   }
 }
 
 @media (max-width: 600px) {
-  #nav-group {
-    gap: 10px;
+  .proj-ctnr {
+    gap: 30px;
   }
 
   .proj-card {
-    height: 325px;
-    width: 225px;
+    height: 315px;
+    width: 215px;
   }
 }
 
