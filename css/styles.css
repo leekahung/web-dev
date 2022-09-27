@@ -311,23 +311,13 @@ a:not(.icon a):focus-visible {
 }
 
 @keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 340px;
-    border-right: 2px solid var(--color-sec);
-  }
+  from { width: 0; }
+  to { width: 340px; border-right: 2px solid var(--color-sec); }
 }
 
 @keyframes blinking {
-  from,
-  to {
-    border-color: var(--animation-border-color-start);
-  }
-  50% {
-    border-color: var(--animation-border-color-end);
-  }
+  from, to { border-color: var(--animation-border-color-start); }
+  50% { border-color: var(--animation-border-color-end); }
 }
 
 /* About Section */
@@ -581,8 +571,8 @@ footer {
   }
 
   @keyframes typing {
-    from {width: 0%;}
-    to {width: 260px;}
+    from { width: 0%; }
+    to { width: 260px; }
   }
 
   footer {
@@ -607,8 +597,8 @@ footer {
   }
 
   @keyframes typing {
-    from {width: 0%;}
-    to {width: 190px;}
+    from { width: 0%; }
+    to { width: 190px; }
   }
 
   .nav-link {
