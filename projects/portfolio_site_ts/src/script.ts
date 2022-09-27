@@ -75,7 +75,7 @@ const handleHover = (event: Event) => {
   }
 
   const localCtnrLink = source.closest(".proj-ctnr-links") as HTMLElement;
-  const localRepoLink = localCtnrLink.children[1] as HTMLElement;
+  let localRepoLink;
 
   if (event.type !== "mouseout") {
     if (localCtnrLink !== null && localCtnrLink.classList.length > 1) {
@@ -83,6 +83,7 @@ const handleHover = (event: Event) => {
     }
 
     if (["card-bottom", "proj-desc", "desc"].includes(source.classList[0])) {
+      localRepoLink = localCtnrLink.children[1] as HTMLElement;
       localCtnrLink.style.boxShadow = "var(--proj-card-box-shadow)";
       localRepoLink.style.boxShadow = "unset";
     } else if (source.classList.value === "repo-link") {

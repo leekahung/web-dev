@@ -1,4 +1,4 @@
-/* Global */
+/* Root Variables */
 :root {
   --hero-header-url: url(../images/clear_night.webp);
   --animation-border-color-start: transparent;
@@ -16,11 +16,13 @@
   --focus-visible-shadow: 0 0 5px 1px var(--color-font-hover);
 }
 
+/* Reset */
 * {
   padding: 0;
   margin: 0;
 }
 
+/* Global */
 html {
   font-size: 62.5%;
   scroll-behavior: smooth;
@@ -60,12 +62,17 @@ section:not(:first-child) {
   scroll-margin-top: 50px;
 }
 
-h1 {
-  font-size: 3.6rem;
-}
-
 section h1 {
   padding: 50px;
+}
+
+section,
+footer {
+  width: 100vw;
+}
+
+h1 {
+  font-size: 3.6rem;
 }
 
 h1,
@@ -88,6 +95,22 @@ a:not(.icon a):focus-visible {
 .repo-link,
 .self-photo {
   border-radius: 20px;
+}
+
+.slider,
+.proj-ctnr-links {
+  transition: var(--short-transition);
+}
+
+.toggler,
+.repo-link,
+.card-bottom {
+  background-color: grey;
+}
+
+.slider,
+.top-btn {
+  background-color: rgb(240, 240, 240);
 }
 
 /* Scrolling Animations */
@@ -137,13 +160,25 @@ a:not(.icon a):focus-visible {
 }
 
 @keyframes slide-down {
-  from {transform: translateY(-50px);}
-  to {opacity: 1; transform: none;}
+  from {
+    transform: translateY(-50px);
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
 }
 
 @keyframes delay-show {
-  from {transform: translateY(-50px); filter: blur(20px);}
-  to {opacity: 1; transform: none; filter: blur(0);}
+  from {
+    transform: translateY(-50px);
+    filter: blur(20px);
+  }
+  to {
+    transform: none;
+    filter: blue(0);
+    opacity: 1;
+  }
 }
 
 /* Hero Header Animations */
@@ -153,11 +188,11 @@ a:not(.icon a):focus-visible {
   position: absolute;
   inset: 0;
   z-index: -1;
-  transition: 4s;
+  transition: 3s;
 }
 
 #home:before {
-  animation: fadeIn 2s ease-in forwards;
+  animation: fadeIn 1s ease-in forwards;
   background: var(--hero-header-url) no-repeat bottom;
   background-size: cover;
 }
@@ -167,19 +202,14 @@ a:not(.icon a):focus-visible {
 }
 
 @keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0.7;
-  }
+  0% { opacity: 0; }
+  100% { opacity: 0.7; }
 }
 
 /* Nav Section */
 #nav-bar,
-#nav-group,
 .nav-link,
-.toggler-ctnr {
+.nav-ctnr {
   height: 60px;
 }
 
@@ -187,16 +217,15 @@ a:not(.icon a):focus-visible {
   justify-content: space-between;
   position: fixed;
   top: 0;
-  left: 0;
   width: 100%;
   background-color: var(--color-sec);
-  z-index: 10;
+  z-index: 1;
 }
 
 #nav-group {
   list-style: none;
-  gap: 60px;
-  transition: var(--short-transition);
+  width: clamp(220px, 50vw, 500px);
+  justify-content: space-between;
 }
 
 .nav-link {
@@ -211,31 +240,28 @@ a:not(.icon a):focus-visible {
   color: var(--color-font-hover);
 }
 
-.nav-link,
-.toggler-ctnr {
-  padding: 0 20px;
-}
-
 .nav-ctnr {
   margin-left: 60px;
-  transition: var(--short-transition);
+  transition: var(--long-transition);
 }
 
-/* Navbar Toggler */
+.right {
+  margin-left: 0;
+}
+
 .toggler-ctnr {
   margin-right: 60px;
 }
 
+/* Navbar Toggler */
 .toggler {
   position: relative;
   width: 60px;
   height: 30px;
-  background-color: grey;
   cursor: pointer;
 }
 
 #toggle {
-  opacity: 0;
   width: 0;
   height: 0;
   visibility: hidden;
@@ -247,8 +273,6 @@ a:not(.icon a):focus-visible {
   width: 22px;
   left: 4px;
   bottom: 4px;
-  background-color: white;
-  transition: var(--short-transition);
 }
 
 /* Toggle Animations */
@@ -267,7 +291,6 @@ a:not(.icon a):focus-visible {
 /* About Section */
 #home {
   height: 100vh;
-  width: 100%;
 }
 
 #home h1 {
@@ -288,13 +311,23 @@ a:not(.icon a):focus-visible {
 }
 
 @keyframes typing {
-  from {width: 0;}
-  to {width: 340px; border-right: 2px solid var(--color-sec);}
+  from {
+    width: 0;
+  }
+  to {
+    width: 340px;
+    border-right: 2px solid var(--color-sec);
+  }
 }
 
 @keyframes blinking {
-  from, to {border-color: var(--animation-border-color-start);}
-  50% {border-color: var(--animation-border-color-end);}
+  from,
+  to {
+    border-color: var(--animation-border-color-start);
+  }
+  50% {
+    border-color: var(--animation-border-color-end);
+  }
 }
 
 /* About Section */
@@ -316,7 +349,6 @@ a:not(.icon a):focus-visible {
 .self-photo {
   width: max(20vw, 250px);
   aspect-ratio: 3 / 4;
-  z-index: -1;
   opacity: 0.7;
 }
 
@@ -332,22 +364,20 @@ a:not(.icon a):focus-visible {
 }
 
 .proj-ctnr {
-  gap: 50px;
+  width: clamp(350px, 90vw, 100vw);
+  gap: clamp(30px, 5vw, 50px);
   flex-wrap: wrap;
-  transition: var(--short-transition);
 }
 
 .proj-ctnr-links {
   position: relative;
   overflow: hidden;
-  transition: var(--short-transition);
 }
 
 .repo-link {
   position: absolute;
   bottom: 25%;
-  color: white;
-  background-color: grey;
+  color: rgb(240, 240, 240);
   padding: 5px 10px;
   opacity: 0;
 }
@@ -356,9 +386,13 @@ a:not(.icon a):focus-visible {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 400px;
-  width: 300px;
+  width: clamp(250px, 25vw, 300px);
+  aspect-ratio: 3 / 4;
   border: none;
+}
+
+.proj-card:hover {
+  transform-origin: center;
 }
 
 .card-top {
@@ -382,7 +416,6 @@ a:not(.icon a):focus-visible {
 .card-bottom {
   height: 20%;
   width: 100%;
-  background-color: grey;
   color: rgb(240, 240, 240);
   font-size: clamp(1.6rem, 2rem, 2.4rem);
   z-index: 1;
@@ -391,7 +424,7 @@ a:not(.icon a):focus-visible {
 .proj-img {
   position: relative;
   height: 100%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 1;
   object-fit: cover;
 }
 
@@ -471,8 +504,8 @@ footer {
 #github-icon a:focus-visible,
 #github-icon a:hover {
   box-shadow:
-  6px 2px 6px 2px rgb(240, 240, 240),
-  -6px 2px 6px 2px rgb(240, 240, 240);
+    6px 2px 6px 2px rgb(240, 240, 240),
+    -6px 2px 6px 2px rgb(240, 240, 240);
 }
 
 .icon-pic {
@@ -495,11 +528,11 @@ footer {
 }
 
 @keyframes shake-n-grow {
-  0% {transform: rotate(0deg) scale(1.02);}
-  25% {transform: rotate(-5deg) scale(1.04);}
-  50% {transform: rotate(0deg) scale(1.06);}
-  75% {transform: rotate(5deg) scale(1.08);}
-  100% {transform: rotate(0deg) scale(1.1);}
+  0% { transform: rotate(0deg) scale(1.02); }
+  25% { transform: rotate(-5deg) scale(1.04); }
+  50% { transform: rotate(0deg) scale(1.06); }
+  75% { transform: rotate(5deg) scale(1.08); }
+  100% { transform: rotate(0deg) scale(1.1); }
 }
 
 /* To Top Button */
@@ -515,7 +548,6 @@ footer {
   border: 1px solid black;
   height: 40px;
   width: 40px;
-  background-color: rgb(240, 240, 240);
 }
 
 .top-btn:hover {
@@ -534,27 +566,23 @@ footer {
   }
 
   #about-me {
-    width: 90vw;
+    width: 90%;
   }
 }
 
 @media (max-width: 768px) {
-  #nav-group {
-    gap: 40px;
+  #home h1 {
+    font-size: 3.6rem;
   }
 
-  .proj-card {
-    height: 350px;
-    width: 250px;
+  #home p {
+    width: 260px;
+    font-size: 2.4rem;
   }
 
-  .proj-card:hover {
-    transform-origin: center;
-  }
-
-  #about-me {
-    font-size: 1.6rem;
-    line-height: 1.8em;
+  @keyframes typing {
+    from {width: 0%;}
+    to {width: 260px;}
   }
 
   footer {
@@ -572,66 +600,19 @@ footer {
   }
 }
 
-@media (max-width: 650px) {
-  #nav-group {
-    gap: clamp(10px, 2vw, 20px);
-  }
-}
-
-@media (max-width: 600px) {
-  .proj-ctnr {
-    gap: 30px;
-  }
-
-  .proj-card {
-    height: 315px;
-    width: 215px;
-  }
-}
-
-@media (max-width: 550px) {
-  .nav-link {
-    padding: 0 15px;
-  }
-
-  .nav-ctnr {
-    margin-left: 40px;
-  }
-
-  .toggler-ctnr {
-    margin-right: 40px;
-  }
-}
-
-@media (min-width: 480px) {
-  #home p {
-    width: 340px;
-    font-size: 3.2rem;
-  }
-
-  @keyframes typing {
-    from {width: 0%;}
-    to {width: 340px;}
-  }}
-
 @media (max-width: 480px) {
-  #home h1 {
-    font-size: 4.2rem;
-  }
-
   #home p {
-    width: 260px;
-    font-size: 2.4rem;
+    width: 190px;
+    font-size: 1.8rem;
   }
 
   @keyframes typing {
     from {width: 0%;}
-    to {width: 260px;}
+    to {width: 190px;}
   }
 
-  .nav-link,
-  .toggler-ctnr {
-    padding: 0 5px;
+  .nav-link {
+    font-size: 1.8rem;
   }
 
   .nav-ctnr {
@@ -644,44 +625,7 @@ footer {
 }
 
 @media (max-width: 360px) {
-  .nav-link {
-    font-size: 1.8rem;
-  }
-}
-
-@media (max-width: 280px) {
-  .nav-ctnr {
-    margin-left: 10px;
-  }
-
-  .nav-link {
-    font-size: 1.4rem;
-  }
-
-  .toggler-ctnr {
-    margin-right: 10px;
-  }  
-
-  #home h1 {
-    font-size: 3.4rem;
-  }
-
-  #home p {
-    width: 190px;
-    font-size: 1.8rem;
-  }
-
-  @keyframes typing {
-    from {width: 0%;}
-    to {width: 190px;}
-  }
-
   #about-me {
     font-size: 1.6rem;
-    width: 90%;
-  }
-
-  #created-by {
-    font-size: 1.4rem;
   }
 }
