@@ -160,25 +160,13 @@ a:not(.icon a):focus-visible {
 }
 
 @keyframes slide-down {
-  from {
-    transform: translateY(-50px);
-  }
-  to {
-    transform: none;
-    opacity: 1;
-  }
+  from { transform: translateY(-50px); }
+  to { transform: none; opacity: 1; }
 }
 
 @keyframes delay-show {
-  from {
-    transform: translateY(-50px);
-    filter: blur(20px);
-  }
-  to {
-    transform: none;
-    filter: blue(0);
-    opacity: 1;
-  }
+  from { transform: translateY(-50px); filter: blur(20px); }
+  to { transform: none; filter: blue(0); opacity: 1; }
 }
 
 /* Hero Header Animations */
