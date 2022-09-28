@@ -20,6 +20,7 @@
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
 /* Global */
@@ -67,8 +68,9 @@ section h1 {
 }
 
 section,
-footer {
-  width: 100vw;
+footer,
+nav {
+  width: 100%;
 }
 
 h1 {
@@ -202,10 +204,8 @@ a:not(.icon a):focus-visible {
 }
 
 #nav-bar {
-  justify-content: space-between;
   position: fixed;
   top: 0;
-  width: 100%;
   background-color: var(--color-sec);
   z-index: 1;
 }
@@ -229,16 +229,7 @@ a:not(.icon a):focus-visible {
 }
 
 .nav-ctnr {
-  margin-left: 60px;
-  transition: var(--long-transition);
-}
-
-.right {
-  margin-left: 0;
-}
-
-.toggler-ctnr {
-  margin-right: 60px;
+  margin: 0 auto;
 }
 
 /* Navbar Toggler */
@@ -388,7 +379,7 @@ a:not(.icon a):focus-visible {
 .desc {
   display: inline-block;
   width: 85%;
-  margin-bottom: 100px;
+  margin: 0 auto 100px;
 }
 
 .card-bottom {
@@ -591,14 +582,6 @@ footer {
 
   .nav-link {
     font-size: 1.8rem;
-  }
-
-  .nav-ctnr {
-    margin-left: 20px;
-  }
-
-  .toggler-ctnr {
-    margin-right: 20px;
   }
 }
 
