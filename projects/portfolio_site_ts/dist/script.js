@@ -72,6 +72,9 @@ const handleHover = (event) => {
     else {
         if (["card-bottom", "proj-desc", "desc"].includes(source.classList[0])) {
             localCtnrLink.style.boxShadow = "unset";
+            if (localCtnrLink.classList.length > 1) {
+                localCtnrLink.classList.remove("focus-hover");
+            }
         }
         else if (source.classList.value === "repo-link") {
             source.style.boxShadow = "unset";

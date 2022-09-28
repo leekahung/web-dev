@@ -8,7 +8,7 @@ function darkLightMode() {
     togglerColorHover: string;
     backgroundImg: string;
   };
-  
+
   const darkMode: Theme = {
     backgroundColor: "rgb(40, 45, 45)",
     fontColor: "rgb(240, 240, 240)",
@@ -92,6 +92,9 @@ const handleHover = (event: Event) => {
   } else {
     if (["card-bottom", "proj-desc", "desc"].includes(source.classList[0])) {
       localCtnrLink.style.boxShadow = "unset";
+      if (localCtnrLink.classList.length > 1) {
+        localCtnrLink.classList.remove("focus-hover");
+      }
     } else if (source.classList.value === "repo-link") {
       source.style.boxShadow = "unset";
     }
@@ -148,7 +151,7 @@ const sectObserver = new IntersectionObserver(
         entry.target.classList.add("show");
         const targetFirstChild = entry.target.firstElementChild;
         const targetLastChild = entry.target.lastElementChild;
-        
+
         if (targetFirstChild && targetLastChild) {
           targetFirstChild.classList.add("slide-down-header");
           if (targetLastChild.id !== "home-intro") {

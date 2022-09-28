@@ -568,14 +568,18 @@ footer {
 }
 
 @media (max-width: 480px) {
+  #nav-group {
+    width: clamp(200px, 50vw, 500px);
+  }
+
   #home p {
-    width: 190px;
+    width: 175px;
     font-size: 1.6rem;
   }
 
   @keyframes typing {
     from { width: 0%; }
-    to { width: 190px; }
+    to { width: 175px; }
   }
 
   .nav-link,
@@ -593,15 +597,9 @@ footer {
   }
 }
 
-@media (max-width: 360px) {
-  #nav-group {
-    width: clamp(200px, 50vw, 500px);
-  }
-}
-
 @media (max-width: 320px) {
   #nav-group {
-    width: clamp(180px, 50vw, 500px);
+    width: clamp(190px, 50vw, 500px);
   }
 
   h1 {
