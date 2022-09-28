@@ -43,6 +43,12 @@ main {
   position: relative;
 }
 
+nav,
+main,
+footer {
+  width: 100%;
+}
+
 section,
 div,
 footer,
@@ -65,12 +71,6 @@ section:not(:first-child) {
 
 section h1 {
   padding: 50px;
-}
-
-section,
-footer,
-nav {
-  width: 100%;
 }
 
 h1 {
@@ -301,7 +301,6 @@ a:not(.icon a):focus-visible {
 
 /* About Section */
 #about-ctnr {
-  width: 80%;
   gap: 50px;
 }
 
@@ -333,7 +332,7 @@ a:not(.icon a):focus-visible {
 }
 
 .proj-ctnr {
-  width: clamp(350px, 90vw, 100vw);
+  width: clamp(260px, 90vw, 100vw);
   gap: clamp(30px, 5vw, 50px);
   flex-wrap: wrap;
 }
@@ -431,7 +430,7 @@ a:not(.icon a):focus-visible {
 
 /* Footer */
 footer {
-  height: 30vh;
+  height: max(30vh, 400px);
   padding: 20px;
   background-color: var(--color-sec);
   gap: 25px;
@@ -513,6 +512,10 @@ footer {
   gap: 10px;
 }
 
+#top-btn-ctnr:after {
+  content: "Back to Top";
+}
+
 .top-btn {
   border: 1px solid black;
   height: 40px;
@@ -554,11 +557,6 @@ footer {
     to { width: 260px; }
   }
 
-  footer {
-    padding: 40px 0 140px;
-    height: 35vh;
-  }
-
   .contact-info {
     flex-direction: column;
     gap: 10px;
@@ -572,7 +570,7 @@ footer {
 @media (max-width: 480px) {
   #home p {
     width: 190px;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
 
   @keyframes typing {
@@ -580,13 +578,37 @@ footer {
     to { width: 190px; }
   }
 
-  .nav-link {
-    font-size: 1.8rem;
+  .nav-link,
+  #about-me {
+    font-size: 1.6rem;
+  }
+
+  #top-btn-ctnr:after {
+    content: "To Top";
+  }
+
+  .top-btn {
+    width: 35px;
+    height: 35px;
   }
 }
 
 @media (max-width: 360px) {
-  #about-me {
-    font-size: 1.6rem;
+  #nav-group {
+    width: clamp(200px, 50vw, 500px);
+  }
+}
+
+@media (max-width: 320px) {
+  #nav-group {
+    width: clamp(180px, 50vw, 500px);
+  }
+
+  h1 {
+    font-size: 2.8rem;
+  }
+
+  #home h1 {
+    font-size: 2.8rem;
   }
 }
