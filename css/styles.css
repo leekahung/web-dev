@@ -96,6 +96,7 @@ a:not(.icon a):focus-visible {
 .slider,
 .proj-ctnr-links,
 .repo-link,
+.repo-span,
 .self-photo {
   border-radius: 20px;
 }
@@ -353,7 +354,6 @@ a:not(.icon a):focus-visible {
   position: absolute;
   bottom: 25%;
   color: rgb(240, 240, 240);
-  padding: 5px 10px;
   opacity: 0;
 }
 
@@ -431,11 +431,25 @@ a:not(.icon a):focus-visible {
   transition: var(--super-short-transition);
 }
 
+.repo-span {
+  display: block;
+  padding: 5px 10px;
+  background-size: 200% 100%;
+  background-image: linear-gradient(to right, rgb(100, 100, 100) 50%, rgb(125, 125, 125) 50%);
+  transition: background-position 1s;
+}
+
+.repo-link:hover .repo-span,
+.repo-link:focus-visible .repo-span { 
+  box-shadow: var(--proj-card-box-shadow);
+  background-position: -100% 0;
+}
+
 .slide-in-color {
   position: absolute;
   inset: 0;
   background-size: 200% 100%;
-  background-image: linear-gradient(to right, grey 50%, rgb(135, 135, 135) 50%);
+  background-image: linear-gradient(to right, grey 50%, rgb(145, 145, 145) 50%);
   transition: background-position 1s;
 }
 
