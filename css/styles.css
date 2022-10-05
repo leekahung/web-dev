@@ -53,7 +53,8 @@ section,
 div,
 footer,
 nav,
-ul {
+ul,
+span {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -388,6 +389,7 @@ a:not(.icon a):focus-visible {
 }
 
 .card-bottom {
+  position: relative;
   height: 20%;
   width: 100%;
   color: rgb(240, 240, 240);
@@ -405,7 +407,6 @@ a:not(.icon a):focus-visible {
 /* Project Card Hover Animations */
 .proj-ctnr-links:hover,
 .focus-hover {
-  opacity: 0.8;
   transform: scale(1.1);
   transform-origin: center;
 }
@@ -428,6 +429,19 @@ a:not(.icon a):focus-visible {
 .repo-hover {
   transform: scale(1.1);
   transition: var(--super-short-transition);
+}
+
+.slide-in-color {
+  position: absolute;
+  inset: 0;
+  background-size: 200% 100%;
+  background-image: linear-gradient(to right, grey 50%, rgb(135, 135, 135) 50%);
+  transition: background-position 1s;
+}
+
+.proj-card:hover .slide-in-color,
+.proj-card:focus-visible .slide-in-color {
+  background-position: -100% 0;
 }
 
 .dark-back {
