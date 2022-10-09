@@ -608,12 +608,12 @@ footer {
 
   #home p {
     width: 175px;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
   }
 
   @keyframes typing {
     from { width: 0%; }
-    to { width: 175px; }
+    to { width: 190px; }
   }
 
   .nav-link,
