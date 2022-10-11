@@ -43,27 +43,23 @@ main {
   position: relative;
 }
 
-nav,
-main,
-footer {
+:is(nav, main, footer) {
   width: 100%;
 }
 
-section,
-div,
-footer,
-nav,
-ul,
-span {
+:is(section, div, nav, footer, ul, span) {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-section,
-footer {
+section, footer {
   flex-direction: column;
   text-align: center;
+}
+
+section {
+  margin-bottom: 50px;
 }
 
 section:not(:first-child) {
@@ -78,55 +74,41 @@ h1 {
   font-size: 3.6rem;
 }
 
-h1,
-p,
-a {
+:is(h1, p, a) {
   transition: color var(--super-short-transition);
 }
 
 a {
+  color: var(--color-font);
   outline: none;
 }
 
-a:not(.icon a):focus-visible {
-  box-shadow: var(--focus-visible-shadow);
+a:not(.repo-link):is(:hover, :focus-visible) {
+  color: var(--color-font-hover);
 }
 
-.toggler,
-.slider,
-.proj-ctnr-links,
-.repo-link,
-.repo-span,
-.self-photo {
+:is(.toggler, .slider, .proj-ctnr-links, .repo-link, .repo-span, .self-photo) {
   border-radius: 20px;
 }
 
-.slider,
-.proj-ctnr-links {
+.slider, .proj-ctnr-links {
   transition: var(--short-transition);
 }
 
-.toggler,
-.repo-link,
-.card-bottom {
+:is(.toggler, .repo-link, .card-bottom) {
   background-color: grey;
 }
 
-.slider,
-.top-btn {
+.slider, .top-btn {
   background-color: rgb(240, 240, 240);
 }
 
 /* Scrolling Animations */
-.hidden,
-.slideOut,
-.slide-down-header,
-.show-delay {
+:is(.hidden, .slideOut, .slide-down-header, .show-delay) {
   opacity: 0;
 }
 
-.show,
-.slideIn {
+.show, .slideIn {
   opacity: 1;
 }
 
@@ -138,8 +120,7 @@ a:not(.icon a):focus-visible {
   filter: blur(0);
 }
 
-.hidden,
-.show {
+.hidden, .show {
   transition: 
     opacity 1s,
     filter 1s;
@@ -154,8 +135,7 @@ a:not(.icon a):focus-visible {
   transform: translateY(10vh);
 }
 
-.slideIn,
-.slideOut {
+.slideIn, .slideOut {
   transition:
     opacity 1s,
     transform 1s;
@@ -180,8 +160,7 @@ a:not(.icon a):focus-visible {
 }
 
 /* Hero Header Animations */
-#home:before,
-#home:after {
+#home::before, #home::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -189,13 +168,13 @@ a:not(.icon a):focus-visible {
   transition: 3s;
 }
 
-#home:before {
+#home::before {
   animation: fadeIn 1s ease-in forwards;
   background: var(--hero-header-url) no-repeat bottom;
   background-size: cover;
 }
 
-#home:after {
+#home::after {
   background: linear-gradient(to bottom, transparent, var(--color-back));
 }
 
@@ -205,9 +184,7 @@ a:not(.icon a):focus-visible {
 }
 
 /* Nav Section */
-#nav-bar,
-.nav-link,
-.nav-ctnr {
+:is(#nav-bar, .nav-link, .nav-ctnr) {
   height: 60px;
 }
 
@@ -225,15 +202,28 @@ a:not(.icon a):focus-visible {
 }
 
 .nav-link {
-  color: var(--color-font);
   text-decoration: none;
   font-size: 2rem;
   font-weight: 800;
+  position: relative;
 }
 
-.nav-link:hover,
-.nav-link:focus-visible {
+.nav-link::after {
+  content: "";
+  border-bottom: 2px solid var(--color-font-hover);
+  position: absolute;
+  right: 100%;
+  left: 0;
+  bottom: 0;
+  transition: right var(--short-transition);
+}
+
+.nav-link:is(hover, :focus-visible) {
   color: var(--color-font-hover);
+}
+
+.nav-link:is(:hover, :focus-visible)::after {
+  right: 0;
 }
 
 .nav-ctnr {
@@ -282,7 +272,6 @@ a:not(.icon a):focus-visible {
 
 #home h1 {
   font-size: 5.6rem;
-  padding: 30px;
 }
 
 #home p {
@@ -299,7 +288,7 @@ a:not(.icon a):focus-visible {
 
 @keyframes typing {
   from { width: 0; }
-  to { width: 340px; border-right: 2px solid var(--color-sec); }
+  to { width: 340px; border-right: 2px solid var(--color-font); }
 }
 
 @keyframes blinking {
@@ -318,10 +307,6 @@ a:not(.icon a):focus-visible {
   line-height: 3rem;
 }
 
-#about-me a {
-  color: var(--color-font);
-}
-
 .self-photo {
   width: max(20vw, 250px);
   aspect-ratio: 3 / 4;
@@ -331,12 +316,6 @@ a:not(.icon a):focus-visible {
 /* Projects Section */
 #projects {
   justify-content: flex-start;
-  margin-bottom: 50px;
-}
-
-.repo-link,
-.proj-card {
-  text-decoration: none;
 }
 
 .proj-ctnr {
@@ -355,6 +334,13 @@ a:not(.icon a):focus-visible {
   bottom: 25%;
   color: rgb(240, 240, 240);
   opacity: 0;
+  text-decoration: none;
+}
+
+.repo-span {
+  display: block;
+  padding: 5px 10px;
+  background-color: rgb(70, 75, 75);
 }
 
 .proj-card {
@@ -404,37 +390,24 @@ a:not(.icon a):focus-visible {
   object-fit: cover;
 }
 
+.dark-back {
+  color: white;
+}
+
 /* Project Card Hover Animations */
-.proj-ctnr-links:hover,
-.focus-hover {
+.proj-ctnr-links:hover, .repo-link:is(:hover, :focus-visible), .focus-hover {
   transform: scale(1.1);
   transform-origin: center;
+  transition: var(--super-short-transition);
 }
 
-.proj-ctnr-links:hover img,
-.focus-hover img {
+:is(.proj-ctnr-links:hover, .focus-hover) img {
   filter: blur(10px);
   transform: scale(1.05);
-  transition: var(--super-short-transition);
 }
 
-.proj-ctnr-links:hover div,
-.proj-ctnr-links:hover .repo-link,
-.focus-hover div,
-.focus-hover .repo-link {
+:is(.proj-ctnr-links:hover, .focus-hover) :is(div, .repo-link) {
   opacity: 1;
-}
-
-.repo-link:hover,
-.repo-hover {
-  transform: scale(1.1);
-  transition: var(--super-short-transition);
-}
-
-.repo-span {
-  display: block;
-  padding: 5px 10px;
-  background-color: rgb(100, 100, 100);
 }
 
 .slide-in-color {
@@ -445,13 +418,8 @@ a:not(.icon a):focus-visible {
   transition: background-position 1s;
 }
 
-.proj-card:hover .slide-in-color,
-.proj-card:focus-visible .slide-in-color {
+.proj-card:is(:hover, :focus-visible) .slide-in-color {
   background-position: -100% 0;
-}
-
-.dark-back {
-  color: white;
 }
 
 /* Footer */
@@ -460,10 +428,6 @@ footer {
   padding: 20px;
   background-color: var(--color-sec);
   gap: 25px;
-}
-
-.contact-info a {
-  color: var(--color-font);
 }
 
 .contact-info p {
@@ -488,15 +452,13 @@ footer {
   filter: brightness(100);
 }
 
-.icon a:focus-visible,
-.icon a:hover {
+.icon :is(a:is(:focus-visible, :hover)) {
   box-shadow:
     6px 2px 6px 2px var(--color-font-hover),
     -6px 2px 6px 2px var(--color-font-hover);
 }
 
-#github-icon a:focus-visible,
-#github-icon a:hover {
+#github-icon :is(a:is(:focus-visible, a:hover)) {
   box-shadow:
     6px 2px 6px 2px rgb(240, 240, 240),
     -6px 2px 6px 2px rgb(240, 240, 240);
@@ -506,19 +468,9 @@ footer {
   inset: 0;
 }
 
-.social-ctnr .icon:hover {
+.social-ctnr .icon:hover, .icon :is(a:is(:focus-visible, :hover)) .icon-pic {
   animation: shake-n-grow 0.2s;
   transform: scale(1.1);
-}
-
-#email,
-#created-by {
-  color: var(--color-font);
-}
-
-#email:hover,
-#created-by:hover {
-  box-shadow: var(--focus-visible-shadow);
 }
 
 @keyframes shake-n-grow {
@@ -538,7 +490,7 @@ footer {
   gap: 10px;
 }
 
-#top-btn-ctnr:after {
+#top-btn-ctnr::after {
   content: "Back to Top";
 }
 
@@ -548,7 +500,7 @@ footer {
   width: 40px;
 }
 
-.top-btn:hover {
+.top-btn:hover, #top-btn-link:focus-visible .top-btn {
   box-shadow: var(--focus-visible-shadow);
 }
 
@@ -608,12 +560,11 @@ footer {
     to { width: 190px; }
   }
 
-  .nav-link,
-  #about-me {
+  .nav-link, #about-me {
     font-size: 1.6rem;
   }
 
-  #top-btn-ctnr:after {
+  #top-btn-ctnr::after {
     content: "To Top";
   }
 

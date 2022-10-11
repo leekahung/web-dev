@@ -72,7 +72,6 @@ const handleHover = (event) => {
       localRepoLink.style.boxShadow = "unset";
     } else if (source.classList.value === "repo-span") {
       source.style.boxShadow = "var(--proj-card-box-shadow)";
-      console.log("i'm here");
     }
   } else {
     if (["slide-in-color", "proj-desc", "desc"].includes(source.classList[0])) {
