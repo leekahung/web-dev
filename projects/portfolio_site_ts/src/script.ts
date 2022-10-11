@@ -86,7 +86,7 @@ const handleHover = (event: Event) => {
       localRepoLink = localCtnrLink.children[1] as HTMLElement;
       localCtnrLink.style.boxShadow = "var(--proj-card-box-shadow)";
       localRepoLink.style.boxShadow = "unset";
-    } else if (source.classList.value === "repo-link") {
+    } else if (source.classList.value === "repo-span") {
       source.style.boxShadow = "var(--proj-card-box-shadow)";
     }
   } else {
@@ -95,7 +95,7 @@ const handleHover = (event: Event) => {
       if (localCtnrLink.classList.length > 1) {
         localCtnrLink.classList.remove("focus-hover");
       }
-    } else if (source.classList.value === "repo-link") {
+    } else if (source.classList.value === "repo-span") {
       source.style.boxShadow = "unset";
     }
   }

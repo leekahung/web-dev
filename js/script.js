@@ -70,8 +70,9 @@ const handleHover = (event) => {
       localRepoLink = localCtnrLink.children[1];
       localCtnrLink.style.boxShadow = "var(--proj-card-box-shadow)";
       localRepoLink.style.boxShadow = "unset";
-    } else if (source.classList.value === "repo-link") {
+    } else if (source.classList.value === "repo-span") {
       source.style.boxShadow = "var(--proj-card-box-shadow)";
+      console.log("i'm here");
     }
   } else {
     if (["slide-in-color", "proj-desc", "desc"].includes(source.classList[0])) {
@@ -79,7 +80,7 @@ const handleHover = (event) => {
       if (localCtnrLink.classList.length > 1) {
         localCtnrLink.classList.remove("focus-hover");
       }
-    } else if (source.classList.value === "repo-link") {
+    } else if (source.classList.value === "repo-span") {
       source.style.boxShadow = "unset";
     }
   }

@@ -434,15 +434,7 @@ a:not(.icon a):focus-visible {
 .repo-span {
   display: block;
   padding: 5px 10px;
-  background-size: 200% 100%;
-  background-image: linear-gradient(to right, rgb(100, 100, 100) 50%, rgb(125, 125, 125) 50%);
-  transition: background-position 1s;
-}
-
-.repo-link:hover .repo-span,
-.repo-link:focus-visible .repo-span { 
-  box-shadow: var(--proj-card-box-shadow);
-  background-position: -100% 0;
+  background-color: rgb(100, 100, 100);
 }
 
 .slide-in-color {

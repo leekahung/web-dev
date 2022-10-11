@@ -65,7 +65,7 @@ const handleHover = (event) => {
             localCtnrLink.style.boxShadow = "var(--proj-card-box-shadow)";
             localRepoLink.style.boxShadow = "unset";
         }
-        else if (source.classList.value === "repo-link") {
+        else if (source.classList.value === "repo-span") {
             source.style.boxShadow = "var(--proj-card-box-shadow)";
         }
     }
@@ -76,7 +76,7 @@ const handleHover = (event) => {
                 localCtnrLink.classList.remove("focus-hover");
             }
         }
-        else if (source.classList.value === "repo-link") {
+        else if (source.classList.value === "repo-span") {
             source.style.boxShadow = "unset";
         }
     }
