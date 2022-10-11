@@ -5,8 +5,6 @@
   --animation-border-color-end: rgb(240, 240, 240);
   --super-short-transition: 0.2s;
   --short-transition: 0.4s;
-  --long-transition: 0.7s;
-  --super-long-transition: 2s;
   --color-back: rgb(40, 45, 45);
   --color-sec: rgb(50, 55, 55);
   --color-font: rgb(240, 240, 240);
@@ -91,7 +89,7 @@ a:not(.repo-link):is(:hover, :focus-visible) {
   border-radius: 20px;
 }
 
-.slider, .proj-ctnr-links {
+.slider, .proj-ctnr-links, .nav-link::after {
   transition: var(--short-transition);
 }
 
@@ -101,6 +99,21 @@ a:not(.repo-link):is(:hover, :focus-visible) {
 
 .slider, .top-btn {
   background-color: rgb(240, 240, 240);
+}
+
+.nav-link::after, #home::after, #home::before {
+  content: "";
+  position: absolute;
+}
+
+.proj-desc, .slide-in-color {
+  position: absolute;
+  inset: 0;
+}
+
+.icon, .top-btn {
+  height: 40px;
+  width: 40px;
 }
 
 /* Scrolling Animations */
@@ -161,8 +174,6 @@ a:not(.repo-link):is(:hover, :focus-visible) {
 
 /* Hero Header Animations */
 #home::before, #home::after {
-  content: "";
-  position: absolute;
   inset: 0;
   z-index: -1;
   transition: 3s;
@@ -209,13 +220,10 @@ a:not(.repo-link):is(:hover, :focus-visible) {
 }
 
 .nav-link::after {
-  content: "";
-  border-bottom: 2px solid var(--color-font-hover);
-  position: absolute;
+  border-bottom: 2px solid var(--color-font);
   right: 100%;
   left: 0;
   bottom: 0;
-  transition: right var(--short-transition);
 }
 
 .nav-link:is(hover, :focus-visible) {
@@ -224,6 +232,7 @@ a:not(.repo-link):is(:hover, :focus-visible) {
 
 .nav-link:is(:hover, :focus-visible)::after {
   right: 0;
+  border-bottom: 2px solid var(--color-font-hover);
 }
 
 .nav-ctnr {
@@ -338,7 +347,6 @@ a:not(.repo-link):is(:hover, :focus-visible) {
 }
 
 .repo-span {
-  display: block;
   padding: 5px 10px;
   background-color: rgb(70, 75, 75);
 }
@@ -362,8 +370,6 @@ a:not(.repo-link):is(:hover, :focus-visible) {
 }
 
 .proj-desc {
-  position: absolute;
-  inset: 0;
   opacity: 0;
   color: black;
 }
@@ -411,8 +417,6 @@ a:not(.repo-link):is(:hover, :focus-visible) {
 }
 
 .slide-in-color {
-  position: absolute;
-  inset: 0;
   background-size: 200% 100%;
   background-image: linear-gradient(to right, grey 50%, rgb(145, 145, 145) 50%);
   transition: background-position 1s;
@@ -444,8 +448,6 @@ footer {
 
 .icon {
   display: unset;
-  height: 40px;
-  width: 40px;
 }
 
 #github-icon {
@@ -496,8 +498,6 @@ footer {
 
 .top-btn {
   border: 1px solid black;
-  height: 40px;
-  width: 40px;
 }
 
 .top-btn:hover, #top-btn-link:focus-visible .top-btn {
@@ -531,7 +531,7 @@ footer {
   }
 
   @keyframes typing {
-    from { width: 0%; }
+    from { width: 0; }
     to { width: 260px; }
   }
 
@@ -556,7 +556,7 @@ footer {
   }
 
   @keyframes typing {
-    from { width: 0%; }
+    from { width: 0; }
     to { width: 190px; }
   }
 
@@ -579,11 +579,7 @@ footer {
     width: clamp(190px, 50vw, 500px);
   }
 
-  h1 {
-    font-size: 2.8rem;
-  }
-
-  #home h1 {
+  h1, #home h1 {
     font-size: 2.8rem;
   }
 }
