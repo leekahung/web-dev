@@ -222,4 +222,4 @@ const makeBoxes = (numBoxes: number) => {
   }
 }
 
-makeBoxes(40);
+makeBoxes(7);

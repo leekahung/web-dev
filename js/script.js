@@ -197,4 +197,4 @@ const makeBoxes = (numBoxes) => {
   }
 }
 
-makeBoxes(40);
+makeBoxes(7);

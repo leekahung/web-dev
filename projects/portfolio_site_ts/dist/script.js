@@ -178,5 +178,5 @@ const makeBoxes = (numBoxes) => {
         boxCtnr.appendChild(box);
     }
 };
-makeBoxes(40);
+makeBoxes(7);
 //# sourceMappingURL=script.js.map

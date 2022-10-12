@@ -308,10 +308,6 @@ a:not(.repo-link):is(:hover, :focus-visible) {
 }
 
 /* About Section */
-#home {
-  height: 100vh;
-}
-
 #about-ctnr {
   gap: 50px;
 }
@@ -330,12 +326,10 @@ a:not(.repo-link):is(:hover, :focus-visible) {
 /* About Animations */
 .boxes-ctnr {
   position: absolute;
+  top: -50px;
   justify-content: space-evenly;
   width: 100%;
-  top: calc(80vh);
-  left: 0;
-  opacity: 0.1;
-  z-index: -1;
+  opacity: 0.5;
 }
 
 :is(.super-slow, .slow, .normal, .fast, .super-fast) {
@@ -379,7 +373,7 @@ a:not(.repo-link):is(:hover, :focus-visible) {
 
 .spin {
   border: 2px solid var(--color-font);
-  animation: spin 2s linear 2s infinite;
+  animation: spin 4s linear 2s infinite;
 }
 
 @keyframes spin {
