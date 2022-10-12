@@ -33,18 +33,15 @@ function darkLightMode() {
     const toggle = document.getElementById("toggle");
     const navbar = document.getElementById("nav-bar");
     const githubIcon = document.getElementById("github-icon");
-    const selfPhoto = document.querySelector(".self-photo");
-    if (toggle && navbar && githubIcon && selfPhoto) {
+    if (toggle && navbar && githubIcon) {
         if (toggle.checked) {
             navbar.style.backgroundColor = lightMode["navbarColor"];
             githubIcon.style.filter = "brightness(0)";
-            selfPhoto.style.opacity = "1";
             getTheme(lightMode);
         }
         else {
             navbar.style.backgroundColor = darkMode["navbarColor"];
             githubIcon.style.filter = "brightness(100%)";
-            selfPhoto.style.opacity = "0.7";
             getTheme(darkMode);
         }
     }
@@ -165,4 +162,21 @@ const topBtnLink = document.getElementById("top-btn-link");
         }
     });
 });
+const boxCtnr = document.querySelector(".boxes-ctnr");
+const fallSpeeds = ["super-slow", "slow", "normal", "fast", "super-fast"];
+const boxSizes = ["small", "medium", "large"];
+const makeBoxes = (numBoxes) => {
+    for (let i = 0; i < numBoxes; i++) {
+        const box = document.createElement("span");
+        const spin = document.createElement("span");
+        const fallSpeed = fallSpeeds[Math.floor(Math.random() * fallSpeeds.length)];
+        const boxSize = boxSizes[Math.floor(Math.random() * boxSizes.length)];
+        spin.className = "spin";
+        spin.classList.add(boxSize);
+        box.className = fallSpeed;
+        box.appendChild(spin);
+        boxCtnr.appendChild(box);
+    }
+};
+makeBoxes(40);
 //# sourceMappingURL=script.js.map

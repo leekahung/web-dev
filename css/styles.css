@@ -35,13 +35,15 @@ body {
   overflow-y: scroll;
   overflow-x: hidden;
   font-size: 1.6rem;
+  position: relative;
 }
 
 main {
   position: relative;
+  overflow-x: hidden;
 }
 
-:is(nav, main, footer) {
+:is(html, body, nav, main, footer) {
   width: 100%;
 }
 
@@ -306,6 +308,10 @@ a:not(.repo-link):is(:hover, :focus-visible) {
 }
 
 /* About Section */
+#home {
+  height: 100vh;
+}
+
 #about-ctnr {
   gap: 50px;
 }
@@ -319,7 +325,72 @@ a:not(.repo-link):is(:hover, :focus-visible) {
 .self-photo {
   width: max(20vw, 250px);
   aspect-ratio: 3 / 4;
-  opacity: 0.7;
+}
+
+/* About Animations */
+.boxes-ctnr {
+  position: absolute;
+  justify-content: space-evenly;
+  width: 100%;
+  top: calc(80vh);
+  left: 0;
+  opacity: 0.1;
+  z-index: -1;
+}
+
+:is(.super-slow, .slow, .normal, .fast, .super-fast) {
+  opacity: 0;
+}
+
+.super-slow {
+  animation: descend 16s linear 2s infinite;
+}
+
+.slow {
+  animation: descend 13s linear 2s infinite;
+}
+
+.normal {
+  animation: descend 10s linear 2s infinite;
+}
+
+.fast {
+  animation: descend 7s linear 2s infinite;
+}
+
+.super-fast {
+  animation: descend 4s linear 2s infinite; 
+}
+
+.small {
+  height: 40px;
+  width: 40px;
+}
+
+.medium {
+  height: 80px;
+  width: 80px;
+}
+
+.large {
+  height: 120px;
+  width: 120px;
+}
+
+.spin {
+  border: 2px solid var(--color-font);
+  animation: spin 2s linear 2s infinite;
+}
+
+@keyframes spin {
+  from { transform: rotation(0); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes descend {
+  from { opacity: 0; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(50vh); }
+  to { opacity: 0; transform: translateY(100vh); }
 }
 
 /* Projects Section */

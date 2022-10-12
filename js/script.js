@@ -40,12 +40,10 @@ function darkLightMode() {
   if (document.getElementById("toggle").checked) {
     document.getElementById("nav-bar").style.backgroundColor = lightMode["navbarColor"];
     document.getElementById("github-icon").style.filter = "brightness(0)";
-    document.querySelector(".self-photo").style.opacity = 1;
     getTheme(lightMode);
   } else {
     document.getElementById("nav-bar").style.backgroundColor = darkMode["navbarColor"];
     document.getElementById("github-icon").style.filter = "brightness(100%)";
-    document.querySelector(".self-photo").style.opacity = 0.7;
     getTheme(darkMode);
   }
 }
@@ -177,3 +175,26 @@ const topBtnLink = document.getElementById("top-btn-link");
     event.preventDefault();
   });
 });
+
+/* Falling box animations for About Section */
+const boxCtnr = document.querySelector(".boxes-ctnr");
+const fallSpeeds = ["super-slow", "slow", "normal", "fast", "super-fast"];
+const boxSizes = ["small", "medium", "large"];
+
+const makeBoxes = (numBoxes) => {
+  for (let i = 0; i < numBoxes; i++) {
+    const box = document.createElement("span");
+    const spin = document.createElement("span");
+    const fallSpeed = fallSpeeds[Math.floor(Math.random() * fallSpeeds.length)];
+    const boxSize = boxSizes[Math.floor(Math.random() * boxSizes.length)];
+
+    spin.className = "spin";
+    spin.classList.add(boxSize);
+    box.className = fallSpeed;
+
+    box.appendChild(spin);
+    boxCtnr.appendChild(box);
+  }
+}
+
+makeBoxes(40);
