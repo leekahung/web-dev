@@ -89,11 +89,11 @@ a:not(.repo-link):is(:hover, :focus-visible) {
   color: var(--color-font-hover);
 }
 
-:is(.toggler, .slider, .proj-ctnr-links, .repo-link, .repo-span, .self-photo) {
+:is(.toggler, .slider, .proj-ctnr-links, .repo-link, .repo-span, .self-photo, #skills) {
   border-radius: 20px;
 }
 
-.slider, .proj-ctnr-links, .nav-link::after {
+.slider, .proj-ctnr-links, .nav-link::after, #skills {
   transition: var(--short-transition);
 }
 
@@ -117,7 +117,7 @@ a:not(.repo-link):is(:hover, :focus-visible) {
   background-color: var(--color-sec);
 }
 
-.nav-link::after, #home::after, #home::before {
+.nav-link::after, #home::after, #home::before, #skills::before {
   content: "";
   position: absolute;
 }
@@ -323,10 +323,13 @@ a:not(.repo-link):is(:hover, :focus-visible) {
   margin-bottom: 50px;
 }
 
-#about-me {
+#about-me, #skills {
   font-size: 1.8rem;
-  width: max(60%, 340px);
   line-height: 3rem;
+}
+
+#about-me {
+  width: max(60%, 340px);
 }
 
 .self-photo {
@@ -335,8 +338,47 @@ a:not(.repo-link):is(:hover, :focus-visible) {
 }
 
 #skills {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: start;
+  border: 1px solid var(--color-font);
+  padding: 20px;
+  width: max(50%, 600px);
+  overflow: hidden;
+}
+
+#skills::before {
+  background: var(--color-back);
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.9;
+}
+
+.skill-type {
   flex-direction: column;
-  gap: 50px;
+  justify-content: flex-start;
+  gap: 20px;
+  padding: 20px;
+}
+
+.skill-type p {
+  display: inline-block;
+}
+
+.skill-type div {
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 10px;
+  min-height: 130px;
+}
+
+.skill-topic {
+  color: purple;
+}
+
+.skill-type:not(:first-child) {
+  border-left: 1px solid var(--color-font);
 }
 
 /* About Animations */
@@ -346,6 +388,7 @@ a:not(.repo-link):is(:hover, :focus-visible) {
   justify-content: space-evenly;
   width: 100%;
   opacity: 0.5;
+  z-index: -1;
 }
 
 :is(.super-slow, .slow, .normal, .fast, .super-fast) {
@@ -611,6 +654,19 @@ footer {
     to { width: 260px; }
   }
 
+  #skills {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    width: max(50%, 250px);
+    padding: 10px;
+  }
+
+  .skill-type:not(:first-child) {
+    border-top: 1px solid var(--color-font);
+    border-left: unset;
+    padding-top: 30px;
+  }
+
   .contact-info {
     flex-direction: column;
     gap: 10px;
@@ -636,7 +692,7 @@ footer {
     to { width: 190px; }
   }
 
-  .nav-link, #about-me {
+  :is(.nav-link, #about-me, .skill-type p) {
     font-size: 1.6rem;
   }
 
@@ -657,5 +713,9 @@ footer {
 
   h1, #home h1 {
     font-size: 2.8rem;
+  }
+
+  h2 {
+    font-size: 2.4rem;
   }
 }
