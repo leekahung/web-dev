@@ -38,7 +38,6 @@ body {
 
 body, main {
   position: relative;
-  overflow-x: hidden;
 }
 
 :is(html, body, nav, main, footer) {
