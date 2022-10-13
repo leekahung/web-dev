@@ -14,8 +14,10 @@
   --focus-visible-shadow: 0 0 5px 1px var(--color-font-hover);
 }
 
-/* Reset */
-* {
+/* Custom Reset */
+html, body, footer, main, nav,
+section, div, span, h1, h2, p, a,
+form, ul, li, img, label, input {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -33,12 +35,16 @@ body {
   background-color: var(--color-back);
   color: var(--color-font);
   overflow-y: scroll;
-  overflow-x: hidden;
   font-size: 1.6rem;
 }
 
 body, main {
   position: relative;
+  overflow-x: hidden;
+}
+
+main {
+  overflow-y: hidden;
 }
 
 :is(html, body, nav, main, footer) {
