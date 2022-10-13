@@ -33,6 +33,7 @@ body {
   background-color: var(--color-back);
   color: var(--color-font);
   overflow-y: scroll;
+  overflow-x: hidden;
   font-size: 1.6rem;
 }
 
