@@ -166,6 +166,23 @@ const sectObserver = new IntersectionObserver(
   }
 );
 
+const sectNavObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      const sect = entry.target.id;
+      const navLink = document.querySelector(`.nav-link[href="#${sect}"]`) as HTMLAnchorElement;
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.25) {
+        navLink.classList.add("nav-link-hover");
+      } else {
+        navLink.classList.remove("nav-link-hover");
+      }
+    })
+  }, 
+  {
+    threshold: 0.25,
+  }
+);
+
 const btnObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
@@ -184,6 +201,7 @@ const btnObserver = new IntersectionObserver(
 );
 
 hiddenSections.forEach((sect) => sectObserver.observe(sect));
+hiddenSections.forEach((sect) => sectNavObserver.observe(sect));
 btnObserver.observe(homePage);
 
 /* Removing internal anchor tags when changing sections or using to Top button */

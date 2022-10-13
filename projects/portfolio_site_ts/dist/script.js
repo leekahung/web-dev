@@ -135,6 +135,20 @@ const sectObserver = new IntersectionObserver((entries, observer) => {
 }, {
     threshold: 0.2,
 });
+const sectNavObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        const sect = entry.target.id;
+        const navLink = document.querySelector(`.nav-link[href="#${sect}"]`);
+        if (entry.isIntersecting && entry.intersectionRatio >= 0.25) {
+            navLink.classList.add("nav-link-hover");
+        }
+        else {
+            navLink.classList.remove("nav-link-hover");
+        }
+    });
+}, {
+    threshold: 0.25,
+});
 const btnObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if (!entry.isIntersecting) {
@@ -150,6 +164,7 @@ const btnObserver = new IntersectionObserver((entries) => {
     threshold: 0.2,
 });
 hiddenSections.forEach((sect) => sectObserver.observe(sect));
+hiddenSections.forEach((sect) => sectNavObserver.observe(sect));
 btnObserver.observe(homePage);
 const internalLinks = document.querySelectorAll(".nav-link");
 const topBtnLink = document.getElementById("top-btn-link");
