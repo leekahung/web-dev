@@ -91,10 +91,6 @@ a {
   outline: none;
 }
 
-a:not(.repo-link):focus-visible {
-  color: var(--color-font-hover);
-}
-
 :is(.toggler, .slider, .proj-ctnr-links, .repo-link, .repo-span, .self-photo, #skills) {
   border-radius: 20px;
 }
@@ -240,11 +236,11 @@ a:not(.repo-link):focus-visible {
   inset: 0 100% 0 0;
 }
 
-.nav-link:focus-visible, .nav-link-hover {
+.nav-link-hover {
   color: var(--color-font-hover);
 }
 
-.nav-link:focus-visible::after, .nav-link-hover::after {
+.nav-link-hover::after {
   right: 0;
   border-bottom: 2px solid var(--color-font-hover);
 }
@@ -514,7 +510,7 @@ a:not(.repo-link):focus-visible {
 }
 
 /* Project Card Hover Animations */
-.repo-link:focus-visible, .focus-hover {
+.focus-hover {
   transform: scale(1.1);
   transform-origin: center;
   transition: var(--super-short-transition);
@@ -534,10 +530,6 @@ a:not(.repo-link):focus-visible {
   background-size: 200% 100%;
   background-image: linear-gradient(to right, grey 50%, rgb(145, 145, 145) 50%);
   transition: background-position 1s;
-}
-
-.proj-card:focus-visible .slide-in-color {
-  background-position: -100% 0;
 }
 
 /* Footer */
@@ -571,33 +563,8 @@ footer {
   filter: invert(100%);
 }
 
-.icon a:focus-visible {
-  box-shadow:
-    6px 2px 6px 2px var(--color-font-hover),
-    -6px 2px 6px 2px var(--color-font-hover);
-}
-
-#github-icon a:focus-visible {
-  box-shadow:
-    6px 2px 6px 2px rgb(240, 240, 240),
-    -6px 2px 6px 2px rgb(240, 240, 240);
-}
-
 .icon-pic {
   inset: 0;
-}
-
-.icon a:focus-visible .icon-pic {
-  animation: shake-n-grow 0.2s;
-  transform: scale(1.1);
-}
-
-@keyframes shake-n-grow {
-  0% { transform: rotate(0deg) scale(1.02); }
-  25% { transform: rotate(-5deg) scale(1.04); }
-  50% { transform: rotate(0deg) scale(1.06); }
-  75% { transform: rotate(5deg) scale(1.08); }
-  100% { transform: rotate(0deg) scale(1.1); }
 }
 
 /* To Top Button */
@@ -627,15 +594,15 @@ footer {
 
 /* Target devices that can hover */
 @media (hover: hover) {
-  a:not(.repo-link):hover {
+  a:not(.repo-link):is(:hover, :focus-visible) {
     color: var(--color-font-hover);
   }
   
-  .nav-link:is(:hover) {
+  .nav-link:is(:hover, :focus-visible) {
     color: var(--color-font-hover);
   }
   
-  .nav-link:hover::after {
+  .nav-link:is(:hover, :focus-visible)::after {
     right: 0;
     border-bottom: 2px solid var(--color-font-hover);
   }
@@ -648,7 +615,7 @@ footer {
     transform-origin: center;
   }
   
-  :is(.proj-ctnr-links, .repo-link):hover {
+  :is(.proj-ctnr-links, .repo-link):hover, .repo-link:focus-visible {
     transform: scale(1.1);
     transform-origin: center;
     transition: var(--super-short-transition);
@@ -664,25 +631,33 @@ footer {
     opacity: 1;
   }
   
-  .proj-card:hover .slide-in-color {
+  .proj-card:is(:hover, :focus-visible) .slide-in-color {
     background-position: -100% 0;
   }
   
-  .icon a:hover {
+  .icon a:is(:hover, :focus-visible) {
     box-shadow:
       6px 2px 6px 2px var(--color-font-hover),
       -6px 2px 6px 2px var(--color-font-hover);
   }
   
-  #github-icon a:hover {
+  #github-icon a:is(:hover, :focus-visible) {
     box-shadow:
       6px 2px 6px 2px rgb(240, 240, 240),
       -6px 2px 6px 2px rgb(240, 240, 240);
   }
   
-  .social-ctnr .icon:hover, .icon a:hover .icon-pic {
+  .social-ctnr .icon:hover, .icon a:is(:hover, :focus-visible) .icon-pic {
     animation: shake-n-grow 0.2s;
     transform: scale(1.1);
+  }
+  
+  @keyframes shake-n-grow {
+    0% { transform: rotate(0deg) scale(1.02); }
+    25% { transform: rotate(-5deg) scale(1.04); }
+    50% { transform: rotate(0deg) scale(1.06); }
+    75% { transform: rotate(5deg) scale(1.08); }
+    100% { transform: rotate(0deg) scale(1.1); }
   }
   
   .top-btn:hover {
