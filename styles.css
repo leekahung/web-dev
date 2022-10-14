@@ -91,7 +91,7 @@ a {
   outline: none;
 }
 
-a:not(.repo-link):is(:hover, :focus-visible) {
+a:not(.repo-link):focus-visible {
   color: var(--color-font-hover);
 }
 
@@ -181,17 +181,12 @@ a:not(.repo-link):is(:hover, :focus-visible) {
 }
 
 .show-delay {
-  animation: delay-show 2s cubic-bezier(0.25, 0.5, 0.25, 1) 1s forwards;
+  animation: slide-down 2s cubic-bezier(0.25, 0.5, 0.25, 1) 1.5s forwards;
 }
 
 @keyframes slide-down {
-  from { transform: translateY(-50px); }
-  to { transform: none; opacity: 1; }
-}
-
-@keyframes delay-show {
-  from { transform: translateY(-50px); filter: blur(20px); }
-  to { transform: none; filter: blue(0); opacity: 1; }
+  from { transform: translateY(-30px); filter: blur(20px); opacity: 0; }
+  to { transform: translateY(0); filter: blur(0); opacity: 1; }
 }
 
 /* Hero Header Animations */
@@ -245,11 +240,11 @@ a:not(.repo-link):is(:hover, :focus-visible) {
   inset: 0 100% 0 0;
 }
 
-.nav-link:is(:hover, :focus-visible), .nav-link-hover {
+.nav-link:focus-visible, .nav-link-hover {
   color: var(--color-font-hover);
 }
 
-.nav-link:is(:hover, :focus-visible)::after, .nav-link-hover::after {
+.nav-link:focus-visible::after, .nav-link-hover::after {
   right: 0;
   border-bottom: 2px solid var(--color-font-hover);
 }
@@ -280,10 +275,6 @@ a:not(.repo-link):is(:hover, :focus-visible) {
 }
 
 /* Toggle Animations */
-.toggler:hover {
-  box-shadow: 0 0 5px 1px var(--color-toggler-hover);
-}
-
 #toggle:checked + .slider {
   transform: translateX(30px);
 }
@@ -488,10 +479,6 @@ a:not(.repo-link):is(:hover, :focus-visible) {
   border: none;
 }
 
-.proj-card:hover {
-  transform-origin: center;
-}
-
 .card-top {
   height: 80%;
   width: 100%;
@@ -527,19 +514,19 @@ a:not(.repo-link):is(:hover, :focus-visible) {
 }
 
 /* Project Card Hover Animations */
-.proj-ctnr-links:hover, .repo-link:is(:hover, :focus-visible), .focus-hover {
+.repo-link:focus-visible, .focus-hover {
   transform: scale(1.1);
   transform-origin: center;
   transition: var(--super-short-transition);
   box-shadow: var(--proj-card-box-shadow);
 }
 
-:is(.proj-ctnr-links:hover, .focus-hover) img {
+.focus-hover img {
   filter: blur(10px);
   transform: scale(1.05);
 }
 
-:is(.proj-ctnr-links:hover, .focus-hover) :is(div, .repo-link) {
+.focus-hover :is(div, .repo-link) {
   opacity: 1;
 }
 
@@ -549,7 +536,7 @@ a:not(.repo-link):is(:hover, :focus-visible) {
   transition: background-position 1s;
 }
 
-.proj-card:is(:hover, :focus-visible) .slide-in-color {
+.proj-card:focus-visible .slide-in-color {
   background-position: -100% 0;
 }
 
@@ -584,13 +571,13 @@ footer {
   filter: invert(100%);
 }
 
-.icon :is(a:is(:focus-visible, :hover)) {
+.icon a:focus-visible {
   box-shadow:
     6px 2px 6px 2px var(--color-font-hover),
     -6px 2px 6px 2px var(--color-font-hover);
 }
 
-#github-icon :is(a:is(:focus-visible, :hover)) {
+#github-icon a:focus-visible {
   box-shadow:
     6px 2px 6px 2px rgb(240, 240, 240),
     -6px 2px 6px 2px rgb(240, 240, 240);
@@ -600,7 +587,7 @@ footer {
   inset: 0;
 }
 
-.social-ctnr .icon:hover, .icon :is(a:is(:focus-visible, :hover)) .icon-pic {
+.icon a:focus-visible .icon-pic {
   animation: shake-n-grow 0.2s;
   transform: scale(1.1);
 }
@@ -629,13 +616,78 @@ footer {
   border: 1px solid black;
 }
 
-.top-btn:hover, #top-btn-link:focus-visible .top-btn {
+#top-btn-link:focus-visible .top-btn {
   box-shadow: var(--focus-visible-shadow);
 }
 
 .top-btn .icon {
   height: 20px;
   width: 20px;
+}
+
+/* Target devices that can hover */
+@media (hover: hover) {
+  a:not(.repo-link):hover {
+    color: var(--color-font-hover);
+  }
+  
+  .nav-link:is(:hover) {
+    color: var(--color-font-hover);
+  }
+  
+  .nav-link:hover::after {
+    right: 0;
+    border-bottom: 2px solid var(--color-font-hover);
+  }
+  
+  .toggler:hover {
+    box-shadow: 0 0 5px 1px var(--color-toggler-hover);
+  }
+  
+  .proj-card:hover {
+    transform-origin: center;
+  }
+  
+  :is(.proj-ctnr-links, .repo-link):hover {
+    transform: scale(1.1);
+    transform-origin: center;
+    transition: var(--super-short-transition);
+    box-shadow: var(--proj-card-box-shadow);
+  }
+  
+  .proj-ctnr-links:hover img {
+    filter: blur(10px);
+    transform: scale(1.05);
+  }
+  
+  .proj-ctnr-links:hover :is(div, .repo-link) {
+    opacity: 1;
+  }
+  
+  .proj-card:hover .slide-in-color {
+    background-position: -100% 0;
+  }
+  
+  .icon a:hover {
+    box-shadow:
+      6px 2px 6px 2px var(--color-font-hover),
+      -6px 2px 6px 2px var(--color-font-hover);
+  }
+  
+  #github-icon a:hover {
+    box-shadow:
+      6px 2px 6px 2px rgb(240, 240, 240),
+      -6px 2px 6px 2px rgb(240, 240, 240);
+  }
+  
+  .social-ctnr .icon:hover, .icon a:hover .icon-pic {
+    animation: shake-n-grow 0.2s;
+    transform: scale(1.1);
+  }
+  
+  .top-btn:hover {
+    box-shadow: var(--focus-visible-shadow);
+  } 
 }
 
 /* Responsive */

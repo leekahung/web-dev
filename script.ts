@@ -138,30 +138,33 @@ projCard.forEach((card) => {
 const hiddenSections = document.querySelectorAll("section");
 const homePage = document.getElementById("home") as HTMLElement;
 const topBtn = document.getElementById("top-btn-ctnr") as HTMLElement;
+const options = (threshold: number) => {
+  return { threshold: threshold };
+}
 
 const sectObserver = new IntersectionObserver(
   (entries, observer) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
+        entry.target.classList.remove("hidden");
         entry.target.classList.add("show");
-        const targetFirstChild = entry.target.firstElementChild;
-        const targetLastChild = entry.target.lastElementChild;
-
-        if (targetFirstChild && targetLastChild) {
-          targetFirstChild.classList.add("slide-down-header");
-          if (targetLastChild.id !== "home-intro") {
-            targetLastChild.classList.add("show-delay");
-            observer.unobserve(entry.target);
+        const targetChildren = entry.target.children;
+        
+        [...targetChildren].map((child, index) => {
+          if (index === 0) {
+            child.classList.add("slide-down-header");
           } else {
-            observer.unobserve(entry.target);
+            if (child.id !== "home-intro") {
+              child.classList.add("show-delay");
+              observer.unobserve(entry.target);
+            } else {
+              observer.unobserve(entry.target);
+            }
           }
-        }
+        });
       }
     });
-  },
-  {
-    threshold: 0.2,
-  }
+  }, options(0.2)
 );
 
 const sectNavObserver = new IntersectionObserver(
@@ -169,16 +172,13 @@ const sectNavObserver = new IntersectionObserver(
     entries.forEach((entry) => {
       const sect = entry.target.id;
       const navLink = document.querySelector(`.nav-link[href="#${sect}"]`) as HTMLAnchorElement;
-      if (entry.isIntersecting && entry.intersectionRatio >= 0.25) {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.3) {
         navLink.classList.add("nav-link-hover");
       } else {
         navLink.classList.remove("nav-link-hover");
       }
     });
-  },
-  {
-    threshold: 0.25,
-  }
+  }, options(0.3)
 );
 
 const btnObserver = new IntersectionObserver(
@@ -192,10 +192,7 @@ const btnObserver = new IntersectionObserver(
         topBtn.classList.remove("slideIn");
       }
     });
-  },
-  {
-    threshold: 0.2,
-  }
+  }, options(0.2)
 );
 
 hiddenSections.forEach((sect) => sectObserver.observe(sect));
