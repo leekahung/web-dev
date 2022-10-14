@@ -5,7 +5,7 @@
   "main": "index.js",
   "home": "https://leekahung.github.io/web-dev/",
   "scripts": {
-    "deploy": "gh-pages -d ./src",
+    "deploy": "gh-pages -d .",
     "build": "tsc"
   },
   "keywords": [],
