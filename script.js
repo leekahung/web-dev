@@ -150,6 +150,25 @@ const sectNavObserver = new IntersectionObserver((entries) => {
         }
     });
 }, options(0.25));
+window.addEventListener("touchstart", (event) => {
+    const source = event.target;
+    const localSect = source.closest("section");
+    const allSect = document.querySelectorAll("section");
+    if (localSect) {
+        [...allSect].map((section) => {
+            if (localSect.id === section.id) {
+                const navLink = document.querySelector(`.nav-link[href="#${localSect.id}"]`);
+                navLink.classList.add("nav-link-hover");
+            }
+            else {
+                const navLink = document.querySelector(`.nav-link[href="#${localSect.id}"]`);
+                if (navLink.classList.length > 2) {
+                    navLink.classList.remove("nav-link-hover");
+                }
+            }
+        });
+    }
+});
 const btnObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if (!entry.isIntersecting) {
