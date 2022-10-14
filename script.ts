@@ -181,24 +181,12 @@ const sectNavObserver = new IntersectionObserver(
   }, options(0.25)
 );
 
-window.addEventListener("touchstart", (event: Event) => {
-  const source = event.target as HTMLElement;
-  const localSect = source.closest("section") as HTMLElement;
-  const allSect = document.querySelectorAll("section");
-  if (localSect) {
-    [...allSect].map((section) => {
-      if (localSect.id === section.id) {
-        const navLink = document.querySelector(`.nav-link[href="#${localSect.id}"]`) as HTMLAnchorElement;
-        navLink.classList.add("nav-link-hover");
-      } else {
-        const navLink = document.querySelector(`.nav-link[href="#${localSect.id}"]`) as HTMLAnchorElement; 
-        if (navLink.classList.length > 2) {
-          navLink.classList.remove("nav-link-hover");
-        }
-      }
-    });
+window.addEventListener("touchstart", () => {
+  const focusedElement = document.querySelector(":focus") as HTMLElement;
+  if (focusedElement) {
+    focusedElement.blur();
   }
-});
+})
 
 const btnObserver = new IntersectionObserver(
   (entries) => {
