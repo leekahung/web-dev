@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "home": "https://leekahung.github.io/web-dev/",
   "scripts": {
-    "deploy": "gh-pages -d .",
     "build": "tsc"
   },
   "keywords": [],
