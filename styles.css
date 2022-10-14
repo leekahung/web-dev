@@ -577,7 +577,11 @@ footer {
 }
 
 #github-icon {
-  filter: brightness(100);
+  filter: brightness(100%);
+}
+
+#github-icon a .icon-pic {
+  filter: invert(100%);
 }
 
 .icon :is(a:is(:focus-visible, :hover)) {
@@ -586,7 +590,7 @@ footer {
     -6px 2px 6px 2px var(--color-font-hover);
 }
 
-#github-icon :is(a:is(:focus-visible, a:hover)) {
+#github-icon :is(a:is(:focus-visible, :hover)) {
   box-shadow:
     6px 2px 6px 2px rgb(240, 240, 240),
     -6px 2px 6px 2px rgb(240, 240, 240);
