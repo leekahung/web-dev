@@ -1,13 +1,13 @@
 /* Function to change theme color */
 function darkLightMode() {
-  type Theme = {
-    backgroundColor: string;
-    fontColor: string;
-    navbarColor: string;
-    fontColorHover: string;
-    togglerColorHover: string;
-    backgroundImg: string;
-  };
+  interface Theme {
+    backgroundColor: string,
+    fontColor: string,
+    navbarColor: string,
+    fontColorHover: string,
+    togglerColorHover: string,
+    backgroundImg: string
+  }
 
   const darkMode: Theme = {
     backgroundColor: "rgb(40, 45, 45)",
@@ -47,19 +47,17 @@ function darkLightMode() {
   };
 
   const toggle = document.getElementById("toggle") as HTMLInputElement;
-  const navbar = document.getElementById("nav-bar");
-  const githubIcon = document.getElementById("github-icon");
+  const navbar = document.getElementById("nav-bar") as HTMLElement;
+  const githubIcon = document.getElementById("github-icon") as HTMLElement;
 
-  if (toggle && navbar && githubIcon) {
-    if (toggle.checked) {
-      navbar.style.backgroundColor = lightMode["navbarColor"];
-      githubIcon.style.filter = "brightness(0)";
-      getTheme(lightMode);
-    } else {
-      navbar.style.backgroundColor = darkMode["navbarColor"];
-      githubIcon.style.filter = "brightness(100%)";
-      getTheme(darkMode);
-    }
+  if (toggle.checked) {
+    navbar.style.backgroundColor = lightMode["navbarColor"];
+    githubIcon.style.filter = "brightness(0)";
+    getTheme(lightMode);
+  } else {
+    navbar.style.backgroundColor = darkMode["navbarColor"];
+    githubIcon.style.filter = "brightness(100%)";
+    getTheme(darkMode);
   }
 }
 
@@ -80,7 +78,7 @@ const handleHover = (event: Event) => {
     }
 
     if (["slide-in-color", "proj-desc", "desc"].includes(source.classList[0])) {
-      localRepoLink = localCtnrLink.children[1] as HTMLElement;
+      localRepoLink = localCtnrLink.children[1] as HTMLAnchorElement;
       localCtnrLink.style.boxShadow = "var(--proj-card-box-shadow)";
       localRepoLink.style.boxShadow = "unset";
     } else if (source.classList.value === "repo-span") {
@@ -99,10 +97,10 @@ const handleHover = (event: Event) => {
 };
 
 const handleFocus = (event: Event) => {
-  const source = event.target as HTMLElement;
+  const source = event.target as HTMLElement
   const parent = source.parentElement as HTMLElement;
   const localCtnrLink = parent.closest(".proj-ctnr-links") as HTMLElement;
-  const localRepoLink = localCtnrLink.children[1] as HTMLElement;
+  const localRepoLink = localCtnrLink.children[1] as HTMLAnchorElement;
 
   if (event.type === "focusin") {
     parent.classList.add("focus-hover");
@@ -121,12 +119,12 @@ const handleFocus = (event: Event) => {
   }
 };
 
-const projCtnr = document.querySelector<HTMLElement>(".proj-ctnr");
-const projCard = document.querySelectorAll<HTMLElement>(".proj-card");
+const projCtnr = document.querySelector(".proj-ctnr") as HTMLElement;
+const projCard = document.querySelectorAll<HTMLAnchorElement>(".proj-card");
 
 ["mouseover", "onmousedown", "mouseout"].forEach((eventType) => {
   if (projCtnr) {
-    projCtnr.addEventListener(eventType, (event) => handleHover(event));
+    projCtnr.addEventListener(eventType, (event) => handleHover(event))
   }
 });
 
@@ -138,8 +136,8 @@ projCard.forEach((card) => {
 
 /* Function to deal with scrolling animation */
 const hiddenSections = document.querySelectorAll("section");
-const topBtn = document.getElementById("top-btn-ctnr")!;
-const homePage = document.getElementById("home")!;
+const homePage = document.getElementById("home") as HTMLElement;
+const topBtn = document.getElementById("top-btn-ctnr") as HTMLElement;
 
 const sectObserver = new IntersectionObserver(
   (entries, observer) => {
@@ -238,6 +236,6 @@ const makeBoxes = (numBoxes: number) => {
     box.appendChild(spin);
     boxCtnr.appendChild(box);
   }
-}
+};
 
 makeBoxes(7);

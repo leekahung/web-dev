@@ -33,17 +33,15 @@ function darkLightMode() {
     const toggle = document.getElementById("toggle");
     const navbar = document.getElementById("nav-bar");
     const githubIcon = document.getElementById("github-icon");
-    if (toggle && navbar && githubIcon) {
-        if (toggle.checked) {
-            navbar.style.backgroundColor = lightMode["navbarColor"];
-            githubIcon.style.filter = "brightness(0)";
-            getTheme(lightMode);
-        }
-        else {
-            navbar.style.backgroundColor = darkMode["navbarColor"];
-            githubIcon.style.filter = "brightness(100%)";
-            getTheme(darkMode);
-        }
+    if (toggle.checked) {
+        navbar.style.backgroundColor = lightMode["navbarColor"];
+        githubIcon.style.filter = "brightness(0)";
+        getTheme(lightMode);
+    }
+    else {
+        navbar.style.backgroundColor = darkMode["navbarColor"];
+        githubIcon.style.filter = "brightness(100%)";
+        getTheme(darkMode);
     }
 }
 const handleHover = (event) => {
@@ -112,8 +110,8 @@ projCard.forEach((card) => {
     });
 });
 const hiddenSections = document.querySelectorAll("section");
-const topBtn = document.getElementById("top-btn-ctnr");
 const homePage = document.getElementById("home");
+const topBtn = document.getElementById("top-btn-ctnr");
 const sectObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -194,4 +192,3 @@ const makeBoxes = (numBoxes) => {
     }
 };
 makeBoxes(7);
-//# sourceMappingURL=script.js.map
