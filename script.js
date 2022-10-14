@@ -142,14 +142,14 @@ const sectNavObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         const sect = entry.target.id;
         const navLink = document.querySelector(`.nav-link[href="#${sect}"]`);
-        if (entry.isIntersecting && entry.intersectionRatio >= 0.3) {
+        if (entry.isIntersecting && entry.intersectionRatio >= 0.25) {
             navLink.classList.add("nav-link-hover");
         }
         else {
             navLink.classList.remove("nav-link-hover");
         }
     });
-}, options(0.3));
+}, options(0.25));
 const btnObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if (!entry.isIntersecting) {
