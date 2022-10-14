@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "deploy": "gh-pages -d ./dist",
     "build": "tsc"
   },
   "keywords": [],
