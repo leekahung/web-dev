@@ -1,12 +1,12 @@
 /* Function to change theme color */
 function darkLightMode() {
   interface Theme {
-    backgroundColor: string,
-    fontColor: string,
-    navbarColor: string,
-    fontColorHover: string,
-    togglerColorHover: string,
-    backgroundImg: string
+    backgroundColor: string;
+    fontColor: string;
+    navbarColor: string;
+    fontColorHover: string;
+    togglerColorHover: string;
+    backgroundImg: string;
   }
 
   const darkMode: Theme = {
@@ -97,7 +97,7 @@ const handleHover = (event: Event) => {
 };
 
 const handleFocus = (event: Event) => {
-  const source = event.target as HTMLElement
+  const source = event.target as HTMLElement;
   const parent = source.parentElement as HTMLElement;
   const localCtnrLink = parent.closest(".proj-ctnr-links") as HTMLElement;
   const localRepoLink = localCtnrLink.children[1] as HTMLAnchorElement;
@@ -124,7 +124,7 @@ const projCard = document.querySelectorAll<HTMLAnchorElement>(".proj-card");
 
 ["mouseover", "onmousedown", "mouseout"].forEach((eventType) => {
   if (projCtnr) {
-    projCtnr.addEventListener(eventType, (event) => handleHover(event))
+    projCtnr.addEventListener(eventType, (event) => handleHover(event));
   }
 });
 
@@ -174,8 +174,8 @@ const sectNavObserver = new IntersectionObserver(
       } else {
         navLink.classList.remove("nav-link-hover");
       }
-    })
-  }, 
+    });
+  },
   {
     threshold: 0.25,
   }
