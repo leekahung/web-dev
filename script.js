@@ -150,12 +150,6 @@ const sectNavObserver = new IntersectionObserver((entries) => {
         }
     });
 }, options(0.25));
-document.addEventListener("touchstart", () => {
-    const active = document.activeElement;
-    if (active) {
-        active.blur();
-    }
-});
 const btnObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if (!entry.isIntersecting) {

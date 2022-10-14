@@ -593,7 +593,7 @@ footer {
 }
 
 /* Target devices that can hover */
-@media (hover: hover) {
+@media (hover: hover) and (pointer: fine) {
   a:not(.repo-link):is(:hover, :focus-visible) {
     color: var(--color-font-hover);
   }
