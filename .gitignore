@@ -1,7 +1,6 @@
 # Main site
 images_orig/
 node_modules/
-src/images/
 
 # Project directories
 projects/*/node_modules
