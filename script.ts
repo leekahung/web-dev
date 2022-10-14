@@ -181,12 +181,12 @@ const sectNavObserver = new IntersectionObserver(
   }, options(0.25)
 );
 
-window.addEventListener("touchstart", () => {
-  const focusedElement = document.querySelector(":focus") as HTMLElement;
-  if (focusedElement) {
-    focusedElement.blur();
+document.addEventListener("touchstart", () => {
+  const active = document.activeElement as HTMLElement;
+  if (active) {
+    active.blur();
   }
-})
+});
 
 const btnObserver = new IntersectionObserver(
   (entries) => {
