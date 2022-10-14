@@ -1,4 +1,9 @@
 #!/bin/bash
+# Custom CSS-Minifier using awk and sed commands
+# By: Ka Hung Lee
+# Date: 0ct 13 2022
+# Usage: bash css-minifier.sh <filename>.css
+# Output: <filename>.min.css
 
 # Strip comments
 awk '!/\/?\*/||/{/' $1 > temp
