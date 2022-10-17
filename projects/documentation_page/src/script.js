@@ -36,7 +36,7 @@ tabSlider.addEventListener("click", () => {
   if (arrowFacing == "left") {
     arrowFacing = "right";
     tabArrowContent.innerText = tabArrowSym[arrowFacing];
-    navContainer.style.left = "calc(-350px * 0.95)";
+    navContainer.style.left = "calc(-320px * 0.95)";
     mainBody.style.left = "20px";
   } else if (arrowFacing == "right") {
     arrowFacing = "left";

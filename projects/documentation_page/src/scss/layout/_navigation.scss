@@ -2,11 +2,12 @@
 .nav-container {
   position: fixed;
   display: unset;
-  width: 350px;
+  width: 320px;
   height: 100%;
   top: 0;
   left: 0;
   transition: 1s;
+  background-color: rgb(40, 40, 40);
   z-index: 10;
 
   #navbar,
@@ -18,21 +19,20 @@
     height: 100%;
     width: 95%;
     border-right: 2px solid gray;
-    background-color: white;
-    overflow-y: scroll;
     z-index: 10;
-
-    &::-webkit-scrollbar {
-      display: none;
-    }
-    -ms-overflow-style: none;
-    scrollbar-width: none;
 
     .nav-header {
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 20px 40px;
+      padding: 20px;
+      gap: 10px;
+      transition: 1s;
+
+      img {
+        height: 40px;
+        width: 40px;
+      }
     }
 
     .nav-group {
@@ -41,9 +41,8 @@
       .nav-link {
         display: block;
         font-size: 1.1rem;
-        color: rgba(0, 0, 0, 0.6);
         border-top: 1px solid gray;
-        padding: 12px 40px;
+        padding: 12px 20px;
         text-decoration: none;
 
         &:last-child {
