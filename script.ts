@@ -38,12 +38,12 @@ function darkLightMode() {
   ];
 
   const getTheme = (theme: Theme) => {
-    for (let i = 0; i < setColorScheme.length; i++) {
+    setColorScheme.map((item) => {
       document.documentElement.style.setProperty(
-        setColorScheme[i][0],
-        theme[setColorScheme[i][1] as keyof Theme]
+        item[0],
+        theme[item[1] as keyof Theme]
       );
-    }
+    });
   };
 
   const toggle = document.getElementById("toggle") as HTMLInputElement;
@@ -78,8 +78,8 @@ const handleHover = (event: Event) => {
     }
 
     if (["slide-in-color", "proj-desc", "desc"].includes(source.classList[0])) {
-      localRepoLink = localCtnrLink.children[1] as HTMLAnchorElement;
       localCtnrLink.style.boxShadow = "var(--proj-card-box-shadow)";
+      localRepoLink = localCtnrLink.children[1] as HTMLAnchorElement;
       localRepoLink.style.boxShadow = "unset";
     } else if (source.classList.value === "repo-span") {
       source.style.boxShadow = "var(--proj-card-box-shadow)";
@@ -140,60 +140,56 @@ const homePage = document.getElementById("home") as HTMLElement;
 const topBtn = document.getElementById("top-btn-ctnr") as HTMLElement;
 const options = (threshold: number) => {
   return { threshold: threshold };
-}
+};
 
-const sectObserver = new IntersectionObserver(
-  (entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.remove("hidden");
-        entry.target.classList.add("show");
-        const targetChildren = entry.target.children;
-        
-        [...targetChildren].map((child, index) => {
-          if (index === 0) {
-            child.classList.add("slide-down-header");
+const sectObserver = new IntersectionObserver((entries, observer) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.remove("hidden");
+      entry.target.classList.add("show");
+      const targetChildren = entry.target.children;
+
+      [...targetChildren].map((child, index) => {
+        if (index === 0) {
+          child.classList.add("slide-down-header");
+        } else {
+          if (child.id !== "home-intro") {
+            child.classList.add("show-delay");
+            observer.unobserve(entry.target);
           } else {
-            if (child.id !== "home-intro") {
-              child.classList.add("show-delay");
-              observer.unobserve(entry.target);
-            } else {
-              observer.unobserve(entry.target);
-            }
+            observer.unobserve(entry.target);
           }
-        });
-      }
-    });
-  }, options(0.2)
-);
+        }
+      });
+    }
+  });
+}, options(0.2));
 
-const sectNavObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      const sect = entry.target.id;
-      const navLink = document.querySelector(`.nav-link[href="#${sect}"]`) as HTMLAnchorElement;
-      if (entry.isIntersecting && entry.intersectionRatio >= 0.25) {
-        navLink.classList.add("nav-link-hover");
-      } else {
-        navLink.classList.remove("nav-link-hover");
-      }
-    });
-  }, options(0.25)
-);
+const sectNavObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    const sect = entry.target.id;
+    const navLink = document.querySelector(
+      `.nav-link[href="#${sect}"]`
+    ) as HTMLAnchorElement;
+    if (entry.isIntersecting && entry.intersectionRatio >= 0.25) {
+      navLink.classList.add("nav-link-hover");
+    } else {
+      navLink.classList.remove("nav-link-hover");
+    }
+  });
+}, options(0.25));
 
-const btnObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) {
-        topBtn.classList.add("slideIn");
-        topBtn.classList.remove("slideOut");
-      } else {
-        topBtn.classList.add("slideOut");
-        topBtn.classList.remove("slideIn");
-      }
-    });
-  }, options(0.2)
-);
+const btnObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) {
+      topBtn.classList.add("slideIn");
+      topBtn.classList.remove("slideOut");
+    } else {
+      topBtn.classList.add("slideOut");
+      topBtn.classList.remove("slideIn");
+    }
+  });
+}, options(0.2));
 
 hiddenSections.forEach((sect) => sectObserver.observe(sect));
 hiddenSections.forEach((sect) => sectNavObserver.observe(sect));

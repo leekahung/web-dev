@@ -26,9 +26,9 @@ function darkLightMode() {
         ["--hero-header-url", "backgroundImg"],
     ];
     const getTheme = (theme) => {
-        for (let i = 0; i < setColorScheme.length; i++) {
-            document.documentElement.style.setProperty(setColorScheme[i][0], theme[setColorScheme[i][1]]);
-        }
+        setColorScheme.map((item) => {
+            document.documentElement.style.setProperty(item[0], theme[item[1]]);
+        });
     };
     const toggle = document.getElementById("toggle");
     const navbar = document.getElementById("nav-bar");
@@ -56,8 +56,8 @@ const handleHover = (event) => {
             localCtnrLink.classList.remove("focus-hover");
         }
         if (["slide-in-color", "proj-desc", "desc"].includes(source.classList[0])) {
-            localRepoLink = localCtnrLink.children[1];
             localCtnrLink.style.boxShadow = "var(--proj-card-box-shadow)";
+            localRepoLink = localCtnrLink.children[1];
             localRepoLink.style.boxShadow = "unset";
         }
         else if (source.classList.value === "repo-span") {
