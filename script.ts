@@ -20,7 +20,7 @@ function darkLightMode() {
 
   const lightMode: Theme = {
     backgroundColor: "rgba(240, 240, 240)",
-    fontColor: "black",
+    fontColor: "rgb(40, 45, 45)",
     navbarColor: "rgb(200, 200, 200)",
     fontColorHover: "rgba(0, 127, 255)",
     togglerColorHover: "rgba(0, 0, 0, 0.4)",

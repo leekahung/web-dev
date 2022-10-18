@@ -119,7 +119,7 @@ a {
   background-color: var(--color-sec);
 }
 
-.nav-link::after, #home::after, #home::before, #skills::before {
+.nav-link::after, #home::after, #home::before, #about-me::before, #skills::before {
   content: "";
   position: absolute;
 }
@@ -321,8 +321,12 @@ a {
   line-height: 3rem;
 }
 
+#about-me, #about-me::before {
+  width: max(45%, 300px);
+}
+
 #about-me {
-  width: max(60%, 340px);
+  position: relative;
 }
 
 .self-photo {
@@ -340,7 +344,7 @@ a {
   overflow: hidden;
 }
 
-#skills::before {
+#skills::before, #about-me::before {
   background: var(--color-back);
   width: 100%;
   height: 100%;
@@ -367,7 +371,7 @@ a {
 }
 
 .skill-topic {
-  color: purple;
+  color: var(--color-font-hover);
 }
 
 .skill-type:not(:first-child) {
@@ -670,10 +674,6 @@ footer {
   #about-ctnr {
     flex-direction: column;
   }
-
-  #about-me {
-    width: 90%;
-  }
 }
 
 @media (max-width: 768px) {
@@ -746,6 +746,10 @@ footer {
 @media (max-width: 320px) {
   #nav-group {
     width: clamp(190px, 50vw, 500px);
+  }
+
+  #about-me {
+    width: 90%;
   }
 
   h1, #home h1 {
