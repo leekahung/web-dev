@@ -290,14 +290,18 @@ a {
   height: 100vh;
 }
 
-#home h1 {
-  position: absolute;
-  top: 37%;
+#home-ctnr {
+  flex-direction: column;
+  gap: 20px;
+}
+
+#home-header {
   font-size: 5.6rem;
 }
 
-#home p {
+#home-intro {
   white-space: nowrap;
+  border-right: 2px solid transparent;
   width: 340px;
   top: 57%;
   font-size: 3.2rem;
@@ -448,7 +452,7 @@ a {
 
 .proj-ctnr {
   width: clamp(260px, 90vw, 100vw);
-  gap: clamp(30px, 5vw, 50px);
+  gap: clamp(40px, 5vw, 50px);
   flex-wrap: wrap;
 }
 
@@ -670,11 +674,11 @@ footer {
 }
 
 @media (max-width: 768px) {
-  #home h1 {
+  #home-header {
     font-size: 3.6rem;
   }
 
-  #home p {
+  #home-intro {
     width: 260px;
     font-size: 2.4rem;
   }
@@ -712,7 +716,15 @@ footer {
     width: clamp(200px, 50vw, 500px);
   }
 
-  #home p {
+  h1, #home-header {
+    font-size: 2.8rem;
+  }
+
+  h2 {
+    font-size: 2.4rem;
+  }
+
+  #home-intro {
     width: 175px;
     font-size: 1.8rem;
   }
@@ -720,6 +732,10 @@ footer {
   @keyframes typing {
     from { width: 0; }
     to { width: 190px; }
+  }
+
+  footer {
+    padding: 20px 20px 100px;
   }
 
   :is(.nav-link, #about-me, .skill-type p) {
@@ -745,11 +761,11 @@ footer {
     width: 90%;
   }
 
-  h1, #home h1 {
-    font-size: 2.8rem;
+  :is(.proj-ctnr-links, .repo-link):hover, .repo-link:focus-visible {
+    transform: none;
   }
 
-  h2 {
-    font-size: 2.4rem;
+  .focus-hover, :is(.focus-hover, .proj-ctnr-links:hover) img {
+    transform: none;
   }
 }
