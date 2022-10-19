@@ -289,6 +289,8 @@ a {
 }
 
 #home-ctnr {
+  position: absolute;
+  top: 40%;
   flex-direction: column;
   gap: 20px;
 }
