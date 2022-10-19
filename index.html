@@ -12,22 +12,22 @@
     <noscript><link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet"></noscript>
   </head>
   <body>
-    <nav id="nav-bar">
-      <div class="nav-ctnr">
-        <ul id="nav-group">
-          <li><a href="#home" class="nav-link">Home</a></li>
-          <li><a href="#about" class="nav-link">About</a></li>
-          <li><a href="#projects" class="nav-link">Projects</a></li>
-        </ul>
-      </div>
-      <div class="nav-ctnr">
-        <label class="toggler">
-          <input type="checkbox" id="toggle" onclick="darkLightMode()">
-          <div class="slider"></div>
-        </label>
-      </div>
-    </nav>
     <main>
+      <nav id="nav-bar">
+        <div class="nav-ctnr">
+          <ul id="nav-group">
+            <li><a href="#home" class="nav-link">Home</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#projects" class="nav-link">Projects</a></li>
+          </ul>
+        </div>
+        <div class="nav-ctnr">
+          <label class="toggler">
+            <input type="checkbox" id="toggle" onclick="darkLightMode()">
+            <div class="slider"></div>
+          </label>
+        </div>
+      </nav>
       <section id="home" class="hidden">
         <h1 class="slide-down-home">Hi, my name is Ka Hung!</h1>
         <p id="home-intro">I am a web developer!</p>
@@ -154,35 +154,35 @@
           </div> 
         </div>
       </section>
+      <footer>
+        <h1>Contacts</h1>
+        <div class="contact-info">
+          <p>Email: <a id="email" href="mailto:lee.kahung414@gmail.com">lee.kahung414@gmail.com</a></p>
+          <p>Phone: (503)-914-7790</p>
+          <p>Location: Portland, OR, USA</p>
+        </div>
+        <div class="social-ctnr">
+          <div class="icon" id="github-icon">
+            <a href="https://github.com/leekahung" target="_blank">
+              <img class="icon-pic" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="github icon">
+            </a>
+          </div>
+          <div class="icon">
+            <a href="https://www.linkedin.com/in/ka-hung-lee-090634a7/" target="_blank">
+              <img class="icon-pic" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="linkedin icon">
+            </a>
+          </div>
+        </div>
+        <a id="created-by" href="https://github.com/leekahung/web-dev">&#169; 2022 Ka Hung Lee</a>
+      </footer>
+      <div id="top-btn-ctnr" class="slideOut">
+        <a id="top-btn-link" href="#home">
+          <div class="top-btn">
+            <img class="icon" src="./images/back_to_top_icon.webp" alt="swipe up icon">
+          </div>
+        </a>
+      </div>
     </main>
-    <footer>
-      <h1>Contacts</h1>
-      <div class="contact-info">
-        <p>Email: <a id="email" href="mailto:lee.kahung414@gmail.com">lee.kahung414@gmail.com</a></p>
-        <p>Phone: (503)-914-7790</p>
-        <p>Location: Portland, OR, USA</p>
-      </div>
-      <div class="social-ctnr">
-        <div class="icon" id="github-icon">
-          <a href="https://github.com/leekahung" target="_blank">
-            <img class="icon-pic" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="github icon">
-          </a>
-        </div>
-        <div class="icon">
-          <a href="https://www.linkedin.com/in/ka-hung-lee-090634a7/" target="_blank">
-            <img class="icon-pic" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="linkedin icon">
-          </a>
-        </div>
-      </div>
-      <a id="created-by" href="https://github.com/leekahung/web-dev">&#169; 2022 Ka Hung Lee</a>
-    </footer>
-    <div id="top-btn-ctnr" class="slideOut">
-      <a id="top-btn-link" href="#home">
-        <div class="top-btn">
-          <img class="icon" src="./images/back_to_top_icon.webp" alt="swipe up icon">
-        </div>
-      </a>
-    </div>
     <script src="./script.js"></script>
   </body>
 </html>
