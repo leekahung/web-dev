@@ -1,8 +1,6 @@
 /* Root Variables */
 :root {
   --hero-header-url: url(./images/clear_night.webp);
-  --animation-border-color-start: transparent;
-  --animation-border-color-end: rgb(240, 240, 240);
   --super-short-transition: 0.2s;
   --short-transition: 0.4s;
   --color-back: rgb(40, 45, 45);
@@ -185,12 +183,12 @@ a {
     transform 1s;
 }
 
-.slide-down-header {
-  animation: slide-down 2s cubic-bezier(0.25, 0.5, 0.25, 1) 0s forwards;
+.slide-down-header, .show-delay {
+  animation: slide-down 2s cubic-bezier(0.25, 0.5, 0.25, 1) forwards;
 }
 
 .show-delay {
-  animation: slide-down 2s cubic-bezier(0.25, 0.5, 0.25, 1) 1s forwards;
+  animation-delay: 1s;
 }
 
 @keyframes slide-down {
@@ -317,8 +315,8 @@ a {
 }
 
 @keyframes blinking {
-  from, to { border-color: var(--animation-border-color-start); }
-  50% { border-color: var(--animation-border-color-end); }
+  from, to { border-color: var(--color-font); }
+  50% { border-color: transparent; }
 }
 
 /* About Section */
@@ -394,24 +392,31 @@ a {
   z-index: -1;
 }
 
+:is(.super-slow, .slow, .normal, .fast, .super-fast) {
+  animation-name: descend;
+  animation-timing-function: linear;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+}
+
 .super-slow {
-  animation: descend 16s linear 2s infinite;
+  animation-duration: 16s;
 }
 
 .slow {
-  animation: descend 13s linear 2s infinite;
+  animation-duration: 13s;
 }
 
 .normal {
-  animation: descend 10s linear 2s infinite;
+  animation-duration: 10s;
 }
 
 .fast {
-  animation: descend 7s linear 2s infinite;
+  animation-duration: 7s;
 }
 
 .super-fast {
-  animation: descend 4s linear 2s infinite; 
+  animation-duration: 4s;
 }
 
 .small {
