@@ -1,3 +1,13 @@
+/* Setting window height for calculator */
+let vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty("--vh", `${vh}px`);
+
+window.addEventListener("resize", () => {
+  window.innerHeight * 0.01;
+  document.documentElement.style.setProperty("--vh", `${vh}px`); 
+})
+
+/* Initializing const for calculator inputs and outputs */
 const calcInputs = new Map([
   [0, "Del"], [1, "^"], [2, "("], [3, ")"], [4, "+"],
   [5, "e"], [6, "7"], [7, "8"], [8, "9"], [9, "-"],
