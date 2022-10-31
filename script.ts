@@ -37,6 +37,7 @@ function darkLightMode() {
     ["--hero-header-url", "backgroundImg"],
   ];
 
+  /* darkLightMode() helper function to get color scheme */
   const getTheme = (theme: Theme) => {
     setColorScheme.map((item) => {
       document.documentElement.style.setProperty(
@@ -61,7 +62,7 @@ function darkLightMode() {
   }
 }
 
-/* Function to deal with project card animation */
+/* Functions to deal with project card hover and focus animations */
 const handleHover = (event: Event) => {
   const source = event.target as HTMLElement;
 
@@ -134,7 +135,84 @@ projCard.forEach((card) => {
   });
 });
 
-/* Function to deal with scrolling animation */
+/* Functions to deal with project carousel */
+const allCtnrCards = Array.from(projCtnr.children) as HTMLDivElement[];
+const cardWidth = allCtnrCards[0].getBoundingClientRect().width;
+const projNavCtnr = document.querySelector(".proj-nav") as HTMLDivElement;
+const projNavBtns = Array.from(projNavCtnr.children) as HTMLButtonElement[];
+
+/* Helper functions to initialize, get, and update proj card indices for carousel */
+const getNextPrevIndex = () => {
+  const currProjIndex = allCtnrCards.findIndex(proj => proj.className === "proj-ctnr-links curr-proj");
+  let nextProjIndex: number;
+  let prevProjIndex: number;
+  if (currProjIndex === 0) {
+    nextProjIndex = currProjIndex + 1;
+    prevProjIndex = allCtnrCards.length - 1;
+  } else if (currProjIndex === allCtnrCards.length - 1) {
+    nextProjIndex = 0;
+    prevProjIndex = allCtnrCards.length - 2;
+  } else {
+    nextProjIndex = currProjIndex + 1;
+    prevProjIndex = currProjIndex - 1;
+  }
+
+  return {
+    currProjIndex: currProjIndex,
+    nextProjIndex: nextProjIndex,
+    prevProjIndex: prevProjIndex,
+  }
+}
+
+const initProjCards = () => {
+  const { prevProjIndex, nextProjIndex } = getNextPrevIndex();
+  const prevProj = allCtnrCards[prevProjIndex];
+  prevProj.classList.add("prev-proj");
+
+  const nextProj = allCtnrCards[nextProjIndex];
+  nextProj.classList.add("next-proj");
+}
+
+initProjCards();
+
+const nextBtn = document.querySelector(".scroll-right") as HTMLButtonElement;
+const prevBtn = document.querySelector(".scroll-left") as HTMLButtonElement;
+
+/* Main update function for carousel */
+const updateCarouselIndices = (indexRemove: number, indexAdd: number) => {
+  allCtnrCards.map((proj) => {
+    if (proj.classList.length > 1) {
+      proj.classList.remove(proj.classList[1]);
+    }
+  });
+  allCtnrCards[indexAdd].classList.add("curr-proj");
+
+  initProjCards();
+  projNavBtns[indexRemove].classList.remove("curr-proj-card");
+  projNavBtns[indexAdd].classList.add("curr-proj-card");
+}
+
+/* Event Listeners for all carousel buttons */
+nextBtn.addEventListener("click", () => {
+  const { currProjIndex, nextProjIndex } = getNextPrevIndex();
+  updateCarouselIndices(currProjIndex, nextProjIndex);
+});
+
+prevBtn.addEventListener("click", () => {
+  const { prevProjIndex, currProjIndex } = getNextPrevIndex();
+  updateCarouselIndices(currProjIndex, prevProjIndex);
+});
+
+projNavBtns.forEach((btn, index) => {
+  btn.addEventListener("click", () => {
+    const currBtnIndex = projNavBtns.findIndex((button) => button.classList.length > 1);
+    if (index !== currBtnIndex) {
+      updateCarouselIndices(currBtnIndex, index);
+    }
+  })
+});
+
+/* Functions to deal with scrolling animation via Intersection Observer */
 const hiddenSections = document.querySelectorAll("section");
 const homePage = document.getElementById("home") as HTMLElement;
 const topBtn = document.getElementById("top-btn-ctnr") as HTMLElement;

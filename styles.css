@@ -122,12 +122,8 @@ a {
   opacity: 0;
 }
 
-:is(.nav-link, .card-top, .card-bottom, .proj-ctnr-links, .proj-img, #home, #about-me, #skill) {
+:is(#home, #about-me, #skill) {
   position: relative;
-}
-
-:is(.proj-desc, .repo-link, .slide-in-color) {
-  position: absolute;
 }
 
 .nav-link::after, #home::after, #home::before, #about-me::before, #skills::before {
@@ -207,6 +203,7 @@ a {
 }
 
 .nav-link {
+  position: relative;
   text-decoration: none;
   font-size: 2rem;
   font-weight: 800;
@@ -456,14 +453,81 @@ a {
   justify-content: flex-start;
 }
 
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  width: 70px;
+  height: 70px;
+  cursor: pointer;
+  z-index: 1;
+  font-size: 6rem;
+  color: var(--color-font);
+  background-color: transparent;
+  border: none;
+}
+
+.scroll-left {
+  left: 300px;
+}
+
+.scroll-right {
+  right: 300px;
+}
+
+.proj-nav {
+  gap: 10px;
+}
+
+.proj-btn {
+  width: 15px;
+  height: 15px;
+  border: none;
+  border-radius: 50%;
+  background-color: grey;
+  cursor: pointer;
+}
+
+.curr-proj-card {
+  background-color: var(--color-font-hover);
+}
+
+:is(.proj-ctnr, .card-top, .card-bottom, .proj-img) {
+  position: relative;
+}
+
+:is(.proj-ctnr-links, .repo-link, .proj-desc) {
+  position: absolute;
+}
+
 .proj-ctnr {
-  width: clamp(260px, 90vw, 100vw);
-  gap: clamp(40px, 5vw, 50px);
-  flex-wrap: wrap;
+  width: 50%;
+  height: 400px; 
 }
 
 .proj-ctnr-links {
   overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.prev-proj, .next-proj {
+  opacity: 0.4;
+  transition: 0.7s;
+}
+
+.prev-proj {
+  transform: scale(0.8) translateX(-400px);
+}
+
+.curr-proj {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+  transition: 0.4s;
+}
+
+.next-proj {
+  transform: scale(0.8) translateX(400px);
 }
 
 .repo-link {
@@ -547,6 +611,7 @@ a {
 }
 
 .slide-in-color {
+  position: absolute;
   background-size: 200% 100%;
   background-image: linear-gradient(to right, grey 50%, rgb(145, 145, 145) 50%);
   transition: background-position 1s;

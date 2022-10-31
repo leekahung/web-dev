@@ -109,6 +109,69 @@ projCard.forEach((card) => {
         card.addEventListener(eventType, (event) => handleFocus(event));
     });
 });
+const allCtnrCards = Array.from(projCtnr.children);
+const cardWidth = allCtnrCards[0].getBoundingClientRect().width;
+const projNavCtnr = document.querySelector(".proj-nav");
+const projNavBtns = Array.from(projNavCtnr.children);
+const getNextPrevIndex = () => {
+    const currProjIndex = allCtnrCards.findIndex(proj => proj.className === "proj-ctnr-links curr-proj");
+    let nextProjIndex;
+    let prevProjIndex;
+    if (currProjIndex === 0) {
+        nextProjIndex = currProjIndex + 1;
+        prevProjIndex = allCtnrCards.length - 1;
+    }
+    else if (currProjIndex === allCtnrCards.length - 1) {
+        nextProjIndex = 0;
+        prevProjIndex = allCtnrCards.length - 2;
+    }
+    else {
+        nextProjIndex = currProjIndex + 1;
+        prevProjIndex = currProjIndex - 1;
+    }
+    return {
+        currProjIndex: currProjIndex,
+        nextProjIndex: nextProjIndex,
+        prevProjIndex: prevProjIndex,
+    };
+};
+const initProjCards = () => {
+    const { prevProjIndex, nextProjIndex } = getNextPrevIndex();
+    const prevProj = allCtnrCards[prevProjIndex];
+    prevProj.classList.add("prev-proj");
+    const nextProj = allCtnrCards[nextProjIndex];
+    nextProj.classList.add("next-proj");
+};
+initProjCards();
+const nextBtn = document.querySelector(".scroll-right");
+const prevBtn = document.querySelector(".scroll-left");
+const updateCarouselIndices = (indexRemove, indexAdd) => {
+    allCtnrCards.map((proj) => {
+        if (proj.classList.length > 1) {
+            proj.classList.remove(proj.classList[1]);
+        }
+    });
+    allCtnrCards[indexAdd].classList.add("curr-proj");
+    initProjCards();
+    projNavBtns[indexRemove].classList.remove("curr-proj-card");
+    projNavBtns[indexAdd].classList.add("curr-proj-card");
+};
+nextBtn.addEventListener("click", () => {
+    const { currProjIndex, nextProjIndex } = getNextPrevIndex();
+    updateCarouselIndices(currProjIndex, nextProjIndex);
+});
+prevBtn.addEventListener("click", () => {
+    const { prevProjIndex, currProjIndex } = getNextPrevIndex();
+    updateCarouselIndices(currProjIndex, prevProjIndex);
+});
+projNavBtns.forEach((btn, index) => {
+    btn.addEventListener("click", () => {
+        const currBtnIndex = projNavBtns.findIndex((button) => button.classList.length > 1);
+        if (index !== currBtnIndex) {
+            updateCarouselIndices(currBtnIndex, index);
+        }
+    });
+});
 const hiddenSections = document.querySelectorAll("section");
 const homePage = document.getElementById("home");
 const topBtn = document.getElementById("top-btn-ctnr");
