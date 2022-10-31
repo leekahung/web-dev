@@ -455,23 +455,24 @@ a {
 
 .scroll-btn {
   position: absolute;
-  top: 50%;
+  top: calc((400px + 100px) / 2);
   width: 70px;
   height: 70px;
   cursor: pointer;
   z-index: 1;
   font-size: 6rem;
-  color: var(--color-font);
-  background-color: transparent;
+  color: rgb(240, 240, 240);
+  background-color: rgb(70, 75, 75);
+  text-align: center;
   border: none;
 }
 
 .scroll-left {
-  left: 300px;
+  left: 10vw;
 }
 
 .scroll-right {
-  right: 300px;
+  right: 10vw;
 }
 
 .proj-nav {
@@ -818,10 +819,6 @@ footer {
     to { width: 190px; }
   }
 
-  footer {
-    padding: 20px 20px 100px;
-  }
-
   :is(.nav-link, #about-me, .skill-type p) {
     font-size: 1.6rem;
   }
@@ -833,6 +830,14 @@ footer {
   .top-btn {
     width: 35px;
     height: 35px;
+  }
+
+  .scroll-btn {
+    top: initial;
+    bottom: 7%;
+    height: 40px;
+    width: 40px;
+    font-size: 3.6rem;
   }
 }
 
