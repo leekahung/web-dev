@@ -212,6 +212,19 @@ projNavBtns.forEach((btn, index) => {
   })
 });
 
+/* Auto scrolling of project carousel */
+const autoScrollCarousel = (direction: string) => {
+  if (direction === "right") {
+    const { currProjIndex, nextProjIndex } = getNextPrevIndex(); 
+    updateCarouselIndices(currProjIndex, nextProjIndex);
+  } else {
+    const { prevProjIndex, currProjIndex } = getNextPrevIndex();
+    updateCarouselIndices(currProjIndex, prevProjIndex);
+  }
+};
+
+setInterval(autoScrollCarousel, 10000);
+
 /* Functions to deal with scrolling animation via Intersection Observer */
 const hiddenSections = document.querySelectorAll("section");
 const homePage = document.getElementById("home") as HTMLElement;

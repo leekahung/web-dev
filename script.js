@@ -172,6 +172,17 @@ projNavBtns.forEach((btn, index) => {
         }
     });
 });
+const autoScrollCarousel = (direction) => {
+    if (direction === "right") {
+        const { currProjIndex, nextProjIndex } = getNextPrevIndex();
+        updateCarouselIndices(currProjIndex, nextProjIndex);
+    }
+    else {
+        const { prevProjIndex, currProjIndex } = getNextPrevIndex();
+        updateCarouselIndices(currProjIndex, prevProjIndex);
+    }
+};
+setInterval(autoScrollCarousel, 10000);
 const hiddenSections = document.querySelectorAll("section");
 const homePage = document.getElementById("home");
 const topBtn = document.getElementById("top-btn-ctnr");
