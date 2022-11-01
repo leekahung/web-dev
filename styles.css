@@ -102,7 +102,7 @@ a {
   border-radius: 20px;
 }
 
-.slider, .proj-ctnr-links, .nav-link::after, #skills {
+.slider, .nav-link::after, #skills {
   transition: var(--short-transition);
 }
 
@@ -488,7 +488,7 @@ a {
   cursor: pointer;
 }
 
-.curr-proj-card {
+#curr-proj-card {
   background-color: var(--color-font-hover);
 }
 
@@ -511,23 +511,27 @@ a {
   pointer-events: none;
 }
 
-.prev-proj, .next-proj {
+#prev-proj, #next-proj {
   opacity: 0.4;
-  transition: 1s;
+  transition: 
+    opacity 1s,
+    transform 1s;
 }
 
-.prev-proj {
+#prev-proj {
   transform: scale(0.8) translateX(-400px);
 }
 
-.curr-proj {
+#curr-proj {
   opacity: 1;
   transform: translateX(0);
   pointer-events: auto;
-  transition: 1s;
+  transition: 
+    opacity 1s,
+    transform 1s;
 }
 
-.next-proj {
+#next-proj {
   transform: scale(0.8) translateX(400px);
 }
 
@@ -697,7 +701,7 @@ footer {
     transform-origin: center;
   }
   
-  :is(.proj-ctnr-links, .repo-link):hover, .repo-link:focus-visible {
+  :is(.repo-link, #curr-proj):hover, .repo-link:focus-visible {
     transform: scale(1.1);
     transform-origin: center;
     transition: var(--super-short-transition);
@@ -850,11 +854,11 @@ footer {
     width: 90%;
   }
 
-  :is(.proj-ctnr-links, .repo-link):hover, .repo-link:focus-visible {
+  :is(#curr-proj, .repo-link):hover, .repo-link:focus-visible {
     transform: none;
   }
 
-  .focus-hover, :is(.focus-hover, .proj-ctnr-links:hover) img {
+  .focus-hover, :is(.focus-hover, #curr-proj:hover) img {
     transform: none;
   }
 }

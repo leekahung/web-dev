@@ -114,7 +114,7 @@ const cardWidth = allCtnrCards[0].getBoundingClientRect().width;
 const projNavCtnr = document.querySelector(".proj-nav");
 const projNavBtns = Array.from(projNavCtnr.children);
 const getNextPrevIndex = () => {
-    const currProjIndex = allCtnrCards.findIndex(proj => proj.className === "proj-ctnr-links curr-proj");
+    const currProjIndex = allCtnrCards.findIndex(proj => proj.id === "curr-proj");
     let nextProjIndex;
     let prevProjIndex;
     if (currProjIndex === 0) {
@@ -138,23 +138,23 @@ const getNextPrevIndex = () => {
 const initProjCards = () => {
     const { prevProjIndex, nextProjIndex } = getNextPrevIndex();
     const prevProj = allCtnrCards[prevProjIndex];
-    prevProj.classList.add("prev-proj");
+    prevProj.id = "prev-proj";
     const nextProj = allCtnrCards[nextProjIndex];
-    nextProj.classList.add("next-proj");
+    nextProj.id = "next-proj";
 };
 initProjCards();
 const nextBtn = document.querySelector(".scroll-right");
 const prevBtn = document.querySelector(".scroll-left");
 const updateCarouselIndices = (indexRemove, indexAdd) => {
     allCtnrCards.map((proj) => {
-        if (proj.classList.length > 1) {
-            proj.classList.remove(proj.classList[1]);
+        if (proj.id !== "") {
+            proj.removeAttribute("id");
         }
     });
-    allCtnrCards[indexAdd].classList.add("curr-proj");
+    allCtnrCards[indexAdd].id = "curr-proj";
     initProjCards();
-    projNavBtns[indexRemove].classList.remove("curr-proj-card");
-    projNavBtns[indexAdd].classList.add("curr-proj-card");
+    projNavBtns[indexRemove].removeAttribute("id");
+    projNavBtns[indexAdd].id = "curr-proj-card";
 };
 nextBtn.addEventListener("click", () => {
     const { currProjIndex, nextProjIndex } = getNextPrevIndex();
@@ -166,7 +166,7 @@ prevBtn.addEventListener("click", () => {
 });
 projNavBtns.forEach((btn, index) => {
     btn.addEventListener("click", () => {
-        const currBtnIndex = projNavBtns.findIndex((button) => button.classList.length > 1);
+        const currBtnIndex = projNavBtns.findIndex((button) => button.id === "curr-proj-card");
         if (index !== currBtnIndex) {
             updateCarouselIndices(currBtnIndex, index);
         }
@@ -182,7 +182,13 @@ const autoScrollCarousel = (direction) => {
         updateCarouselIndices(currProjIndex, prevProjIndex);
     }
 };
-setInterval(autoScrollCarousel, 10000);
+let autoScroll = setInterval(autoScrollCarousel, 10000);
+allCtnrCards.forEach(proj => proj.addEventListener("mouseenter", () => {
+    clearInterval(autoScroll);
+}));
+allCtnrCards.forEach(proj => proj.addEventListener("mouseleave", () => {
+    autoScroll = setInterval(autoScrollCarousel, 10000);
+}));
 const hiddenSections = document.querySelectorAll("section");
 const homePage = document.getElementById("home");
 const topBtn = document.getElementById("top-btn-ctnr");
