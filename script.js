@@ -56,12 +56,12 @@ const handleHover = (event) => {
             localCtnrLink.classList.remove("focus-hover");
         }
         if (["slide-in-color", "proj-desc", "desc"].includes(source.classList[0])) {
-            localCtnrLink.style.boxShadow = "var(--proj-card-box-shadow)";
+            localCtnrLink.style.boxShadow = "var(--focus-visible-shadow)";
             localRepoLink = localCtnrLink.children[1];
             localRepoLink.style.boxShadow = "unset";
         }
         else if (source.classList.value === "repo-span") {
-            source.style.boxShadow = "var(--proj-card-box-shadow)";
+            source.style.boxShadow = "var(--focus-visible-shadow)";
         }
     }
     else {
@@ -83,10 +83,10 @@ const handleFocus = (event) => {
     const localRepoLink = localCtnrLink.children[1];
     if (event.type === "focusin") {
         parent.classList.add("focus-hover");
-        parent.style.boxShadow = "var(--proj-card-box-shadow)";
+        parent.style.boxShadow = "var(--focus-visible-shadow)";
         localRepoLink.addEventListener("focusin", () => {
             parent.classList.add("focus-hover");
-            localRepoLink.style.boxShadow = "var(--proj-card-box-shadow";
+            localRepoLink.style.boxShadow = "var(--focus-visible-shadow";
         });
         localRepoLink.addEventListener("focusout", () => {
             parent.classList.remove("focus-hover");
@@ -172,15 +172,9 @@ projNavBtns.forEach((btn, index) => {
         }
     });
 });
-const autoScrollCarousel = (direction) => {
-    if (direction === "right") {
-        const { currProjIndex, nextProjIndex } = getNextPrevIndex();
-        updateCarouselIndices(currProjIndex, nextProjIndex);
-    }
-    else {
-        const { prevProjIndex, currProjIndex } = getNextPrevIndex();
-        updateCarouselIndices(currProjIndex, prevProjIndex);
-    }
+const autoScrollCarousel = () => {
+    const { currProjIndex, nextProjIndex } = getNextPrevIndex();
+    updateCarouselIndices(currProjIndex, nextProjIndex);
 };
 let autoScroll = setInterval(autoScrollCarousel, 10000);
 allCtnrCards.forEach(proj => proj.addEventListener("mouseenter", () => {

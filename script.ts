@@ -79,11 +79,11 @@ const handleHover = (event: Event) => {
     }
 
     if (["slide-in-color", "proj-desc", "desc"].includes(source.classList[0])) {
-      localCtnrLink.style.boxShadow = "var(--proj-card-box-shadow)";
+      localCtnrLink.style.boxShadow = "var(--focus-visible-shadow)";
       localRepoLink = localCtnrLink.children[1] as HTMLAnchorElement;
       localRepoLink.style.boxShadow = "unset";
     } else if (source.classList.value === "repo-span") {
-      source.style.boxShadow = "var(--proj-card-box-shadow)";
+      source.style.boxShadow = "var(--focus-visible-shadow)";
     }
   } else {
     if (["slide-in-color", "proj-desc", "desc"].includes(source.classList[0])) {
@@ -105,11 +105,11 @@ const handleFocus = (event: Event) => {
 
   if (event.type === "focusin") {
     parent.classList.add("focus-hover");
-    parent.style.boxShadow = "var(--proj-card-box-shadow)";
+    parent.style.boxShadow = "var(--focus-visible-shadow)";
 
     localRepoLink.addEventListener("focusin", () => {
       parent.classList.add("focus-hover");
-      localRepoLink.style.boxShadow = "var(--proj-card-box-shadow";
+      localRepoLink.style.boxShadow = "var(--focus-visible-shadow";
     });
     localRepoLink.addEventListener("focusout", () => {
       parent.classList.remove("focus-hover");
@@ -213,14 +213,9 @@ projNavBtns.forEach((btn, index) => {
 });
 
 /* Auto scrolling of project carousel */
-const autoScrollCarousel = (direction: string) => {
-  if (direction === "right") {
-    const { currProjIndex, nextProjIndex } = getNextPrevIndex(); 
-    updateCarouselIndices(currProjIndex, nextProjIndex);
-  } else {
-    const { prevProjIndex, currProjIndex } = getNextPrevIndex();
-    updateCarouselIndices(currProjIndex, prevProjIndex);
-  }
+const autoScrollCarousel = () => {
+  const { currProjIndex, nextProjIndex } = getNextPrevIndex(); 
+  updateCarouselIndices(currProjIndex, nextProjIndex);
 };
 
 let autoScroll = setInterval(autoScrollCarousel, 10000);
