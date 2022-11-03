@@ -39,12 +39,12 @@ body {
 main {
   height: 100vh;
   overflow-y: scroll;
-  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
 body, main {
   position: relative;
+  overflow-x: hidden;
 }
 
 :is(nav, footer) {
