@@ -13,8 +13,9 @@
 
 /* Custom Reset */
 html, body, footer, main, nav,
-section, div, span, h1, h2, p, a,
-form, ul, li, img, label, input {
+section, div, span, button,
+h1, h2, p, a, form, ul, li, img,
+label, input {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -489,10 +490,12 @@ button, .toggler {
   border: none;
   border-radius: 50%;
   background-color: grey;
+  color: grey;
 }
 
 #curr-proj-card {
   background-color: var(--color-font-hover);
+  color: var(--color-font-hover);
 }
 
 :is(.proj-ctnr, .card-top, .card-bottom, .proj-img) {

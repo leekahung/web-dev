@@ -1,0 +1,8 @@
+{
+  "name": "Ka Hung's Developer Portfolio",
+  "short_name": "KHL Developer Portfolio",
+  "start_url": ".",
+  "background_color": "#282d2d",
+  "theme_color": "#323737",
+  "display": "standalone"
+}
