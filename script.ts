@@ -161,8 +161,8 @@ const getNextPrevIndex = () => {
     currProjIndex: currProjIndex,
     nextProjIndex: nextProjIndex,
     prevProjIndex: prevProjIndex,
-  }
-}
+  };
+};
 
 const initProjCards = () => {
   const { prevProjIndex, nextProjIndex } = getNextPrevIndex();
@@ -171,7 +171,7 @@ const initProjCards = () => {
 
   const nextProj = allCtnrCards[nextProjIndex];
   nextProj.id = "next-proj";
-}
+};
 
 initProjCards();
 
@@ -190,7 +190,7 @@ const updateCarouselIndices = (indexRemove: number, indexAdd: number) => {
   initProjCards();
   projNavBtns[indexRemove].removeAttribute("id");
   projNavBtns[indexAdd].id = "curr-proj-card";
-}
+};
 
 /* Event Listeners for all carousel buttons */
 nextBtn.addEventListener("click", () => {
@@ -205,28 +205,32 @@ prevBtn.addEventListener("click", () => {
 
 projNavBtns.forEach((btn, index) => {
   btn.addEventListener("click", () => {
-    const currBtnIndex = projNavBtns.findIndex((button) => button.id === "curr-proj-card");
+    const currBtnIndex = projNavBtns.findIndex(button => button.id === "curr-proj-card");
     if (index !== currBtnIndex) {
       updateCarouselIndices(currBtnIndex, index);
     }
-  })
+  });
 });
 
 /* Auto scrolling of project carousel */
 const autoScrollCarousel = () => {
-  const { currProjIndex, nextProjIndex } = getNextPrevIndex(); 
+  const { currProjIndex, nextProjIndex } = getNextPrevIndex();
   updateCarouselIndices(currProjIndex, nextProjIndex);
 };
 
 let autoScroll = setInterval(autoScrollCarousel, 10000);
 
-allCtnrCards.forEach(proj => proj.addEventListener("mouseenter", () => {
-  clearInterval(autoScroll);
-}));
+[...allCtnrCards, ...projNavBtns, nextBtn, prevBtn].forEach(elem =>
+  elem.addEventListener("mouseenter", () => {
+    clearInterval(autoScroll);
+  })
+);
 
-allCtnrCards.forEach(proj => proj.addEventListener("mouseleave", () => {
-  autoScroll = setInterval(autoScrollCarousel, 10000);
-}));
+[...allCtnrCards, ...projNavBtns, nextBtn, prevBtn].forEach(elem =>
+  elem.addEventListener("mouseleave", () => {
+    autoScroll = setInterval(autoScrollCarousel, 10000);
+  })
+);
 
 /* Functions to deal with scrolling animation via Intersection Observer */
 const hiddenSections = document.querySelectorAll("section");

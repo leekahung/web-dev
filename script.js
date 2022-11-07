@@ -166,7 +166,7 @@ prevBtn.addEventListener("click", () => {
 });
 projNavBtns.forEach((btn, index) => {
     btn.addEventListener("click", () => {
-        const currBtnIndex = projNavBtns.findIndex((button) => button.id === "curr-proj-card");
+        const currBtnIndex = projNavBtns.findIndex(button => button.id === "curr-proj-card");
         if (index !== currBtnIndex) {
             updateCarouselIndices(currBtnIndex, index);
         }
@@ -177,10 +177,10 @@ const autoScrollCarousel = () => {
     updateCarouselIndices(currProjIndex, nextProjIndex);
 };
 let autoScroll = setInterval(autoScrollCarousel, 10000);
-allCtnrCards.forEach(proj => proj.addEventListener("mouseenter", () => {
+[...allCtnrCards, ...projNavBtns, nextBtn, prevBtn].forEach(elem => elem.addEventListener("mouseenter", () => {
     clearInterval(autoScroll);
 }));
-allCtnrCards.forEach(proj => proj.addEventListener("mouseleave", () => {
+[...allCtnrCards, ...projNavBtns, nextBtn, prevBtn].forEach(elem => elem.addEventListener("mouseleave", () => {
     autoScroll = setInterval(autoScrollCarousel, 10000);
 }));
 const hiddenSections = document.querySelectorAll("section");
