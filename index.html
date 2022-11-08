@@ -24,9 +24,9 @@
           </ul>
         </div>
         <div class="nav-ctnr">
-          <label class="toggler">
+          <label class="toggler rounded grey-back">
             <input type="checkbox" id="toggle" onclick="darkLightMode()">
-            <div class="slider"></div>
+            <div class="slider rounded short-transition light-back"></div>
           </label>
         </div>
       </nav>
@@ -40,7 +40,7 @@
         <h1>About Me</h1>
         <span class="boxes-ctnr"></span>
         <div id="about-ctnr">
-          <img class="self-photo" src="./images/self_photo.webp" alt="picture of Ka Hung">
+          <img class="self-photo rounded" src="./images/self_photo.webp" alt="picture of Ka Hung">
           <p id="about-me">
             Although I've been around computers for many years, it wasn't until my time as a researcher in grad school did I came across the world of coding. As a researcher, I had to perform various tasks that could only be done through a computer, so I taught myself to code functional programs, first with Bash scripts, then with Python.
             <br>
@@ -48,7 +48,7 @@
             It wasn't until I've built my very first <a href="https://leekahung.github.io/programming-portfolio/" target="_blank">website from scratch</a> in 2021, however, did I find something special in coding. Building it from scratch had been a fun and refreshing experience for me at the time, one I wish to further indulge in. And I've been coding away on websites ever since, applying what I learned and building them using HTML, CSS, and JavaScript.
           </p>
         </div>
-        <div id="skills">
+        <div class="rounded short-transition" id="skills">
           <div class="skill-type">
             <h2>Developer</h2>
             <div>
@@ -75,103 +75,103 @@
       </section>
       <section id="projects" class="hidden">
         <h1>Projects</h1>
-        <div class="proj-ctnr">
-          <div class="proj-ctnr-links">
+        <div class="proj-ctnr ctnr-relative">
+          <div class="proj-ctnr-links rounded short-transition">
             <a class="proj-card" href="./projects/documentation_page/dist/index.html" target="_blank">
-              <div class="card-top">
+              <div class="card-top ctnr-relative">
                 <img class="proj-img" src="./images/mock_documentation_page.webp" alt="preview image of documentation page">
-                <div class="proj-desc">
+                <div class="proj-desc ctnr-absolute">
                   <p class="desc">A mock documentation page for basic JavaScript with a bit of SASS.</p>
                 </div>
               </div>
-              <div class="card-bottom">
+              <div class="card-bottom ctnr-relative light-font">
                 <span class="slide-in-color">
                   Mock Documentation
                 </span>
               </div>
             </a>
-            <a class="repo-link" href="https://github.com/leekahung/web-dev/tree/main/projects/documentation_page" target="_blank">
-              <span class="repo-span">
+            <a class="repo-link ctnr-absolute rounded grey-back light-font" href="https://github.com/leekahung/web-dev/tree/main/projects/documentation_page" target="_blank">
+              <span class="repo-span rounded">
                 View Source Code
               </span>
             </a>
           </div>
-          <div class="proj-ctnr-links">
+          <div class="proj-ctnr-links rounded short-transition">
             <a class="proj-card" href="./projects/digital_clock/index.html" target="_blank">
-              <div class="card-top dark-back">
+              <div class="card-top ctnr-relative">
                 <img class="proj-img" src="./images/digital_clock.webp" alt="preview image of digtial clock">
-                <div class="proj-desc dark-back">
-                  <p class="desc">An online clock that keeps track of local time in 12hr or 24hr format.</p>
+                <div class="proj-desc ctnr-absolute">
+                  <p class="desc light-font">An online clock that keeps track of local time in 12hr or 24hr format.</p>
                 </div>
               </div>
-              <div class="card-bottom">
+              <div class="card-bottom ctnr-relative light-font">
                 <span class="slide-in-color">
                   Digital Clock
                 </span>
               </div>
             </a>
-            <a class="repo-link" href="https://github.com/leekahung/web-dev/tree/main/projects/digital_clock" target="_blank">
-              <span class="repo-span">
+            <a class="repo-link ctnr-absolute rounded grey-back light-font" href="https://github.com/leekahung/web-dev/tree/main/projects/digital_clock" target="_blank">
+              <span class="repo-span rounded">
                 View Source Code
               </span>
             </a>
           </div>
-          <div class="proj-ctnr-links">
+          <div class="proj-ctnr-links rounded short-transition">
             <a class="proj-card" href="./projects/js_calculator/dist/index.html" target="_blank">
-              <div class="card-top">
+              <div class="card-top ctnr-relative">
                 <img class="proj-img" src="./images/js_calculator.webp" alt="preview image of js calculator">
-                <div class="proj-desc">
+                <div class="proj-desc ctnr-absolute">
                   <p class="desc">A functional online calculator styled with SASS that could take both mouse and keyboard commands.</p>
                 </div>
               </div>
-              <div class="card-bottom">
+              <div class="card-bottom ctnr-relative light-font">
                 <span class="slide-in-color">
                   JavaScript Calculator
                 </span>
               </div>
             </a>
-            <a class="repo-link" href="https://github.com/leekahung/web-dev/tree/main/projects/js_calculator" target="_blank">
-              <span class="repo-span">
+            <a class="repo-link ctnr-absolute rounded grey-back light-font" href="https://github.com/leekahung/web-dev/tree/main/projects/js_calculator" target="_blank">
+              <span class="repo-span rounded">
                 View Source Code
               </span>
             </a>
           </div>
-          <div class="proj-ctnr-links">
+          <div class="proj-ctnr-links rounded short-transition">
             <a class="proj-card" href="https://khl-weather-app.netlify.app" target="_blank">
-              <div class="card-top">
+              <div class="card-top ctnr-relative">
                 <img class="proj-img" src="./images/weather_app.webp" alt="preview image of weather app">
-                <div class="proj-desc">
+                <div class="proj-desc ctnr-absolute">
                   <p class="desc">A weather app that utilizes OpenWeatherMap API to run and Netlify serverless functions to fetch weather data.</p>
                 </div>
               </div>
-              <div class="card-bottom">
+              <div class="card-bottom ctnr-relative light-font">
                 <span class="slide-in-color">
                   Weather App
                 </span>
               </div>
             </a>
-            <a class="repo-link" href="https://github.com/leekahung/weather-app-netlify" target="_blank">
-              <span class="repo-span">
+            <a class="repo-link ctnr-absolute rounded grey-back light-font" href="https://github.com/leekahung/weather-app-netlify" target="_blank">
+              <span class="repo-span rounded">
                 View Source Code
               </span>
             </a>
           </div>
-          <div class="proj-ctnr-links">
-            <a class="proj-card">
-              <div class="card-top">
+          <div class="proj-ctnr-links rounded short-transition">
+            <a class="proj-card link-disabled" href="javascript:void(0)">
+              <div class="card-top ctnr-relative">
                 <div class="proj-img-placeholder"></div>
-                <div class="proj-desc">
-                  <p class="desc">An Event Calendar built using React and TypeScript.</p>
+                <div class="proj-desc ctnr-absolute">
+                  <p class="desc">An Event Calendar built using React and TypeScript. (Build in Progress)</p>
                 </div>
               </div>
-              <div class="card-bottom">
+              <div class="card-bottom ctnr-relative light-font">
                 <span class="slide-in-color">
                   Event Calendar
                 </span>
               </div>
             </a>
-            <a class="repo-link" href="https://github.com/leekahung/event-calendar" target="_blank">
-              <span class="repo-span">
+            <a class="repo-link ctnr-absolute rounded grey-back light-font" href="https://github.com/leekahung/event-calendar" target="_blank">
+              <span class="repo-span rounded">
                 View Source Code
               </span>
             </a>
@@ -201,7 +201,7 @@
       </footer>
       <div id="top-btn-ctnr" class="slideOut">
         <a id="top-btn-link" href="#home">
-          <div class="top-btn">
+          <div class="top-btn light-back">
             <img class="icon" src="./images/back_to_top_icon.webp" alt="swipe up icon">
           </div>
         </a>

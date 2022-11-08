@@ -71,7 +71,6 @@ const handleHover = (event: Event) => {
   }
 
   const localCtnrLink = source.closest(".proj-ctnr-links") as HTMLElement;
-  let localRepoLink;
 
   if (event.type !== "mouseout") {
     if (localCtnrLink !== null && localCtnrLink.classList.length > 1) {
@@ -80,8 +79,6 @@ const handleHover = (event: Event) => {
 
     if (["slide-in-color", "proj-desc", "desc"].includes(source.classList[0])) {
       localCtnrLink.style.boxShadow = "var(--focus-visible-shadow)";
-      localRepoLink = localCtnrLink.children[1] as HTMLAnchorElement;
-      localRepoLink.style.boxShadow = "unset";
     } else if (source.classList.value === "repo-span") {
       source.style.boxShadow = "var(--focus-visible-shadow)";
     }
@@ -183,11 +180,11 @@ const sectNavObserver = new IntersectionObserver((entries) => {
 const btnObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (!entry.isIntersecting) {
-      topBtn.classList.add("slideIn");
-      topBtn.classList.remove("slideOut");
+      topBtn.classList.add("slide-in");
+      topBtn.classList.remove("slide-out");
     } else {
-      topBtn.classList.add("slideOut");
-      topBtn.classList.remove("slideIn");
+      topBtn.classList.add("slide-out");
+      topBtn.classList.remove("slide-in");
     }
   });
 }, options(0.2));
@@ -226,6 +223,7 @@ const makeBoxes = (numBoxes: number) => {
     spin.className = "spin";
     spin.classList.add(boxSize);
     box.className = fallSpeed;
+    box.classList.add("fall-animation");
 
     box.appendChild(spin);
     boxCtnr.appendChild(box);

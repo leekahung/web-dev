@@ -21,7 +21,7 @@ label, input {
   box-sizing: border-box;
 }
 
-/* Global: HTML and body */
+/* Global: HTML, body, and Tag Elements */
 html {
   font-size: 62.5%;
   font-family: "Open Sans", sans-serif;
@@ -31,11 +31,10 @@ html {
 body {
   background-color: var(--color-back);
   color: var(--color-font);
-  overflow: hidden;
   font-size: 1.6rem;
+  overflow-y: hidden;
 }
 
-/* Global: Element within body */
 main {
   height: 100vh;
   overflow-y: scroll;
@@ -47,29 +46,30 @@ body, main {
   overflow-x: hidden;
 }
 
-:is(nav, footer) {
-  width: 100%;
-}
-
-nav, footer {
-  background-color: var(--color-sec);
-}
-
-nav {
-  position: sticky;
-  top: 0;
-  z-index: 1;
-}
-
 :is(section, div, nav, footer, ul, span, button) {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-section, footer {
+:is(h1, h2, p, a) {
+  transition: color var(--super-short-transition);
+}
+
+nav, footer {
+  width: 100%;
+  background-color: var(--color-sec); 
+}
+
+footer, section {
   flex-direction: column;
-  text-align: center;
+  text-align: center; 
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
 section {
@@ -89,41 +89,38 @@ h2 {
   font-size: 3.2rem;
 }
 
-:is(h1, h2, p, a) {
-  transition: color var(--super-short-transition);
-}
-
 a {
   color: var(--color-font);
   outline: none;
 }
 
-:is(.toggler, .slider, .proj-ctnr-links, .repo-link, .repo-span, .self-photo, #skills) {
-  border-radius: 20px;
-}
-
-.slider, .nav-link::after, #skills, .proj-ctnr-links {
-  transition: var(--short-transition);
-}
-
-:is(.toggler, .repo-link, .card-bottom) {
-  background-color: grey;
-}
-
-button, .toggler {
+button {
   cursor: pointer;
 }
 
-.slider, .top-btn {
+/* Global: Class Elements within body */
+.rounded {
+  border-radius: 20px;
+}
+
+.short-transition {
+  transition: var(--short-transition);
+}
+
+.grey-back {
+  background-color: grey;
+}
+
+.light-back {
   background-color: rgb(240, 240, 240);
 }
 
-.repo-link, .card-bottom {
+.light-font {
   color: rgb(240, 240, 240);
 }
 
-.repo-link, .proj-desc {
-  opacity: 0;
+.toggler {
+  cursor: pointer;
 }
 
 :is(#home, #about-me, #skill) {
@@ -135,54 +132,44 @@ button, .toggler {
   position: absolute;
 }
 
-.proj-desc, .slide-in-color {
-  inset: 0;
-}
-
 .icon, .top-btn {
   height: 40px;
   width: 40px;
 }
 
 /* Scrolling Animations */
-:is(.hidden, .slideOut, .slide-down-header, .show-delay) {
-  opacity: 0;
+:is(.hidden, .show, .slide-in, .slide-out) {
+  transition: 
+    opacity 1s,
+    filter 1s;
 }
 
-.show, .slideIn {
-  opacity: 1;
+:is(.hidden, .show) {
+  transition-delay: 200ms;
 }
 
 .hidden {
+  opacity: 0;
   filter: blur(20px);
 }
 
 .show {
+  opacity: 1;
   filter: blur(0);
 }
 
-.hidden, .show {
-  transition: 
-    opacity 1s,
-    filter 1s;
-  transition-delay: 200ms;
-}
-
-.slideIn {
+.slide-in {
+  opacity: 1;
   transform: translateY(0);
 }
 
-.slideOut {
+.slide-out {
+  opacity: 0;
   transform: translateY(10vh);
 }
 
-.slideIn, .slideOut {
-  transition:
-    opacity 1s,
-    transform 1s;
-}
-
-.slide-down-header, .show-delay {
+.show-delay, .slide-down-header {
+  opacity: 0;
   animation: slide-down 2s cubic-bezier(0.25, 0.5, 0.25, 1) forwards;
 }
 
@@ -196,8 +183,12 @@ button, .toggler {
 }
 
 /* Nav Section */
-:is(#nav-bar, .nav-link, .nav-ctnr) {
+#nav-bar {
   height: 60px;
+}
+
+.nav-ctnr {
+  margin: 0 auto;
 }
 
 #nav-group {
@@ -216,6 +207,7 @@ button, .toggler {
 .nav-link::after {
   border-bottom: 2px solid var(--color-font);
   inset: 0 100% 0 0;
+  transition: var(--short-transition);
 }
 
 .nav-link-hover {
@@ -225,10 +217,6 @@ button, .toggler {
 .nav-link-hover::after {
   right: 0;
   border-bottom: 2px solid var(--color-font-hover);
-}
-
-.nav-ctnr {
-  margin: 0 auto;
 }
 
 /* Navbar Toggler */
@@ -393,7 +381,7 @@ button, .toggler {
   z-index: -1;
 }
 
-:is(.super-slow, .slow, .normal, .fast, .super-fast) {
+.fall-animation {
   animation-name: descend;
   animation-timing-function: linear;
   animation-delay: 2s;
@@ -456,16 +444,16 @@ button, .toggler {
   justify-content: flex-start;
 }
 
-:is(.proj-ctnr, .card-top, .card-bottom, .proj-img) {
+.ctnr-relative {
   position: relative;
 }
 
-:is(.repo-link, .proj-desc) {
+.ctnr-absolute {
   position: absolute;
 }
 
-.proj-ctnr-links {
-  overflow: hidden;
+.link-disabled {
+  cursor: initial;
 }
 
 .proj-ctnr {
@@ -474,7 +462,12 @@ button, .toggler {
   flex-wrap: wrap;
 }
 
+.proj-ctnr-links {
+  overflow: hidden;
+}
+
 .repo-link {
+  opacity: 0;
   bottom: 25%;
   text-decoration: none;
 }
@@ -499,7 +492,9 @@ button, .toggler {
 }
 
 .proj-desc {
+  opacity: 0;
   color: rgb(40, 45, 45);
+  inset: 0;
 }
 
 .desc {
@@ -533,10 +528,6 @@ button, .toggler {
   font-size: 2.8rem;
 }
 
-.dark-back {
-  color: white;
-}
-
 /* Project Card Hover Animations */
 .focus-hover {
   transform: scale(1.1);
@@ -555,6 +546,7 @@ button, .toggler {
 }
 
 .slide-in-color {
+  inset: 0;
   position: absolute;
   background-size: 200% 100%;
   background-image: linear-gradient(to right, grey 50%, rgb(145, 145, 145) 50%);
