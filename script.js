@@ -30,7 +30,7 @@ function darkLightMode() {
             document.documentElement.style.setProperty(item[0], theme[item[1]]);
         });
     };
-    const toggle = document.getElementById("toggle");
+    const toggle = document.getElementById("nav-bar__toggle");
     const navbar = document.getElementById("nav-bar");
     const githubIcon = document.getElementById("github-icon");
     if (toggle.checked) {
@@ -46,44 +46,41 @@ function darkLightMode() {
 }
 const handleHover = (event) => {
     const source = event.target;
-    if (source.classList.value === "proj-ctnr") {
-        return;
-    }
-    const localCtnrLink = source.closest(".proj-ctnr-links");
-    if (event.type !== "mouseout") {
-        if (localCtnrLink !== null && localCtnrLink.classList.length > 1) {
-            localCtnrLink.classList.remove("focus-hover");
+    const localCtnrCard = source.closest(".proj-ctnr__card");
+    let localRepoLink;
+    if (event.type === "mouseenter") {
+        if (localCtnrCard.classList.contains("focus-hover")) {
+            localCtnrCard.classList.remove("focus-hover");
         }
-        if (["slide-in-color", "proj-desc", "desc"].includes(source.classList[0])) {
-            localCtnrLink.style.boxShadow = "var(--focus-visible-shadow)";
+        localCtnrCard.style.boxShadow = "var(--focus-visible-shadow)";
+        localRepoLink = localCtnrCard.children[1];
+        if (localRepoLink.style.boxShadow !== "unset") {
+            localRepoLink.style.boxShadow = "unset";
         }
-        else if (source.classList.value === "repo-span") {
-            source.style.boxShadow = "var(--focus-visible-shadow)";
-        }
+        localRepoLink.addEventListener("mouseenter", (event) => {
+            const repoLink = event.target;
+            repoLink.style.boxShadow = "var(--focus-visible-shadow)";
+            localCtnrCard.style.boxShadow = "unset";
+            if (repoLink.classList.contains("focus-hover")) {
+                repoLink.classList.remove("focus-hover");
+            }
+        });
     }
     else {
-        if (["slide-in-color", "proj-desc", "desc"].includes(source.classList[0])) {
-            localCtnrLink.style.boxShadow = "unset";
-            if (localCtnrLink.classList.length > 1) {
-                localCtnrLink.classList.remove("focus-hover");
-            }
-        }
-        else if (source.classList.value === "repo-span") {
-            source.style.boxShadow = "unset";
-        }
+        localCtnrCard.removeAttribute("style");
     }
 };
 const handleFocus = (event) => {
     const source = event.target;
     const parent = source.parentElement;
-    const localCtnrLink = parent.closest(".proj-ctnr-links");
-    const localRepoLink = localCtnrLink.children[1];
+    const localCtnrCard = parent.closest(".proj-ctnr__card");
+    const localRepoLink = localCtnrCard.children[1];
     if (event.type === "focusin") {
         parent.classList.add("focus-hover");
         parent.style.boxShadow = "var(--focus-visible-shadow)";
         localRepoLink.addEventListener("focusin", () => {
             parent.classList.add("focus-hover");
-            localRepoLink.style.boxShadow = "var(--focus-visible-shadow";
+            localRepoLink.style.boxShadow = "var(--focus-visible-shadow)";
         });
         localRepoLink.addEventListener("focusout", () => {
             parent.classList.remove("focus-hover");
@@ -94,16 +91,15 @@ const handleFocus = (event) => {
         parent.style.boxShadow = "unset";
     }
 };
-const projCtnr = document.querySelector(".proj-ctnr");
-const projCard = document.querySelectorAll(".proj-card");
-["mouseover", "onmousedown", "mouseout"].forEach((eventType) => {
-    if (projCtnr) {
-        projCtnr.addEventListener(eventType, (event) => handleHover(event));
-    }
+const projLinks = document.querySelectorAll(".proj-ctnr__link");
+projLinks.forEach((link) => {
+    ["mouseenter", "mouseleave"].forEach((eventType) => {
+        link.addEventListener(eventType, (event) => handleHover(event));
+    });
 });
-projCard.forEach((card) => {
+projLinks.forEach((link) => {
     ["focusin", "focusout"].forEach((eventType) => {
-        card.addEventListener(eventType, (event) => handleFocus(event));
+        link.addEventListener(eventType, (event) => handleFocus(event));
     });
 });
 const hiddenSections = document.querySelectorAll("section");
@@ -123,7 +119,7 @@ const sectObserver = new IntersectionObserver((entries, observer) => {
                     child.classList.add("slide-down-header");
                 }
                 else {
-                    if (child.id !== "home-intro") {
+                    if (child.id !== "home__intro") {
                         child.classList.add("show-delay");
                         observer.unobserve(entry.target);
                     }
@@ -138,7 +134,7 @@ const sectObserver = new IntersectionObserver((entries, observer) => {
 const sectNavObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         const sect = entry.target.id;
-        const navLink = document.querySelector(`.nav-link[href="#${sect}"]`);
+        const navLink = document.querySelector(`.nav-bar__link[href="#${sect}"]`);
         if (entry.isIntersecting && entry.intersectionRatio >= 0.25) {
             navLink.classList.add("nav-link-hover");
         }
@@ -162,7 +158,7 @@ const btnObserver = new IntersectionObserver((entries) => {
 hiddenSections.forEach((sect) => sectObserver.observe(sect));
 hiddenSections.forEach((sect) => sectNavObserver.observe(sect));
 btnObserver.observe(homePage);
-const internalLinks = document.querySelectorAll(".nav-link");
+const internalLinks = document.querySelectorAll(".nav-bar__link");
 const topBtnLink = document.getElementById("top-btn-link");
 [...internalLinks, topBtnLink].forEach((link) => {
     const anchor = document.querySelector(link.hash);
