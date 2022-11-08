@@ -102,7 +102,7 @@ a {
   border-radius: 20px;
 }
 
-.slider, .nav-link::after, #skills {
+.slider, .nav-link::after, #skills, .proj-ctnr-links {
   transition: var(--short-transition);
 }
 
