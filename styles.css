@@ -98,7 +98,7 @@ a {
   outline: none;
 }
 
-:is(.toggler, .slider, .scroll-btn, .proj-ctnr-links, .repo-link, .repo-span, .self-photo, #skills) {
+:is(.toggler, .slider, .proj-ctnr-links, .repo-link, .repo-span, .self-photo, #skills) {
   border-radius: 20px;
 }
 
@@ -456,90 +456,22 @@ button, .toggler {
   justify-content: flex-start;
 }
 
-.scroll-btn {
-  position: absolute;
-  top: calc((400px + 100px) / 2);
-  width: 70px;
-  height: 70px;
-  z-index: 1;
-  background-color: rgb(70, 75, 75);
-  border: none;
-}
-
-.scroll-btn img {
-  width: 50%;
-  height: 50%;
-  filter: invert(1);
-}
-
-.scroll-left {
-  left: 20vw;
-}
-
-.scroll-right {
-  right: 20vw;
-}
-
-.proj-nav {
-  gap: 10px;
-}
-
-.proj-btn {
-  width: 15px;
-  height: 15px;
-  border: none;
-  border-radius: 50%;
-  background-color: grey;
-  color: grey;
-}
-
-#curr-proj-card {
-  background-color: var(--color-font-hover);
-  color: var(--color-font-hover);
-}
-
 :is(.proj-ctnr, .card-top, .card-bottom, .proj-img) {
   position: relative;
 }
 
-:is(.proj-ctnr-links, .repo-link, .proj-desc) {
+:is(.repo-link, .proj-desc) {
   position: absolute;
-}
-
-.proj-ctnr {
-  width: 50%;
-  height: 400px; 
 }
 
 .proj-ctnr-links {
   overflow: hidden;
-  opacity: 0;
-  pointer-events: none;
 }
 
-#prev-proj, #next-proj {
-  opacity: 0.4;
-  pointer-events: none;
-  transition: 
-    opacity 1s,
-    transform 1s;
-}
-
-#prev-proj {
-  transform: scale(0.8) translateX(-400px);
-}
-
-#curr-proj {
-  opacity: 1;
-  transform: translateX(0);
-  pointer-events: auto;
-  transition:
-    opacity 1s,
-    transform 1s;
-}
-
-#next-proj {
-  transform: scale(0.8) translateX(400px);
+.proj-ctnr {
+  width: 90%;
+  gap: 50px;
+  flex-wrap: wrap;
 }
 
 .repo-link {
@@ -704,15 +636,11 @@ footer {
     box-shadow: 0 0 5px 1px var(--color-toggler-hover);
   }
 
-  .scroll-btn:hover {
-    filter: brightness(1.2);
-  }
-
   .proj-card:hover {
     transform-origin: center;
   }
   
-  :is(.repo-link, #curr-proj):hover, .repo-link:focus-visible {
+  :is(.repo-link, .proj-ctnr-links):hover, :is(.repo-link, .proj-ctnr-links):focus-visible {
     transform: scale(1.1);
     transform-origin: center;
     transition: var(--super-short-transition);
@@ -757,7 +685,7 @@ footer {
     100% { transform: rotate(0deg) scale(1.1); }
   }
   
-  :is(:is(.top-btn, .scroll-btn, .proj-btn):hover, #top-btn-link:focus-visible .top-btn, :is(.scroll-btn, .proj-btn):focus-visible) {
+  :is(.top-btn, .proj-btn):hover, #top-btn-link:focus-visible .top-btn {
     box-shadow: var(--focus-visible-shadow);
   }
 }
@@ -846,11 +774,6 @@ footer {
     width: 35px;
     height: 35px;
   }
-
-  .scroll-btn {
-    height: 50px;
-    width: 50px;
-  }
 }
 
 @media (max-width: 320px) {
@@ -860,14 +783,6 @@ footer {
 
   #about-me {
     width: 90%;
-  }
-
-  .scroll-left {
-    left: 10px;
-  }
-
-  .scroll-right {
-    right: 10px;
   }
 
   :is(#curr-proj, .repo-link):hover, .repo-link:focus-visible {
