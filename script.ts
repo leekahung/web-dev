@@ -211,7 +211,7 @@ const topBtnLink = document.getElementById("top-btn-link") as HTMLAnchorElement;
 /* Falling box animations for About Section */
 const boxCtnr = document.querySelector(".boxes-ctnr") as HTMLSpanElement;
 const fallSpeeds = ["super-slow", "slow", "normal", "fast", "super-fast"];
-const boxSizes = ["small", "medium", "large"];
+const boxSizes = ["small-box", "medium-box", "large-box"];
 
 const makeBoxes = (numBoxes: number) => {
   for (let i = 0; i < numBoxes; i++) {

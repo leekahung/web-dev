@@ -132,11 +132,6 @@ button {
   position: absolute;
 }
 
-.icon, .top-btn {
-  height: 40px;
-  width: 40px;
-}
-
 /* Scrolling Animations */
 :is(.hidden, .show, .slide-in, .slide-out) {
   transition: 
@@ -408,17 +403,17 @@ button {
   animation-duration: 4s;
 }
 
-.small {
+.small-box {
   height: 40px;
   width: 40px;
 }
 
-.medium {
+.medium-box {
   height: 80px;
   width: 80px;
 }
 
-.large {
+.large-box {
   height: 120px;
   width: 120px;
 }
