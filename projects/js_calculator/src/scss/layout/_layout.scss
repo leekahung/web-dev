@@ -1,24 +1,24 @@
 /* Site Layout */
-#calculator-grp,
-#bottom-grp,
-#rules {
+.calc-grp,
+.bottom-grp,
+.bottom-grp__rules {
   flex-direction: column;
 }
 
-#calculator-grp {
+.calc-grp {
   gap: 30px;
 
-  #app-header {
+  &__header {
     text-align: center;
     text-decoration: underline;
   }
 }
 
-#bottom-grp {
+.bottom-grp {
   margin-top: 20px;
   gap: 20px;
 
-  #rules {
+  &__rules {
     width: 600px;
     gap: 10px;
     white-space: normal;

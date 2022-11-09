@@ -7,19 +7,19 @@
     <link rel="stylesheet" href="./scss/main.scss" />
   </head>
   <body>
-    <div id="calculator-grp">
-      <h1 id="app-header">JavaScript Calculator</h1>
-      <div id="calculator">
-        <div id="calc-display">
-          <div id="calc-input"></div>
-          <div id="calc-output"></div>
+    <div class="calc-grp" id="calc-grp">
+      <h1 class="calc-grp__header">JavaScript Calculator</h1>
+      <div class="calc-grp__calc">
+        <div class="calc-grp__display">
+          <div class="calc-grp__input" id="calc-grp__input"></div>
+          <div class="calc-grp__output" id="calc-grp__output"></div>
         </div>
-        <div id="calc-buttons"></div>
+        <div class="calc-grp__btns" id="calc-grp__buttons"></div>
       </div>
     </div>
-    <div id="bottom-grp">
-      <div id="rules">
-        <h1 id="rules-header">Features/Limitations</h1>
+    <div class="bottom-grp" id="bottom-grp">
+      <div class="bottom-grp__rules">
+        <h1 class="bottom-grp__rules-header">Features/Limitations</h1>
         <ul>
           <li>Character limit on inputs is 31 before it overflows off the display</li>
           <li>Inputs follows conventional orders of operations for outputs (including parentheses and exponents)</li>
@@ -30,7 +30,7 @@
           <li>Storing output as input using "ans" is an exception and must be done manually via click</li>
         </ul>
       </div>
-      <button id="move-calc-btn">Move Calculator Left</button>
+      <button class="bottom-grp__move-calc-btn" id="bottom-grp__move-calc-btn">Move Calculator Left</button>
     </div>
     <script src="./script.js" type="module"></script>
   </body>

@@ -5,20 +5,20 @@ sup {
   font-size: 0.7rem;
 }
 
-#rules {
+.bottom-grp__rules {
   line-height: 1.3em;
-
-  #rules-header {
-    font-size: 1.2rem;
-  }
 }
 
-#calc-input {
+.bottom-grp__rules-header {
+  font-size: 1.2rem;
+}
+
+.calc-grp__input {
   font-size: 1rem;
 }
 
-#calc-output,
-.grid-buttons { 
+.calc-grp__output,
+.calc-grp__grid-buttons { 
   font-size: 2rem;
 }
 
