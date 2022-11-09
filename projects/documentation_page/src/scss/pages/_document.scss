@@ -4,13 +4,13 @@ html {
   color: rgb(240, 240, 240);
 }
 
-#main-doc,
-.main-section {
+.main-doc,
+.main-doc__section {
   display: flex;
   flex-direction: column;
 }
 
-#main-doc {
+.main-doc {
   position: fixed;
   height: 100%;
   padding: 0 30px;
@@ -20,7 +20,7 @@ html {
   gap: 20px;
   transition: 1s;
 
-  .main-section {
+  .main-doc__section {
     gap: 20px;
 
     &:last-child {

@@ -8,24 +8,24 @@
   border-radius: 20px 20px 0 0;
   opacity: 1;
 
-  .return-top {
+  .return-ctnr__top {
     color: blue;
     font-size: 0.8rem;
   }
 }
 
 /* Animation styling */
-.slideIn {
+.slide-in {
   opacity: 1;
   transform: translateY(0);
 }
 
-.slideOut {
+.slide-out {
   opacity: 0;
   transform: translateY(10vh);
 }
 
-.slideIn, .slideOut {
+.slide-in, .slide-out {
   transition:
     opacity 1s,
     transform 1s;

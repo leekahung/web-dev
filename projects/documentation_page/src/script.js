@@ -1,5 +1,5 @@
-/* Setup and function for nav-links*/
-const navGroup = document.querySelector(".nav-group");
+/* Setup and function for nav-ctnr__links*/
+const navGroup = document.querySelector(".nav-ctnr__nav-group");
 
 const navLinks = [
   "Introduction", "What you should already know", "JavaScript and Java",
@@ -11,7 +11,7 @@ const navLinks = [
 const createNavGroup = (inp) => {
   for (let i = 0; i < inp.length; i++) {
     const elem = document.createElement("a");
-    navGroup.appendChild(elem).className = "nav-link";
+    navGroup.appendChild(elem).className = "nav-ctnr__link";
     navGroup.appendChild(elem).href = `#${inp[i].replace(/\s/g, "_")}`;
     navGroup.appendChild(elem).innerText = inp[i];
   }
@@ -19,9 +19,9 @@ const createNavGroup = (inp) => {
 
 createNavGroup(navLinks);
 
-/* Setup and function for slider-tab */
-const tabSlider = document.getElementById("slider-tab");
-const navContainer = document.querySelector(".nav-container");
+/* Setup and function for nav-ctnr__slider-tab */
+const tabSlider = document.getElementById("nav-ctnr__slider-tab");
+const navContainer = document.querySelector(".nav-ctnr");
 const mainBody = document.getElementById("main-doc");
 const tabArrowSym = { left: "\u25C0", right: "\u25B6" };
 
@@ -46,7 +46,7 @@ tabSlider.addEventListener("click", () => {
   }
 });
 
-/* Creating observer for return-top link */
+/* Creating observer for return-ctnr__top link */
 const allSections = document.querySelectorAll("section");
 const introSect = document.getElementById("Introduction");
 const jsJavaSect = document.getElementById("JavaScript_and_Java");
@@ -56,11 +56,11 @@ const sectObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        toTopLink.classList.remove("slideIn");
-        toTopLink.classList.add("slideOut");
+        toTopLink.classList.remove("slide-in");
+        toTopLink.classList.add("slide-out");
       } else {
-        toTopLink.classList.add("slideIn");
-        toTopLink.classList.remove("slideOut");
+        toTopLink.classList.add("slide-in");
+        toTopLink.classList.remove("slide-out");
       }
     });
   }

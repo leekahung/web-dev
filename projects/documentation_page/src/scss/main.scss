@@ -14,43 +14,43 @@
 
 /* Responsive Design */
 @media (max-width: 1000px) {
-  .nav-container {
+  .nav-ctnr {
     height: 250px;
     width: 100%;
     border-bottom: 1px solid grey;
 
-    #navbar {
+    &__navbar {
       border-right: none;
       width: 100%;
+    }
 
-      .nav-header {
-        position: fixed;
-        top: 0;
-        z-index: 1;
-        width: 100%;
-        border-bottom: 1px solid grey;
-      }
+    &__header {
+      position: fixed;
+      top: 0;
+      z-index: 1;
+      width: 100%;
+      border-bottom: 1px solid grey;
+    }
 
-      .nav-group {
-        position: absolute;
-        width: 100%;
-        height: calc(100% - 80px);
-        top: 80px;
-        z-index: -1;
-        overflow-y: scroll;
-      
-        .nav-link:last-child {
-          border-bottom: none;
-        }
-      }
+    &__nav-group {
+      position: absolute;
+      width: 100%;
+      height: calc(100% - 80px);
+      top: 80px;
+      z-index: -1;
+      overflow-y: scroll;
+    }
+
+    &__link:last-child {
+      border-bottom: none;
     }
   
-    #slider-tab {
+    &__slider-tab {
       visibility: hidden;
     }
   }
 
-  #main-doc {
+  .main-doc {
     top: 250px;
     left: 0 !important;
     height: calc(100% - 250px);

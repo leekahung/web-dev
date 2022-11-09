@@ -1,5 +1,5 @@
 /* Navigation Section */
-.nav-container {
+.nav-ctnr {
   position: fixed;
   display: unset;
   width: 320px;
@@ -10,50 +10,50 @@
   background-color: rgb(40, 40, 40);
   z-index: 10;
 
-  #navbar,
-  #slider-tab {
+  &__navbar,
+  &__slider-tab {
     position: absolute;
   }
 
-  #navbar {
+  &__navbar {
     height: 100%;
     width: 95%;
     border-right: 2px solid gray;
     z-index: 10;
+  }
 
-    .nav-header {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-      gap: 10px;
-      transition: 1s;
+  &__header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 10px;
+    transition: 1s;
 
-      img {
-        height: 40px;
-        width: 40px;
-      }
+    img {
+      height: 40px;
+      width: 40px;
     }
+  }
 
-    .nav-group {
-      display: unset;
+  &__nav-group {
+    display: unset;
+  }
 
-      .nav-link {
-        display: block;
-        font-size: 1.1rem;
-        border-top: 1px solid gray;
-        padding: 12px 20px;
-        text-decoration: none;
+  &__link {
+    display: block;
+    font-size: 1.1rem;
+    border-top: 1px solid gray;
+    padding: 12px 20px;
+    text-decoration: none;
 
-        &:last-child {
-          border-bottom: 1px solid gray;
-        }
-        &:hover {
-          background-color: rgb(0, 127, 255);
-          color: white;
-          transition: background-color 0.05s;
-        }
-      }
+    &:last-child {
+      border-bottom: 1px solid gray;
+    }
+    &:hover {
+      background-color: rgb(0, 127, 255);
+      color: white;
+      transition: background-color 0.05s;
     }
   }
 }
