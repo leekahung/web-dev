@@ -28,31 +28,31 @@ body {
   color: var(--secondary-color);
 }
 
-body div {
+.header, .switch-ctnr, .clock, .footer {
   position: absolute;
 }
 
 /* Switches and Power Button */
-#switch, .slider {
+.switch-ctnr__switch, .switch-ctnr__slider {
   border-radius: 20px;
   width: 100px;
   height: 34px;
 }
 
-#switch {
+.switch-ctnr__switch {
   position: relative;
   display: inline-block;
   border: none;
   cursor: pointer;
 }
 
-#switch #toggler {
+.switch-ctnr__switch .switch-ctnr__toggler {
   opacity: 0;
   width: 0;
   height: 0;
 }
 
-.slider {
+.switch-ctnr__slider {
   position: absolute;
   top: 0;
   left: 0;
@@ -60,12 +60,23 @@ body div {
   color: var(--primary-color);
 }
 
-.slider-cover {
+.switch-ctnr__slider:before {
+  position: absolute;
+  left: 12px;
+  content: "24hr";
+}
+
+.switch-ctnr__slider:after {
+  position: absolute;
+  right: 12px;
+  content: "12hr";
+}
+
+.switch-ctnr__slider-cover {
   position: absolute;
   height: 30px;
   width: 48px;
-  top: 2px;
-  left: 3px;
+  inset: 2px 0 0 3px;
   border: 2px solid var(--primary-color);
   background-color: var(--secondary-color);
   border-radius: 20px;
@@ -73,29 +84,17 @@ body div {
   transition: 0.4s;
 }
 
-.slider:before {
-  position: absolute;
-  left: 12px;
-  content: "24hr";
-}
-
-.slider:after {
-  position: absolute;
-  right: 12px;
-  content: "12hr";
-}
-
-.toggler:checked + .slider .slider-cover {
+.switch-ctnr__toggler:checked + .switch-ctnr__slider .switch-ctnr__slider-cover {
   transform: translateX(46px);
 }
 
-#power-btn {
+.power-btn {
   cursor: pointer;
   background-color: var(--primary-color);
   border: none;
 }
 
-.power-icon {
+.power-btn__icon {
   height: 3vh;
   filter: invert(100%);
 }
@@ -109,7 +108,7 @@ body div {
   gap: 30px;
 }
 
-.switch-container {
+.switch-ctnr {
   top: 20%;
   gap: 40px;
 }
@@ -138,20 +137,21 @@ body div {
 }
 
 /* Displayed Content */
-#time {
+.clock__time {
   position: absolute;
   left: var(--time-styling);
   flex-direction: column;
   font-size: clamp(1rem, 13vw, 18rem);
 }
 
-#ante-post {
+.clock__ante-post {
+  position: absolute;
   right: 5%;
   flex-direction: column;
   letter-spacing: 3px;
   font-size: clamp(1.2rem, 5vw, 15rem);
 }
 
-#localTZ {
-  position: static;
+.footer_localTZ {
+  position: initial;
 }

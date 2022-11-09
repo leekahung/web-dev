@@ -1,8 +1,8 @@
 function runClock() {
-  const localTime = document.getElementById("time");
-  const amPM = document.getElementById("ante-post");
-  const localTimeZone = document.getElementById("localTZ");
-  const twelveOrMil = document.getElementById("toggler");
+  const localTime = document.getElementById("clock__time");
+  const amPM = document.getElementById("clock__ante-post");
+  const localTimeZone = document.getElementById("footer__localTZ");
+  const twelveOrMil = document.getElementById("switch-ctnr__toggler");
 
   /* Function to get time */
   function getTime() {

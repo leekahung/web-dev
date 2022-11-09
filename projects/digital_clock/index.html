@@ -8,26 +8,26 @@
   </head>
   <body>
     <div class="header">
-      <p class="header-title">Digital Clock</p>
+      <p>Digital Clock</p>
     </div>
-    <div class="switch-container">
-      <label id="switch">
-        <input class="toggler" id="toggler" type="checkbox">
-        <div class="slider">
-          <span class="slider-cover"></span>
+    <div class="switch-ctnr">
+      <label class="switch-ctnr__switch" id="switch-ctnr__switch">
+        <input class="switch-ctnr__toggler" id="switch-ctnr__toggler" type="checkbox">
+        <div class="switch-ctnr__slider">
+          <span class="switch-ctnr__slider-cover"></span>
         </div>
       </label>
-      <button id="power-btn">
-        <img class="power-icon" src="./img/power_icon.png" alt="power icon">
+      <button class="power-btn" id="power-btn">
+        <img class="power-btn__icon" src="./img/power_icon.png" alt="power icon">
       </button>
     </div>
     <div class="clock">
-      <div id="time"></div>
-      <div id="ante-post"></div>
+      <div class="clock__time" id="clock__time"></div>
+      <div class="clock__ante-post" id="clock__ante-post"></div>
     </div> 
     <div class="footer">
       <p>Local Time</p>
-      <div id="localTZ"></div>
+      <div class="footer__localTZ" id="footer__localTZ"></div>
     </div>
     <script src="./script.js"></script>
   </body>
