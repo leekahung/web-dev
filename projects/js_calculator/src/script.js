@@ -16,9 +16,9 @@ const calcInputs = new Map([
   [20, "ans"], [21, "0"], [22, "."], [23, "CE"], [24, "="]
 ]);
 
-const calcButtons = document.getElementById("calc-grp__buttons");
-const numInput = document.getElementById("calc-grp__input");
-const numOutput = document.getElementById("calc-grp__output");
+const calcButtons = document.getElementById("calc-grp__btns");
+const numInput = document.getElementById("calc-grp__display__input");
+const numOutput = document.getElementById("calc-grp__display__output");
 
 /* Main Grid for Calculator Buttons */
 const makeGrid = (rows, cols) => {
@@ -27,7 +27,7 @@ const makeGrid = (rows, cols) => {
   for (let i = 0; i < rows * cols; i++) {
     const buttons = document.createElement("div");
     buttons.innerText = calcInputs.get(i);
-    calcButtons.appendChild(buttons).className = "calc-grp__grid-buttons";
+    calcButtons.appendChild(buttons).className = "calc-grp__grid-btns";
     calcButtons.appendChild(buttons).style.cursor = "pointer";
     switch (calcInputs.get(i)) {
       case "CE":
