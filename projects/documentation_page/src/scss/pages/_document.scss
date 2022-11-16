@@ -20,7 +20,7 @@ html {
   gap: 20px;
   transition: 1s;
 
-  .main-doc__section {
+  &__section {
     gap: 20px;
 
     &:last-child {
