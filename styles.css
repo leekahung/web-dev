@@ -444,14 +444,6 @@ button {
   justify-content: flex-start;
 }
 
-.ctnr-relative {
-  position: relative;
-}
-
-.ctnr-absolute {
-  position: absolute;
-}
-
 .link-disabled {
   cursor: initial;
 }
@@ -464,17 +456,7 @@ button {
 
 .proj-ctnr__card {
   overflow: hidden;
-}
-
-.proj-ctnr__repo-link {
-  opacity: 0;
-  bottom: 25%;
-  text-decoration: none;
-}
-
-.proj-ctnr__repo-span {
-  padding: 5px 10px;
-  background-color: rgb(70, 75, 75);
+  position: relative;
 }
 
 .proj-ctnr__link {
@@ -489,25 +471,8 @@ button {
 .proj-ctnr__card-top {
   height: 80%;
   width: 100%;
+  position: relative;
 }
-
-.proj-ctnr__desc-ctnr {
-  opacity: 0;
-  color: rgb(40, 45, 45);
-  inset: 0;
-}
-
-.proj-ctnr__desc {
-  width: 85%;
-  margin: 0 auto 100px;
-}
-
-.proj-ctnr__card-bottom {
-  height: 20%;
-  width: 100%;
-  font-size: clamp(1.6rem, 2rem, 2.4rem);
-  z-index: 1;
- }
 
 .proj-ctnr__img {
   width: 100%;
@@ -526,6 +491,38 @@ button {
   content: "Under Construction";
   position: absolute;
   font-size: 2.8rem;
+}
+
+.proj-ctnr__desc-ctnr {
+  opacity: 0;
+  color: rgb(40, 45, 45);
+  inset: 0;
+  position: absolute;
+}
+
+.proj-ctnr__desc {
+  width: 85%;
+  margin: 0 auto 100px;
+}
+
+.proj-ctnr__card-bottom {
+  height: 20%;
+  width: 100%;
+  font-size: clamp(1.6rem, 2rem, 2.4rem);
+  z-index: 1;
+  position: relative;
+ }
+
+ .proj-ctnr__repo-link {
+  opacity: 0;
+  bottom: 25%;
+  text-decoration: none;
+  position: absolute;
+}
+
+.proj-ctnr__repo-span {
+  padding: 5px 10px;
+  background-color: rgb(70, 75, 75);
 }
 
 /* Project Card Hover Animations */
@@ -781,7 +778,7 @@ footer {
     width: 90%;
   }
 
-  .proj-ctnr__repo-link:hover, .proj-ctnr__repo-link:focus-visible {
+  :is(.proj-ctnr__repo-link, .proj-ctnr__card):hover, :is(.proj-ctnr__repo-link, .proj-ctnr__card):focus-visible {
     transform: none;
   }
 
