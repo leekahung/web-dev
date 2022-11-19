@@ -247,7 +247,7 @@ button {
 .home::before, .home::after {
   inset: 0;
   z-index: -1;
-  transition: 3s;
+  transition: 2s;
 }
 
 .home::before {
@@ -289,7 +289,7 @@ button {
   font-size: 3.2rem;
   overflow: hidden;
   animation:
-    typing 2s steps(21, jump-end) 3.5s 1 normal both,
+    typing 2s steps(21, jump-end) 3s 1 normal both,
     blinking 800ms steps(21) 2s infinite;
 }
 
