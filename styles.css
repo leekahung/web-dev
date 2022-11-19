@@ -289,7 +289,7 @@ button {
   font-size: 3.2rem;
   overflow: hidden;
   animation:
-    typing 2s steps(21, jump-end) 3s 1 normal both,
+    typing 2s steps(21, jump-end) 4s 1 normal both,
     blinking 800ms steps(21) 2s infinite;
 }
 
@@ -582,7 +582,8 @@ footer {
 }
 
 .icon-pic {
-  inset: 0;
+  height: 100%;
+  width: 100%;
 }
 
 /* To Top Button */
