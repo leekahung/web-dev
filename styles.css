@@ -308,6 +308,19 @@ button {
   gap: 50px;
 }
 
+.about__img-ctnr {
+  position: relative;
+}
+
+.about__link {
+  position: absolute;
+  text-decoration: none;
+  bottom: 10%;
+  font-size: 1.8rem;
+  padding: 5px 20px;
+  background-color: rgba(120, 120, 120, 0.7);
+}
+
 .about__about-me, .about__skills {
   font-size: 1.8rem;
   line-height: 3rem;
@@ -609,7 +622,7 @@ footer {
 
 /* Target devices that can hover */
 @media (hover: hover) and (pointer: fine) {
-  a:not(.proj-ctnr__repo-link):is(:hover, :focus-visible) {
+  a:not(.about__link, .proj-ctnr__repo-link):is(:hover, :focus-visible) {
     color: var(--color-font-hover);
   }
   
@@ -630,7 +643,7 @@ footer {
     transform-origin: center;
   }
   
-  :is(.proj-ctnr__repo-link, .proj-ctnr__card):hover, :is(.proj-ctnr__repo-link, .proj-ctnr__card):focus-visible {
+  :is(.about__link, .proj-ctnr__repo-link, .proj-ctnr__card):hover, :is(.about__link, .proj-ctnr__repo-link, .proj-ctnr__card):focus-visible {
     transform: scale(1.1);
     transform-origin: center;
     transition: var(--super-short-transition);
@@ -779,7 +792,7 @@ footer {
     width: 90%;
   }
 
-  :is(.proj-ctnr__repo-link, .proj-ctnr__card):hover, :is(.proj-ctnr__repo-link, .proj-ctnr__card):focus-visible {
+  :is(.about__link, .proj-ctnr__repo-link, .proj-ctnr__card):hover, :is(.about__link, .proj-ctnr__repo-link, .proj-ctnr__card):focus-visible {
     transform: none;
   }
 
