@@ -21,6 +21,9 @@ div {
 html {
   font-size: 62.5%;
   font-family: Arial, Helvetica, sans-serif;
+  /* width: 816px; // uncomment for print format
+  height: 1054px;
+  margin: 0; */
 }
 
 body {
@@ -60,7 +63,7 @@ ul {
 #resume {
   width: 816px; /* US Letter Size at 96 DPI */
   height: 1054px;
-  margin: 20px;
+  margin: 20px; /* change to 0 for print format */
   background-color: aliceblue;
   flex-direction: row;
   overflow: hidden;
