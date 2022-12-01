@@ -133,10 +133,14 @@ button {
 }
 
 /* Scrolling Animations */
-:is(.hidden, .show, .slide-in, .slide-out) {
+:is(.hidden, .show) {
   transition: 
     opacity 1s,
     filter 1s;
+}
+
+:is(.slide-in, .slide-out) {
+  transition: 0.7s;
 }
 
 :is(.hidden, .show) {
