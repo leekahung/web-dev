@@ -748,6 +748,14 @@ footer {
   .contact-info p:not(:last-child) {
     border: none;
   }
+
+  :is(.about__link, .proj-ctnr__repo-link, .proj-ctnr__card):hover, :is(.about__link, .proj-ctnr__repo-link, .proj-ctnr__card):focus-visible {
+    transform: none;
+  }
+
+  .focus-hover, .focus-hover img {
+    transform: none;
+  }
 }
 
 @media (max-width: 480px) {
@@ -794,13 +802,5 @@ footer {
 
   .about__about-me {
     width: 90%;
-  }
-
-  :is(.about__link, .proj-ctnr__repo-link, .proj-ctnr__card):hover, :is(.about__link, .proj-ctnr__repo-link, .proj-ctnr__card):focus-visible {
-    transform: none;
-  }
-
-  .focus-hover, .focus-hover img {
-    transform: none;
   }
 }
