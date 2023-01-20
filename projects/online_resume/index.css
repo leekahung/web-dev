@@ -77,7 +77,7 @@ a {
 #resume {
   width: 816px; /* US Letter Size at 96 DPI */
   height: 1054px;
-  margin: 20px; /* change to 0 for print format */
+  margin: 0px; /* change to 0 for print format */
   background-color: aliceblue;
   flex-direction: row;
   overflow: hidden;
