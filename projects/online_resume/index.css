@@ -67,7 +67,6 @@ h3 {
 
 ul {
   margin-left: 20px;
-  line-height: 2.2rem;
 }
 
 li {
@@ -82,14 +81,14 @@ a {
   width: 816px; /* US Letter Size at 96 DPI */
   height: 1054px;
   margin: 0px; /* change to 0 for print format */
-  background-color: aliceblue;
+  background-color: white;
   flex-direction: row;
   overflow: hidden;
 }
 
 #info-grp {
-  background-color: aliceblue;
-  width: 30%;
+  background-color: white;
+  width: 31%;
   height: 100%;
   padding: 30px;
 }
@@ -101,7 +100,7 @@ a {
 }
 
 #experience-grp {
-  width: 70%;
+  width: 69%;
   height: 100%;
   align-items: flex-start;
   justify-content: flex-start;
@@ -119,22 +118,22 @@ a {
   padding: 10px 0;
 }
 
+.info.name-header {
+  padding-top: 0;
+}
+
 .info > ul {
   list-style-type: none;
   margin-left: 0;
-  line-height: 2.8rem;
+  line-height: 3rem;
 }
 
 .info > p {
   color: rgb(120, 120, 120);
 }
 
-.name-header {
-  width: 100%;
-}
-
-.name-header h1 {
-  font-size: 2.4rem;
+.info h1 {
+  font-size: 2.8rem;
   margin-bottom: 10px;
 }
 
@@ -153,8 +152,16 @@ a {
 
 .experience {
   width: 100%;
-  line-height: 2.8rem;
-  margin-bottom: 18px;
+  line-height: 2.6rem;
+  margin-bottom: 10px;
+}
+
+.experience.last {
+  margin-bottom: 20px;
+}
+
+.experience > ul {
+  line-height: 2.4rem;
 }
 
 .experience-section:first-of-type > .experience:first-of-type {
