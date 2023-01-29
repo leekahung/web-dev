@@ -40,10 +40,7 @@ function darkLightMode() {
   /* darkLightMode() helper function to get color scheme */
   const getTheme = (theme: Theme) => {
     setColorScheme.map((item) => {
-      document.documentElement.style.setProperty(
-        item[0],
-        theme[item[1] as keyof Theme]
-      );
+      document.documentElement.style.setProperty(item[0], theme[item[1] as keyof Theme]);
     });
   };
 
@@ -86,7 +83,7 @@ const handleHover = (event: Event) => {
       if (repoLink.classList.contains("focus-hover")) {
         repoLink.classList.remove("focus-hover");
       }
-    })
+    });
   } else {
     localCtnrCard.removeAttribute("style");
   }
@@ -120,7 +117,7 @@ const projLinks = document.querySelectorAll<HTMLAnchorElement>(".proj-ctnr__link
 projLinks.forEach((link) => {
   ["mouseenter", "mouseleave"].forEach((eventType) => {
     link.addEventListener(eventType, (event) => handleHover(event));
-  })
+  });
 });
 
 projLinks.forEach((link) => {
@@ -163,9 +160,7 @@ const sectObserver = new IntersectionObserver((entries, observer) => {
 const sectNavObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     const sect = entry.target.id;
-    const navLink = document.querySelector(
-      `.nav-bar__link[href="#${sect}"]`
-    ) as HTMLAnchorElement;
+    const navLink = document.querySelector(`.nav-bar__link[href="#${sect}"]`) as HTMLAnchorElement;
     if (entry.isIntersecting && entry.intersectionRatio >= 0.25) {
       navLink.classList.add("nav-link-hover");
     } else {
@@ -206,14 +201,19 @@ const topBtnLink = document.getElementById("top-btn-link") as HTMLAnchorElement;
 });
 
 /* Falling box animations for About Section */
-const boxCtnr = document.querySelector(".boxes-ctnr") as HTMLSpanElement;
+const boxCtnr = document.querySelector(".boxes-ctnr") as HTMLDivElement;
+const boxCtnr2 = document.querySelector(".boxes-ctnr-2") as HTMLDivElement;
+const boxCtnr3 = document.querySelector(".boxes-ctnr-3") as HTMLDivElement;
+const boxCtnr4 = document.querySelector(".boxes-ctnr-4") as HTMLDivElement;
+const allBoxCtnr = [boxCtnr, boxCtnr2, boxCtnr3, boxCtnr4];
+
 const fallSpeeds = ["super-slow", "slow", "normal", "fast", "super-fast"];
 const boxSizes = ["small-box", "medium-box", "large-box"];
 
-const makeBoxes = (numBoxes: number) => {
+const makeBoxes = (numBoxes: number, ctnrNum: number) => {
   for (let i = 0; i < numBoxes; i++) {
-    const box = document.createElement("span");
-    const spin = document.createElement("span");
+    const box = document.createElement("div");
+    const spin = document.createElement("div");
     const fallSpeed = fallSpeeds[Math.floor(Math.random() * fallSpeeds.length)];
     const boxSize = boxSizes[Math.floor(Math.random() * boxSizes.length)];
 
@@ -223,8 +223,20 @@ const makeBoxes = (numBoxes: number) => {
     box.classList.add("fall-animation");
 
     box.appendChild(spin);
-    boxCtnr.appendChild(box);
+    allBoxCtnr[ctnrNum].appendChild(box);
   }
 };
 
-makeBoxes(7);
+makeBoxes(5, 0);
+
+setTimeout(() => {
+  makeBoxes(3, 1);
+}, 3000);
+
+setTimeout(() => {
+  makeBoxes(2, 2);
+}, 7000);
+
+setTimeout(() => {
+  makeBoxes(4, 3);
+}, 10000);

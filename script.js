@@ -170,12 +170,16 @@ const topBtnLink = document.getElementById("top-btn-link");
     });
 });
 const boxCtnr = document.querySelector(".boxes-ctnr");
+const boxCtnr2 = document.querySelector(".boxes-ctnr-2");
+const boxCtnr3 = document.querySelector(".boxes-ctnr-3");
+const boxCtnr4 = document.querySelector(".boxes-ctnr-4");
+const allBoxCtnr = [boxCtnr, boxCtnr2, boxCtnr3, boxCtnr4];
 const fallSpeeds = ["super-slow", "slow", "normal", "fast", "super-fast"];
 const boxSizes = ["small-box", "medium-box", "large-box"];
-const makeBoxes = (numBoxes) => {
+const makeBoxes = (numBoxes, ctnrNum) => {
     for (let i = 0; i < numBoxes; i++) {
-        const box = document.createElement("span");
-        const spin = document.createElement("span");
+        const box = document.createElement("div");
+        const spin = document.createElement("div");
         const fallSpeed = fallSpeeds[Math.floor(Math.random() * fallSpeeds.length)];
         const boxSize = boxSizes[Math.floor(Math.random() * boxSizes.length)];
         spin.className = "spin";
@@ -183,7 +187,16 @@ const makeBoxes = (numBoxes) => {
         box.className = fallSpeed;
         box.classList.add("fall-animation");
         box.appendChild(spin);
-        boxCtnr.appendChild(box);
+        allBoxCtnr[ctnrNum].appendChild(box);
     }
 };
-makeBoxes(7);
+makeBoxes(5, 0);
+setTimeout(() => {
+    makeBoxes(3, 1);
+}, 3000);
+setTimeout(() => {
+    makeBoxes(2, 2);
+}, 7000);
+setTimeout(() => {
+    makeBoxes(4, 3);
+}, 10000);
