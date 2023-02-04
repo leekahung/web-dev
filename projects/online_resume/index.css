@@ -45,6 +45,7 @@ html {
 }
 
 body {
+  color: rgb(50, 50, 50);
   background-color: lightgrey;
   font-size: 1.5rem;
 }
@@ -94,9 +95,9 @@ a {
 }
 
 #section-divider {
-  width: 1px;
+  width: 0px;
+  border-left: 1px solid rgb(200, 200, 200);
   height: 97%;
-  background-color: rgb(180, 180, 180);
 }
 
 #experience-grp {
@@ -138,7 +139,7 @@ a {
 }
 
 .experience-section:not(:first-of-type) {
-  border-top: 1px solid rgb(180, 180, 180);
+  border-top: 1px solid rgb(200, 200, 200);
 }
 
 .experience-section > h1 {
