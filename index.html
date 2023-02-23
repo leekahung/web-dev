@@ -29,11 +29,11 @@
       <header>
         <nav class="nav-bar" id="nav-bar">
           <div class="nav-bar__ctnr">
-            <ul class="nav-bar__group" id="nav-bar__group">
-              <li><a href="#home" class="nav-bar__link">Home</a></li>
-              <li><a href="#about" class="nav-bar__link">About</a></li>
-              <li><a href="#projects" class="nav-bar__link">Projects</a></li>
-            </ul>
+            <div class="nav-bar__group" id="nav-bar__group">
+              <a href="#home" class="nav-bar__link">Home</a>
+              <a href="#about" class="nav-bar__link">About</a>
+              <a href="#projects" class="nav-bar__link">Projects</a>
+            </div>
           </div>
           <div class="nav-bar__ctnr">
             <label class="nav-bar__toggler rounded grey-back">
@@ -79,7 +79,7 @@
                 >View Resume</a
               >
             </div>
-            <p class="about__about-me">
+            <article class="about__about-me">
               Although I've been around word processers and spreadsheets for
               many years in school, it wasn't until my time as a researcher did
               I get my first real exposure to programming. In research, there
@@ -109,10 +109,18 @@
               By late August 2022, I was fully engaged in building my current
               developer portfolio. I'm currently learning to build Full-stack
               apps using the MERN stack and
-              <a href="https://github.com/leekahung/fullstackopen-course"
+              <a
+                href="https://github.com/leekahung/fullstackopen-course"
+                target="_blank"
                 >hosting them on Netlify</a
+              >. At the same time, I'm an active contributor for Code For PDX,
+              namely with
+              <a
+                href="https://github.com/codeforpdx/PASS/tree/khl/PASS"
+                targe="_blank"
+                >Project PASS</a
               >.
-            </p>
+            </article>
           </div>
           <div class="about__skills rounded short-transition">
             <div class="about__skill-type">
@@ -145,7 +153,7 @@
                   <li>1 Master's Thesis</li>
                   <li>7 peer-reviewed articles</li>
                   <li>2 first-authored papers</li>
-                  <br />
+                  <li><br /></li>
                 </ul>
               </div>
             </div>
@@ -301,39 +309,46 @@
       </main>
       <footer>
         <h1>Contacts</h1>
-        <div class="contact-info">
-          <p>
-            Email:
-            <a id="email" href="mailto:lee.kahung414@gmail.com"
-              >lee.kahung414@gmail.com</a
-            >
-          </p>
-          <p>Phone: (503)-914-7790</p>
-          <p>Location: Portland, OR, USA</p>
-        </div>
-        <div class="social-ctnr">
-          <div class="icon small-box" id="github-icon">
-            <a href="https://github.com/leekahung" target="_blank">
-              <img
-                class="icon-pic"
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
-                alt="github icon"
-              />
-            </a>
+        <address>
+          <div class="contact-info">
+            <p>
+              Email:
+              <a id="email" href="mailto:lee.kahung414@gmail.com"
+                >lee.kahung414@gmail.com</a
+              >
+            </p>
+            <p>Phone: (503)-914-7790</p>
+            <p>Location: Portland, OR, USA</p>
           </div>
-          <div class="icon small-box">
-            <a href="https://www.linkedin.com/in/ka-hung-lee/" target="_blank">
-              <img
-                class="icon-pic"
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
-                alt="linkedin icon"
-              />
-            </a>
+          <br />
+          <div class="social-ctnr">
+            <i class="icon small-box" id="github-icon">
+              <a href="https://github.com/leekahung" target="_blank">
+                <img
+                  class="icon-pic"
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+                  alt="github icon"
+                />
+              </a>
+            </i>
+            <i class="icon small-box">
+              <a
+                href="https://www.linkedin.com/in/ka-hung-lee/"
+                target="_blank"
+              >
+                <img
+                  class="icon-pic"
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
+                  alt="linkedin icon"
+                />
+              </a>
+            </i>
           </div>
-        </div>
-        <a id="created-by" href="https://github.com/leekahung/web-dev"
-          >&#169; 2022 Ka Hung Lee</a
-        >
+          <br />
+          <a id="created-by" href="https://github.com/leekahung/web-dev"
+            >&#169; 2022 Ka Hung Lee</a
+          >
+        </address>
       </footer>
     </div>
     <script src="./script.js"></script>
