@@ -51,11 +51,11 @@ body {
 }
 
 h1 {
-  font-size: 1.8rem;
+  font-size: 2rem;
 }
 
 h2 {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
 }
 
 :is(h2, h3) span {
@@ -106,6 +106,7 @@ a {
   align-items: flex-start;
   justify-content: flex-start;
   padding: 30px;
+  gap: 10px;
 }
 
 .info-ctnr {
@@ -163,10 +164,6 @@ a {
 
 .experience > ul {
   line-height: 2.5rem;
-}
-
-.experience-section:first-of-type > .experience:first-of-type {
-  margin-bottom: 0px;
 }
 
 .experience-header {
