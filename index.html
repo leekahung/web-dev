@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Ka Hung's Web Developer Portfolio | Reactjs | JavaScript ES6+ | TypeScript | HTML5 | CSS3 | MongoDB | Netlify | GitHub Pages"
+      content="Ka Hung's Web Developer Portfolio | React.js | Next.js | JavaScript | TypeScript | HTML5 | CSS3 | SASS | Tailwind CSS | MongoDB | Netlify | GitHub Pages"
     />
     <meta name="theme-color" content="#323737" />
     <link rel="stylesheet" href="./styles.css" />
@@ -126,7 +126,8 @@
               <div class="about__skill-type-content">
                 <p class="about__skill-topic">Languages/Frameworks I use:</p>
                 <p>
-                  JavaScript, TypeScript, HTML, CSS, SASS, React.js, Next.js
+                  React.js, Next.js, JavaScript, TypeScript, HTML, CSS, SASS,
+                  Tailwind CSS
                 </p>
               </div>
               <div class="about__skill-type-content">
@@ -140,29 +141,40 @@
                 </ul>
               </div>
             </div>
-            <div class="about__skill-type">
-              <h2>Software Engineer</h2>
-              <div class="about__skill-type-content">
-                <p class="about__skill-topic">Experiences I draw from:</p>
-                <p>Graduate Research, Self-Learning, Open-source Projects</p>
-              </div>
-              <div class="about__skill-type-content">
-                <p class="about__skill-topic">Experience Stats:</p>
-                <ul class="about__skills-list">
-                  <li></li>
-                  <li>5 years in shell scripting</li>
-                  <li>8 months in web development</li>
-                  <li>4+ months in open-source projects</li>
-                  <li>3 personal apps deployed</li>
-                  <li>28 open-source pull requests merged</li>
-                </ul>
-              </div>
-            </div>
           </div>
         </section>
         <section class="projects hidden" id="projects">
           <h1>Projects</h1>
           <div class="proj-ctnr">
+            <div class="proj-ctnr__card rounded short-transition">
+              <a
+                class="proj-ctnr__link"
+                href="https://github.com/warsWorld/WarsWorld/"
+                target="_blank"
+              >
+                <div class="proj-ctnr__card-top">
+                  <div class="proj-ctnr__img-placeholder"></div>
+                  <div class="proj-ctnr__desc-ctnr">
+                    <p class="proj-ctnr__desc">
+                      (Under construction) A modern version of Advance Wars By
+                      Web
+                    </p>
+                  </div>
+                </div>
+                <div class="proj-ctnr__card-bottom light-font">
+                  <span class="slide-in-color">Wars World</span>
+                </div>
+              </a>
+              <a
+                class="proj-ctnr__repo-link rounded grey-back light-font"
+                href="https://github.com/warsWorld/WarsWorld/"
+                target="_blank"
+              >
+                <span class="proj-ctnr__repo-span rounded">
+                  View Source Code
+                </span>
+              </a>
+            </div>
             <div class="proj-ctnr__card rounded short-transition">
               <a
                 class="proj-ctnr__link"
@@ -250,72 +262,6 @@
               <a
                 class="proj-ctnr__repo-link rounded grey-back light-font"
                 href="https://github.com/leekahung/fullstackopen-bloglist-app"
-                target="_blank"
-              >
-                <span class="proj-ctnr__repo-span rounded">
-                  View Source Code
-                </span>
-              </a>
-            </div>
-            <div class="proj-ctnr__card rounded short-transition">
-              <a
-                class="proj-ctnr__link"
-                href="https://khl-weather-app.netlify.app"
-                target="_blank"
-              >
-                <div class="proj-ctnr__card-top">
-                  <img
-                    class="proj-ctnr__img"
-                    src="./images/weather_app.webp"
-                    alt="preview image of weather app"
-                  />
-                  <div class="proj-ctnr__desc-ctnr">
-                    <p class="proj-ctnr__desc">
-                      A weather app that utilizes OpenWeatherMap API to run and
-                      Netlify serverless functions to fetch weather data.
-                    </p>
-                  </div>
-                </div>
-                <div class="proj-ctnr__card-bottom light-font">
-                  <span class="slide-in-color"> Weather App </span>
-                </div>
-              </a>
-              <a
-                class="proj-ctnr__repo-link rounded grey-back light-font"
-                href="https://github.com/leekahung/weather-app-netlify"
-                target="_blank"
-              >
-                <span class="proj-ctnr__repo-span rounded">
-                  View Source Code
-                </span>
-              </a>
-            </div>
-            <div class="proj-ctnr__card rounded short-transition">
-              <a
-                class="proj-ctnr__link"
-                href="./projects/js_calculator/dist/index.html"
-                target="_blank"
-              >
-                <div class="proj-ctnr__card-top">
-                  <img
-                    class="proj-ctnr__img"
-                    src="./images/js_calculator.webp"
-                    alt="preview image of js calculator"
-                  />
-                  <div class="proj-ctnr__desc-ctnr">
-                    <p class="proj-ctnr__desc">
-                      A functional online calculator styled with SASS that could
-                      take both mouse and keyboard commands.
-                    </p>
-                  </div>
-                </div>
-                <div class="proj-ctnr__card-bottom light-font">
-                  <span class="slide-in-color"> JavaScript Calculator </span>
-                </div>
-              </a>
-              <a
-                class="proj-ctnr__repo-link rounded grey-back light-font"
-                href="https://github.com/leekahung/web-dev/tree/main/projects/js_calculator"
                 target="_blank"
               >
                 <span class="proj-ctnr__repo-span rounded">

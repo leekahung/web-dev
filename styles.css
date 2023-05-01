@@ -388,11 +388,10 @@ button {
 }
 
 .about__skills {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
   border: 1px solid var(--color-font);
   padding: 20px;
-  width: max(50%, 800px);
+  width: 25vw;
+  min-width: 350px;
   overflow: hidden;
 }
 
@@ -868,9 +867,6 @@ footer {
   }
 
   .about__skills {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    width: max(50%, 250px);
     padding: 10px;
   }
 
