@@ -51,7 +51,7 @@ body {
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: 2.4rem;
 }
 
 h2 {
@@ -154,16 +154,12 @@ a {
 
 .experience {
   width: 100%;
-  line-height: 2.6rem;
+  line-height: 2.8rem;
   margin-bottom: 10px;
 }
 
-.experience.last {
-  margin-bottom: 20px;
-}
-
 .experience > ul {
-  line-height: 2.7rem;
+  line-height: 2.8rem;
 }
 
 .experience-header {
