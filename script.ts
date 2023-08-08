@@ -1,46 +1,48 @@
+interface Theme {
+  backgroundColor: string;
+  fontColor: string;
+  navbarColor: string;
+  fontColorHover: string;
+  togglerColorHover: string;
+  backgroundImg: string;
+}
+
+const darkMode: Theme = {
+  backgroundColor: "rgb(40, 45, 45)",
+  fontColor: "rgb(240, 240, 240)",
+  navbarColor: "rgb(50, 55, 55)",
+  fontColorHover: "rgb(160, 240, 240)",
+  togglerColorHover: "rgba(240, 240, 240, 0.4)",
+  backgroundImg: "url(./images/clear_night.webp)",
+};
+
+const lightMode: Theme = {
+  backgroundColor: "rgba(240, 240, 240)",
+  fontColor: "rgb(40, 45, 45)",
+  navbarColor: "rgb(200, 200, 200)",
+  fontColorHover: "rgba(0, 127, 255)",
+  togglerColorHover: "rgba(0, 0, 0, 0.4)",
+  backgroundImg: "url(./images/overcast.webp)",
+};
+
+const setColorScheme = [
+  ["--animation-border-color-end", "fontColor"],
+  ["--color-back", "backgroundColor"],
+  ["--color-sec", "navbarColor"],
+  ["--color-font", "fontColor"],
+  ["--color-font-hover", "fontColorHover"],
+  ["--color-toggler-hover", "togglerColorHover"],
+  ["--hero-header-url", "backgroundImg"],
+];
+
 /* Function to change theme color */
 function darkLightMode() {
-  interface Theme {
-    backgroundColor: string;
-    fontColor: string;
-    navbarColor: string;
-    fontColorHover: string;
-    togglerColorHover: string;
-    backgroundImg: string;
-  }
-
-  const darkMode: Theme = {
-    backgroundColor: "rgb(40, 45, 45)",
-    fontColor: "rgb(240, 240, 240)",
-    navbarColor: "rgb(50, 55, 55)",
-    fontColorHover: "rgb(160, 240, 240)",
-    togglerColorHover: "rgba(240, 240, 240, 0.4)",
-    backgroundImg: "url(./images/clear_night.webp)",
-  };
-
-  const lightMode: Theme = {
-    backgroundColor: "rgba(240, 240, 240)",
-    fontColor: "rgb(40, 45, 45)",
-    navbarColor: "rgb(200, 200, 200)",
-    fontColorHover: "rgba(0, 127, 255)",
-    togglerColorHover: "rgba(0, 0, 0, 0.4)",
-    backgroundImg: "url(./images/overcast.webp)",
-  };
-
-  const setColorScheme = [
-    ["--animation-border-color-end", "fontColor"],
-    ["--color-back", "backgroundColor"],
-    ["--color-sec", "navbarColor"],
-    ["--color-font", "fontColor"],
-    ["--color-font-hover", "fontColorHover"],
-    ["--color-toggler-hover", "togglerColorHover"],
-    ["--hero-header-url", "backgroundImg"],
-  ];
-
-  /* darkLightMode() helper function to get color scheme */
   const getTheme = (theme: Theme) => {
     setColorScheme.map((item) => {
-      document.documentElement.style.setProperty(item[0], theme[item[1] as keyof Theme]);
+      document.documentElement.style.setProperty(
+        item[0],
+        theme[item[1] as keyof Theme]
+      );
     });
   };
 
@@ -49,10 +51,20 @@ function darkLightMode() {
   const githubIcon = document.getElementById("github-icon") as HTMLElement;
 
   if (toggle.checked) {
+    toggle.disabled = true;
+    setTimeout(() => {
+      toggle.disabled = false;
+    }, 2000);
+
     navbar.style.backgroundColor = lightMode["navbarColor"];
     githubIcon.style.filter = "brightness(0)";
     getTheme(lightMode);
   } else {
+    toggle.disabled = true;
+    setTimeout(() => {
+      toggle.disabled = false;
+    }, 2000);
+
     navbar.style.backgroundColor = darkMode["navbarColor"];
     githubIcon.style.filter = "brightness(100%)";
     getTheme(darkMode);
@@ -112,7 +124,8 @@ const handleFocus = (event: Event) => {
   }
 };
 
-const projLinks = document.querySelectorAll<HTMLAnchorElement>(".proj-ctnr__link");
+const projLinks =
+  document.querySelectorAll<HTMLAnchorElement>(".proj-ctnr__link");
 
 projLinks.forEach((link) => {
   ["mouseenter", "mouseleave"].forEach((eventType) => {
@@ -160,7 +173,9 @@ const sectObserver = new IntersectionObserver((entries, observer) => {
 const sectNavObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     const sect = entry.target.id;
-    const navLink = document.querySelector(`.nav-bar__link[href="#${sect}"]`) as HTMLAnchorElement;
+    const navLink = document.querySelector(
+      `.nav-bar__link[href="#${sect}"]`
+    ) as HTMLAnchorElement;
     if (entry.isIntersecting && entry.intersectionRatio >= 0.25) {
       navLink.classList.add("nav-link-hover");
     } else {
@@ -186,7 +201,8 @@ hiddenSections.forEach((sect) => sectNavObserver.observe(sect));
 btnObserver.observe(homePage);
 
 /* Removing internal anchor tags when changing sections or using to Top button */
-const internalLinks = document.querySelectorAll<HTMLAnchorElement>(".nav-bar__link");
+const internalLinks =
+  document.querySelectorAll<HTMLAnchorElement>(".nav-bar__link");
 const topBtnLink = document.getElementById("top-btn-link") as HTMLAnchorElement;
 
 [...internalLinks, topBtnLink].forEach((link) => {

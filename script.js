@@ -1,30 +1,30 @@
 "use strict";
+const darkMode = {
+    backgroundColor: "rgb(40, 45, 45)",
+    fontColor: "rgb(240, 240, 240)",
+    navbarColor: "rgb(50, 55, 55)",
+    fontColorHover: "rgb(160, 240, 240)",
+    togglerColorHover: "rgba(240, 240, 240, 0.4)",
+    backgroundImg: "url(./images/clear_night.webp)",
+};
+const lightMode = {
+    backgroundColor: "rgba(240, 240, 240)",
+    fontColor: "rgb(40, 45, 45)",
+    navbarColor: "rgb(200, 200, 200)",
+    fontColorHover: "rgba(0, 127, 255)",
+    togglerColorHover: "rgba(0, 0, 0, 0.4)",
+    backgroundImg: "url(./images/overcast.webp)",
+};
+const setColorScheme = [
+    ["--animation-border-color-end", "fontColor"],
+    ["--color-back", "backgroundColor"],
+    ["--color-sec", "navbarColor"],
+    ["--color-font", "fontColor"],
+    ["--color-font-hover", "fontColorHover"],
+    ["--color-toggler-hover", "togglerColorHover"],
+    ["--hero-header-url", "backgroundImg"],
+];
 function darkLightMode() {
-    const darkMode = {
-        backgroundColor: "rgb(40, 45, 45)",
-        fontColor: "rgb(240, 240, 240)",
-        navbarColor: "rgb(50, 55, 55)",
-        fontColorHover: "rgb(160, 240, 240)",
-        togglerColorHover: "rgba(240, 240, 240, 0.4)",
-        backgroundImg: "url(./images/clear_night.webp)",
-    };
-    const lightMode = {
-        backgroundColor: "rgba(240, 240, 240)",
-        fontColor: "rgb(40, 45, 45)",
-        navbarColor: "rgb(200, 200, 200)",
-        fontColorHover: "rgba(0, 127, 255)",
-        togglerColorHover: "rgba(0, 0, 0, 0.4)",
-        backgroundImg: "url(./images/overcast.webp)",
-    };
-    const setColorScheme = [
-        ["--animation-border-color-end", "fontColor"],
-        ["--color-back", "backgroundColor"],
-        ["--color-sec", "navbarColor"],
-        ["--color-font", "fontColor"],
-        ["--color-font-hover", "fontColorHover"],
-        ["--color-toggler-hover", "togglerColorHover"],
-        ["--hero-header-url", "backgroundImg"],
-    ];
     const getTheme = (theme) => {
         setColorScheme.map((item) => {
             document.documentElement.style.setProperty(item[0], theme[item[1]]);
@@ -34,11 +34,19 @@ function darkLightMode() {
     const navbar = document.getElementById("nav-bar");
     const githubIcon = document.getElementById("github-icon");
     if (toggle.checked) {
+        toggle.disabled = true;
+        setTimeout(() => {
+            toggle.disabled = false;
+        }, 2000);
         navbar.style.backgroundColor = lightMode["navbarColor"];
         githubIcon.style.filter = "brightness(0)";
         getTheme(lightMode);
     }
     else {
+        toggle.disabled = true;
+        setTimeout(() => {
+            toggle.disabled = false;
+        }, 2000);
         navbar.style.backgroundColor = darkMode["navbarColor"];
         githubIcon.style.filter = "brightness(100%)";
         getTheme(darkMode);
