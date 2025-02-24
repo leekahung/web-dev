@@ -52,64 +52,6 @@ function darkLightMode() {
         getTheme(darkMode);
     }
 }
-const handleHover = (event) => {
-    const source = event.target;
-    const localCtnrCard = source.closest(".proj-ctnr__card");
-    let localRepoLink;
-    if (event.type === "mouseenter") {
-        if (localCtnrCard.classList.contains("focus-hover")) {
-            localCtnrCard.classList.remove("focus-hover");
-        }
-        localCtnrCard.style.boxShadow = "var(--focus-visible-shadow)";
-        localRepoLink = localCtnrCard.children[1];
-        if (localRepoLink.style.boxShadow !== "unset") {
-            localRepoLink.style.boxShadow = "unset";
-        }
-        localRepoLink.addEventListener("mouseenter", (event) => {
-            const repoLink = event.target;
-            repoLink.style.boxShadow = "var(--focus-visible-shadow)";
-            localCtnrCard.style.boxShadow = "unset";
-            if (repoLink.classList.contains("focus-hover")) {
-                repoLink.classList.remove("focus-hover");
-            }
-        });
-    }
-    else {
-        localCtnrCard.removeAttribute("style");
-    }
-};
-const handleFocus = (event) => {
-    const source = event.target;
-    const parent = source.parentElement;
-    const localCtnrCard = parent.closest(".proj-ctnr__card");
-    const localRepoLink = localCtnrCard.children[1];
-    if (event.type === "focusin") {
-        parent.classList.add("focus-hover");
-        parent.style.boxShadow = "var(--focus-visible-shadow)";
-        localRepoLink.addEventListener("focusin", () => {
-            parent.classList.add("focus-hover");
-            localRepoLink.style.boxShadow = "var(--focus-visible-shadow)";
-        });
-        localRepoLink.addEventListener("focusout", () => {
-            parent.classList.remove("focus-hover");
-            localRepoLink.style.boxShadow = "unset";
-        });
-    }
-    else {
-        parent.style.boxShadow = "unset";
-    }
-};
-const projLinks = document.querySelectorAll(".proj-ctnr__link");
-projLinks.forEach((link) => {
-    ["mouseenter", "mouseleave"].forEach((eventType) => {
-        link.addEventListener(eventType, (event) => handleHover(event));
-    });
-});
-projLinks.forEach((link) => {
-    ["focusin", "focusout"].forEach((eventType) => {
-        link.addEventListener(eventType, (event) => handleFocus(event));
-    });
-});
 const hiddenSections = document.querySelectorAll("section");
 const homePage = document.getElementById("home");
 const topBtn = document.getElementById("top-btn-ctnr");
