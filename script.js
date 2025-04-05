@@ -167,17 +167,6 @@ const btnObserver = new IntersectionObserver((entries) => {
 hiddenSections.forEach((sect) => sectObserver.observe(sect));
 hiddenSections.forEach((sect) => sectNavObserver.observe(sect));
 btnObserver.observe(homePage);
-const internalLinks = document.querySelectorAll(".nav-bar__link");
-const topBtnLink = document.getElementById("top-btn-link");
-[...internalLinks, topBtnLink].forEach((link) => {
-    const anchor = document.querySelector(link.hash);
-    link.addEventListener("click", (event) => {
-        if (anchor) {
-            anchor.scrollIntoView();
-            event.preventDefault();
-        }
-    });
-});
 const boxCtnr = document.querySelector(".boxes-ctnr");
 const boxCtnr2 = document.querySelector(".boxes-ctnr-2");
 const boxCtnr3 = document.querySelector(".boxes-ctnr-3");
@@ -202,10 +191,10 @@ const makeBoxes = (numBoxes, ctnrNum) => {
 makeBoxes(5, 0);
 setTimeout(() => {
     makeBoxes(3, 1);
-}, 3000);
+}, 5000);
 setTimeout(() => {
     makeBoxes(2, 2);
-}, 7000);
+}, 10000);
 setTimeout(() => {
     makeBoxes(4, 3);
-}, 10000);
+}, 15000);

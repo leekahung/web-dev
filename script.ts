@@ -200,22 +200,6 @@ hiddenSections.forEach((sect) => sectObserver.observe(sect));
 hiddenSections.forEach((sect) => sectNavObserver.observe(sect));
 btnObserver.observe(homePage);
 
-/* Removing internal anchor tags when changing sections or using to Top button */
-const internalLinks =
-  document.querySelectorAll<HTMLAnchorElement>(".nav-bar__link");
-const topBtnLink = document.getElementById("top-btn-link") as HTMLAnchorElement;
-
-[...internalLinks, topBtnLink].forEach((link) => {
-  const anchor = document.querySelector(link.hash);
-
-  link.addEventListener("click", (event) => {
-    if (anchor) {
-      anchor.scrollIntoView();
-      event.preventDefault();
-    }
-  });
-});
-
 /* Falling box animations for About Section */
 const boxCtnr = document.querySelector(".boxes-ctnr") as HTMLDivElement;
 const boxCtnr2 = document.querySelector(".boxes-ctnr-2") as HTMLDivElement;
@@ -247,12 +231,12 @@ makeBoxes(5, 0);
 
 setTimeout(() => {
   makeBoxes(3, 1);
-}, 3000);
+}, 5000);
 
 setTimeout(() => {
   makeBoxes(2, 2);
-}, 7000);
+}, 10000);
 
 setTimeout(() => {
   makeBoxes(4, 3);
-}, 10000);
+}, 15000);

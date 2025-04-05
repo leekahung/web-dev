@@ -324,11 +324,11 @@ button {
 .home__intro {
   white-space: nowrap;
   border-right: 2px solid transparent;
-  width: 340px;
+  width: 420px;
   top: 57%;
   font-size: 3.2rem;
   overflow: hidden;
-  animation: typing 2s steps(21, jump-end) 4s 1 normal both,
+  animation: typing 2s steps(26, jump-end) 4s 1 normal both,
     blinking 800ms steps(21) 2s infinite;
 }
 
@@ -338,7 +338,7 @@ button {
     border-right: 2px solid transparent;
   }
   to {
-    width: 340px;
+    width: 420px;
     border-right: 2px solid var(--color-font);
   }
 }
@@ -858,7 +858,7 @@ footer {
   }
 
   .home__intro {
-    width: 260px;
+    width: 320px;
     font-size: 2.4rem;
   }
 
@@ -867,7 +867,7 @@ footer {
       width: 0;
     }
     to {
-      width: 260px;
+      width: 320px;
     }
   }
 
@@ -924,7 +924,7 @@ footer {
   }
 
   .home__intro {
-    width: 175px;
+    width: 235px;
     font-size: 1.8rem;
   }
 
@@ -933,7 +933,7 @@ footer {
       width: 0;
     }
     to {
-      width: 190px;
+      width: 235px;
     }
   }
 
