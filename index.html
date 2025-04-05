@@ -30,7 +30,12 @@
         <nav class="nav-bar" id="nav-bar">
           <div class="nav-bar__ctnr">
             <div class="nav-bar__group" id="nav-bar__group">
-              <a href="#home" class="nav-bar__link">Home</a>
+              <a
+                class="nav-bar__link"
+                id="home-link"
+                onclick="window.scroll(0,0)"
+                >Home</a
+              >
               <a href="#about" class="nav-bar__link">About</a>
               <a href="#projects" class="nav-bar__link">Projects</a>
             </div>
@@ -122,23 +127,17 @@
           </div>
           <div class="about__skills rounded short-transition">
             <div class="about__skill-type">
-              <h2>Developer</h2>
+              <h2>Frontend Engineer</h2>
               <div class="about__skill-type-content">
-                <p class="about__skill-topic">Languages/Frameworks I use:</p>
+                <p class="about__skill-topic">Languages and Libraries I use:</p>
                 <p>
-                  React.js, Next.js, JavaScript, TypeScript, HTML, CSS, SASS,
-                  Tailwind CSS
+                  React.js, TypeScript, Bash, Python, HTML, CSS, Tailwind CSS,
+                  React Router, D3.js
                 </p>
               </div>
               <div class="about__skill-type-content">
-                <p class="about__skill-topic">Commonly used Dev Tools:</p>
-                <ul class="about__skills-list">
-                  <li>GitHub</li>
-                  <li>Netlify</li>
-                  <li>MongoDB</li>
-                  <li>Terminal</li>
-                  <li>VSCode</li>
-                </ul>
+                <p class="about__skill-topic">Dev Tools:</p>
+                <p>GitHub, Netlify, Supabase, Grafana, VS Code</p>
               </div>
             </div>
           </div>
@@ -149,44 +148,19 @@
             <div class="proj-ctnr__card rounded short-transition">
               <a
                 class="proj-ctnr__link"
-                href="https://github.com/warsWorld/WarsWorld/"
-                target="_blank"
-              >
-                <div class="proj-ctnr__card-top">
-                  <div class="proj-ctnr__img-placeholder"></div>
-                  <div class="proj-ctnr__desc-ctnr">
-                    <p class="proj-ctnr__desc">
-                      (Under construction) A modern version of Advance Wars By
-                      Web
-                    </p>
-                  </div>
-                </div>
-                <div class="proj-ctnr__card-bottom light-font">
-                  <span class="slide-in-color">Wars World</span>
-                </div>
-              </a>
-              <a
-                class="proj-ctnr__repo-link rounded grey-back light-font"
-                href="https://github.com/warsWorld/WarsWorld/"
-                target="_blank"
-              >
-                <span class="proj-ctnr__repo-span rounded">
-                  View Source Code
-                </span>
-              </a>
-            </div>
-            <div class="proj-ctnr__card rounded short-transition">
-              <a
-                class="proj-ctnr__link"
                 href="https://passsmartwallet-967e217a2652.herokuapp.com/"
                 target="_blank"
               >
                 <div class="proj-ctnr__card-top">
-                  <div class="proj-ctnr__img-placeholder"></div>
+                  <img
+                    class="proj-ctnr__img"
+                    src="./images/pass.webp"
+                    alt="preview image of PASS"
+                  />
                   <div class="proj-ctnr__desc-ctnr">
                     <p class="proj-ctnr__desc">
-                      (Under construction) A digital storage for files and
-                      digitized documents using the Solid Pod model
+                      A digital storage for files and digitized documents using
+                      the Solid Pod model
                     </p>
                   </div>
                 </div>
@@ -207,61 +181,29 @@
             <div class="proj-ctnr__card rounded short-transition">
               <a
                 class="proj-ctnr__link"
-                href="https://khl-event-calendar.netlify.app"
+                href="https://phase-connect-tracker.netlify.app/"
                 target="_blank"
               >
                 <div class="proj-ctnr__card-top">
                   <img
                     class="proj-ctnr__img"
-                    src="./images/event-calendar.webp"
-                    alt="preview image of event calendar app"
-                  />
-                  <div class="proj-ctnr__desc-ctnr">
-                    <p class="proj-ctnr__desc">
-                      An event calendar built using React.
-                    </p>
-                  </div>
-                </div>
-                <div class="proj-ctnr__card-bottom light-font">
-                  <span class="slide-in-color">Event Calendar</span>
-                </div>
-              </a>
-              <a
-                class="proj-ctnr__repo-link rounded grey-back light-font"
-                href="https://github.com/leekahung/event-calendar-v2"
-                target="_blank"
-              >
-                <span class="proj-ctnr__repo-span rounded">
-                  View Source Code
-                </span>
-              </a>
-            </div>
-            <div class="proj-ctnr__card rounded short-transition">
-              <a
-                class="proj-ctnr__link"
-                href="https://khl-bloglist-app.netlify.app/"
-                target="_blank"
-              >
-                <div class="proj-ctnr__card-top">
-                  <img
-                    class="proj-ctnr__img"
-                    src="./images/bloglist-app.webp"
-                    alt="preview image of documentation page"
+                    src="./images/phase-tracker.webp"
+                    alt="preview image of phase tracker"
                   />
                   <div class="proj-ctnr__desc-ctnr">
                     <p class="proj-ctnr__desc light-font">
-                      A CRUD app that can save and store information about
-                      blogs.
+                      A live subscription tracker for the Virtual YouTuber group
+                      Phase Connect
                     </p>
                   </div>
                 </div>
                 <div class="proj-ctnr__card-bottom light-font">
-                  <span class="slide-in-color">Blog List App</span>
+                  <span class="slide-in-color">Phase Tracker</span>
                 </div>
               </a>
               <a
                 class="proj-ctnr__repo-link rounded grey-back light-font"
-                href="https://github.com/leekahung/fullstackopen-bloglist-app"
+                href="https://github.com/leekahung/phase-tracker"
                 target="_blank"
               >
                 <span class="proj-ctnr__repo-span rounded">
@@ -272,7 +214,7 @@
           </div>
         </section>
         <div id="top-btn-ctnr" class="slide-out">
-          <a id="top-btn-link" href="#home">
+          <a id="top-btn-link" onclick="window.scroll(0,0)">
             <div class="top-btn small-box light-back">
               <img
                 class="icon small-box"

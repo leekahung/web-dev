@@ -142,7 +142,8 @@ const sectObserver = new IntersectionObserver((entries, observer) => {
 const sectNavObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         const sect = entry.target.id;
-        const navLink = document.querySelector(`.nav-bar__link[href="#${sect}"]`);
+        const navLink = document.querySelector(`.nav-bar__link[href="#${sect}"]`) ||
+            document.querySelector("#home-link");
         if (entry.isIntersecting && entry.intersectionRatio >= 0.25) {
             navLink.classList.add("nav-link-hover");
         }

@@ -230,6 +230,10 @@ button {
   font-weight: 800;
 }
 
+#home-link {
+  cursor: pointer;
+}
+
 .nav-bar__link::after {
   border-bottom: 2px solid var(--color-font);
   inset: 0 100% 0 0;
@@ -406,14 +410,14 @@ button {
 
 .about__skill-type {
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 20px;
   padding: 20px;
 }
 
 .about__skill-type .about__skill-type-content {
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 10px;
   min-height: 100px;
   min-width: 240px;
@@ -732,6 +736,7 @@ footer {
   inset: auto 50px 30px auto;
   flex-direction: column;
   gap: 10px;
+  cursor: pointer;
 }
 
 #top-btn-ctnr::after {
@@ -934,6 +939,7 @@ footer {
 
   :is(.nav-bar__link, .about__about-me) {
     font-size: 1.6rem;
+    cursor: pointer;
   }
 
   #top-btn-ctnr::after {
