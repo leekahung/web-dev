@@ -191,7 +191,7 @@ button {
 .show-delay,
 .slide-down-header {
   opacity: 0;
-  animation: slide-down 2s cubic-bezier(0.25, 0.5, 0.25, 1) forwards;
+  animation: slide-down 1s cubic-bezier(0.25, 0.5, 0.25, 1) forwards;
 }
 
 .show-delay {
