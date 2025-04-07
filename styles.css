@@ -11,6 +11,11 @@
   --focus-visible-shadow: 0 0 10px 5px var(--color-font-hover);
 }
 
+/* Debugger */
+/* * {
+  outline: 1px solid lightcoral;
+} */
+
 /* Custom Reset */
 html,
 body,
@@ -88,11 +93,10 @@ header {
 
 section {
   gap: 50px;
-  margin-bottom: 50px;
 }
 
 section:not(:first-child) {
-  scroll-margin-top: calc(60px + 50px);
+  scroll-margin-top: calc(60px);
 }
 
 h1 {
@@ -155,6 +159,23 @@ button {
   position: absolute;
 }
 
+.see-more {
+  position: absolute;
+  bottom: 0;
+  text-decoration: none;
+}
+
+.see-more::after {
+  content: " ";
+  display: inline-block;
+  border-bottom: 2px solid var(--color-font);
+  border-right: 2px solid var(--color-font);
+  height: 15px;
+  width: 15px;
+  margin: 8px;
+  transform: rotate(45deg);
+}
+
 /* Scrolling Animations */
 :is(.hidden, .show) {
   transition: opacity 1s, filter 1s;
@@ -196,6 +217,15 @@ button {
 
 .show-delay {
   animation-delay: 1s;
+}
+
+.home > .show-delay:last-child {
+  animation-delay: 4s;
+}
+
+.about > .show-delay:last-child,
+.projects > .show-delay:last-child {
+  animation-delay: 2s;
 }
 
 @keyframes slide-down {
@@ -269,6 +299,15 @@ button {
   inset: 4px 4px;
 }
 
+.nav-bar__svg {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 24px;
+  width: 24px;
+  right: 3px;
+}
+
 /* Toggle Animations */
 .nav-bar__toggle:checked + .nav-bar__slider {
   transform: translateX(30px);
@@ -307,7 +346,7 @@ button {
 
 /* Home Section */
 .home {
-  height: 100vh;
+  height: calc(100dvh - 60px);
 }
 
 .home__ctnr {
@@ -328,8 +367,8 @@ button {
   top: 57%;
   font-size: 3.2rem;
   overflow: hidden;
-  animation: typing 2s steps(26, jump-end) 4s 1 normal both,
-    blinking 800ms steps(21) 2s infinite;
+  animation: typing 1s steps(26, jump-end) 3s 1 normal both,
+    blinking 1s steps(21) 2s infinite;
 }
 
 @keyframes typing {
@@ -354,6 +393,10 @@ button {
 }
 
 /* About Section */
+.about {
+  height: calc(100dvh - 60px);
+}
+
 .about__ctnr {
   gap: 50px;
 }
@@ -377,6 +420,10 @@ button {
   line-height: 3rem;
 }
 
+.about__skills {
+  max-width: 500px;
+}
+
 .about__about-me,
 .about__about-me::before {
   width: max(45%, 300px);
@@ -387,7 +434,7 @@ button {
 }
 
 .about__self-photo {
-  width: max(20vw, 250px);
+  width: max(12vw, 300px);
   aspect-ratio: 3 / 4;
 }
 
@@ -584,8 +631,9 @@ button {
 }
 
 /* Projects Section */
-#proj {
-  justify-content: flex-start;
+.projects {
+  justify-content: center;
+  height: calc(100dvh - 60px);
 }
 
 .link-disabled {
@@ -912,6 +960,11 @@ footer {
 @media (max-width: 480px) {
   .nav-bar__group {
     width: clamp(200px, 50vw, 500px);
+  }
+
+  .nav-bar__ctnr:last-child {
+    margin-right: auto;
+    margin-left: 0;
   }
 
   h1,

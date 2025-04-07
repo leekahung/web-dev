@@ -52,6 +52,20 @@
               <div
                 class="nav-bar__slider rounded short-transition light-back"
               ></div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="nav-bar__svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
+                />
+              </svg>
             </label>
           </div>
         </nav>
@@ -66,6 +80,7 @@
               I am a Frontend Developer!
             </p>
           </div>
+          <a href="#about" class="see-more"></a>
         </section>
         <section class="about hidden" id="about">
           <h1>About Me</h1>
@@ -87,71 +102,44 @@
                 >View Resume</a
               >
             </div>
-            <article class="about__about-me">
-              Having been around word processors and spreadsheets for most of my
-              academic career, it wasn't until my time as a researcher did I get
-              my first taste of programming. There were many tasks that could
-              only be achieve through a computer, so I had to "learn to code".
-              <br />
-              <br />
-              I've picked up several languages, namely Bash and Python, to run
-              Jupyter Notebooks. In late 2021, I've decided to picked up HTML,
-              CSS, and JavaScript as a hobby and built
-              <a
-                href="https://leekahung.github.io/programming-portfolio/"
-                target="_blank"
-                >my very first website from scratch</a
-              >. It currently store some of my early venture into programming
-              outside of academia.
-              <br />
-              <br />
-              It was a refreshing experience for me being able to play with
-              dynamic components in real time. By mid-2022, I was transitioning
-              to build web applications from scratch. It was during that time,
-              I've learned to use libraries like React.js and Tailwind CSS and
-              pivoted towards TypeScript.
-              <br />
-              <br />
-              Before my role as a UI Engineer at LATERAL.systems, I was a
-              contributor for Code PDX's
-              <a
-                href="https://passsmartwallet-967e217a2652.herokuapp.com/"
-                target="_blank"
-                >PASS Project</a
-              >, an application meant for the digital storage of documents using
-              Solid Pods. I had also briefly contributed to
-              <a href="https://github.com/WarsWorld/WarsWorld" target="_blank"
-                >Wars World</a
-              >, a community-lead effort to create a modernized version of the
-              popular Advance Wars By Web. Now, I'm working on side projects
-              like
-              <a
-                href="https://phase-connect-tracker.netlify.app/"
-                target="_blank"
-                >Phase Tracker</a
-              >
-              in my spare time.
-            </article>
-          </div>
-          <div class="about__skills rounded short-transition">
-            <div class="about__skill-type">
-              <h2>Frontend Engineer</h2>
-              <div class="about__skill-type-content">
-                <p class="about__skill-topic">Languages and Libraries I use:</p>
-                <p>
-                  React.js, TypeScript, Bash, Python, HTML, CSS, Tailwind CSS,
-                  React Router, D3.js
-                </p>
-              </div>
-              <div class="about__skill-type-content">
-                <p class="about__skill-topic">Dev Tools:</p>
-                <p>GitHub, Netlify, Supabase, Grafana, VS Code</p>
+            <div class="about__skills rounded short-transition">
+              <div class="about__skill-type">
+                <h2>Frontend Engineer</h2>
+                <div class="about__skill-type-content">
+                  <p class="about__skill-topic">
+                    Languages and Libraries I use:
+                  </p>
+                  <p>
+                    React.js, TypeScript, Bash, Python, HTML, CSS, Tailwind CSS,
+                    React Router, D3.js
+                  </p>
+                </div>
+                <div class="about__skill-type-content">
+                  <p class="about__skill-topic">Dev Tools:</p>
+                  <p>GitHub, Netlify, Supabase, Grafana, VS Code</p>
+                </div>
               </div>
             </div>
           </div>
+          <article class="about__about-me">
+            Before my role as a UI Engineer at LATERAL.systems, I was a
+            contributor for Code PDX's
+            <a
+              href="https://passsmartwallet-967e217a2652.herokuapp.com/"
+              target="_blank"
+              >PASS Project</a
+            >, an application meant for the digital storage of documents using
+            Solid Pods. Now, I'm working on side projects like
+            <a href="https://phase-connect-tracker.netlify.app/" target="_blank"
+              >Phase Tracker</a
+            >
+            in my spare time.
+          </article>
+          <a href="#projects" class="see-more"></a>
         </section>
         <section class="projects hidden" id="projects">
           <h1>Projects</h1>
+          <p>Projects I've been contributing to:</p>
           <div class="proj-ctnr">
             <div class="proj-ctnr__card rounded short-transition">
               <a
@@ -220,6 +208,7 @@
               </a>
             </div>
           </div>
+          <a href="#footer" class="see-more"></a>
         </section>
         <div id="top-btn-ctnr" class="slide-out">
           <a id="top-btn-link" onclick="window.scroll(0,0)">
@@ -233,7 +222,7 @@
           </a>
         </div>
       </main>
-      <footer>
+      <footer id="footer">
         <h1>Contacts</h1>
         <address>
           <div class="contact-info">
