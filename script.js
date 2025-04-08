@@ -188,13 +188,13 @@ const makeBoxes = (numBoxes, ctnrNum) => {
         allBoxCtnr[ctnrNum].appendChild(box);
     }
 };
-makeBoxes(5, 0);
+makeBoxes(3, 0);
 setTimeout(() => {
-    makeBoxes(3, 1);
+    makeBoxes(4, 1);
 }, 5000);
 setTimeout(() => {
-    makeBoxes(2, 2);
+    makeBoxes(3, 2);
 }, 10000);
 setTimeout(() => {
-    makeBoxes(4, 3);
+    makeBoxes(2, 3);
 }, 15000);

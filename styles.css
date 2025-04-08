@@ -347,6 +347,7 @@ button {
 /* Home Section */
 .home {
   height: calc(100vh - 60px);
+  height: calc(100dvh - 60px);
 }
 
 .home__ctnr {
@@ -887,11 +888,16 @@ footer {
 }
 
 @media (max-width: 768px) {
-  .about,
+  .about {
+    height: auto;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
   .projects {
     height: auto;
     padding-top: 50px;
-    padding-bottom: 150px;
+    padding-bottom: 100px;
   }
 
   .about > .see-more,
