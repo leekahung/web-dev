@@ -121,6 +121,21 @@ const sectObserver = new IntersectionObserver((entries, observer) => {
         if (entry.isIntersecting) {
             entry.target.classList.remove("hidden");
             entry.target.classList.add("show");
+            const targetChildren = entry.target.children;
+            [...targetChildren].map((child, index) => {
+                if (index === 0) {
+                    child.classList.add("slide-down-header");
+                }
+                else {
+                    if (child.id !== "home__intro") {
+                        child.classList.add("show-delay");
+                        observer.unobserve(entry.target);
+                    }
+                    else {
+                        observer.unobserve(entry.target);
+                    }
+                }
+            });
         }
     });
 }, options(0.2));
