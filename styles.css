@@ -351,8 +351,7 @@ button {
 
 /* Home Section */
 .home {
-  height: calc(100vh - 60px);
-  height: calc(100dvh - 60px);
+  height: calc(100vh - 60px - 50px);
 }
 
 .home__ctnr {
