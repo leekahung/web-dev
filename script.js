@@ -110,6 +110,11 @@ projLinks.forEach((link) => {
         link.addEventListener(eventType, (event) => handleFocus(event));
     });
 });
+const hideSeeMore = (selectorId) => {
+    const seeMoreLink = document.querySelector(selectorId);
+    seeMoreLink === null || seeMoreLink === void 0 ? void 0 : seeMoreLink.classList.remove("show-delay");
+    seeMoreLink === null || seeMoreLink === void 0 ? void 0 : seeMoreLink.classList.add("hidden-full");
+};
 const hiddenSections = document.querySelectorAll("section");
 const homePage = document.getElementById("home");
 const topBtn = document.getElementById("top-btn-ctnr");

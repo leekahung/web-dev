@@ -92,7 +92,7 @@ header {
 }
 
 section {
-  gap: 50px;
+  gap: 30px;
 }
 
 section:not(:first-child) {
@@ -192,6 +192,11 @@ button {
 .hidden {
   opacity: 0;
   filter: blur(20px);
+}
+
+.hidden-full {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .show {

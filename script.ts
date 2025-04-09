@@ -139,6 +139,12 @@ projLinks.forEach((link) => {
   });
 });
 
+const hideSeeMore = (selectorId: string) => {
+  const seeMoreLink = document.querySelector<HTMLAnchorElement>(selectorId);
+  seeMoreLink?.classList.remove("show-delay");
+  seeMoreLink?.classList.add("hidden-full");
+};
+
 /* Functions to deal with scrolling animation via Intersection Observer */
 const hiddenSections = document.querySelectorAll("section");
 const homePage = document.getElementById("home") as HTMLElement;
