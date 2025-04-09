@@ -400,6 +400,7 @@ button {
 /* About Section */
 .about {
   height: calc(100vh - 60px);
+  position: relative;
 }
 
 .about__ctnr {
@@ -629,6 +630,7 @@ button {
 .projects {
   justify-content: center;
   height: calc(100vh - 60px);
+  position: relative;
 }
 
 .link-disabled {
