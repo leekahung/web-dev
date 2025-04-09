@@ -638,6 +638,7 @@ button {
 }
 
 .proj-ctnr {
+  padding-top: 30px;
   width: 90%;
   gap: 50px;
   flex-wrap: wrap;
