@@ -176,6 +176,10 @@ button {
   transform: rotate(45deg);
 }
 
+.extra-margin-bottom {
+  margin: 50px;
+}
+
 /* Scrolling Animations */
 :is(.hidden, .show) {
   transition: opacity 1s, filter 1s;
