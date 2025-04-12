@@ -86,16 +86,13 @@ const handleFocus = (event) => {
     if (event.type === "focusin") {
         parent.classList.add("focus-hover");
         parent.style.boxShadow = "var(--focus-visible-shadow)";
-        localRepoLink.addEventListener("focusin", () => {
-            parent.classList.add("focus-hover");
-            localRepoLink.style.boxShadow = "var(--focus-visible-shadow)";
-        });
-        localRepoLink.addEventListener("focusout", () => {
+        setTimeout(() => {
             parent.classList.remove("focus-hover");
             localRepoLink.style.boxShadow = "unset";
-        });
+        }, 100);
     }
     else {
+        parent.classList.remove("focus-hover");
         parent.style.boxShadow = "unset";
     }
 };
@@ -108,6 +105,11 @@ projLinks.forEach((link) => {
 projLinks.forEach((link) => {
     ["focusin", "focusout"].forEach((eventType) => {
         link.addEventListener(eventType, (event) => handleFocus(event));
+    });
+});
+projLinks.forEach((link) => {
+    ["click"].forEach((eventType) => {
+        link.addEventListener(eventType, (event) => handleHover(event));
     });
 });
 const hideSeeMore = (selectorId) => {
