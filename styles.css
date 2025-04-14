@@ -539,15 +539,15 @@ button {
   border-radius: 15px;
 }
 
-.medium-box {
+.circle {
   height: 80px;
   width: 80px;
-  border-radius: 15px;
+  border-radius: 100px;
   opacity: 0.75;
   background-color: var(--color-back);
 }
 
-.large-box {
+.box {
   height: 120px;
   width: 120px;
   border-radius: 10px;

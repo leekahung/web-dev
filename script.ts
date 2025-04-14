@@ -216,17 +216,17 @@ const boxCtnr4 = document.querySelector(".boxes-ctnr-4") as HTMLDivElement;
 const allBoxCtnr = [boxCtnr, boxCtnr2, boxCtnr3, boxCtnr4];
 
 const fallSpeeds = ["super-slow", "slow", "normal", "fast", "super-fast"];
-const boxSizes = ["small-box", "medium-box", "large-box"];
+const shape = ["small-box", "circle", "box"];
 
-const makeBoxes = (numBoxes: number, ctnrNum: number) => {
-  for (let i = 0; i < numBoxes; i++) {
+const makeBoxes = (numShapes: number, ctnrNum: number) => {
+  for (let i = 0; i < numShapes; i++) {
     const box = document.createElement("div");
     const spin = document.createElement("div");
     const fallSpeed = fallSpeeds[Math.floor(Math.random() * fallSpeeds.length)];
-    const boxSize = boxSizes[Math.floor(Math.random() * boxSizes.length)];
+    const shapeSize = shape[Math.floor(Math.random() * shape.length)];
 
     spin.className = "spin";
-    spin.classList.add(boxSize);
+    spin.classList.add(shapeSize);
     box.className = fallSpeed;
     box.classList.add("fall-animation");
 
