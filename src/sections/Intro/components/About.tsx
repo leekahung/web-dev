@@ -3,7 +3,7 @@ export default function About() {
     <div className="flex items-center flex-col gap-4">
       <div className="h-40 w-40 rounded-full overflow-hidden relative">
         <img
-          src="/self_photo.webp"
+          src={`${import.meta.env.BASE_URL}/self_photo.webp`}
           alt="self photo"
           className="object-cover scale-190 rounded-full w-full h-full object-[0%_0%]"
         />
