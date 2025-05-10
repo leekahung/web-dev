@@ -23,20 +23,30 @@ export default function About() {
             LATERAL.systems
           </a>
         </p>
+        <p>
+          Volunteer at{" "}
+          <a
+            href="https://www.codepdx.org/"
+            target="_blank"
+            className="underline"
+          >
+            Code PDX
+          </a>
+        </p>
       </div>
       <p>
         Before my previous role as a Frontend/UI engineer at LATERAL.systems, I
-        was an active contributor for{" "}
-        <a
-          href="https://www.codepdx.org/"
-          target="_blank"
-          className="underline"
-        >
-          Code PDX
-        </a>
-        , a local civic tech group in Portland, Oregon. Now, I'm working on side
-        projects like Phase Tracker during my spare time.
+        was an active contributor for Code PDX, a local civic tech group in
+        Portland, Oregon. Now, I'm working on side projects like Phase Tracker
+        during my spare time.
       </p>
+      <a
+        className="rounded-full py-1 px-3 border-1 dark:hover:bg-orange-300 dark:hover:text-black hover:bg-blue-500 hover:text-slate-200"
+        href="https://drive.google.com/file/d/1KXGZxqBQJV9LxTSg5G6pSGvnkH5t_Be_/view?usp=sharing"
+        target="_blank"
+      >
+        View Resume
+      </a>
     </div>
   );
 }

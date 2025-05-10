@@ -1,29 +1,31 @@
 import ChatIcon from "@/shared/components/icons/ChatIcon";
 import ProfileIcon from "@/shared/components/icons/ProfileIcon";
-import ToolsIcon from "@/shared/components/icons/ToolsIcon";
 import Section from "./components/Section";
+import ScrollToButton from "@/shared/components/ScrollToButton";
 
 export default function Intro() {
   return (
-    <div className="p-0 md:p-8 flex flex-col items-center gap-6 md:border md:rounded-4xl">
+    <section className="relative h-screen p-0 md:p-8 flex flex-col items-center justify-center gap-6">
       <div className="flex flex-col gap-4">
-        <h1 className="text-4xl">
-          Hello! I'm{" "}
-          <span className="text-blue-500 dark:text-orange-300">Ka Hung</span>
-        </h1>
+        <strong>
+          <h1 className="text-3xl">
+            Hello! I'm{" "}
+            <span className="text-blue-500 dark:text-orange-300">Ka Hung</span>
+          </h1>
+        </strong>
         <h2 className="text-xl font-light">Frontend Engineer, UI Developer</h2>
       </div>
-      <div className="grid grid-cols-3 w-[300px]">
+      <div className="grid grid-cols-2 w-52">
         <Section title="About">
           <ProfileIcon />
-        </Section>
-        <Section title="Skills">
-          <ToolsIcon />
         </Section>
         <Section title="Contact">
           <ChatIcon />
         </Section>
       </div>
-    </div>
+      <div className="absolute bottom-35 sm:bottom-20">
+        <ScrollToButton elementId="skills" />
+      </div>
+    </section>
   );
 }

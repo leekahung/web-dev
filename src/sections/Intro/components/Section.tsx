@@ -1,7 +1,6 @@
 import IconButton from "@/shared/components/IconButton";
 import About from "./About";
 import Contact from "./Contact";
-import Skills from "./Skills";
 
 interface Props {
   title: string;
@@ -19,7 +18,7 @@ export default function Section({ title, children }: Props) {
         >
           {children}
         </IconButton>
-        <p className="dark:peer-hover:text-orange-300 peer-hover:text-blue-500 peer-hover:font-semibold transition-[colors] duration-500">
+        <p className="dark:peer-hover:text-orange-300 peer-hover:text-blue-500 peer-hover:font-semibold transition-[colors] duration-500 text-lg">
           {title}
         </p>
         <span className="absolute bottom-[-4px] w-0 peer-hover:w-[60%] peer-hover:h-[1px] peer-hover:bg-blue-500 dark:peer-hover:bg-orange-300 transition-all duration-500" />
@@ -33,7 +32,7 @@ export default function Section({ title, children }: Props) {
         }}
       >
         <div className="flex gap-4 flex-col p-8">
-          <h3 className="font-bold text-lg">{title}</h3>
+          <h3 className="font-bold text-2xl">{title}</h3>
           {getModalContent(title)}
           <form method="dialog" className="absolute top-8 right-8">
             <button className="cursor-pointer">[ x ]</button>
@@ -46,6 +45,5 @@ export default function Section({ title, children }: Props) {
 
 function getModalContent(title: string) {
   if (title === "About") return <About />;
-  if (title === "Skills") return <Skills />;
   if (title === "Contact") return <Contact />;
 }
