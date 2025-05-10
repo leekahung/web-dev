@@ -5,7 +5,7 @@ import ScrollToButton from "@/shared/components/ScrollToButton";
 
 export default function Intro() {
   return (
-    <section className="relative h-screen p-0 md:p-8 flex flex-col items-center justify-center gap-6">
+    <section className="relative h-screen flex flex-col items-center justify-center gap-6">
       <div className="flex flex-col gap-4">
         <strong>
           <h1 className="text-3xl">

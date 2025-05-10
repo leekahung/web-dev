@@ -11,7 +11,7 @@ function App() {
     <Layout>
       <Intro />
       <div className="relative sm:h-screen flex flex-col gap-4 items-center justify-center">
-        <div id="skills" className="absolute -top-35 sm:top-0" />
+        <div id="skills" className="absolute -top-20 sm:top-0" />
         <Skills />
         <Experience />
         <div className="invisible sm:visible sm:absolute sm:block sm:bottom-20">

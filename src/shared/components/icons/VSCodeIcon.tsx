@@ -1,6 +1,6 @@
 export default function VSCodeIcon() {
   return (
-    <div className="w-8 h-8">
+    <div className="w-6 h-6">
       <svg viewBox="0 0 128 128">
         <mask
           id="a"

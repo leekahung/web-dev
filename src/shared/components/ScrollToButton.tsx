@@ -7,7 +7,7 @@ interface Props {
 export default function ScrollToButton({ elementId }: Props) {
   return (
     <button
-      className="cursor-pointer"
+      className="cursor-pointer hover:scale-150 duration-300"
       onClick={() =>
         document
           .getElementById(elementId)

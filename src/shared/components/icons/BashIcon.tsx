@@ -1,6 +1,6 @@
 export default function BashIcon() {
   return (
-    <div className="w-8 h-8 dark:invert-100">
+    <div className="w-6 h-6 dark:invert-100">
       <svg viewBox="0 0 128 128">
         <path fill="none" d="M4.24 4.24h119.53v119.53H4.24z" />
         <path

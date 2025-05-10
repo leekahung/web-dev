@@ -1,6 +1,6 @@
 export default function ReactIcon() {
   return (
-    <div className="w-8 h-8">
+    <div className="w-6 h-6">
       <svg viewBox="0 0 128 128">
         <g fill="#61DAFB">
           <circle cx="64" cy="64" r="11.4"></circle>

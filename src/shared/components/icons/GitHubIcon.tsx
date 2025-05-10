@@ -1,6 +1,6 @@
 export default function GitHubIcon() {
   return (
-    <div className="w-8 h-8 dark:invert">
+    <div className="w-6 h-6 dark:invert">
       <svg viewBox="0 0 128 128">
         <g fill="#181616">
           <path
