@@ -19,7 +19,7 @@ const projectList = [
 export default function Projects() {
   return (
     <section className="relative pb-20 min-h-screen sm:h-screen flex flex-col items-center justify-center gap-4">
-      <div id="projects" className="absolute -top-20 sm:top-0" />
+      <div id="projects" className="absolute -top-[5%] sm:top-0" />
       <h2 className="text-2xl md:text-3xl">Projects</h2>
       <div className="flex flex-wrap items-center justify-center gap-8 p-4">
         {projectList.map((project) => (
