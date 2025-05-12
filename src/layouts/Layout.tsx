@@ -1,8 +1,9 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import useTheme from "@/hooks/useTheme";
 import SVGIcon from "@/shared/components/SVGIcon";
 import ExternalLink from "@/shared/components/ExternalLink";
-import UpChevron from "@/shared/components/icons/UpChevron";
+import BackgroundBlob from "@/animations/BackgroundBlob";
+import ScrollToTopButton from "@/layouts/ScrollToTopButton";
 
 interface Props {
   children: React.ReactNode;
@@ -10,43 +11,7 @@ interface Props {
 
 export default function Layout({ children }: Props) {
   const { darkMode, toggleDarkMode } = useTheme();
-  const [showScrollToTop, setShowScrollToTop] = useState(false);
-  const buttonRef = useRef<HTMLButtonElement>(null);
   const pageRef = useRef<HTMLDivElement>(null);
-  const [position, setPosition] = useState({
-    x: window.innerWidth * 0.9,
-    y: window.innerHeight * 0.1,
-  });
-  const blobRef = useRef<HTMLDivElement>(null);
-  const positionRef = useRef({
-    x: window.innerWidth * 0.9,
-    y: window.innerHeight * 0.1,
-  });
-
-  useEffect(() => {
-    const isFinePointer = window.matchMedia("(pointer: fine)").matches;
-    if (isFinePointer === false) return;
-
-    const handleMouseMove = (event: MouseEvent) => {
-      setPosition({ x: event.clientX, y: event.clientY });
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-
-    const animate = () => {
-      positionRef.current.x += (position.x - positionRef.current.x) * 0.1;
-      positionRef.current.y += (position.y - positionRef.current.y) * 0.1;
-
-      if (blobRef.current !== null) {
-        blobRef.current.style.left = `${positionRef.current.x}px`;
-        blobRef.current.style.top = `${positionRef.current.y}px`;
-      }
-    };
-
-    animate();
-
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, [position]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -56,19 +21,6 @@ export default function Layout({ children }: Props) {
       pageRef.current?.classList.remove("blur-3xl");
     }, 500);
   }, []);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setShowScrollToTop(window.scrollY > 100);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
 
   return (
     <div
@@ -116,25 +68,8 @@ export default function Layout({ children }: Props) {
           <em className="font-light">&#169; 2025 Ka Hung Lee</em>
         </div>
       </footer>
-      {showScrollToTop && (
-        <button
-          className="fixed bottom-5 right-10 md:right-[10%] border-1 rounded-full p-2 z-50 cursor-pointer hover:scale-105 duration-300"
-          onClick={scrollToTop}
-          ref={buttonRef}
-        >
-          <UpChevron />
-        </button>
-      )}
-      <div
-        ref={blobRef}
-        className={`fixed h-40 w-40 rounded-full pointer-events-none blur-3xl opacity-20 z-50
-          ${darkMode ? "bg-blue-500" : "bg-orange-300"}`}
-        style={{
-          left: position.x,
-          top: position.y,
-          transform: "translate(-50%, -50%)",
-        }}
-      />
+      <ScrollToTopButton />
+      <BackgroundBlob />
     </div>
   );
 }

@@ -34,7 +34,7 @@ const toolsList = [
 
 export default function Skills() {
   return (
-    <section className="flex flex-col items-center justify-center max-w-[500px] gap-4">
+    <section className="flex flex-col items-center justify-center max-w-[320px] sm:max-w-[500px] gap-4">
       <h2 className="text-2xl md:text-3xl">Skills</h2>
       <table>
         <tbody className="flex flex-col gap-4 p-4">

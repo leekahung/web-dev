@@ -10,7 +10,7 @@ function App() {
     <Layout>
       <Intro />
       <Projects />
-      <div className="relative sm:h-screen flex flex-col gap-4 items-center justify-center">
+      <div className="relative min-h-screen sm:h-screen flex flex-col gap-4 items-center justify-center">
         <div id="skills" className="absolute -top-20 sm:top-0" />
         <Skills />
         <Experience />
