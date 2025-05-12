@@ -1,3 +1,4 @@
+import ScrollToButton from "@/shared/components/ScrollToButton";
 import Card from "./components/Card";
 
 const projectList = [
@@ -19,7 +20,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="pb-20 sm:h-screen flex flex-col items-center justify-center gap-4"
+      className="relative pb-20 sm:h-screen flex flex-col items-center justify-center gap-4"
     >
       <h2 className="text-2xl md:text-3xl">Projects</h2>
       <div className="flex flex-wrap items-center justify-center gap-8 p-4">
@@ -32,6 +33,9 @@ export default function Projects() {
             key={project.title}
           />
         ))}
+      </div>
+      <div className="invisible sm:visible sm:absolute sm:block sm:bottom-20">
+        <ScrollToButton elementId="skills" />
       </div>
     </section>
   );

@@ -24,7 +24,7 @@ export default function Intro() {
         </Section>
       </div>
       <div className="absolute bottom-35 sm:bottom-20">
-        <ScrollToButton elementId="skills" />
+        <ScrollToButton elementId="projects" />
       </div>
     </section>
   );

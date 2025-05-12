@@ -20,8 +20,8 @@ const developmentList = [
   { name: "Bash", element: <BashIcon /> },
   { name: "HTML", element: <HTMLIcon /> },
   { name: "CSS", element: <CSSIcon /> },
-  { name: "React.js", element: <ReactIcon /> },
   { name: "Tailwind CSS", element: <TailwindIcon /> },
+  { name: "React.js", element: <ReactIcon /> },
   { name: "React Router", element: <ReactRouterIcon /> },
 ];
 
