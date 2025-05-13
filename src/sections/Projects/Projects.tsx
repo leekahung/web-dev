@@ -18,8 +18,14 @@ const projectList = [
 
 export default function Projects() {
   return (
-    <section className="relative pb-20 min-h-screen sm:h-screen flex flex-col items-center justify-center gap-4">
-      <div id="projects" className="absolute -top-[5%] sm:top-0" />
+    <section
+      className={`relative min-h-[650px] sm:min-h-screen flex flex-col items-center justify-center gap-4 ${
+        projectList.length > 3
+          ? "pt-0"
+          : "pt-20 [@media(max-height:600px)]:pt-0"
+      }`}
+    >
+      <div id="projects" className="absolute top-0" />
       <h2 className="text-2xl md:text-3xl">Projects</h2>
       <div className="flex flex-wrap items-center justify-center gap-8 p-4">
         {projectList.map((project) => (
@@ -32,7 +38,7 @@ export default function Projects() {
           />
         ))}
       </div>
-      <div className="invisible sm:visible sm:absolute sm:block sm:bottom-20">
+      <div className="invisible sm:visible [@media(max-height:800px)]:invisible sm:absolute sm:block sm:bottom-20">
         <ScrollToButton elementId="skills" />
       </div>
     </section>
