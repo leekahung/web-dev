@@ -16,7 +16,7 @@ export default function Card({
   repoLink,
 }: Props) {
   return (
-    <div className="flex flex-none p-4 border rounded-lg items-center flex-col gap-2 w-[250px]">
+    <div className="flex flex-none p-4 border rounded-lg items-center flex-col gap-2 w-[250px] bg-slate-200/80 dark:bg-slate-800/80 z-20">
       <h3 className="text-2xl flex-1 items-center flex justify-center h-10">
         {title}
       </h3>

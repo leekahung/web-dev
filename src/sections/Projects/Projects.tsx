@@ -1,5 +1,7 @@
 import ScrollToButton from "@/shared/components/ScrollToButton";
 import Card from "./components/Card";
+import { useEffect, useRef, useState } from "react";
+import Shape from "@/animations/Shape";
 
 const projectList = [
   {
@@ -17,13 +19,25 @@ const projectList = [
 ];
 
 export default function Projects() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [dimensions, setDimensions] = useState({ x: 0, y: 0 });
+  const numShapes = Math.max(Math.floor(dimensions.x / 100), 8);
+
+  useEffect(() => {
+    if (sectionRef.current) {
+      const { offsetHeight, offsetWidth } = sectionRef.current;
+      setDimensions({ x: offsetWidth, y: offsetHeight });
+    }
+  }, []);
+
   return (
     <section
-      className={`relative min-h-[650px] sm:min-h-screen flex flex-col items-center justify-center gap-4 ${
+      className={`relative min-h-[650px] sm:min-h-screen flex flex-col items-center justify-center gap-4 overflow-hidden ${
         projectList.length > 3
           ? "pt-0"
           : "pt-20 [@media(max-height:600px)]:pt-0"
       }`}
+      ref={sectionRef}
     >
       <div id="projects" className="absolute top-0" />
       <h2 className="text-2xl md:text-3xl">Projects</h2>
@@ -41,6 +55,9 @@ export default function Projects() {
       <div className="invisible sm:visible [@media(max-height:800px)]:invisible sm:absolute sm:block sm:bottom-20">
         <ScrollToButton elementId="skills" />
       </div>
+      {Array.from({ length: numShapes }).map((_, i) => (
+        <Shape key={i} containerDimensions={dimensions} />
+      ))}
     </section>
   );
 }
