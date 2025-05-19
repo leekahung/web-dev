@@ -1,5 +1,5 @@
-import { useEffect, useRef } from "react";
 import useTheme from "@/hooks/useTheme";
+import { motion } from "motion/react";
 import SVGIcon from "@/shared/components/SVGIcon";
 import ExternalLink from "@/shared/components/ExternalLink";
 import BackgroundBlob from "@/animations/BackgroundBlob";
@@ -11,21 +11,16 @@ interface Props {
 
 export default function Layout({ children }: Props) {
   const { darkMode, toggleDarkMode } = useTheme();
-  const pageRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    setTimeout(() => {
-      pageRef.current?.classList.remove("opacity-50");
-    }, 300);
-    setTimeout(() => {
-      pageRef.current?.classList.remove("blur-3xl");
-    }, 500);
-  }, []);
 
   return (
-    <div
-      className="relative w-full dark:text-slate-200 bg-slate-200 dark:bg-slate-800 transition-all duration-1000 opacity-50 blur-3xl"
-      ref={pageRef}
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{
+        duration: 1.5,
+        ease: "easeIn",
+      }}
+      className="relative w-full dark:text-slate-200 bg-slate-200 dark:bg-slate-800 transition-all duration-1000"
     >
       <header className="fixed w-full h-20 top-0 z-50 bg-slate-200 dark:bg-slate-800 transition-all duration-1000">
         <div className="relative w-full h-full">
@@ -70,6 +65,6 @@ export default function Layout({ children }: Props) {
       </footer>
       <ScrollToTopButton />
       <BackgroundBlob />
-    </div>
+    </motion.div>
   );
 }
