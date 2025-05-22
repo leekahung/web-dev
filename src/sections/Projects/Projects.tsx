@@ -16,6 +16,12 @@ const projectList = [
     siteLink: "https://passsmartwallet-967e217a2652.herokuapp.com/",
     repoLink: "https://github.com/codeforpdx/PASS",
   },
+  {
+    title: "Tenant First Aid",
+    description: "An AI agent for housing assistance in Oregon",
+    siteLink: "https://tenantfirstaid.com/",
+    repoLink: "https://github.com/codeforpdx/tenantfirstaid",
+  },
 ];
 
 export default function Projects() {
