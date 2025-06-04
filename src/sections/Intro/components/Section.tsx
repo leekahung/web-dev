@@ -31,7 +31,7 @@ export default function Section({ title, children }: Props) {
           if (target.nodeName === "DIALOG") target.close();
         }}
       >
-        <div className="flex gap-4 flex-col p-8">
+        <div className="flex gap-4 flex-col p-4 sm:p-8">
           <h3 className="font-bold text-2xl">{title}</h3>
           {getModalContent(title)}
           <form method="dialog" className="absolute top-8 right-8">
