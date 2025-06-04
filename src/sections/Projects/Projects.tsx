@@ -58,7 +58,7 @@ export default function Projects() {
           />
         ))}
       </div>
-      <div className="invisible sm:visible [@media(max-height:800px)]:invisible sm:absolute sm:block sm:bottom-20">
+      <div className="invisible sm:visible [@media(max-height:800px)]:invisible sm:absolute sm:block sm:bottom-20 z-30">
         <ScrollToButton elementId="skills" />
       </div>
       {Array.from({ length: numShapes }).map((_, i) => (

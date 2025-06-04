@@ -24,8 +24,8 @@ export default function BackgroundBlob() {
     window.addEventListener("mousemove", handleMouseMove);
 
     const animate = () => {
-      positionRef.current.x += (position.x - positionRef.current.x) * 0.1;
-      positionRef.current.y += (position.y - positionRef.current.y) * 0.1;
+      positionRef.current.x += (position.x - positionRef.current.x) * 0.2;
+      positionRef.current.y += (position.y - positionRef.current.y) * 0.2;
 
       if (blobRef.current !== null) {
         blobRef.current.style.left = `${positionRef.current.x}px`;
@@ -41,7 +41,7 @@ export default function BackgroundBlob() {
   return (
     <div
       ref={blobRef}
-      className={`fixed h-40 w-40 rounded-full pointer-events-none blur-3xl opacity-20 z-50
+      className={`fixed h-40 w-40 rounded-full pointer-events-none blur-3xl opacity-30 z-50
           ${darkMode ? "bg-blue-500" : "bg-orange-300"}`}
       style={{
         left: position.x,
