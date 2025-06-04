@@ -4,6 +4,7 @@ import SVGIcon from "@/shared/components/SVGIcon";
 import ExternalLink from "@/shared/components/ExternalLink";
 import BackgroundBlob from "@/animations/BackgroundBlob";
 import ScrollToTopButton from "@/layouts/ScrollToTopButton";
+import NavButton from "./NavButton";
 
 interface Props {
   children: React.ReactNode;
@@ -63,6 +64,7 @@ export default function Layout({ children }: Props) {
           <em className="font-light">&#169; 2025 Ka Hung Lee</em>
         </div>
       </footer>
+      <NavButton />
       <ScrollToTopButton />
       <BackgroundBlob />
     </motion.div>
