@@ -39,7 +39,7 @@ export default function Layout({ children }: Props) {
       <div className={`fixed h-screen w-screen ${imageMaskStyling}`}>
         <img
           src={`${import.meta.env.BASE_URL}/${
-            darkMode ? "clear_night.jpg" : "overcast.webp"
+            darkMode ? "clear_night.webp" : "overcast.webp"
           }`}
           alt="background image"
           className="w-full h-full object-cover object-center opacity-20"
