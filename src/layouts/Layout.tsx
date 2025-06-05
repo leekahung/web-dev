@@ -13,6 +13,19 @@ interface Props {
 export default function Layout({ children }: Props) {
   const { darkMode, toggleDarkMode } = useTheme();
 
+  const imageMaskStyling = `
+    [mask-image:linear-gradient(to_right,transparent,black_20%,black_80%,transparent),linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)]
+    [mask-composite:source-in]
+    [mask-size:100%_80%]
+    [mask-position:center_center]
+    [mask-repeat:no-repeat]
+    [-webkit-mask-image:linear-gradient(to_right,transparent,black_20%,black_80%,transparent),linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)]
+    [-webkit-mask-composite:source-in]
+    [-webkit-mask-size:100%_80%]
+    [-webkit-mask-position:center_center]
+    [-webkit-mask-repeat:no-repeat]
+  `;
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -23,6 +36,15 @@ export default function Layout({ children }: Props) {
       }}
       className="relative w-full dark:text-slate-200 bg-slate-200 dark:bg-slate-800 transition-all duration-1000"
     >
+      <div className={`fixed h-screen w-screen ${imageMaskStyling}`}>
+        <img
+          src={`${import.meta.env.BASE_URL}/${
+            darkMode ? "clear_night.jpg" : "overcast.webp"
+          }`}
+          alt="background image"
+          className="w-full h-full object-cover object-center opacity-20"
+        />
+      </div>
       <header className="fixed w-full h-20 top-0 z-50 bg-slate-200 dark:bg-slate-800 transition-all duration-1000">
         <div className="relative w-full h-full">
           <div className="fixed top-5 left-10 md:left-[10%] flex gap-5">
