@@ -24,6 +24,7 @@ export default function Layout({ children }: Props) {
     [-webkit-mask-size:100%_80%]
     [-webkit-mask-position:center_center]
     [-webkit-mask-repeat:no-repeat]
+    background-img-mask
   `;
 
   return (

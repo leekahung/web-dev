@@ -1,19 +1,21 @@
 import { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 import NavigateIcon from "@/shared/components/icons/NavigateIcon";
 
 export default function NavButton() {
   const [showButtons, setShowButtons] = useState(false);
+  const navButtonStyling =
+    "fixed bottom-5 left-10 md:left-[10%] z-50 px-2 py-1 rounded-full outline-1 cursor-pointer bg-slate-200 dark:bg-slate-800 hover:bg-slate-500 hover:text-slate-200 dark:hover:bg-slate-200 dark:hover:text-black will-change-transform";
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-    setTimeout(() => setShowButtons(false), 1000);
+    setTimeout(() => setShowButtons(false), 700);
   };
 
   return (
     <>
       <button
-        className="fixed h-10 w-10 bottom-5 left-10 md:left-[10%] outline-1 rounded-full p-1 z-[60] cursor-pointer hover:bg-slate-500 hover:text-slate-200 dark:hover:bg-slate-200 dark:hover:text-black duration-500 group"
+        className={`${navButtonStyling} h-10 w-10 z-[60] hover:bg-slate-500 hover:text-slate-200 dark:hover:bg-slate-200 dark:hover:text-black duration-500`}
         onClick={() => setShowButtons((prev) => !prev)}
       >
         <div className="h-6 w-6 m-auto">
@@ -24,50 +26,38 @@ export default function NavButton() {
         {showButtons && (
           <>
             <motion.button
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: -80 }}
-              exit={{ opacity: 0, y: 5000 }}
-              transition={{
-                duration: 0.1,
-                ease: "easeIn",
-              }}
-              className="fixed px-2 bottom-5 left-10 md:left-[10%] outline-1 rounded-full p-1 z-50 cursor-pointer bg-slate-200 dark:bg-slate-800 hover:bg-slate-500 hover:text-slate-200 dark:hover:bg-slate-200 dark:hover:text-black transition-all duration-500"
+              animate={{ opacity: 1, y: -80, pointerEvents: "auto" }}
+              exit={{ opacity: 0, y: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className={navButtonStyling}
               onClick={scrollToTop}
             >
               Home
             </motion.button>
             <motion.button
-              initial={{ opacity: 0, y: -10, x: 20 }}
-              animate={{ opacity: 1, y: -50, x: 60 }}
-              exit={{ opacity: 0, y: 5000, x: -5000 }}
-              transition={{
-                duration: 0.1,
-                ease: "easeIn",
-              }}
-              className="fixed px-2 bottom-5 left-10 md:left-[10%] outline-1 rounded-full p-1 z-50 cursor-pointer bg-slate-200 dark:bg-slate-800 hover:bg-slate-500 hover:text-slate-200 dark:hover:bg-slate-200 dark:hover:text-black transition-all duration-500"
+              animate={{ opacity: 1, x: 60, y: -50, pointerEvents: "auto" }}
+              exit={{ opacity: 0, x: 0, y: 0, pointerEvents: "none" }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className={navButtonStyling}
               onClick={() => {
                 document
                   .getElementById("projects")
                   ?.scrollIntoView({ behavior: "smooth" });
-                setTimeout(() => setShowButtons(false), 1000);
+                setTimeout(() => setShowButtons(false), 700);
               }}
             >
               Projects
             </motion.button>
             <motion.button
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 80 }}
-              exit={{ opacity: 0, x: -5000 }}
-              transition={{
-                duration: 0.1,
-                ease: "easeIn",
-              }}
-              className="fixed px-2 bottom-5 left-10 md:left-[10%] outline-1 rounded-full p-1 z-50 cursor-pointer bg-slate-200 dark:bg-slate-800 hover:bg-slate-500 hover:text-slate-200 dark:hover:bg-slate-200 dark:hover:text-black transition-all duration-500"
+              animate={{ opacity: 1, x: 80, pointerEvents: "auto" }}
+              exit={{ opacity: 0, x: 0, pointerEvents: "none" }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className={navButtonStyling}
               onClick={() => {
                 document
                   .getElementById("skills")
                   ?.scrollIntoView({ behavior: "smooth" });
-                setTimeout(() => setShowButtons(false), 1000);
+                setTimeout(() => setShowButtons(false), 700);
               }}
             >
               Skills

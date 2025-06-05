@@ -31,6 +31,18 @@
   scrollbar-width: none; /* Firefox */
 }
 
+@supports not (-webkit-mask-composite: source-in) {
+  .background-img-mask {
+    mask-image: radial-gradient(
+      ellipse closest-side at center,
+      black 60%,
+      transparent 100%
+    );
+    mask-repeat: no-repeat;
+    mask-position: center;
+  }
+}
+
 /* For Debugging */
 /* * {
   outline: 1px solid lightcoral;
