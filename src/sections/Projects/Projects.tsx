@@ -22,6 +22,12 @@ const projectList = [
     siteLink: "https://tenantfirstaid.com/",
     repoLink: "https://github.com/codeforpdx/tenantfirstaid",
   },
+  {
+    title: "Event Scheduler",
+    description: "An AI agent for scheduling events",
+    siteLink: undefined,
+    repoLink: "https://github.com/leekahung/event-scheduler",
+  },
 ];
 
 export default function Projects() {

@@ -4,7 +4,7 @@ import StackIcon from "@/shared/components/icons/StackIcon";
 interface Props {
   title: string;
   description: string;
-  siteLink: string;
+  siteLink?: string;
   repoLink: string;
 }
 
