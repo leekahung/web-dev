@@ -51,9 +51,9 @@ export default function Projects() {
       }`}
       ref={sectionRef}
     >
-      <div id="projects" className="absolute top-0" />
+      <div id="projects" className="absolute -top-35 sm:top-0" />
       <h2 className="text-2xl md:text-3xl">Projects</h2>
-      <div className="flex flex-wrap items-center justify-center gap-8 p-4">
+      <div className="flex flex-wrap items-center justify-center gap-8 p-4 max-w-4xl">
         {projectList.map((project) => (
           <Card
             title={project.title}
