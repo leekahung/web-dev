@@ -23,10 +23,10 @@ const projectList = [
     repoLink: "https://github.com/codeforpdx/tenantfirstaid",
   },
   {
-    title: "Event Scheduler",
-    description: "An AI agent for scheduling events",
-    siteLink: undefined,
-    repoLink: "https://github.com/leekahung/event-scheduler",
+    title: "Web Portfolio",
+    description: "Current portfolio page",
+    siteLink: "https://leekahung.github.io/web-dev",
+    repoLink: "https://github.com/leekahung/web-dev",
   },
 ];
 
