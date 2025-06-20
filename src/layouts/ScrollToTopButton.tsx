@@ -41,7 +41,7 @@ export default function ScrollToTopButton() {
               duration: 0.5,
               ease: "easeInOut",
             }}
-            className="fixed bottom-5 right-10 md:right-[10%] outline-1 rounded-full p-1 z-50 cursor-pointer hover:scale-105 hover:bg-slate-500 hover:text-slate-200 dark:hover:bg-slate-200 dark:hover:text-black duration-300"
+            className="fixed bottom-5 right-10 lg:right-[10%] xl:right-[20%] outline-1 rounded-full p-1 z-50 cursor-pointer hover:scale-105 hover:bg-slate-500 hover:text-slate-200 dark:hover:bg-slate-200 dark:hover:text-black duration-300"
             onClick={scrollToTop}
             ref={buttonRef}
           >
