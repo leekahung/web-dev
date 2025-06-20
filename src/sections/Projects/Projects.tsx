@@ -24,7 +24,7 @@ const projectList = [
   },
   {
     title: "Web Portfolio",
-    description: "Current portfolio page",
+    description: "Portfolio page you're currently viewing",
     siteLink: "https://leekahung.github.io/web-dev",
     repoLink: "https://github.com/leekahung/web-dev",
   },
