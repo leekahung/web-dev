@@ -13,7 +13,7 @@ const projectList = [
   {
     title: "PASS",
     description: "A digital storage solution for documents",
-    siteLink: "https://passsmartwallet-967e217a2652.herokuapp.com/",
+    siteLink: "https://pass-wine.vercel.app/",
     repoLink: "https://github.com/codeforpdx/PASS",
   },
   {
