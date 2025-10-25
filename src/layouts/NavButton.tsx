@@ -46,7 +46,7 @@ export default function NavButton() {
                 setTimeout(() => setShowButtons(false), 700);
               }}
             >
-              Projects
+              Websites
             </motion.button>
             <motion.button
               animate={{ opacity: 1, x: 80, pointerEvents: "auto" }}

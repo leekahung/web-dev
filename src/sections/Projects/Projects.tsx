@@ -5,10 +5,16 @@ import Shape from "@/animations/Shape";
 
 const projectList = [
   {
-    title: "Phase Tracker",
-    description: "A subscription tracker to the VTuber group, Phase Connect",
-    siteLink: "https://phase-connect-tracker.netlify.app/",
-    repoLink: "https://github.com/leekahung/phase-tracker",
+    title: "Tenant First Aid",
+    description: "An AI agent for housing assistance in Oregon",
+    siteLink: "https://tenantfirstaid.com/",
+    repoLink: "https://github.com/codeforpdx/tenantfirstaid",
+  },
+  {
+    title: "Family for Safe Streets",
+    description: "Portland Family for Safe Streets main website",
+    siteLink: "https://pdxfamiliesforsafestreets.org/",
+    repoLink: "https://github.com/BurlapRobot/pdx-fss",
   },
   {
     title: "PASS",
@@ -17,10 +23,10 @@ const projectList = [
     repoLink: "https://github.com/codeforpdx/PASS",
   },
   {
-    title: "Tenant First Aid",
-    description: "An AI agent for housing assistance in Oregon",
-    siteLink: "https://tenantfirstaid.com/",
-    repoLink: "https://github.com/codeforpdx/tenantfirstaid",
+    title: "Phase Tracker",
+    description: "A subscription tracker to the VTuber group, Phase Connect",
+    siteLink: "https://phase-connect-tracker.netlify.app/",
+    repoLink: "https://github.com/leekahung/phase-tracker",
   },
   {
     title: "Web Portfolio",
@@ -52,8 +58,8 @@ export default function Projects() {
       ref={sectionRef}
     >
       <div id="projects" className="absolute -top-35 sm:top-0" />
-      <h2 className="text-2xl md:text-3xl">Projects</h2>
-      <div className="flex flex-wrap items-center justify-center gap-8 p-4 max-w-4xl">
+      <h2 className="text-2xl md:text-3xl">Websites</h2>
+      <div className="flex flex-wrap items-center justify-center gap-8 p-4 max-w-5xl">
         {projectList.map((project) => (
           <Card
             title={project.title}

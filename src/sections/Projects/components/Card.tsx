@@ -19,7 +19,7 @@ export default function Card({
       <a
         href={siteLink}
         target="_blank"
-        className="flex flex-none p-4 pb-12 items-center flex-col gap-2 w-[250px]"
+        className="flex flex-none px-4 pt-8 pb-15 items-center flex-col gap-2 w-[270px]"
       >
         <h3 className="text-2xl flex-1 items-center flex justify-center h-10">
           {title}
