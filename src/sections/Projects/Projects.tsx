@@ -11,8 +11,8 @@ const projectList = [
     repoLink: "https://github.com/codeforpdx/tenantfirstaid",
   },
   {
-    title: "Family for Safe Streets",
-    description: "Portland Family for Safe Streets main website",
+    title: "Families for Safe Streets",
+    description: "Portland Families for Safe Streets' main website",
     siteLink: "https://pdxfamiliesforsafestreets.org/",
     repoLink: "https://github.com/BurlapRobot/pdx-fss",
   },
