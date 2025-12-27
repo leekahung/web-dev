@@ -13,7 +13,9 @@ export default function Intro() {
             <span className="text-blue-500 dark:text-orange-300">Ka Hung</span>
           </h1>
         </strong>
-        <h2 className="text-xl font-light">Frontend Engineer, UI Developer</h2>
+        <h2 className="text-xl font-light max-w-75 sm:max-w-max">
+          Researcher turned Frontend Engineer, UI Developer
+        </h2>
       </div>
       <div className="grid grid-cols-2 w-52">
         <Section title="About">

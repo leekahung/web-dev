@@ -5,6 +5,7 @@ import ExternalLink from "@/shared/components/ExternalLink";
 import BackgroundBlob from "@/animations/BackgroundBlob";
 import ScrollToTopButton from "@/layouts/ScrollToTopButton";
 import NavButton from "./NavButton";
+import OrcIdIcon from "@/shared/components/icons/OrcIdIcon";
 
 interface Props {
   children: React.ReactNode;
@@ -61,6 +62,9 @@ export default function Layout({ children }: Props) {
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
               alt="linkedin icon"
             />
+          </ExternalLink>
+          <ExternalLink to="https://www.orcid.org/0000-0003-1429-7872">
+            <OrcIdIcon />
           </ExternalLink>
         </div>
         <div className="absolute top-5 right-10 lg:right-[10%] xl:right-[20%] z-10">
