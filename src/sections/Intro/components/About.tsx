@@ -38,7 +38,8 @@ export default function About() {
         Before my previous role as a Frontend/UI engineer at LATERAL.systems, I
         was (and still am) an active contributor for Code PDX, a local civic
         tech group in Portland, Oregon. I had also worked as a graduate
-        researcher at the University of Tennessee, Knoxville.
+        researcher at the Bredesen Center, a joint program by Oak Ridge National
+        Laboratory and the University of Tennessee, Knoxville.
       </p>
       <a
         className="rounded-full py-1 px-3 border dark:hover:bg-orange-300 dark:hover:text-black hover:bg-blue-500 hover:text-slate-200 duration-300"
