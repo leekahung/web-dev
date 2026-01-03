@@ -4,11 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview",
-    "deploy": "gh-pages -d dist"
+    "dev": "bun --bun vite",
+    "build": "bun --bun vite build",
+    "lint": "bunx eslint .",
+    "preview": "bun -bun vite preview",
+    "deploy": "bun run build && gh-pages -d dist"
   },
   "dependencies": {
     "motion": "^12.12.1",
