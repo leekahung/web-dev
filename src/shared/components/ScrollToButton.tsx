@@ -14,6 +14,7 @@ export default function ScrollToButton({ elementId }: Props) {
           ?.scrollIntoView({ behavior: "smooth" })
       }
     >
+      <span className="sr-only">scroll to {elementId}</span>
       <DownChevron />
     </button>
   );

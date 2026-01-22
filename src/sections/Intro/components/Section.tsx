@@ -21,7 +21,7 @@ export default function Section({ title, children }: Props) {
         <p className="dark:peer-hover:text-orange-300 peer-hover:text-blue-500 peer-hover:font-semibold transition-[colors] duration-500 text-lg">
           {title}
         </p>
-        <span className="absolute bottom-[-4px] w-0 peer-hover:w-[60%] peer-hover:h-[1px] peer-hover:bg-blue-500 dark:peer-hover:bg-orange-300 transition-all duration-500" />
+        <span className="absolute -bottom-1 w-0 peer-hover:w-[60%] peer-hover:h-px peer-hover:bg-blue-500 dark:peer-hover:bg-orange-300 transition-all duration-500" />
       </div>
       <dialog
         id={title}
@@ -35,7 +35,9 @@ export default function Section({ title, children }: Props) {
           <h3 className="font-bold text-2xl">{title}</h3>
           {getModalContent(title)}
           <form method="dialog" className="absolute top-8 right-8">
-            <button className="cursor-pointer">[ x ]</button>
+            <button className="cursor-pointer" aria-label="close">
+              [ x ]
+            </button>
           </form>
         </div>
       </dialog>

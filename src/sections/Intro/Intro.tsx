@@ -24,9 +24,11 @@ export default function Intro() {
         </div>
         <div className="grid grid-cols-2 w-52">
           <Section title="About">
+            <span className="sr-only">About</span>
             <ProfileIcon />
           </Section>
           <Section title="Contact">
+            <span className="sr-only">Contact</span>
             <ChatIcon />
           </Section>
         </div>

@@ -56,7 +56,7 @@ const projectList = [
           documents with Solid Protocol
         </li>
         <li>
-          Developed reusable components and routing logic using React and
+          Worked with experimental web standards and authentication with
           Inrupt's Solid Client Libraries
         </li>
       </ul>

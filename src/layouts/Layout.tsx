@@ -63,7 +63,10 @@ export default function Layout({ children }: Props) {
               alt="linkedin icon"
             />
           </ExternalLink>
-          <ExternalLink to="https://www.orcid.org/0000-0003-1429-7872">
+          <ExternalLink
+            to="https://www.orcid.org/0000-0003-1429-7872"
+            aria-label="ORCID Profile"
+          >
             <OrcIdIcon />
           </ExternalLink>
         </div>
