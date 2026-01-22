@@ -1,6 +1,6 @@
 export default function OrcIdIcon() {
   return (
-    <div className="w-10 h-10">
+    <div className="w-10 h-10 hover:scale-110 transition-transform duration-300">
       <svg viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
           fill="#A6CE39"

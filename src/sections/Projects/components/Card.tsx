@@ -1,37 +1,40 @@
 import ExternalLink from "@/shared/components/ExternalLink";
-import StackIcon from "@/shared/components/icons/StackIcon";
 
 interface Props {
   title: string;
-  description: string;
-  siteLink?: string;
+  subheader: string;
+  description: React.ReactNode;
+  siteLink: string;
   repoLink: string;
+  sitePreview: string;
 }
 
 export default function Card({
   title,
+  subheader,
   description,
   siteLink,
   repoLink,
+  sitePreview,
 }: Props) {
   return (
-    <div className="relative flex flex-col border rounded-lg bg-slate-200/80 dark:bg-slate-800/80 z-20 hover:bg-slate-300/80 hover:dark:bg-slate-700/80 duration-700">
-      <a
-        href={siteLink}
-        target="_blank"
-        className="flex flex-none px-4 pt-8 pb-15 items-center flex-col gap-2 w-[270px] h-55"
-      >
-        <h3 className="text-2xl flex-1 items-center flex justify-center h-10">
-          {title}
-        </h3>
-        <p className="flex items-center h-[72px]">{description}</p>
-      </a>
-      <div className="absolute top-5/6 left-1/2 -translate-x-1/2 -translate-y-1/2 flex gap-2 justify-center">
-        <ExternalLink to={repoLink}>
-          <div className="h-8 w-8 border rounded-xl p-1 md:hover:text-blue-500 md:dark:hover:text-orange-300">
-            <StackIcon />
-          </div>
-        </ExternalLink>
+    <div className="w-135 lg:min-h-90 relative flex flex-col p-4 border rounded-lg bg-slate-200/80 dark:bg-slate-800/80 z-20 hover:bg-slate-300/80 hover:dark:bg-slate-700/80 duration-700">
+      <h3 className="text-lg lg:text-2xl font-semibold items-center flex justify-center h-10">
+        {title}
+      </h3>
+      <em>{subheader}</em>
+      <div className="flex [@media(max-width:600px)]:flex-col items-center py-2 flex-1">
+        <div className="p-3 pt-0">{description}</div>
+        <img
+          src={sitePreview}
+          alt={`site preview for ${title}`}
+          height={250}
+          width={250}
+        />
+      </div>
+      <div className="flex gap-4 items-center justify-center">
+        <ExternalLink to={repoLink}>Repository</ExternalLink>
+        <ExternalLink to={siteLink}>Live Site</ExternalLink>
       </div>
     </div>
   );

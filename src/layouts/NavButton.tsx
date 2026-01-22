@@ -15,7 +15,7 @@ export default function NavButton() {
   return (
     <>
       <button
-        className={`${navButtonStyling} h-10 w-10 z-[60] hover:bg-slate-500 hover:text-slate-200 dark:hover:bg-slate-200 dark:hover:text-black duration-500`}
+        className={`${navButtonStyling} h-10 w-10 z-60 hover:bg-slate-500 hover:text-slate-200 dark:hover:bg-slate-200 dark:hover:text-black duration-500`}
         onClick={() => setShowButtons((prev) => !prev)}
       >
         <div className="h-6 w-6 m-auto">

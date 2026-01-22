@@ -25,7 +25,7 @@ export default function Section({ title, children }: Props) {
       </div>
       <dialog
         id={title}
-        className="m-auto w-full rounded-3xl backdrop:backdrop-blur-xs md:max-w-2xl bg-slate-200 dark:bg-slate-800 dark:text-slate-200 border-1"
+        className="m-auto w-full rounded-3xl backdrop:backdrop-blur-xs md:max-w-2xl bg-slate-200 dark:bg-slate-800 dark:text-slate-200 border"
         onClick={(event) => {
           const target = event.target as HTMLDialogElement;
           if (target.nodeName === "DIALOG") target.close();

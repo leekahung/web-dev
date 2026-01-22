@@ -41,7 +41,7 @@ export default function BackgroundBlob() {
   return (
     <div
       ref={blobRef}
-      className={`fixed h-40 w-40 rounded-full pointer-events-none blur-3xl opacity-30 z-50
+      className={`fixed h-40 w-40 rounded-full pointer-events-none blur-3xl opacity-20 z-50
           ${darkMode ? "bg-blue-500" : "bg-orange-300"}`}
       style={{
         left: position.x,

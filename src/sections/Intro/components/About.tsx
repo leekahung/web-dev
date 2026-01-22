@@ -35,11 +35,19 @@ export default function About() {
         </p>
       </div>
       <p>
-        Before my previous role as a Frontend/UI engineer at LATERAL.systems, I
-        was (and still am) an active contributor for Code PDX, a local civic
-        tech group in Portland, Oregon. I had also worked as a graduate
-        researcher at the Bredesen Center, a joint program by Oak Ridge National
-        Laboratory and the University of Tennessee, Knoxville.
+        As a US-based Frontend Engineer, I'm passionate about building intuitive
+        and inclusive web experiences using React, TypeScript, and modern CSS
+        tooling. I previously worked at LATERAL.systems and contributed to
+        civic-tech initiatives such as Code PDX to develop websites like Tenant
+        First Aid.
+      </p>
+      <p>
+        Before transitioning to frontend development, I was a graduate
+        researcher at the Bredesen Center (Oak Ridge National Lab & University
+        of Tennessee), where I honed problem-solving skills and data-driven
+        decision-making. I’m currently seeking frontend-focused roles where I
+        can collaborate with designers and deliver polished, user-friendly
+        applications.
       </p>
       <a
         className="rounded-full py-1 px-3 border dark:hover:bg-orange-300 dark:hover:text-black hover:bg-blue-500 hover:text-slate-200 duration-300"
