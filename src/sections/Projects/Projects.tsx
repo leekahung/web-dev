@@ -14,12 +14,12 @@ const projectList = [
     description: (
       <ul className="list-disc pl-4 text-left pt-4">
         <li>
-          Maintained frontend features for a production civic-tech app used by
-          real tenants
+          Led the development of frontend features for a production civic-tech
+          app, ensuring accessibility and responsiveness for real tenants
         </li>
         <li>
-          Created accessible, responsive UI components using React, TypeScript,
-          and Tailwind CSS
+          Built reusable React + Tailwind components and optimized state
+          management for consistency and efficiency
         </li>
       </ul>
     ),
@@ -33,12 +33,12 @@ const projectList = [
     description: (
       <ul className="list-disc pl-4 text-left pt-4">
         <li>
-          Developed a public-facing website for a nonprofit advocacy
-          organization
+          Delivered a public-facing website for a nonprofit, implementing
+          accessible, mobile-first UI components
         </li>
         <li>
-          Translated design requirements into accessible, mobile-first UI
-          components
+          Applied design-to-implementation decisions with focus on usability,
+          responsiveness, and code reuse
         </li>
       </ul>
     ),
@@ -52,12 +52,12 @@ const projectList = [
     description: (
       <ul className="list-disc pl-4 text-left pt-4">
         <li>
-          Built a frontend application for organizing and accessing personal
-          documents with Solid Protocol
+          Built a data-driven frontend app for managing personal documents,
+          leveraging Solid Protocol for secure access
         </li>
         <li>
-          Worked with experimental web standards and authentication with
-          Inrupt's Solid Client Libraries
+          Implemented experimental authentication workflows using Inrupt Solid
+          Client Libraries, ensuring compliance with emerging web standards
         </li>
       </ul>
     ),
@@ -71,12 +71,12 @@ const projectList = [
     description: (
       <ul className="list-disc pl-4 text-left pt-4">
         <li>
-          Built a data-driven frontend to track subscription numbers and member
-          data
+          Developed a frontend to track subscription and member data with
+          dynamic, data-driven UI
         </li>
         <li>
-          Implemented reusable components, conditional rendering, and responsive
-          layouts with Motion
+          Created reusable components, applied conditional rendering, and
+          designed responsive layouts with Motion for improved maintainability
         </li>
       </ul>
     ),
@@ -105,7 +105,7 @@ export default function Projects() {
     >
       <div
         id="projects"
-        className="absolute -top-35 sm:top-0 scroll-mt-20 lg:scroll-mt-0"
+        className="absolute -top-35 sm:top-0 scroll-mt-10 [@media(max-width:1110px)]:scroll-mt-20"
       />
       <h2 className="text-2xl md:text-3xl">Websites</h2>
       <div className="flex flex-wrap items-center justify-center text-sm lg:text-base gap-4 max-w-6xl">
@@ -121,7 +121,7 @@ export default function Projects() {
           />
         ))}
       </div>
-      <div className="invisible lg:visible [@media(max-height:1024px)]:invisible sm:absolute sm:block sm:bottom-20 z-30 animate-[bounce_2s_infinite]">
+      <div className="invisible xl:visible [@media(max-height:1250px)]:invisible sm:absolute sm:block sm:bottom-20 z-30 animate-[bounce_2s_infinite]">
         <ScrollToButton elementId="skills" />
       </div>
       {Array.from({ length: numShapes }).map((_, i) => (
