@@ -105,7 +105,7 @@ export default function Projects() {
     >
       <div
         id="projects"
-        className="absolute -top-35 sm:top-0 scroll-mt-10 [@media(max-width:1110px)]:scroll-mt-20"
+        className="absolute -top-35 sm:top-0 -scroll-mt-10 sm:scroll-mt-0 md:scroll-mt-20 [@media(min-height:1024px)]:scroll-mt-0"
       />
       <h2 className="text-2xl md:text-3xl">Websites</h2>
       <div className="flex flex-wrap items-center justify-center text-sm lg:text-base gap-4 max-w-6xl">

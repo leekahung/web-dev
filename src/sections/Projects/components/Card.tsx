@@ -18,7 +18,7 @@ export default function Card({
   sitePreview,
 }: Props) {
   return (
-    <div className="w-135 lg:min-h-110 relative flex flex-col p-4 border rounded-lg bg-slate-200/80 dark:bg-slate-800/80 z-20 hover:bg-slate-300/80 hover:dark:bg-slate-700/80 duration-700">
+    <div className="w-[95%] sm:w-135 lg:min-h-110 relative flex flex-col p-4 border rounded-lg bg-slate-200/80 dark:bg-slate-800/80 z-20 hover:bg-slate-300/80 hover:dark:bg-slate-700/80 duration-700">
       <h3 className="text-lg lg:text-2xl font-semibold items-center flex justify-center h-10">
         {title}
       </h3>
