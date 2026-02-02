@@ -43,7 +43,7 @@ export default function Layout({ children }: Props) {
           src={`${import.meta.env.BASE_URL}/${
             darkMode ? "clear_night.webp" : "overcast.webp"
           }`}
-          alt="background image"
+          alt=""
           className="w-full h-full object-cover object-center opacity-20"
         />
       </div>
@@ -53,14 +53,14 @@ export default function Layout({ children }: Props) {
             <img
               className="dark:invert h-10 w-10 hover:scale-110 transition-transform duration-300"
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
-              alt="github icon"
+              aria-label="GitHub Profile"
             />
           </ExternalLink>
           <ExternalLink to="https://www.linkedin.com/in/ka-hung-lee/">
             <img
               className="h-10 w-10 hover:scale-110 transition-transform duration-300"
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
-              alt="linkedin icon"
+              aria-label="LinkedIn Profile"
             />
           </ExternalLink>
           <ExternalLink

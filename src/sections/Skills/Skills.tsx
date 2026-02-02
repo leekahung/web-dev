@@ -15,19 +15,17 @@ import SkillRow from "./components/SkillRow";
 import tanstackLogo from "../../shared/components/icons/tanstack-logo-100.png";
 
 const frontendList = [
+  { name: "React.js", element: <ReactIcon /> },
   { name: "TypeScript", element: <TypeScriptIcon /> },
+  {
+    name: "Tanstack Query",
+    element: <img src={tanstackLogo} alt="" height={24} width={24} />,
+  },
+  { name: "Tailwind CSS", element: <TailwindIcon /> },
   { name: "JavaScript", element: <JavaScriptIcon /> },
   { name: "HTML", element: <HTMLIcon /> },
   { name: "CSS", element: <CSSIcon /> },
-  { name: "Tailwind CSS", element: <TailwindIcon /> },
-  { name: "React.js", element: <ReactIcon /> },
   { name: "React Router", element: <ReactRouterIcon /> },
-  {
-    name: "Tanstack Query",
-    element: (
-      <img src={tanstackLogo} alt="Tanstack Logo" height={24} width={24} />
-    ),
-  },
 ];
 
 const backendList = [

@@ -6,7 +6,7 @@ import ScrollToButton from "@/shared/components/ScrollToButton";
 export default function Intro() {
   return (
     <section className="relative h-screen flex flex-col items-center justify-center gap-6">
-      <div className="flex flex-col items-center justify-center gap-8 bg-neutral-200/40 dark:bg-neutral-200/20 rounded-2xl p-4">
+      <div className="flex flex-col items-center justify-center gap-6 bg-neutral-200/40 dark:bg-neutral-200/20 rounded-2xl p-8">
         <div className="flex flex-col gap-4">
           <strong>
             <h1 className="text-3xl">
@@ -16,10 +16,9 @@ export default function Intro() {
               </span>
             </h1>
           </strong>
-          <h2 className="text-xl font-light max-w-75 sm:max-w-125">
-            <strong className="font-semibold">Frontend Engineer</strong>{" "}
-            building accessible, user-focused web apps with React, TypeScript,
-            and modern UI tooling
+          <h2 className="text-xl font-light max-w-75 sm:max-w-100">
+            <strong className="font-semibold">Frontend Engineer</strong> turning
+            complex systems into intuitive <em>user experiences</em>
           </h2>
         </div>
         <div className="grid grid-cols-2 w-52">

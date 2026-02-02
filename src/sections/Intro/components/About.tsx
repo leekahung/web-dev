@@ -35,8 +35,8 @@ export default function About() {
         </p>
       </div>
       <p>
-        As a US-based Frontend Engineer, I'm passionate about building intuitive
-        and inclusive web experiences using React, TypeScript, and modern CSS
+        As a Frontend Engineer, I'm passionate about building intuitive and
+        inclusive web experiences using React, TypeScript, and modern CSS
         tooling. I previously worked at LATERAL.systems and contributed to
         civic-tech initiatives such as Code PDX to develop websites like Tenant
         First Aid.
@@ -54,7 +54,7 @@ export default function About() {
         href="https://drive.google.com/file/d/1KXGZxqBQJV9LxTSg5G6pSGvnkH5t_Be_/view?usp=sharing"
         target="_blank"
       >
-        View Resume
+        View Full Resume (PDF)
       </a>
     </div>
   );

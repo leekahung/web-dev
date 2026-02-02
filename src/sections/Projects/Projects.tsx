@@ -14,12 +14,12 @@ const projectList = [
     description: (
       <ul className="list-disc pl-4 text-left pt-4">
         <li>
-          Led the development of frontend features for a production civic-tech
-          app, ensuring accessibility and responsiveness for real tenants
+          Led development of accessible, responsive frontend features for a
+          production civic-tech app serving Oregon tenants
         </li>
         <li>
-          Built reusable React + Tailwind components and optimized state
-          management for consistency and efficiency
+          Refactored shared state using TanStack Query + context abstraction,
+          reducing redundant fetches and improving perceived load time
         </li>
       </ul>
     ),
@@ -33,12 +33,14 @@ const projectList = [
     description: (
       <ul className="list-disc pl-4 text-left pt-4">
         <li>
-          Delivered a public-facing website for a nonprofit, implementing
-          accessible, mobile-first UI components
+          Built an accessible, mobile-first website for a nonprofit advocacy
+          organization, prioritizing semantic structure and accessibility best
+          practices
         </li>
         <li>
-          Applied design-to-implementation decisions with focus on usability,
-          responsiveness, and code reuse
+          Translated Figma designs into reusable React components, focusing on
+          responsiveness, accessibility and responsiveness, and maintainable
+          structure
         </li>
       </ul>
     ),
@@ -52,12 +54,13 @@ const projectList = [
     description: (
       <ul className="list-disc pl-4 text-left pt-4">
         <li>
-          Built a data-driven frontend app for managing personal documents,
-          leveraging Solid Protocol for secure access
+          Developed a document management interface using Solid Protocol,
+          handling secure data retrieval and state synchronization
         </li>
         <li>
-          Implemented experimental authentication workflows using Inrupt Solid
-          Client Libraries, ensuring compliance with emerging web standards
+          Implemented authentication workflows with Inrupt Solid Client
+          Libraries, navigating emerging web standards and decentralized access
+          patterns
         </li>
       </ul>
     ),
@@ -71,12 +74,12 @@ const projectList = [
     description: (
       <ul className="list-disc pl-4 text-left pt-4">
         <li>
-          Developed a frontend to track subscription and member data with
-          dynamic, data-driven UI
+          Built a dynamic subscription tracking interface with conditional
+          rendering and data-driven UI updates
         </li>
         <li>
-          Created reusable components, applied conditional rendering, and
-          designed responsive layouts with Motion for improved maintainability
+          Designed reusable component patterns and motion-enhanced transitions
+          to improve scalability and maintainability
         </li>
       </ul>
     ),
