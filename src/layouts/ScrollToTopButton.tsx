@@ -49,7 +49,7 @@ export default function ScrollToTopButton() {
           </motion.button>
         )}
       </AnimatePresence>
-      <div className="fixed overflow-hidden top-1/2 -translate-y-1/2 right-5 w-1 h-20 bg-slate-400 rounded-full">
+      <div className="fixed overflow-hidden top-1/2 -translate-y-1/2 left-0 sm:left-5 w-1 h-20 bg-slate-400 rounded-full z-50">
         <div
           className="w-full dark:bg-orange-300 bg-blue-500 rounded-full"
           ref={progressBarRef}

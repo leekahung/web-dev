@@ -1,7 +1,7 @@
 export default function Contact() {
   return (
-    <p>
-      Open to frontend opportunities and collaborations. Feel free to send me an
+    <p className="text-sm sm:text-base">
+      Open to frontend opportunities and collaborations! Feel free to send me an
       email at{" "}
       <a
         href="mailto:lee.kahung414@gmail.com"

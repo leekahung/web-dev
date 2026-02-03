@@ -86,7 +86,7 @@ export default function Layout({ children }: Props) {
           </button>
         </div>
       </header>
-      <main>{children}</main>
+      <main className="flex flex-col">{children}</main>
       <footer className="fixed w-full h-20 bottom-0 z-50 bg-slate-200 dark:bg-slate-800 transition-all duration-1000">
         <div className="flex items-center justify-center w-full h-full">
           <em className="font-light">&#169; 2025 Ka Hung Lee</em>

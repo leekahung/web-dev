@@ -34,7 +34,7 @@ export default function Section({ title, children }: Props) {
         <div className="flex gap-4 flex-col p-4 sm:p-8">
           <h3 className="font-bold text-2xl">{title}</h3>
           {getModalContent(title)}
-          <form method="dialog" className="absolute top-8 right-8">
+          <form method="dialog" className="absolute top-4 right-6">
             <button className="cursor-pointer" aria-label="close">
               [ x ]
             </button>

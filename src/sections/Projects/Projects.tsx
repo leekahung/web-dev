@@ -103,13 +103,10 @@ export default function Projects() {
 
   return (
     <section
-      className={`relative min-h-162.5 sm:min-h-screen flex flex-col items-center justify-center gap-4 overflow-hidden pt-0`}
+      className="relative sm:h-screen flex flex-col items-center justify-center gap-4 overflow-hidden"
       ref={sectionRef}
     >
-      <div
-        id="projects"
-        className="absolute -top-35 sm:top-0 -scroll-mt-10 sm:scroll-mt-0 md:scroll-mt-20 [@media(min-height:1024px)]:scroll-mt-0"
-      />
+      <div id="projects" className="scroll-mt-20 sm:scroll-mt-40" />
       <h2 className="text-2xl md:text-3xl">Websites</h2>
       <div className="flex flex-wrap items-center justify-center text-sm lg:text-base gap-4 max-w-6xl">
         {projectList.map((project) => (
@@ -124,7 +121,7 @@ export default function Projects() {
           />
         ))}
       </div>
-      <div className="invisible xl:visible [@media(max-height:1250px)]:invisible sm:absolute sm:block sm:bottom-20 z-30 animate-[bounce_2s_infinite]">
+      <div className="absolute bottom-35 sm:bottom-15 animate-[bounce_2s_infinite]">
         <ScrollToButton elementId="skills" />
       </div>
       {Array.from({ length: numShapes }).map((_, i) => (
