@@ -106,7 +106,10 @@ export default function Projects() {
       className="relative sm:h-full flex flex-col items-center justify-center gap-4 overflow-hidden"
       ref={sectionRef}
     >
-      <div id="projects" className="scroll-mt-20" />
+      <div
+        id="projects"
+        className="scroll-mt-20 [@media(min-height:900px)]:scroll-mt-40"
+      />
       <h2 className="text-2xl md:text-3xl">Websites</h2>
       <div className="flex flex-wrap items-center justify-center text-sm lg:text-base gap-4 max-w-6xl">
         {projectList.map((project) => (
@@ -121,7 +124,7 @@ export default function Projects() {
           />
         ))}
       </div>
-      <div className="animate-[bounce_2s_infinite] invisible sm:visible">
+      <div className="animate-[bounce_2s_infinite] invisible sm:visible sm:mt-10">
         <ScrollToButton elementId="skills" />
       </div>
       {Array.from({ length: numShapes }).map((_, i) => (

@@ -26,6 +26,8 @@ export default function Layout({ children }: Props) {
     [-webkit-mask-position:center_center]
     [-webkit-mask-repeat:no-repeat]
     background-img-mask
+    bg-gradient-to-t from-blue-400/30 via-blue-500/30 to-blue-600/30
+    dark:bg-gradient-to-t dark:from-orange-300/20 dark:via-orange-400/20 dark:to-orange-500/20
   `;
 
   return (
