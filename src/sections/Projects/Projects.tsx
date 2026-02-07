@@ -1,7 +1,7 @@
 import ScrollToButton from "@/shared/components/ScrollToButton";
 import Card from "./components/Card";
-import { useEffect, useRef, useState } from "react";
-import Shape from "@/animations/Shape";
+import { useRef } from "react";
+import FallingShapes from "@/animations/FallingShapes";
 import TFAPreview from "../../shared/components/images/TenantFirstAid.png";
 import FSSPreview from "../../shared/components/images/FSS.png";
 import PASSPreview from "../../shared/components/images/PASS.png";
@@ -91,15 +91,6 @@ const projectList = [
 
 export default function Projects() {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const [dimensions, setDimensions] = useState({ x: 0, y: 0 });
-  const numShapes = Math.max(Math.floor(dimensions.x / 100), 8);
-
-  useEffect(() => {
-    if (sectionRef.current) {
-      const { offsetHeight, offsetWidth } = sectionRef.current;
-      setDimensions({ x: offsetWidth, y: offsetHeight });
-    }
-  }, []);
 
   return (
     <section
@@ -127,9 +118,7 @@ export default function Projects() {
       <div className="animate-[bounce_2s_infinite] invisible sm:visible sm:mt-10">
         <ScrollToButton elementId="skills" />
       </div>
-      {Array.from({ length: numShapes }).map((_, i) => (
-        <Shape key={i} containerDimensions={dimensions} />
-      ))}
+      <FallingShapes containerRef={sectionRef} />
     </section>
   );
 }
