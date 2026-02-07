@@ -39,8 +39,7 @@ const projectList = [
         </li>
         <li>
           Translated Figma designs into reusable React components, focusing on
-          responsiveness, accessibility and responsiveness, and maintainable
-          structure
+          accessibility, responsiveness, and maintainable structure
         </li>
       </ul>
     ),
