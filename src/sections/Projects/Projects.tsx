@@ -1,4 +1,3 @@
-import ScrollToButton from "@/shared/components/ScrollToButton";
 import Card from "./components/Card";
 import { useRef } from "react";
 import FallingShapes from "@/animations/FallingShapes";
@@ -113,9 +112,6 @@ export default function Projects() {
             key={project.title}
           />
         ))}
-      </div>
-      <div className="animate-[bounce_2s_infinite] invisible sm:visible sm:mt-10">
-        <ScrollToButton elementId="skills" />
       </div>
       <FallingShapes containerRef={sectionRef} />
     </section>
