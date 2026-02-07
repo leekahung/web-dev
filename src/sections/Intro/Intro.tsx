@@ -1,8 +1,6 @@
 import ChatIcon from "@/shared/components/icons/ChatIcon";
 import ProfileIcon from "@/shared/components/icons/ProfileIcon";
 import Section from "./components/Section";
-import ScrollToButton from "@/shared/components/ScrollToButton";
-
 export default function Intro() {
   return (
     <section className="relative h-screen flex flex-col items-center justify-center gap-6 cursor-default">
@@ -58,9 +56,6 @@ export default function Intro() {
             <ChatIcon />
           </Section>
         </div>
-      </div>
-      <div className="absolute bottom-35 sm:bottom-20 animate-[bounce_2s_infinite]">
-        <ScrollToButton elementId="projects" />
       </div>
     </section>
   );
