@@ -18,7 +18,7 @@ export default function About() {
           <a
             href="https://lateral.systems"
             target="_blank"
-            className="underline"
+            className="underline md:hover:text-orange-700/80 md:dark:hover:text-blue-200 transition-all duration-150"
           >
             LATERAL.systems
           </a>
@@ -28,7 +28,7 @@ export default function About() {
           <a
             href="https://www.codepdx.org/"
             target="_blank"
-            className="underline"
+            className="underline md:hover:text-orange-700/80 md:dark:hover:text-blue-200 transition-all duration-150"
           >
             Code PDX
           </a>
