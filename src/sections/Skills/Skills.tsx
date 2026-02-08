@@ -42,15 +42,13 @@ const toolsList = [
 
 export default function Skills() {
   return (
-    <section className="flex flex-col items-center justify-center max-w-[320px] sm:max-w-125 gap-4">
+    <section aria-label="Skills" className="flex flex-col items-center justify-center max-w-[320px] sm:max-w-125 gap-4">
       <h2 className="text-2xl md:text-3xl">Skills</h2>
-      <table>
-        <tbody className="flex flex-col gap-4 p-4">
-          <SkillRow itemName="Frontend" itemList={frontendList} />
-          <SkillRow itemName="Backend/Data" itemList={backendList} />
-          <SkillRow itemName="Tools" itemList={toolsList} />
-        </tbody>
-      </table>
+      <div role="list" className="flex flex-col gap-4 p-4">
+        <SkillRow itemName="Frontend" itemList={frontendList} />
+        <SkillRow itemName="Backend/Data" itemList={backendList} />
+        <SkillRow itemName="Tools" itemList={toolsList} />
+      </div>
     </section>
   );
 }

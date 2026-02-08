@@ -94,6 +94,7 @@ export default function Projects() {
     <section
       className="relative sm:h-full flex flex-col items-center justify-center gap-4 overflow-hidden"
       ref={sectionRef}
+      aria-label="Projects"
     >
       <div
         id="projects"

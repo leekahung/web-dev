@@ -10,9 +10,9 @@ interface Props {
 
 export default function SkillRow({ itemName, itemList }: Props) {
   return (
-    <tr className="flex flex-col sm:flex-row gap-4 sm:gap-0 items-center sm:items-start">
-      <td className="flex flex-1/3 text-xl">{itemName}</td>
-      <td className="flex flex-2/3 sm:border-l-1">
+    <div role="listitem" className="flex flex-col sm:flex-row gap-4 sm:gap-0 items-center sm:items-start">
+      <h3 className="flex flex-1/3 text-xl">{itemName}</h3>
+      <div className="flex flex-2/3 sm:border-l-1">
         <div className="flex flex-wrap justify-center sm:justify-start gap-4 ml-4">
           {itemList.map((item) => {
             return (
@@ -26,7 +26,7 @@ export default function SkillRow({ itemName, itemList }: Props) {
             );
           })}
         </div>
-      </td>
-    </tr>
+      </div>
+    </div>
   );
 }

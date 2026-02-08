@@ -44,12 +44,19 @@ export default function ScrollToTopButton() {
             className="fixed bottom-5 right-10 lg:right-[10%] xl:right-[20%] outline-1 rounded-full p-1 z-50 cursor-pointer hover:scale-105 hover:bg-slate-500 hover:text-slate-200 dark:hover:bg-slate-200 dark:hover:text-black duration-300"
             onClick={scrollToTop}
             ref={buttonRef}
+            aria-label="Scroll to top"
           >
             <UpChevron />
           </motion.button>
         )}
       </AnimatePresence>
-      <div className="fixed overflow-hidden top-1/2 -translate-y-1/2 left-0 sm:left-5 w-1 h-20 bg-slate-400 rounded-full z-50">
+      <div
+        className="fixed overflow-hidden top-1/2 -translate-y-1/2 left-0 sm:left-5 w-1 h-20 bg-slate-400 rounded-full z-50"
+        role="progressbar"
+        aria-label="Page scroll progress"
+        aria-valuemin={0}
+        aria-valuemax={100}
+      >
         <div
           className="w-full dark:bg-orange-300 bg-blue-500 rounded-full"
           ref={progressBarRef}

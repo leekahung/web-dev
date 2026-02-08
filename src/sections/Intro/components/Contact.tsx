@@ -5,7 +5,6 @@ export default function Contact() {
       email at{" "}
       <a
         href="mailto:lee.kahung414@gmail.com"
-        target="_blank"
         className="underline"
       >
         lee.kahung414@gmail.com

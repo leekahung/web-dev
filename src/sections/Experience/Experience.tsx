@@ -1,8 +1,11 @@
 export default function Experience() {
   return (
-    <section className="flex flex-col items-center justify-center gap-4">
+    <section
+      aria-label="Experience"
+      className="flex flex-col items-center justify-center gap-4"
+    >
       <h2 className="text-2xl md:text-3xl">Experience</h2>
-      <div className="flex flex-col sm:flex-row items-center gap-8 p-4 text-sm sm:text-base">
+      <div className="flex flex-col items-center gap-8 p-4 text-sm sm:text-base">
         <div className="flex flex-col items-center gap-2">
           <div>
             <p>LATERAL.systems</p>

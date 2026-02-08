@@ -3,7 +3,7 @@ import ProfileIcon from "@/shared/components/icons/ProfileIcon";
 import Section from "./components/Section";
 export default function Intro() {
   return (
-    <section className="relative h-screen flex flex-col items-center justify-center gap-6 cursor-default">
+    <section aria-label="Introduction" className="relative h-screen flex flex-col items-center justify-center gap-6 cursor-default">
       <div className="flex flex-col items-center justify-center gap-6 bg-neutral-400/20 dark:bg-neutral-200/20 rounded-2xl py-8 px-4 sm:p-8">
         <div className="flex flex-col items-center gap-4">
           <strong>

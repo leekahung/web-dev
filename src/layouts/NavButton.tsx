@@ -13,10 +13,11 @@ export default function NavButton() {
   };
 
   return (
-    <>
+    <nav aria-label="Page navigation">
       <button
         className={`${navButtonStyling} h-10 w-10 z-60 duration-500`}
         onClick={() => setShowButtons((prev) => !prev)}
+        aria-label="Navigation menu"
       >
         <div className="h-6 w-6 m-auto">
           <NavigateIcon />
@@ -65,6 +66,6 @@ export default function NavButton() {
           </>
         )}
       </AnimatePresence>
-    </>
+    </nav>
   );
 }

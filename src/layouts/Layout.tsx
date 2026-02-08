@@ -40,6 +40,12 @@ export default function Layout({ children }: Props) {
       }}
       className="relative w-full dark:text-slate-200 bg-slate-200 dark:bg-slate-800 transition-all duration-1000"
     >
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:px-4 focus:py-2 focus:bg-blue-500 focus:text-white focus:rounded dark:focus:bg-orange-300 dark:focus:text-black"
+      >
+        Skip to main content
+      </a>
       <div className={`fixed h-screen w-screen ${imageMaskStyling}`}>
         <img
           src={`${import.meta.env.BASE_URL}/${
@@ -55,14 +61,14 @@ export default function Layout({ children }: Props) {
             <img
               className="dark:invert h-10 w-10 hover:scale-110 transition-transform duration-300"
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
-              aria-label="GitHub Profile"
+              alt="GitHub Profile"
             />
           </ExternalLink>
           <ExternalLink to="https://www.linkedin.com/in/ka-hung-lee/">
             <img
               className="h-10 w-10 hover:scale-110 transition-transform duration-300"
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
-              aria-label="LinkedIn Profile"
+              alt="LinkedIn Profile"
             />
           </ExternalLink>
           <ExternalLink
@@ -76,6 +82,7 @@ export default function Layout({ children }: Props) {
           <button
             className="h-10 w-10 p-2 cursor-pointer bg-blue-500 dark:bg-orange-300 rounded-full hover:scale-110 transition-transform duration-500"
             onClick={toggleDarkMode}
+            aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
           >
             <SVGIcon
               svgStroke={darkMode ? "black" : "#f8fafc"}
@@ -88,7 +95,7 @@ export default function Layout({ children }: Props) {
           </button>
         </div>
       </header>
-      <main className="flex flex-col">{children}</main>
+      <main id="main-content" className="flex flex-col">{children}</main>
       <footer className="fixed w-full h-20 bottom-0 z-50 bg-slate-200 dark:bg-slate-800 transition-all duration-1000">
         <div className="flex items-center justify-center w-full h-full">
           <em className="font-light">&#169; {new Date().getFullYear()} Ka Hung Lee</em>

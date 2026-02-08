@@ -18,6 +18,7 @@ export default function About() {
           <a
             href="https://lateral.systems"
             target="_blank"
+            rel="noopener noreferrer"
             className="underline md:hover:text-orange-700/80 md:dark:hover:text-blue-200 transition-all duration-150"
           >
             LATERAL.systems
@@ -28,6 +29,7 @@ export default function About() {
           <a
             href="https://www.codepdx.org/"
             target="_blank"
+            rel="noopener noreferrer"
             className="underline md:hover:text-orange-700/80 md:dark:hover:text-blue-200 transition-all duration-150"
           >
             Code PDX
@@ -54,6 +56,7 @@ export default function About() {
           className="rounded-full py-1 px-3 border dark:hover:bg-orange-300 dark:hover:text-black hover:bg-blue-500 hover:text-slate-200 duration-300"
           href="https://drive.google.com/file/d/1KXGZxqBQJV9LxTSg5G6pSGvnkH5t_Be_/view?usp=sharing"
           target="_blank"
+          rel="noopener noreferrer"
         >
           View Full Resume (PDF)
         </a>

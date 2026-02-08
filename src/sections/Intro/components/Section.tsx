@@ -26,16 +26,17 @@ export default function Section({ title, children }: Props) {
       <dialog
         id={title}
         className="m-auto w-full rounded-3xl backdrop:backdrop-blur-xs md:max-w-2xl bg-slate-200 dark:bg-slate-800 dark:text-slate-200 border"
+        aria-labelledby={`${title}-heading`}
         onClick={(event) => {
           const target = event.target as HTMLDialogElement;
           if (target.nodeName === "DIALOG") target.close();
         }}
       >
         <div className="flex gap-4 flex-col p-4 sm:p-8">
-          <h3 className="font-bold text-2xl">{title}</h3>
+          <h3 id={`${title}-heading`} className="font-bold text-2xl">{title}</h3>
           {getModalContent(title)}
           <form method="dialog" className="absolute top-4 right-6">
-            <button className="cursor-pointer rounded px-1 focus-visible:outline-2 focus-visible:outline-blue-500 dark:focus-visible:outline-orange-300" aria-label="close">
+            <button className="cursor-pointer rounded px-1 focus-visible:outline-2 focus-visible:outline-blue-500 dark:focus-visible:outline-orange-300" aria-label="Close dialog">
               [ x ]
             </button>
           </form>
