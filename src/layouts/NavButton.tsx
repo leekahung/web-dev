@@ -15,7 +15,7 @@ export default function NavButton() {
   return (
     <nav aria-label="Page navigation">
       <button
-        className={`${navButtonStyling} h-10 w-10 z-60 duration-500`}
+        className={`${navButtonStyling} h-10 w-10 z-60`}
         onClick={() => setShowButtons((prev) => !prev)}
         aria-label="Navigation menu"
       >

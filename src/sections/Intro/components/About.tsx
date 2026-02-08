@@ -1,7 +1,7 @@
 export default function About() {
   return (
     <div className="flex items-center flex-col gap-2 sm:gap-4">
-      <div className="h-30 w-30 sm:h-40 sm:w-40 rounded-full overflow-hidden relative">
+      <div className="h-30 w-30 sm:h-40 sm:w-40 rounded-full overflow-hidden relative ring-2 ring-blue-500 dark:ring-orange-300">
         <img
           src={`${import.meta.env.BASE_URL}/self_photo.webp`}
           alt="self photo"

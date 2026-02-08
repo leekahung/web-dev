@@ -8,11 +8,12 @@ interface Props {
 export default function ThemeContextProvider({ children }: Props) {
   const [darkMode, setDarkMode] = useState(() => {
     const theme = localStorage.getItem("theme");
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark");
-      return true;
+    if (theme === "light") {
+      document.documentElement.classList.remove("dark");
+      return false;
     }
-    return false;
+    document.documentElement.classList.add("dark");
+    return true;
   });
 
   const toggleDarkMode = useCallback(() => {
@@ -25,12 +26,15 @@ export default function ThemeContextProvider({ children }: Props) {
   );
 
   useEffect(() => {
+    const themeColor = document.querySelector('meta[name="theme-color"]');
     if (darkMode) {
       localStorage.setItem("theme", "dark");
       document.documentElement.classList.add("dark");
+      themeColor?.setAttribute("content", "#1e293b");
     } else {
       localStorage.setItem("theme", "light");
       document.documentElement.classList.remove("dark");
+      themeColor?.setAttribute("content", "#e2e8f0");
     }
   }, [darkMode]);
 

@@ -26,8 +26,8 @@ export default function Layout({ children }: Props) {
     [-webkit-mask-position:center_center]
     [-webkit-mask-repeat:no-repeat]
     background-img-mask
-    bg-gradient-to-t from-blue-400/30 via-blue-500/30 to-blue-600/30
-    dark:bg-gradient-to-t dark:from-orange-300/20 dark:via-orange-400/20 dark:to-orange-500/20
+    bg-gradient-to-t from-blue-400/20 via-blue-500/20 to-blue-600/20
+    dark:bg-gradient-to-t dark:from-orange-300/15 dark:via-orange-400/15 dark:to-orange-500/15
   `;
 
   return (
@@ -97,8 +97,12 @@ export default function Layout({ children }: Props) {
       </header>
       <main id="main-content" className="flex flex-col">{children}</main>
       <footer className="fixed w-full h-20 bottom-0 z-50 bg-slate-200 dark:bg-slate-800 transition-all duration-1000">
-        <div className="flex items-center justify-center w-full h-full">
+        <div className="flex items-center justify-center gap-4 w-full h-full text-sm">
           <em className="font-light">&#169; {new Date().getFullYear()} Ka Hung Lee</em>
+          <span className="opacity-50">|</span>
+          <a href="mailto:lee.kahung414@gmail.com" className="opacity-75 hover:opacity-100 transition-opacity">
+            lee.kahung414@gmail.com
+          </a>
         </div>
       </footer>
       <NavButton />

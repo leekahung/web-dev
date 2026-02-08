@@ -1,5 +1,6 @@
 import Card from "./components/Card";
 import { useRef } from "react";
+import { motion } from "motion/react";
 import FallingShapes from "@/animations/FallingShapes";
 import TFAPreview from "../../shared/components/images/TenantFirstAid.png";
 import FSSPreview from "../../shared/components/images/FSS.png";
@@ -100,18 +101,33 @@ export default function Projects() {
         id="projects"
         className="scroll-mt-20 [@media(min-height:900px)]:scroll-mt-40"
       />
-      <h2 className="text-2xl md:text-3xl">Websites</h2>
-      <div className="flex flex-wrap items-center justify-center text-sm lg:text-base gap-4 max-w-6xl">
-        {projectList.map((project) => (
-          <Card
-            title={project.title}
-            subheader={project.subheader}
-            description={project.description}
-            siteLink={project.siteLink}
-            repoLink={project.repoLink}
-            sitePreview={project.sitePreview}
+      <motion.h2
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.5 }}
+        className="text-2xl sm:text-3xl font-bold"
+      >
+        Websites
+      </motion.h2>
+      <div className="flex flex-wrap items-center justify-center text-sm lg:text-base gap-4 max-w-6xl mx-4 sm:mx-0">
+        {projectList.map((project, index) => (
+          <motion.div
             key={project.title}
-          />
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.4, delay: index * 0.1 }}
+          >
+            <Card
+              title={project.title}
+              subheader={project.subheader}
+              description={project.description}
+              siteLink={project.siteLink}
+              repoLink={project.repoLink}
+              sitePreview={project.sitePreview}
+            />
+          </motion.div>
         ))}
       </div>
       <FallingShapes containerRef={sectionRef} />

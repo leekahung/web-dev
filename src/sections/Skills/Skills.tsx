@@ -13,6 +13,7 @@ import NetlifyIcon from "../../shared/components/icons/NetlifyIcon";
 import SupabaseIcon from "../../shared/components/icons/SupabaseIcon";
 import SkillRow from "./components/SkillRow";
 import tanstackLogo from "../../shared/components/icons/tanstack-logo-100.png";
+import { motion } from "motion/react";
 
 const frontendList = [
   { name: "React.js", element: <ReactIcon /> },
@@ -42,13 +43,28 @@ const toolsList = [
 
 export default function Skills() {
   return (
-    <section aria-label="Skills" className="flex flex-col items-center justify-center max-w-[320px] sm:max-w-125 gap-4">
-      <h2 className="text-2xl md:text-3xl">Skills</h2>
-      <div role="list" className="flex flex-col gap-4 p-4">
+    <section aria-label="Skills" className="flex flex-col items-center justify-center max-w-[320px] sm:max-w-125 lg:flex-1 gap-4">
+      <motion.h2
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.5 }}
+        className="text-2xl sm:text-3xl font-bold"
+      >
+        Skills
+      </motion.h2>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.5, delay: 0.1 }}
+        role="list"
+        className="flex flex-col gap-4 p-6 bg-neutral-400/20 dark:bg-neutral-200/20 rounded-2xl"
+      >
         <SkillRow itemName="Frontend" itemList={frontendList} />
         <SkillRow itemName="Backend/Data" itemList={backendList} />
         <SkillRow itemName="Tools" itemList={toolsList} />
-      </div>
+      </motion.div>
     </section>
   );
 }
