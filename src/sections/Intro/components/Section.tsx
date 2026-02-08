@@ -32,11 +32,16 @@ export default function Section({ title, children }: Props) {
           if (target.nodeName === "DIALOG") target.close();
         }}
       >
-        <div className="flex gap-4 flex-col p-4 sm:p-8">
-          <h3 id={`${title}-heading`} className="font-bold text-2xl">{title}</h3>
+        <div className="flex gap-2 flex-col p-4 sm:p-8">
+          <h3 id={`${title}-heading`} className="font-bold text-2xl">
+            {title}
+          </h3>
           {getModalContent(title)}
           <form method="dialog" className="absolute top-4 right-6">
-            <button className="cursor-pointer rounded px-1 focus-visible:outline-2 focus-visible:outline-blue-500 dark:focus-visible:outline-orange-300" aria-label="Close dialog">
+            <button
+              className="cursor-pointer rounded px-1 focus-visible:outline-2 focus-visible:outline-blue-500 dark:focus-visible:outline-orange-300"
+              aria-label="Close dialog"
+            >
               [ x ]
             </button>
           </form>

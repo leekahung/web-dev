@@ -11,8 +11,7 @@ export default function About() {
       <h1 className="text-lg font-semibold sm:font-normal sm:text-2xl text-blue-500 dark:text-orange-300">
         Ka Hung Lee
       </h1>
-      <div className="text-sm">
-        <p>US-based Frontend Engineer</p>
+      <div className="text-xs">
         <p>
           Former engineer at{" "}
           <a
@@ -36,7 +35,7 @@ export default function About() {
           </a>
         </p>
       </div>
-      <div className="flex items-center flex-col gap-4 text-sm sm:text-base">
+      <div className="flex items-center flex-col gap-2 text-sm sm:text-base">
         <p>
           As a Frontend Engineer, I'm passionate about building intuitive and
           inclusive web experiences using React, TypeScript, and modern CSS

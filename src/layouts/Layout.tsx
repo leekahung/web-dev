@@ -82,7 +82,9 @@ export default function Layout({ children }: Props) {
           <button
             className="h-10 w-10 p-2 cursor-pointer bg-blue-500 dark:bg-orange-300 rounded-full hover:scale-110 transition-transform duration-500"
             onClick={toggleDarkMode}
-            aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
+            aria-label={
+              darkMode ? "Switch to light mode" : "Switch to dark mode"
+            }
           >
             <SVGIcon
               svgStroke={darkMode ? "black" : "#f8fafc"}
@@ -95,14 +97,14 @@ export default function Layout({ children }: Props) {
           </button>
         </div>
       </header>
-      <main id="main-content" className="flex flex-col">{children}</main>
+      <main id="main-content" className="flex flex-col">
+        {children}
+      </main>
       <footer className="fixed w-full h-20 bottom-0 z-50 bg-slate-200 dark:bg-slate-800 transition-all duration-1000">
-        <div className="flex items-center justify-center gap-4 w-full h-full text-sm">
-          <em className="font-light">&#169; {new Date().getFullYear()} Ka Hung Lee</em>
-          <span className="opacity-50">|</span>
-          <a href="mailto:lee.kahung414@gmail.com" className="opacity-75 hover:opacity-100 transition-opacity">
-            lee.kahung414@gmail.com
-          </a>
+        <div className="flex flex-col items-center justify-center gap-1 w-full h-full text-sm">
+          <em className="font-light">
+            &#169; {new Date().getFullYear()} Ka Hung Lee
+          </em>
         </div>
       </footer>
       <NavButton />
