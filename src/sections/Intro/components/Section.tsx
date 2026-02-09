@@ -12,9 +12,10 @@ export default function Section({ title, children }: Props) {
     <>
       <div className="relative flex items-center justify-center flex-col gap-4">
         <IconButton
-          onClick={() =>
-            (document.getElementById(title) as HTMLDialogElement).showModal()
-          }
+          onClick={() => {
+            (document.getElementById(title) as HTMLDialogElement).showModal();
+            document.body.style.overflow = "hidden";
+          }}
         >
           {children}
         </IconButton>
@@ -27,6 +28,9 @@ export default function Section({ title, children }: Props) {
         id={title}
         className="m-auto w-full rounded-3xl backdrop:backdrop-blur-xs md:max-w-2xl bg-slate-200 dark:bg-slate-800 dark:text-slate-200 border"
         aria-labelledby={`${title}-heading`}
+        onClose={() => {
+          document.body.style.overflow = "";
+        }}
         onClick={(event) => {
           const target = event.target as HTMLDialogElement;
           if (target.nodeName === "DIALOG") target.close();

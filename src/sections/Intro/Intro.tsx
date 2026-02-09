@@ -22,7 +22,7 @@ export default function Intro() {
             civic-tech projects
           </h2>
           <div>
-            <strong className="gap-x-2">
+            <strong className="flex flex-wrap gap-2 items-center justify-center">
               <span className="group inline-flex items-center gap-1.5 rounded-full px-3 py-0.5 bg-[#007ACC]/10 dark:bg-[#61DAFB]/10">
                 <span className="text-[#007ACC] dark:text-[#61DAFB] relative">
                   React
