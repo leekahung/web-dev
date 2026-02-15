@@ -2,11 +2,11 @@ import Card from "./components/Card";
 import { useRef } from "react";
 import { motion } from "motion/react";
 import FallingShapes from "@/animations/FallingShapes";
-import TFAPreview from "../../shared/components/images/TenantFirstAid.png";
-import FSSPreview from "../../shared/components/images/FSS.png";
+import TFAPreview from "../../shared/components/images/TenantFirstAid.webp";
+import FSSPreview from "../../shared/components/images/FSS.webp";
 import PASSPreview from "../../shared/components/images/PASS.png";
-import PhaseTrackerPreview from "../../shared/components/images/Phase-Tracker.png";
-import RecordSpongePreview from "../../shared/components/images/RecordSponge.png";
+import PhaseTrackerPreview from "../../shared/components/images/Phase-Tracker.webp";
+import RecordSpongePreview from "../../shared/components/images/RecordSponge.webp";
 
 const projectList = [
   {
