@@ -49,7 +49,7 @@ export default function Skills() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.5 }}
-        className="text-2xl sm:text-3xl font-bold"
+        className="text-2xl sm:text-3xl font-bold will-change-transform"
       >
         Skills
       </motion.h2>
@@ -59,7 +59,7 @@ export default function Skills() {
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.5, delay: 0.1 }}
         role="list"
-        className="flex flex-col gap-4 p-6 bg-neutral-400/20 dark:bg-neutral-200/20 rounded-2xl"
+        className="flex flex-col gap-4 p-6 bg-neutral-400/20 dark:bg-neutral-200/20 rounded-2xl will-change-transform"
       >
         <SkillRow itemName="Frontend" itemList={frontendList} />
         <SkillRow itemName="Backend/Data" itemList={backendList} />

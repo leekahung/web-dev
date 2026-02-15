@@ -6,6 +6,7 @@ import TFAPreview from "../../shared/components/images/TenantFirstAid.png";
 import FSSPreview from "../../shared/components/images/FSS.png";
 import PASSPreview from "../../shared/components/images/PASS.png";
 import PhaseTrackerPreview from "../../shared/components/images/Phase-Tracker.png";
+import RecordSpongePreview from "../../shared/components/images/RecordSponge.png";
 
 const projectList = [
   {
@@ -26,6 +27,24 @@ const projectList = [
     siteLink: "https://tenantfirstaid.com/",
     repoLink: "https://github.com/codeforpdx/tenantfirstaid",
     sitePreview: TFAPreview,
+  },
+  {
+    title: "RecordSponge",
+    subheader: "Website assisting record expungement in Oregon",
+    description: (
+      <ul className="list-disc pl-4 text-left pt-4">
+        <li>
+          Revised and improved the user manual to better guide users through
+          the expungement process
+        </li>
+        <li>
+          Contributed to ongoing maintenance and bug fixes for the live site
+        </li>
+      </ul>
+    ),
+    siteLink: "https://recordsponge.com/",
+    repoLink: "https://github.com/codeforpdx/recordexpungPDX",
+    sitePreview: RecordSpongePreview,
   },
   {
     title: "Families for Safe Streets",

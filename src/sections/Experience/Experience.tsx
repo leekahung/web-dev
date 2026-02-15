@@ -11,7 +11,7 @@ export default function Experience() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.5 }}
-        className="text-2xl sm:text-3xl font-bold"
+        className="text-2xl sm:text-3xl font-bold will-change-transform"
       >
         Experience
       </motion.h2>
@@ -20,7 +20,7 @@ export default function Experience() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.5, delay: 0.1 }}
-        className="flex flex-col items-center gap-6 p-6 text-sm sm:text-base bg-neutral-400/20 dark:bg-neutral-200/20 rounded-2xl"
+        className="flex flex-col items-center gap-6 p-6 text-sm sm:text-base bg-neutral-400/20 dark:bg-neutral-200/20 rounded-2xl will-change-transform"
       >
         <div className="flex flex-col items-center gap-2">
           <div className="text-center">
