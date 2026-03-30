@@ -8,9 +8,9 @@ export default function About() {
           className="object-cover scale-190 rounded-full w-full h-full object-[0%_0%]"
         />
       </div>
-      <h1 className="text-lg font-semibold sm:font-normal sm:text-2xl text-blue-500 dark:text-orange-300">
+      <p className="text-lg font-semibold sm:font-normal sm:text-2xl text-blue-500 dark:text-orange-300">
         Ka Hung Lee
-      </h1>
+      </p>
       <div className="text-xs">
         <p>
           Former engineer at{" "}

@@ -3,7 +3,7 @@ import About from "./About";
 import Contact from "./Contact";
 
 interface Props {
-  title: string;
+  title: "About" | "Contact";
   children: React.ReactNode;
 }
 
@@ -55,7 +55,7 @@ export default function Section({ title, children }: Props) {
   );
 }
 
-function getModalContent(title: string) {
+function getModalContent(title: "About" | "Contact"): React.ReactNode {
   if (title === "About") return <About />;
-  if (title === "Contact") return <Contact />;
+  return <Contact />;
 }

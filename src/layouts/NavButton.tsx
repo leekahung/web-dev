@@ -18,6 +18,7 @@ export default function NavButton() {
         className={`${navButtonStyling} h-10 w-10 z-60`}
         onClick={() => setShowButtons((prev) => !prev)}
         aria-label="Navigation menu"
+        aria-expanded={showButtons}
       >
         <div className="h-6 w-6 m-auto">
           <NavigateIcon />
@@ -27,6 +28,7 @@ export default function NavButton() {
         {showButtons && (
           <>
             <motion.button
+              initial={{ opacity: 0, y: 0 }}
               animate={{ opacity: 1, y: -80, pointerEvents: "auto" }}
               exit={{ opacity: 0, y: 0 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
@@ -36,6 +38,7 @@ export default function NavButton() {
               Home
             </motion.button>
             <motion.button
+              initial={{ opacity: 0, x: 0, y: 0 }}
               animate={{ opacity: 1, x: 60, y: -50, pointerEvents: "auto" }}
               exit={{ opacity: 0, x: 0, y: 0, pointerEvents: "none" }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
@@ -50,6 +53,7 @@ export default function NavButton() {
               Websites
             </motion.button>
             <motion.button
+              initial={{ opacity: 0, x: 0 }}
               animate={{ opacity: 1, x: 80, pointerEvents: "auto" }}
               exit={{ opacity: 0, x: 0, pointerEvents: "none" }}
               transition={{ duration: 0.3, ease: "easeInOut" }}

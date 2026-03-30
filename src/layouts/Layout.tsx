@@ -57,14 +57,14 @@ export default function Layout({ children }: Props) {
       </div>
       <header className="fixed w-full h-20 top-0 z-50 bg-slate-200 dark:bg-slate-800 transition-all duration-1000">
         <div className="absolute top-5 left-10 lg:left-[10%] xl:left-[20%] flex gap-5">
-          <ExternalLink to="https://github.com/leekahung" aria-label="GitHub Profile">
+          <ExternalLink to="https://github.com/leekahung">
             <img
               className="dark:invert h-10 w-10 hover:scale-110 transition-transform duration-300"
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
               alt="GitHub Profile"
             />
           </ExternalLink>
-          <ExternalLink to="https://www.linkedin.com/in/ka-hung-lee/" aria-label="LinkedIn Profile">
+          <ExternalLink to="https://www.linkedin.com/in/ka-hung-lee/">
             <img
               className="h-10 w-10 hover:scale-110 transition-transform duration-300"
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"

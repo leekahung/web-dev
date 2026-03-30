@@ -14,6 +14,10 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @layer base {
+  html {
+    scrollbar-gutter: stable;
+  }
+
   html,
   body {
     @apply bg-slate-200 dark:bg-slate-800 dark:text-slate-200;

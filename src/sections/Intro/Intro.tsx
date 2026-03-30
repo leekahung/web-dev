@@ -9,14 +9,12 @@ export default function Intro() {
     >
       <div className="flex flex-col items-center justify-center gap-6 bg-neutral-400/20 dark:bg-neutral-200/20 rounded-2xl py-8 px-4 sm:p-8 mx-4 sm:mx-0">
         <div className="flex flex-col items-center gap-4">
-          <strong>
-            <h1 className="text-2xl sm:text-3xl">
-              Hey there! I'm{" "}
-              <span className="text-blue-500 dark:text-orange-300">
-                Ka Hung
-              </span>
-            </h1>
-          </strong>
+          <h1 className="text-2xl sm:text-3xl font-bold">
+            Hey there! I'm{" "}
+            <span className="text-blue-500 dark:text-orange-300">
+              Ka Hung
+            </span>
+          </h1>
           <h2 className="text-base sm:text-xl max-w-75 sm:max-w-100">
             I build production-ready React applications for data-heavy and
             civic-tech projects
