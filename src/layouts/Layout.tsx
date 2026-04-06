@@ -42,7 +42,7 @@ export default function Layout({ children }: Props) {
     >
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:px-4 focus:py-2 focus:bg-blue-500 focus:text-white focus:rounded dark:focus:bg-orange-300 dark:focus:text-black"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-100 focus:px-4 focus:py-2 focus:bg-blue-500 focus:text-white focus:rounded dark:focus:bg-orange-300 dark:focus:text-black"
       >
         Skip to main content
       </a>

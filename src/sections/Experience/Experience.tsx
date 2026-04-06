@@ -4,7 +4,7 @@ export default function Experience() {
   return (
     <section
       aria-label="Experience"
-      className="flex flex-col items-center justify-center max-w-[320px] sm:max-w-125 lg:flex-1 gap-4"
+      className="flex flex-col items-center justify-center max-w-80 sm:max-w-125 lg:flex-1 gap-4"
     >
       <motion.h2
         initial={{ opacity: 0, y: 20 }}

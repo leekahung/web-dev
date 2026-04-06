@@ -52,7 +52,7 @@ export default function About() {
           applications.
         </p>
         <a
-          className="rounded-full py-1 px-3 border dark:hover:bg-orange-300 dark:hover:text-black hover:bg-blue-500 hover:text-slate-200 duration-300"
+          className="rounded-full py-1 px-3 border dark:hover:bg-orange-300 dark:hover:text-black hover:bg-blue-500 hover:text-slate-200 transition-colors duration-300"
           href="https://drive.google.com/file/d/1KXGZxqBQJV9LxTSg5G6pSGvnkH5t_Be_/view?usp=sharing"
           target="_blank"
           rel="noopener noreferrer"
