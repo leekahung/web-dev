@@ -7,13 +7,9 @@ interface Props {
 
 export default function ThemeContextProvider({ children }: Props) {
   const [darkMode, setDarkMode] = useState(() => {
-    const theme = localStorage.getItem("theme");
-    if (theme === "light") {
-      document.documentElement.classList.remove("dark");
-      return false;
-    }
-    document.documentElement.classList.add("dark");
-    return true;
+    const isLight = localStorage.getItem("theme") === "light";
+    if (isLight) document.documentElement.classList.remove("dark");
+    return !isLight;
   });
 
   const toggleDarkMode = useCallback(() => {

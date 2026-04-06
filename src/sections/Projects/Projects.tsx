@@ -12,18 +12,10 @@ const projectList = [
   {
     title: "Tenant First Aid",
     subheader: "AI-powered housing assistance tool for tenants in Oregon",
-    description: (
-      <ul className="list-disc pl-4 text-left pt-4">
-        <li>
-          Led development of accessible, responsive frontend features for a
-          production civic-tech app serving Oregon tenants
-        </li>
-        <li>
-          Refactored shared state using TanStack Query + context abstraction,
-          reducing redundant fetches and improving perceived load time
-        </li>
-      </ul>
-    ),
+    description: [
+      "Led development of accessible, responsive frontend features for a production civic-tech app serving Oregon tenants",
+      "Refactored shared state using TanStack Query + context abstraction, reducing redundant fetches and improving perceived load time",
+    ],
     siteLink: "https://tenantfirstaid.com/",
     repoLink: "https://github.com/codeforpdx/tenantfirstaid",
     sitePreview: TFAPreview,
@@ -31,17 +23,10 @@ const projectList = [
   {
     title: "RecordSponge",
     subheader: "Website assisting record expungement in Oregon",
-    description: (
-      <ul className="list-disc pl-4 text-left pt-4">
-        <li>
-          Revised and improved the user manual to better guide users through
-          the expungement process
-        </li>
-        <li>
-          Contributed to ongoing maintenance and bug fixes for the live site
-        </li>
-      </ul>
-    ),
+    description: [
+      "Revised and improved the user manual to better guide users through the expungement process",
+      "Contributed to ongoing maintenance and bug fixes for the live site",
+    ],
     siteLink: "https://recordsponge.com/",
     repoLink: "https://github.com/codeforpdx/recordexpungPDX",
     sitePreview: RecordSpongePreview,
@@ -49,19 +34,10 @@ const projectList = [
   {
     title: "Families for Safe Streets",
     subheader: "Official website for Portland Families for Safe Streets",
-    description: (
-      <ul className="list-disc pl-4 text-left pt-4">
-        <li>
-          Built an accessible, mobile-first website for a nonprofit advocacy
-          organization, prioritizing semantic structure and accessibility best
-          practices
-        </li>
-        <li>
-          Translated Figma designs into reusable React components, focusing on
-          accessibility, responsiveness, and maintainable structure
-        </li>
-      </ul>
-    ),
+    description: [
+      "Built an accessible, mobile-first website for a nonprofit advocacy organization, prioritizing semantic structure and accessibility best practices",
+      "Translated Figma designs into reusable React components, focusing on accessibility, responsiveness, and maintainable structure",
+    ],
     siteLink: "https://pdxfamiliesforsafestreets.org/",
     repoLink: "https://github.com/BurlapRobot/pdx-fss",
     sitePreview: FSSPreview,
@@ -69,19 +45,10 @@ const projectList = [
   {
     title: "PASS",
     subheader: "Digital document storage and management tool",
-    description: (
-      <ul className="list-disc pl-4 text-left pt-4">
-        <li>
-          Developed a document management interface using Solid Protocol,
-          handling secure data retrieval and state synchronization
-        </li>
-        <li>
-          Implemented authentication workflows with Inrupt Solid Client
-          Libraries, navigating emerging web standards and decentralized access
-          patterns
-        </li>
-      </ul>
-    ),
+    description: [
+      "Developed a document management interface using Solid Protocol, handling secure data retrieval and state synchronization",
+      "Implemented authentication workflows with Inrupt Solid Client Libraries, navigating emerging web standards and decentralized access patterns",
+    ],
     siteLink: "https://pass-wine.vercel.app/",
     repoLink: "https://github.com/codeforpdx/PASS",
     sitePreview: PASSPreview,
@@ -89,18 +56,10 @@ const projectList = [
   {
     title: "Phase Tracker",
     subheader: "Subscription Tracking Tool for Phase Connect Members",
-    description: (
-      <ul className="list-disc pl-4 text-left pt-4">
-        <li>
-          Built a dynamic subscription tracking interface with conditional
-          rendering and data-driven UI updates
-        </li>
-        <li>
-          Designed reusable component patterns and motion-enhanced transitions
-          to improve scalability and maintainability
-        </li>
-      </ul>
-    ),
+    description: [
+      "Built a dynamic subscription tracking interface with conditional rendering and data-driven UI updates",
+      "Designed reusable component patterns and motion-enhanced transitions to improve scalability and maintainability",
+    ],
     siteLink: "https://phase-connect-tracker.netlify.app/",
     repoLink: "https://github.com/leekahung/phase-tracker",
     sitePreview: PhaseTrackerPreview,

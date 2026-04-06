@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import IconButton from "@/shared/components/IconButton";
 import About from "./About";
 import Contact from "./Contact";
@@ -8,12 +9,14 @@ interface Props {
 }
 
 export default function Section({ title, children }: Props) {
+  const dialogRef = useRef<HTMLDialogElement>(null);
+
   return (
     <>
       <div className="relative flex items-center justify-center flex-col gap-4">
         <IconButton
           onClick={() => {
-            (document.getElementById(title) as HTMLDialogElement).showModal();
+            dialogRef.current?.showModal();
             document.body.style.overflow = "hidden";
           }}
         >
@@ -25,7 +28,7 @@ export default function Section({ title, children }: Props) {
         <span className="absolute -bottom-1 w-0 peer-hover:w-[60%] peer-hover:h-px peer-hover:bg-blue-500 dark:peer-hover:bg-orange-300 transition-all duration-300" />
       </div>
       <dialog
-        id={title}
+        ref={dialogRef}
         className="m-auto w-full rounded-3xl backdrop:backdrop-blur-xs md:max-w-2xl bg-slate-200 dark:bg-slate-800 dark:text-slate-200 border"
         aria-labelledby={`${title}-heading`}
         onClose={() => {

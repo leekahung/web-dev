@@ -1,17 +1,16 @@
 import useTheme from "@/hooks/useTheme";
 import { useEffect, useRef } from "react";
 
+const INITIAL_BLOB_POSITION = {
+  x: window.innerWidth * 0.9,
+  y: window.innerHeight * 0.1,
+};
+
 export default function BackgroundBlob() {
   const { darkMode } = useTheme();
   const blobRef = useRef<HTMLDivElement>(null);
-  const targetRef = useRef({
-    x: window.innerWidth * 0.9,
-    y: window.innerHeight * 0.1,
-  });
-  const currentRef = useRef({
-    x: window.innerWidth * 0.9,
-    y: window.innerHeight * 0.1,
-  });
+  const targetRef = useRef({ ...INITIAL_BLOB_POSITION });
+  const currentRef = useRef({ ...INITIAL_BLOB_POSITION });
 
   useEffect(() => {
     const isFinePointer = window.matchMedia("(pointer: fine)").matches;
@@ -52,8 +51,8 @@ export default function BackgroundBlob() {
       className={`fixed h-40 w-40 rounded-full pointer-events-none blur-3xl opacity-20 z-50
           ${darkMode ? "bg-blue-500" : "bg-orange-300"}`}
       style={{
-        left: currentRef.current.x,
-        top: currentRef.current.y,
+        left: INITIAL_BLOB_POSITION.x,
+        top: INITIAL_BLOB_POSITION.y,
         transform: "translate(-50%, -50%)",
       }}
     />

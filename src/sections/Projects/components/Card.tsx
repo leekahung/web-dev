@@ -3,7 +3,7 @@ import ExternalLink from "@/shared/components/ExternalLink";
 interface Props {
   title: string;
   subheader: string;
-  description: React.ReactNode;
+  description: string[];
   siteLink: string;
   repoLink: string;
   sitePreview: string;
@@ -24,7 +24,11 @@ export default function Card({
       </h3>
       <em>{subheader}</em>
       <div className="flex [@media(max-width:600px)]:flex-col items-center py-2 flex-1">
-        <div className="p-3 pt-0">{description}</div>
+        <ul className="list-disc pl-4 text-left p-3 pt-0">
+          {description.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
         <img
           src={sitePreview}
           alt={`site preview for ${title}`}
