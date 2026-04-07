@@ -88,10 +88,11 @@ export default function Projects() {
       >
         Websites
       </motion.h2>
-      <div className="flex flex-wrap items-center justify-center text-sm lg:text-base gap-4 max-w-6xl mx-4 sm:mx-0">
+      <div className="grid grid-cols-1 sm:grid-cols-2 text-sm lg:text-base gap-4 max-w-3xl sm:max-w-6xl mx-4 sm:mx-0">
         {projectList.map((project, index) => (
           <motion.div
             key={project.title}
+            className={`flex flex-col${index === projectList.length - 1 && projectList.length % 2 !== 0 ? " sm:col-span-2 sm:max-w-[540px] sm:mx-auto sm:w-full" : ""}`}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}

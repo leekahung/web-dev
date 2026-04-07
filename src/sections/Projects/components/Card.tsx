@@ -18,27 +18,26 @@ export default function Card({
   sitePreview,
 }: Props) {
   return (
-    <div className="min-w-75 sm:w-135 lg:min-h-115 relative flex flex-col p-4 border rounded-lg bg-neutral-400/20 dark:bg-neutral-200/20 z-20 lg:hover:scale-[1.02] hover:shadow-lg transition-transform duration-300">
-      <h3 className="text-lg lg:text-2xl font-semibold items-center flex justify-center h-10">
-        {title}
-      </h3>
-      <em>{subheader}</em>
-      <div className="flex [@media(max-width:600px)]:flex-col items-center py-2 flex-1">
-        <ul className="list-disc pl-4 text-left p-3 pt-0">
+    <div className="min-h-96 flex-1 relative flex flex-col border rounded-lg bg-neutral-400/20 dark:bg-neutral-200/20 z-20 lg:hover:scale-[1.02] hover:shadow-lg transition-transform duration-300 overflow-hidden">
+      <img
+        src={sitePreview}
+        alt={`site preview for ${title}`}
+        className="w-full h-40 object-cover object-top"
+      />
+      <div className="flex flex-col flex-1 p-4 gap-2">
+        <h3 className="text-lg lg:text-2xl font-semibold text-center">
+          {title}
+        </h3>
+        <em className="text-center">{subheader}</em>
+        <ul className="list-disc pl-4 text-left flex-1 mt-2">
           {description.map((item) => (
             <li key={item}>{item}</li>
           ))}
         </ul>
-        <img
-          src={sitePreview}
-          alt={`site preview for ${title}`}
-          height={250}
-          width={250}
-        />
-      </div>
-      <div className="flex gap-4 items-center justify-center">
-        <ExternalLink to={repoLink}>Repository</ExternalLink>
-        <ExternalLink to={siteLink}>Live Site</ExternalLink>
+        <div className="flex gap-4 items-center justify-center pt-2">
+          <ExternalLink to={repoLink}>Repository</ExternalLink>
+          <ExternalLink to={siteLink}>Live Site</ExternalLink>
+        </div>
       </div>
     </div>
   );
