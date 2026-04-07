@@ -92,7 +92,7 @@ export default function Projects() {
         {projectList.map((project, index) => (
           <motion.div
             key={project.title}
-            className={`flex flex-col${index === projectList.length - 1 && projectList.length % 2 !== 0 ? " sm:col-span-2 sm:max-w-[540px] sm:mx-auto sm:w-full" : ""}`}
+            className={`flex flex-col${index === projectList.length - 1 && projectList.length % 2 !== 0 ? " sm:col-span-2 sm:max-w-135 sm:mx-auto sm:w-full" : ""}`}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
