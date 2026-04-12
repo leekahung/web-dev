@@ -86,7 +86,7 @@ export default function Projects() {
         transition={{ duration: 0.5 }}
         className="text-2xl sm:text-3xl font-bold"
       >
-        Websites
+        Projects
       </motion.h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 text-sm lg:text-base gap-4 max-w-3xl sm:max-w-6xl mx-4 sm:mx-0">
         {projectList.map((project, index) => (
@@ -109,6 +109,33 @@ export default function Projects() {
           </motion.div>
         ))}
       </div>
+      <motion.button
+        className="flex flex-col items-center gap-1 opacity-50 hover:opacity-100 transition-opacity duration-300 cursor-pointer mt-4 z-20"
+        onClick={() =>
+          document
+            .getElementById("skills")
+            ?.scrollIntoView({ behavior: "smooth" })
+        }
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 0.5 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.8 }}
+        aria-label="Scroll to skills and experience"
+      >
+        <span className="text-xs tracking-widest uppercase">Skills & Experience</span>
+        <motion.svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={1.5}
+          stroke="currentColor"
+          className="size-6"
+          animate={{ y: [0, 5, 0] }}
+          transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+        </motion.svg>
+      </motion.button>
       <FallingShapes containerRef={sectionRef} />
     </section>
   );

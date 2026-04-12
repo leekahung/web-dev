@@ -47,9 +47,7 @@ export default function About() {
           Before transitioning to frontend development, I was a graduate
           researcher at the Bredesen Center (Oak Ridge National Lab & University
           of Tennessee), where I honed problem-solving skills and data-driven
-          decision-making. I’m currently seeking frontend-focused roles where I
-          can collaborate with designers and deliver polished, user-friendly
-          applications.
+          decision-making. I’m always open to connecting with other engineers and contributing to meaningful projects.
         </p>
         <a
           className="rounded-full py-1 px-3 border dark:hover:bg-orange-300 dark:hover:text-black hover:bg-blue-500 hover:text-slate-200 transition-colors duration-300"

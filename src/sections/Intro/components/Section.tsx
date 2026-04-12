@@ -46,10 +46,12 @@ export default function Section({ title, children }: Props) {
           {getModalContent(title)}
           <form method="dialog" className="absolute top-4 right-6">
             <button
-              className="cursor-pointer rounded px-1 focus-visible:outline-2 focus-visible:outline-blue-500 dark:focus-visible:outline-orange-300"
+              className="cursor-pointer rounded p-1 focus-visible:outline-2 focus-visible:outline-blue-500 dark:focus-visible:outline-orange-300 opacity-60 hover:opacity-100 transition-opacity duration-150"
               aria-label="Close dialog"
             >
-              [ x ]
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="size-5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
+              </svg>
             </button>
           </form>
         </div>
