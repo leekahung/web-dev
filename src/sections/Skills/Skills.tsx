@@ -59,7 +59,7 @@ export default function Skills() {
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.5, delay: 0.1 }}
         role="list"
-        className="flex flex-col gap-4 p-6 bg-neutral-400/20 dark:bg-neutral-200/20 rounded-2xl will-change-transform"
+        className="flex flex-col gap-4 p-6 border bg-neutral-400/20 dark:bg-neutral-200/20 rounded-2xl will-change-transform"
       >
         <SkillRow itemName="Frontend" itemList={frontendList} />
         <SkillRow itemName="Backend/Data" itemList={backendList} />
