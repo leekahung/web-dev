@@ -16,12 +16,13 @@ export default function Shape({ containerDimensions }: Props) {
   return (
     <motion.div
       initial={{ y: -50, opacity: 0, rotate: 0 }}
-      animate={{ y: containerDimensions.y, opacity: [0, 0.5, 0], rotate: 360 }}
+      animate={{ y: Math.min(containerDimensions.y, window.innerHeight), opacity: [0, 0.5, 0], rotate: 360 }}
       transition={{
         duration: params.duration,
-        ease: "easeInOut",
+        ease: "easeIn",
         repeat: Infinity,
         repeatType: "loop",
+        times: [0, 0.2, 1],
       }}
       className="absolute top-0 -left-20 border-2"
       style={{

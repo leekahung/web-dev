@@ -16,6 +16,7 @@ const projectList = [
       "Led development of accessible, responsive frontend features for a production civic-tech app serving Oregon tenants",
       "Refactored shared state using TanStack Query + context abstraction, reducing redundant fetches and improving perceived load time",
     ],
+    tags: ["React", "TypeScript", "TanStack Query", "Tailwind CSS", "LangChain"],
     siteLink: "https://tenantfirstaid.com/",
     repoLink: "https://github.com/codeforpdx/tenantfirstaid",
     sitePreview: TFAPreview,
@@ -27,6 +28,7 @@ const projectList = [
       "Revised and improved the user manual to better guide users through the expungement process",
       "Contributed to ongoing maintenance and bug fixes for the live site",
     ],
+    tags: ["React", "TypeScript", "Redux", "Python", "SASS"],
     siteLink: "https://recordsponge.com/",
     repoLink: "https://github.com/codeforpdx/recordexpungPDX",
     sitePreview: RecordSpongePreview,
@@ -38,6 +40,7 @@ const projectList = [
       "Built an accessible, mobile-first website for a nonprofit advocacy organization, prioritizing semantic structure and accessibility best practices",
       "Translated Figma designs into reusable React components, focusing on accessibility, responsiveness, and maintainable structure",
     ],
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Netlify", "Decap CMS"],
     siteLink: "https://pdxfamiliesforsafestreets.org/",
     repoLink: "https://github.com/BurlapRobot/pdx-fss",
     sitePreview: FSSPreview,
@@ -49,6 +52,7 @@ const projectList = [
       "Developed a document management interface using Solid Protocol, handling secure data retrieval and state synchronization",
       "Implemented authentication workflows with Inrupt Solid Client Libraries, navigating emerging web standards and decentralized access patterns",
     ],
+    tags: ["React", "TypeScript", "MUI", "TanStack Query", "Solid Protocol"],
     siteLink: "https://pass-wine.vercel.app/",
     repoLink: "https://github.com/codeforpdx/PASS",
     sitePreview: PASSPreview,
@@ -60,6 +64,7 @@ const projectList = [
       "Built a dynamic subscription tracking interface with conditional rendering and data-driven UI updates",
       "Designed reusable component patterns and motion-enhanced transitions to improve scalability and maintainability",
     ],
+    tags: ["React", "TypeScript", "Supabase", "TanStack Query", "D3"],
     siteLink: "https://phase-connect-tracker.netlify.app/",
     repoLink: "https://github.com/leekahung/phase-tracker",
     sitePreview: PhaseTrackerPreview,
@@ -102,6 +107,7 @@ export default function Projects() {
               title={project.title}
               subheader={project.subheader}
               description={project.description}
+              tags={project.tags}
               siteLink={project.siteLink}
               repoLink={project.repoLink}
               sitePreview={project.sitePreview}

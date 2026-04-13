@@ -22,21 +22,21 @@ export default function Intro() {
           </h2>
           <div>
             <strong className="flex flex-wrap gap-2 items-center justify-center">
-              <span className="group inline-flex items-center gap-1.5 rounded-full px-3 py-0.5 bg-[#007ACC]/10 dark:bg-[#61DAFB]/10">
+              <span className="group inline-flex items-center gap-1.5 rounded-full px-3 py-0.5 bg-[#007ACC]/10 dark:bg-[#61DAFB]/10 border border-[#007ACC]/40 dark:border-[#61DAFB]/40">
                 <span className="text-[#007ACC] dark:text-[#61DAFB] relative">
                   React
                   <span className="absolute bottom-0.5 left-0 w-0 h-px bg-[#007ACC] dark:bg-[#61DAFB] group-hover:w-full transition-all duration-300" />
                 </span>
                 <span className="opacity-75">2+ yrs</span>
               </span>
-              <span className="group inline-flex items-center gap-1.5 rounded-full px-3 py-0.5 bg-[#2F855A]/10 dark:bg-[#5FD18D]/10">
+              <span className="group inline-flex items-center gap-1.5 rounded-full px-3 py-0.5 bg-[#2F855A]/10 dark:bg-[#5FD18D]/10 border border-[#2F855A]/40 dark:border-[#5FD18D]/40">
                 <span className="text-[#2F855A] dark:text-[#5FD18D] relative">
                   Civic-tech
                   <span className="absolute bottom-0.5 left-0 w-0 h-px bg-[#2F855A] dark:bg-[#5FD18D] group-hover:w-full transition-all duration-300" />
                 </span>
                 <span className="opacity-75">Contributor</span>
               </span>
-              <span className="group inline-flex items-center gap-1.5 rounded-full px-3 py-0.5 bg-[#D97706]/10 dark:bg-orange-300/10">
+              <span className="group inline-flex items-center gap-1.5 rounded-full px-3 py-0.5 bg-[#D97706]/10 dark:bg-orange-300/10 border border-[#D97706]/40 dark:border-orange-300/40">
                 <span className="text-[#D97706] dark:text-orange-300 relative">
                   Research
                   <span className="absolute bottom-0.5 left-0 w-0 h-px bg-[#D97706] dark:bg-orange-300 group-hover:w-full transition-all duration-300" />
