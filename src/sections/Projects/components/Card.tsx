@@ -65,7 +65,7 @@ export default function Card({
   sitePreview,
 }: Props) {
   return (
-    <div className="min-h-96 flex-1 relative flex flex-col border rounded-2xl bg-neutral-400/20 dark:bg-neutral-200/20 z-20 lg:hover:scale-[1.02] hover:shadow-lg transition-transform duration-300 overflow-hidden">
+    <div className="min-h-96 flex-1 relative flex flex-col border border-black/15 dark:border-white/15 rounded-2xl bg-neutral-400/30 dark:bg-neutral-200/30 z-20 lg:hover:scale-[1.02] hover:shadow-lg transition-transform duration-300 overflow-hidden">
       <img
         src={sitePreview}
         alt={`site preview for ${title}`}

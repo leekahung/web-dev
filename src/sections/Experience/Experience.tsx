@@ -20,7 +20,7 @@ export default function Experience() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.5, delay: 0.1 }}
-        className="flex flex-col items-center gap-6 p-6 text-sm sm:text-base border bg-neutral-400/20 dark:bg-neutral-200/20 rounded-2xl will-change-transform lg:h-full lg:w-full"
+        className="flex flex-col items-center gap-6 p-6 text-sm sm:text-base border border-black/15 dark:border-white/15 bg-neutral-400/20 dark:bg-neutral-200/20 rounded-2xl will-change-transform lg:h-full lg:w-full"
       >
         <div className="flex flex-col items-center gap-2">
           <div className="text-center">

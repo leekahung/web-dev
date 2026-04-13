@@ -116,14 +116,14 @@ export default function Projects() {
         ))}
       </div>
       <motion.button
-        className="flex flex-col items-center gap-1 opacity-50 hover:opacity-100 transition-opacity duration-300 cursor-pointer mt-4 z-20"
+        className="flex flex-col items-center gap-1 opacity-75 hover:opacity-100 transition-opacity duration-300 cursor-pointer mt-4 z-20"
         onClick={() =>
           document
             .getElementById("skills")
             ?.scrollIntoView({ behavior: "smooth" })
         }
         initial={{ opacity: 0 }}
-        whileInView={{ opacity: 0.5 }}
+        whileInView={{ opacity: 0.75 }}
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.8 }}
         aria-label="Scroll to skills and experience"

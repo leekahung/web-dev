@@ -8,7 +8,7 @@ export default function Intro() {
       aria-label="Introduction"
       className="relative h-screen flex flex-col items-center justify-center gap-6 cursor-default"
     >
-      <div className="flex flex-col items-center justify-center gap-6 bg-neutral-400/20 dark:bg-neutral-200/20 border rounded-2xl py-8 px-4 sm:p-8 mx-4 sm:mx-0">
+      <div className="flex flex-col items-center justify-center gap-6 bg-neutral-400/30 dark:bg-neutral-200/30 border border-black/15 dark:border-white/15 rounded-2xl py-8 px-4 sm:p-8 mx-4 sm:mx-0">
         <div className="flex flex-col items-center gap-4">
           <h1 className="text-2xl sm:text-3xl font-bold">
             Hey there! I'm{" "}
@@ -58,14 +58,14 @@ export default function Intro() {
         </div>
       </div>
       <motion.button
-        className="absolute bottom-24 flex flex-col items-center gap-1 opacity-50 hover:opacity-100 transition-opacity duration-300 cursor-pointer"
+        className="absolute bottom-24 flex flex-col items-center gap-1 opacity-75 hover:opacity-100 transition-opacity duration-300 cursor-pointer"
         onClick={() =>
           document
             .getElementById("projects")
             ?.scrollIntoView({ behavior: "smooth" })
         }
         initial={{ opacity: 0 }}
-        animate={{ opacity: 0.5 }}
+        animate={{ opacity: 0.75 }}
         transition={{ delay: 1, duration: 0.8 }}
         aria-label="Scroll to projects"
       >

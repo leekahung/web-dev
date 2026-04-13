@@ -52,10 +52,10 @@ export default function Layout({ children }: Props) {
             darkMode ? "clear_night.webp" : "overcast.webp"
           }`}
           alt=""
-          className="w-full h-full object-cover object-center opacity-20"
+          className="w-full h-full object-cover object-center opacity-35"
         />
       </div>
-      <header className="fixed w-full h-20 top-0 z-50 bg-slate-200 dark:bg-slate-800 transition-all duration-1000">
+      <header className="fixed w-full h-20 top-0 z-50 bg-slate-200/80 dark:bg-slate-800/80 backdrop-blur-md transition-all duration-1000">
         <div className="absolute top-5 left-10 lg:left-[10%] xl:left-[20%] flex gap-5">
           <ExternalLink to="https://github.com/leekahung">
             <img
@@ -100,7 +100,7 @@ export default function Layout({ children }: Props) {
       <main id="main-content" className="flex flex-col">
         {children}
       </main>
-      <footer className="fixed w-full h-20 bottom-0 z-50 bg-slate-200 dark:bg-slate-800 transition-all duration-1000">
+      <footer className="fixed w-full h-20 bottom-0 z-50 bg-slate-200/80 dark:bg-slate-800/80 backdrop-blur-md transition-all duration-1000">
         <div className="flex flex-col items-center justify-center gap-1 w-full h-full text-sm">
           <em className="font-light">
             &#169; {new Date().getFullYear()} Ka Hung Lee
