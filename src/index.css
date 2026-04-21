@@ -1,8 +1,18 @@
 @import "tailwindcss";
 
+@theme {
+  --breakpoint-mid: 850px;
+  --breakpoint-wide: 1250px;
+}
+
 @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
 }
 
 :root {

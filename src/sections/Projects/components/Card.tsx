@@ -3,21 +3,21 @@ import useTheme from "@/hooks/useTheme";
 
 /** Colors that need a lighter variant in dark mode or darker variant in light mode. */
 const tagColors: Record<string, { light: string; dark: string }> = {
-  "React":          { light: "#0891B2", dark: "#61DAFB" },
-  "TypeScript":     { light: "#1D4ED8", dark: "#60A5FA" },
+  React: { light: "#0891B2", dark: "#61DAFB" },
+  TypeScript: { light: "#1D4ED8", dark: "#60A5FA" },
   "TanStack Query": { light: "#E11D48", dark: "#FF4154" },
-  "Tailwind CSS":   { light: "#0369A1", dark: "#38BDF8" },
-  "LangChain":      { light: "#3F6212", dark: "#A3E635" },
-  "Redux":          { light: "#5B21B6", dark: "#A78BFA" },
-  "Python":         { light: "#B45309", dark: "#FCD34D" },
-  "SASS":           { light: "#9D174D", dark: "#F9A8D4" },
-  "Next.js":        { light: "#334155", dark: "#CBD5E1" },
-  "Netlify":        { light: "#0E7490", dark: "#22D3EE" },
-  "Decap CMS":      { light: "#C2410C", dark: "#FB923C" },
-  "MUI":            { light: "#1D4ED8", dark: "#60A5FA" },
+  "Tailwind CSS": { light: "#0369A1", dark: "#38BDF8" },
+  LangChain: { light: "#3F6212", dark: "#A3E635" },
+  Redux: { light: "#5B21B6", dark: "#A78BFA" },
+  Python: { light: "#B45309", dark: "#FCD34D" },
+  SASS: { light: "#9D174D", dark: "#F9A8D4" },
+  "Next.js": { light: "#334155", dark: "#CBD5E1" },
+  Netlify: { light: "#0E7490", dark: "#22D3EE" },
+  "Decap CMS": { light: "#C2410C", dark: "#FB923C" },
+  MUI: { light: "#1D4ED8", dark: "#60A5FA" },
   "Solid Protocol": { light: "#6D28D9", dark: "#C4B5FD" },
-  "Supabase":       { light: "#047857", dark: "#34D399" },
-  "D3":             { light: "#B45309", dark: "#FCD34D" },
+  Supabase: { light: "#047857", dark: "#34D399" },
+  D3: { light: "#B45309", dark: "#FCD34D" },
 };
 
 interface Props {

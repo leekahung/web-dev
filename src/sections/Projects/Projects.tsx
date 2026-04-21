@@ -16,7 +16,13 @@ const projectList = [
       "Led development of accessible, responsive frontend features for a production civic-tech app serving Oregon tenants",
       "Refactored shared state using TanStack Query + context abstraction, reducing redundant fetches and improving perceived load time",
     ],
-    tags: ["React", "TypeScript", "TanStack Query", "Tailwind CSS", "LangChain"],
+    tags: [
+      "React",
+      "TypeScript",
+      "TanStack Query",
+      "Tailwind CSS",
+      "LangChain",
+    ],
     siteLink: "https://tenantfirstaid.com/",
     repoLink: "https://github.com/codeforpdx/tenantfirstaid",
     sitePreview: TFAPreview,
@@ -93,11 +99,11 @@ export default function Projects() {
       >
         Projects
       </motion.h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 text-sm lg:text-base gap-4 max-w-3xl sm:max-w-6xl mx-4 sm:mx-0">
+      <div className="grid grid-cols-1 wide:grid-cols-2 text-sm lg:text-base gap-4 max-w-3xl wide:max-w-6xl mx-4 wide:mx-0">
         {projectList.map((project, index) => (
           <motion.div
             key={project.title}
-            className={`flex flex-col${index === projectList.length - 1 && projectList.length % 2 !== 0 ? " sm:col-span-2 sm:max-w-135 sm:mx-auto sm:w-full" : ""}`}
+            className={`flex flex-col${index === projectList.length - 1 && projectList.length % 2 !== 0 ? " wide:col-span-2 wide:max-w-135 wide:mx-auto wide:w-full" : ""}`}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
@@ -128,7 +134,9 @@ export default function Projects() {
         transition={{ duration: 0.8 }}
         aria-label="Scroll to skills and experience"
       >
-        <span className="text-xs tracking-widest uppercase">Skills & Experience</span>
+        <span className="text-xs tracking-widest uppercase">
+          Skills & Experience
+        </span>
         <motion.svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -139,7 +147,11 @@ export default function Projects() {
           animate={{ y: [0, 5, 0] }}
           transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
         >
-          <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="m19.5 8.25-7.5 7.5-7.5-7.5"
+          />
         </motion.svg>
       </motion.button>
       <FallingShapes containerRef={sectionRef} />

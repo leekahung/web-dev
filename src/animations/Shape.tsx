@@ -16,7 +16,11 @@ export default function Shape({ containerDimensions }: Props) {
   return (
     <motion.div
       initial={{ y: -50, opacity: 0, rotate: 0 }}
-      animate={{ y: Math.min(containerDimensions.y, window.innerHeight), opacity: [0, 0.5, 0], rotate: 360 }}
+      animate={{
+        y: Math.min(containerDimensions.y, window.innerHeight),
+        opacity: [0, 0.5, 0],
+        rotate: 360,
+      }}
       transition={{
         duration: params.duration,
         ease: "easeIn",

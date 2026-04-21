@@ -1,6 +1,6 @@
 export default function About() {
   return (
-    <div className="flex items-center flex-col gap-2 sm:gap-4">
+    <div className="flex items-center flex-col gap-2">
       <div className="h-30 w-30 sm:h-40 sm:w-40 rounded-full overflow-hidden relative ring-2 ring-blue-500 dark:ring-orange-300">
         <img
           src={`${import.meta.env.BASE_URL}/self_photo.webp`}
@@ -11,7 +11,7 @@ export default function About() {
       <p className="text-lg font-semibold sm:font-normal sm:text-2xl text-blue-500 dark:text-orange-300">
         Ka Hung Lee
       </p>
-      <div className="text-xs">
+      <div className="text-sm sm:text-base leading-relaxed mt-1 sm:mt-2">
         <p>
           Former engineer at{" "}
           <a
@@ -35,19 +35,17 @@ export default function About() {
           </a>
         </p>
       </div>
-      <div className="flex items-center flex-col gap-2 text-sm sm:text-base">
+      <div className="flex items-center flex-col gap-3 text-sm sm:text-base leading-relaxed mt-1 sm:mt-2">
         <p>
-          As a Frontend Engineer, I'm passionate about building intuitive and
-          inclusive web experiences using React, TypeScript, and modern CSS
-          tooling. I previously worked at LATERAL.systems and contributed to
-          civic-tech initiatives such as Code PDX to develop websites like
-          Tenant First Aid.
+          I’m a frontend engineer focused on building intuitive, inclusive web
+          experiences with React, TypeScript, and modern CSS — most recently at
+          LATERAL.systems and through civic-tech contributions at Code PDX.
         </p>
         <p>
-          Before transitioning to frontend development, I was a graduate
-          researcher at the Bredesen Center (Oak Ridge National Lab & University
-          of Tennessee), where I honed problem-solving skills and data-driven
-          decision-making. I’m always open to connecting with other engineers and contributing to meaningful projects.
+          Before frontend, I was a graduate researcher at the Bredesen Center
+          (Oak Ridge National Lab & University of Tennessee), applying
+          data-driven problem-solving to complex research. Always open to
+          connecting and contributing to meaningful work.
         </p>
         <a
           className="rounded-full py-1 px-3 border dark:hover:bg-orange-300 dark:hover:text-black hover:bg-blue-500 hover:text-slate-200 transition-colors duration-300"

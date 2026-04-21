@@ -43,7 +43,10 @@ const toolsList = [
 
 export default function Skills() {
   return (
-    <section aria-label="Skills" className="flex flex-col items-center justify-center max-w-80 sm:max-w-125 lg:flex-1 lg:self-stretch gap-4">
+    <section
+      aria-label="Skills"
+      className="flex flex-col items-center justify-center max-w-80 sm:max-w-125 lg:flex-1 lg:self-stretch gap-4"
+    >
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

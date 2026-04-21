@@ -18,7 +18,7 @@ export default function ThemeContextProvider({ children }: Props) {
 
   const themeProviderObject = useMemo(
     () => ({ darkMode, toggleDarkMode }),
-    [darkMode, toggleDarkMode]
+    [darkMode, toggleDarkMode],
   );
 
   useEffect(() => {

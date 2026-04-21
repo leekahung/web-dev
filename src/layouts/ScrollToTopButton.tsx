@@ -51,7 +51,7 @@ export default function ScrollToTopButton() {
         )}
       </AnimatePresence>
       <div
-        className="fixed overflow-hidden top-1/2 -translate-y-1/2 left-0 sm:left-5 w-1 h-20 bg-slate-400 rounded-full z-50"
+        className="fixed overflow-hidden top-1/2 -translate-y-1/2 left-0 mid:left-5 w-1 h-20 bg-slate-400 rounded-full z-50"
         role="progressbar"
         aria-label="Page scroll progress"
         aria-valuemin={0}
