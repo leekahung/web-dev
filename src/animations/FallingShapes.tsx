@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, type RefObject } from "react";
+import usePrefersReducedMotion from "@/hooks/usePrefersReducedMotion";
 import Shape from "./Shape";
 
 interface Props {
@@ -8,10 +9,13 @@ interface Props {
 let nextId = 0;
 
 export default function FallingShapes({ containerRef }: Props) {
+  const prefersReducedMotion = usePrefersReducedMotion();
   const [dimensions, setDimensions] = useState({ x: 0, y: 0 });
   const keysRef = useRef<number[]>([]);
 
   useEffect(() => {
+    if (prefersReducedMotion) return;
+
     const el = containerRef.current;
     if (!el) return;
 
@@ -22,7 +26,9 @@ export default function FallingShapes({ containerRef }: Props) {
 
     observer.observe(el);
     return () => observer.disconnect();
-  }, [containerRef]);
+  }, [containerRef, prefersReducedMotion]);
+
+  if (prefersReducedMotion) return null;
 
   const numShapes = Math.max(Math.floor(dimensions.x / 100), 8);
 

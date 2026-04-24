@@ -8,7 +8,21 @@
     "build": "bun --bun vite build",
     "lint": "bunx eslint .",
     "preview": "bun -bun vite preview",
-    "deploy": "bun run build && gh-pages -d dist"
+    "test": "vitest run",
+    "deploy": "bun run build && gh-pages -d dist",
+    "prepare": "bunx simple-git-hooks"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "bunx lint-staged && npx tsc --noEmit && bun run test"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.{json,css,md}": [
+      "prettier --write"
+    ]
   },
   "dependencies": {
     "motion": "^12.38.0",
@@ -22,18 +36,26 @@
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@tailwindcss/vite": "^4.2.2",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
     "@types/node": "^25.5.2",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.1",
     "eslint": "^10.2.0",
+    "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.5.2",
     "gh-pages": "^6.3.0",
     "globals": "^17.4.0",
+    "jsdom": "^29.0.2",
+    "lint-staged": "^16.4.0",
+    "prettier": "^3.8.3",
+    "simple-git-hooks": "^2.13.1",
     "tailwindcss": "^4.2.2",
     "typescript": "^6.0.2",
     "typescript-eslint": "^8.58.1",
-    "vite": "^8.0.7"
+    "vite": "^8.0.7",
+    "vitest": "^4.1.5"
   }
 }
