@@ -14,8 +14,6 @@ export default function FallingShapes({ containerRef }: Props) {
   const keysRef = useRef<number[]>([]);
 
   useEffect(() => {
-    if (prefersReducedMotion) return;
-
     const el = containerRef.current;
     if (!el) return;
 
@@ -26,9 +24,7 @@ export default function FallingShapes({ containerRef }: Props) {
 
     observer.observe(el);
     return () => observer.disconnect();
-  }, [containerRef, prefersReducedMotion]);
-
-  if (prefersReducedMotion) return null;
+  }, [containerRef]);
 
   const numShapes = Math.max(Math.floor(dimensions.x / 100), 8);
 
@@ -36,12 +32,14 @@ export default function FallingShapes({ containerRef }: Props) {
     keysRef.current.push(nextId++);
   }
 
-  const keys = keysRef.current.slice(0, numShapes);
-
   return (
     <>
-      {keys.map((id) => (
-        <Shape key={id} containerDimensions={dimensions} />
+      {keysRef.current.slice(0, numShapes).map((id) => (
+        <Shape
+          key={id}
+          containerDimensions={dimensions}
+          slowMotion={prefersReducedMotion}
+        />
       ))}
     </>
   );

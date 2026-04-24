@@ -17,7 +17,8 @@ export default function BackgroundBlob() {
   useEffect(() => {
     const isFinePointer = window.matchMedia("(pointer: fine)").matches;
     if (!isFinePointer) return;
-    if (prefersReducedMotion) return;
+
+    const lerpFactor = prefersReducedMotion ? 0.03 : 0.2;
 
     const handleMouseMove = (event: MouseEvent) => {
       targetRef.current.x = event.clientX;
@@ -27,9 +28,9 @@ export default function BackgroundBlob() {
     let frameId: number;
     const animate = () => {
       currentRef.current.x +=
-        (targetRef.current.x - currentRef.current.x) * 0.2;
+        (targetRef.current.x - currentRef.current.x) * lerpFactor;
       currentRef.current.y +=
-        (targetRef.current.y - currentRef.current.y) * 0.2;
+        (targetRef.current.y - currentRef.current.y) * lerpFactor;
 
       if (blobRef.current) {
         blobRef.current.style.left = `${currentRef.current.x}px`;
@@ -47,8 +48,6 @@ export default function BackgroundBlob() {
       cancelAnimationFrame(frameId);
     };
   }, [prefersReducedMotion]);
-
-  if (prefersReducedMotion) return null;
 
   return (
     <div
