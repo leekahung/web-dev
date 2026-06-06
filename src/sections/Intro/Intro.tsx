@@ -1,6 +1,7 @@
 import ChatIcon from "@/shared/components/icons/ChatIcon";
 import ProfileIcon from "@/shared/components/icons/ProfileIcon";
 import Section from "./components/Section";
+import ScrollDownButton from "@/shared/components/ScrollDownButton";
 import { motion, AnimatePresence } from "motion/react";
 import { useState, useEffect, useRef } from "react";
 import useTypewriter from "@/hooks/useTypewriter";
@@ -160,36 +161,16 @@ export default function Intro() {
           </Section>
         </div>
       </div>
-      <motion.button
-        className="absolute bottom-24 flex flex-col items-center gap-1 opacity-75 hover:opacity-100 transition-opacity duration-300 cursor-pointer"
-        onClick={() =>
-          document
-            .getElementById("projects")
-            ?.scrollIntoView({ behavior: "smooth" })
-        }
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.75 }}
-        transition={{ delay: 1, duration: 0.8 }}
-        aria-label="Scroll to projects"
-      >
-        <span className="text-xs tracking-widest uppercase">Projects</span>
-        <motion.svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="currentColor"
-          className="size-6"
-          animate={{ y: [0, 5, 0] }}
-          transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="m19.5 8.25-7.5 7.5-7.5-7.5"
-          />
-        </motion.svg>
-      </motion.button>
+      <ScrollDownButton
+        targetId="projects"
+        label="Projects"
+        ariaLabel="Scroll to projects"
+        className="absolute bottom-24"
+        reveal={{
+          animate: { opacity: 0.75 },
+          transition: { delay: 1, duration: 0.8 },
+        }}
+      />
     </section>
   );
 }

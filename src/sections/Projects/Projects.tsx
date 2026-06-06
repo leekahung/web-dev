@@ -2,6 +2,7 @@ import Card from "./components/Card";
 import { useRef } from "react";
 import { motion } from "motion/react";
 import FallingShapes from "@/animations/FallingShapes";
+import ScrollDownButton from "@/shared/components/ScrollDownButton";
 import TFAPreview from "../../shared/components/images/TenantFirstAid.webp";
 import FSSPreview from "../../shared/components/images/FSS.webp";
 import PASSPreview from "../../shared/components/images/PASS.png";
@@ -121,39 +122,17 @@ export default function Projects() {
           </motion.div>
         ))}
       </div>
-      <motion.button
-        className="flex flex-col items-center gap-1 opacity-75 hover:opacity-100 transition-opacity duration-300 cursor-pointer mt-4 z-20"
-        onClick={() =>
-          document
-            .getElementById("skills")
-            ?.scrollIntoView({ behavior: "smooth" })
-        }
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 0.75 }}
-        viewport={{ once: true, margin: "-50px" }}
-        transition={{ duration: 0.8 }}
-        aria-label="Scroll to skills and experience"
-      >
-        <span className="text-xs tracking-widest uppercase">
-          Skills & Experience
-        </span>
-        <motion.svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="currentColor"
-          className="size-6"
-          animate={{ y: [0, 5, 0] }}
-          transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="m19.5 8.25-7.5 7.5-7.5-7.5"
-          />
-        </motion.svg>
-      </motion.button>
+      <ScrollDownButton
+        targetId="skills"
+        label="Skills & Experience"
+        ariaLabel="Scroll to skills and experience"
+        className="mt-4 z-20"
+        reveal={{
+          whileInView: { opacity: 0.75 },
+          viewport: { once: true, margin: "-50px" },
+          transition: { duration: 0.8 },
+        }}
+      />
       <FallingShapes containerRef={sectionRef} />
     </section>
   );
