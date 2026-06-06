@@ -3,13 +3,9 @@ import { useState } from "react";
 
 interface Props {
   containerDimensions: { x: number; y: number };
-  slowMotion?: boolean;
 }
 
-export default function Shape({
-  containerDimensions,
-  slowMotion = false,
-}: Props) {
+export default function Shape({ containerDimensions }: Props) {
   const [params] = useState(() => ({
     xFraction: Math.random(),
     duration: 10 + Math.floor(Math.random() * 15),
@@ -26,7 +22,7 @@ export default function Shape({
         rotate: 360,
       }}
       transition={{
-        duration: slowMotion ? params.duration * 3 : params.duration,
+        duration: params.duration,
         ease: "easeIn",
         repeat: Infinity,
         repeatType: "loop",

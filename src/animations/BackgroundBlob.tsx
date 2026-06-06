@@ -1,5 +1,4 @@
 import useTheme from "@/hooks/useTheme";
-import usePrefersReducedMotion from "@/hooks/usePrefersReducedMotion";
 import { useEffect, useRef } from "react";
 
 const INITIAL_BLOB_POSITION = {
@@ -9,7 +8,6 @@ const INITIAL_BLOB_POSITION = {
 
 export default function BackgroundBlob() {
   const { darkMode } = useTheme();
-  const prefersReducedMotion = usePrefersReducedMotion();
   const blobRef = useRef<HTMLDivElement>(null);
   const targetRef = useRef({ ...INITIAL_BLOB_POSITION });
   const currentRef = useRef({ ...INITIAL_BLOB_POSITION });
@@ -18,7 +16,7 @@ export default function BackgroundBlob() {
     const isFinePointer = window.matchMedia("(pointer: fine)").matches;
     if (!isFinePointer) return;
 
-    const lerpFactor = prefersReducedMotion ? 0.03 : 0.2;
+    const lerpFactor = 0.2;
 
     const handleMouseMove = (event: MouseEvent) => {
       targetRef.current.x = event.clientX;
@@ -47,7 +45,7 @@ export default function BackgroundBlob() {
       window.removeEventListener("mousemove", handleMouseMove);
       cancelAnimationFrame(frameId);
     };
-  }, [prefersReducedMotion]);
+  }, []);
 
   return (
     <div
