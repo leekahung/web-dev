@@ -1,40 +1,38 @@
-import { useEffect, useRef, useState, type RefObject } from "react";
+import { useEffect, useRef, useState } from "react";
 import Shape from "./Shape";
 
 interface Props {
-  containerRef: RefObject<HTMLElement | null>;
+  /** Positions the shapes area, e.g. `inset-x-0 top-0 bottom-0`. */
+  className?: string;
 }
 
-let nextId = 0;
-
-export default function FallingShapes({ containerRef }: Props) {
-  const [dimensions, setDimensions] = useState({ x: 0, y: 0 });
-  const keysRef = useRef<number[]>([]);
+export default function FallingShapes({ className }: Props) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [width, setWidth] = useState(0);
 
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
 
     const observer = new ResizeObserver(([entry]) => {
-      const { width, height } = entry.contentRect;
-      setDimensions({ x: width, y: height });
+      setWidth(entry.contentRect.width);
     });
 
     observer.observe(el);
     return () => observer.disconnect();
-  }, [containerRef]);
+  }, []);
 
-  const numShapes = Math.max(Math.floor(dimensions.x / 100), 8);
+  const numShapes = Math.max(Math.floor(width / 100), 8);
 
-  while (keysRef.current.length < numShapes) {
-    keysRef.current.push(nextId++);
-  }
-
+  // Shapes are only added/removed at the end, so index keys stay stable
   return (
-    <>
-      {keysRef.current.slice(0, numShapes).map((id) => (
-        <Shape key={id} containerDimensions={dimensions} />
+    <div
+      ref={containerRef}
+      className={`absolute overflow-hidden pointer-events-none ${className ?? ""}`}
+    >
+      {Array.from({ length: numShapes }, (_, i) => (
+        <Shape key={i} />
       ))}
-    </>
+    </div>
   );
 }

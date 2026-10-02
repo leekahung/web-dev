@@ -1,6 +1,5 @@
 import { render, act } from "@testing-library/react";
 import { describe, it, expect, beforeEach, vi } from "vitest";
-import { createRef } from "react";
 import FallingShapes from "./FallingShapes";
 
 type ResizeCallback = (entries: { contentRect: DOMRectReadOnly }[]) => void;
@@ -25,9 +24,7 @@ function fireResize(width: number) {
 }
 
 function renderShapes() {
-  const ref = createRef<HTMLElement>();
-  ref.current = document.createElement("div");
-  return render(<FallingShapes containerRef={ref} />);
+  return render(<FallingShapes />);
 }
 
 describe("FallingShapes", () => {

@@ -1,11 +1,10 @@
 import Card from "./components/Card";
-import { useRef } from "react";
 import { motion } from "motion/react";
 import FallingShapes from "@/animations/FallingShapes";
 import ScrollDownButton from "@/shared/components/ScrollDownButton";
 import TFAPreview from "../../shared/components/images/TenantFirstAid.webp";
 import FSSPreview from "../../shared/components/images/FSS.webp";
-import PASSPreview from "../../shared/components/images/PASS.png";
+import PASSPreview from "../../shared/components/images/PASS.webp";
 import PhaseTrackerPreview from "../../shared/components/images/Phase-Tracker.webp";
 import RecordSpongePreview from "../../shared/components/images/RecordSponge.webp";
 
@@ -66,7 +65,7 @@ const projectList = [
   },
   {
     title: "Phase Tracker",
-    subheader: "Subscription Tracking Tool for Phase Connect Members",
+    subheader: "Subscription tracking tool for Phase Connect members",
     description: [
       "Built a dynamic subscription tracking interface with conditional rendering and data-driven UI updates",
       "Designed reusable component patterns and motion-enhanced transitions to improve scalability and maintainability",
@@ -79,12 +78,9 @@ const projectList = [
 ];
 
 export default function Projects() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-
   return (
     <section
-      className="relative sm:h-full flex flex-col items-center justify-center gap-4 pb-8 overflow-hidden"
-      ref={sectionRef}
+      className="relative sm:h-full flex flex-col items-center justify-center gap-4 pb-8"
       aria-label="Projects"
     >
       <div
@@ -133,7 +129,8 @@ export default function Projects() {
           transition: { duration: 0.8 },
         }}
       />
-      <FallingShapes containerRef={sectionRef} />
+      {/* -top-20 starts the shapes just below the intro's "Projects" scroll button (bottom-24) */}
+      <FallingShapes className="inset-x-0 -top-20 bottom-0" />
     </section>
   );
 }
