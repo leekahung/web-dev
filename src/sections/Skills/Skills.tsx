@@ -16,10 +16,10 @@ import tanstackLogo from "../../shared/components/icons/tanstack-logo-100.png";
 import { motion } from "motion/react";
 
 const frontendList = [
-  { name: "React.js", element: <ReactIcon /> },
+  { name: "React", element: <ReactIcon /> },
   { name: "TypeScript", element: <TypeScriptIcon /> },
   {
-    name: "Tanstack Query",
+    name: "TanStack Query",
     element: <img src={tanstackLogo} alt="" height={24} width={24} />,
   },
   { name: "Tailwind CSS", element: <TailwindIcon /> },

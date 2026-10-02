@@ -9,11 +9,11 @@ import useTypewriter from "@/hooks/useTypewriter";
 const PHRASES = [
   {
     text: "production-ready React apps",
-    color: "text-[#007ACC] dark:text-[#61DAFB]",
+    color: "text-[#005A9E] dark:text-[#61DAFB]",
   },
   {
     text: "open-source civic-tech tools",
-    color: "text-[#2F855A] dark:text-[#5FD18D]",
+    color: "text-[#22543D] dark:text-[#5FD18D]",
   },
   {
     text: "accessible, data-heavy UIs",
@@ -25,6 +25,9 @@ const PAUSE_MS = 2200;
 const RESTART_DELAY_MS = 1500;
 const DELETE_SPEED = 40;
 const LAST = PHRASES.length - 1;
+const FULL_PHRASE = `I build ${PHRASES.slice(0, LAST)
+  .map((p) => p.text)
+  .join(", ")}, and ${PHRASES[LAST].text}`;
 
 function Cursor() {
   return (
@@ -83,8 +86,14 @@ export default function Intro() {
             <span className="text-blue-500 dark:text-orange-300">Ka Hung</span>
           </h1>
           <h2 className="text-base sm:text-xl max-w-75 sm:max-w-100 min-h-[2lh] sm:min-h-lh flex items-center gap-1 font-semibold">
-            I build{" "}
-            <span className="inline-block" style={{ perspective: "400px" }}>
+            <span className="sr-only">{FULL_PHRASE}</span>
+            {/* Animated text is hidden from screen readers, which get FULL_PHRASE instead */}
+            <span aria-hidden="true">I build</span>
+            <span
+              aria-hidden="true"
+              className="inline-block"
+              style={{ perspective: "400px" }}
+            >
               <AnimatePresence
                 mode="wait"
                 onExitComplete={() => {
@@ -126,21 +135,21 @@ export default function Intro() {
           </h2>
           <div>
             <strong className="flex flex-wrap gap-2 items-center justify-center">
-              <span className="group inline-flex items-center gap-1.5 rounded-full px-3 py-0.5 bg-[#007ACC]/10 dark:bg-[#61DAFB]/10 border border-[#007ACC]/40 dark:border-[#61DAFB]/40">
-                <span className="text-[#007ACC] dark:text-[#61DAFB] relative">
+              <span className="group inline-flex items-center gap-1.5 rounded-full px-3 py-0.5 bg-white/70 dark:bg-slate-900/80 bg-[linear-gradient(#005A9E1A,#005A9E1A)] dark:bg-[linear-gradient(#61DAFB1A,#61DAFB1A)] border border-[#005A9E]/40 dark:border-[#61DAFB]/40">
+                <span className="text-[#005A9E] dark:text-[#61DAFB] relative">
                   React
-                  <span className="absolute bottom-0.5 left-0 w-0 h-px bg-[#007ACC] dark:bg-[#61DAFB] group-hover:w-full transition-all duration-300" />
+                  <span className="absolute bottom-0.5 left-0 w-0 h-px bg-[#005A9E] dark:bg-[#61DAFB] group-hover:w-full transition-all duration-300" />
                 </span>
-                <span>2+ yrs</span>
+                <span>3+ yrs</span>
               </span>
-              <span className="group inline-flex items-center gap-1.5 rounded-full px-3 py-0.5 bg-[#2F855A]/10 dark:bg-[#5FD18D]/10 border border-[#2F855A]/40 dark:border-[#5FD18D]/40">
-                <span className="text-[#2F855A] dark:text-[#5FD18D] relative">
+              <span className="group inline-flex items-center gap-1.5 rounded-full px-3 py-0.5 bg-white/70 dark:bg-slate-900/80 bg-[linear-gradient(#22543D1A,#22543D1A)] dark:bg-[linear-gradient(#5FD18D1A,#5FD18D1A)] border border-[#22543D]/40 dark:border-[#5FD18D]/40">
+                <span className="text-[#22543D] dark:text-[#5FD18D] relative">
                   Civic-tech
-                  <span className="absolute bottom-0.5 left-0 w-0 h-px bg-[#2F855A] dark:bg-[#5FD18D] group-hover:w-full transition-all duration-300" />
+                  <span className="absolute bottom-0.5 left-0 w-0 h-px bg-[#22543D] dark:bg-[#5FD18D] group-hover:w-full transition-all duration-300" />
                 </span>
                 <span>Contributor</span>
               </span>
-              <span className="group inline-flex items-center gap-1.5 rounded-full px-3 py-0.5 bg-red-700/10 dark:bg-orange-300/10 border border-red-700/40 dark:border-orange-300/40">
+              <span className="group inline-flex items-center gap-1.5 rounded-full px-3 py-0.5 bg-white/70 dark:bg-slate-900/80 bg-[linear-gradient(#b91c1c1A,#b91c1c1A)] dark:bg-[linear-gradient(#ffb86a1A,#ffb86a1A)] border border-red-700/40 dark:border-orange-300/40">
                 <span className="text-red-700 dark:text-orange-300 relative">
                   Research
                   <span className="absolute bottom-0.5 left-0 w-0 h-px bg-red-700 dark:bg-orange-300 group-hover:w-full transition-all duration-300" />
@@ -168,7 +177,7 @@ export default function Intro() {
         className="absolute bottom-24"
         reveal={{
           animate: { opacity: 0.75 },
-          transition: { delay: 1, duration: 0.8 },
+          transition: { delay: 0.3, duration: 0.5 },
         }}
       />
     </section>
