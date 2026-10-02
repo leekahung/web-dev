@@ -5,6 +5,7 @@ import UpChevron from "../shared/components/icons/UpChevron";
 export default function ScrollToTopButton() {
   const [showScrollToTop, setShowScrollToTop] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
+  const progressRef = useRef<HTMLDivElement>(null);
   const progressBarRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -15,12 +16,25 @@ export default function ScrollToTopButton() {
         document.documentElement.scrollHeight -
         document.documentElement.clientHeight;
       const sectionPadding = 80;
+      const scrollableHeight = pageHeight - sectionPadding;
+      // A page too short to scroll counts as fully read
       const scrollProgress =
-        (scrollPositionTop / (pageHeight - sectionPadding)) * 100;
-      if (progressBarRef.current === null) return;
+        scrollableHeight > 0
+          ? Math.min(
+              Math.max((scrollPositionTop / scrollableHeight) * 100, 0),
+              100,
+            )
+          : 100;
+      if (progressBarRef.current === null || progressRef.current === null)
+        return;
       progressBarRef.current.style.height = `${scrollProgress}%`;
+      progressRef.current.setAttribute(
+        "aria-valuenow",
+        String(Math.round(scrollProgress)),
+      );
     };
 
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -52,6 +66,7 @@ export default function ScrollToTopButton() {
       </AnimatePresence>
       <div
         className="fixed overflow-hidden top-1/2 -translate-y-1/2 left-0 mid:left-5 w-1 h-20 bg-slate-400 rounded-full z-50"
+        ref={progressRef}
         role="progressbar"
         aria-label="Page scroll progress"
         aria-valuemin={0}

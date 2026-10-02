@@ -35,7 +35,7 @@ export default function Layout({ children }: Props) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{
-        duration: 1.5,
+        duration: 0.4,
         ease: "easeIn",
       }}
       className="relative w-full dark:text-slate-200 bg-slate-200 dark:bg-slate-800 transition-all duration-1000"
@@ -48,7 +48,7 @@ export default function Layout({ children }: Props) {
       </a>
       <div className={`fixed h-screen w-screen ${imageMaskStyling}`}>
         <img
-          src={`${import.meta.env.BASE_URL}/${
+          src={`${import.meta.env.BASE_URL}${
             darkMode ? "clear_night.webp" : "overcast.webp"
           }`}
           alt=""
