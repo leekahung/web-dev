@@ -11,6 +11,17 @@
     <meta name="author" content="Ka Hung Lee" />
     <link rel="canonical" href="https://kahunglee.github.io/web-dev/" />
     <meta name="theme-color" content="#1e293b" />
+    <!-- Apply saved light theme before first paint to avoid a dark flash -->
+    <script>
+      try {
+        if (localStorage.getItem("theme") === "light") {
+          document.documentElement.classList.remove("dark");
+          document
+            .querySelector('meta[name="theme-color"]')
+            .setAttribute("content", "#e2e8f0");
+        }
+      } catch {}
+    </script>
 
     <!-- Open Graph -->
     <meta

@@ -1,5 +1,5 @@
 import { renderHook, act } from "@testing-library/react";
-import { describe, it, expect, beforeEach } from "vitest";
+import { describe, it, expect, beforeEach, afterEach, vi } from "vitest";
 import React from "react";
 import ThemeContextProvider from "./ThemeContextProvider";
 import useTheme from "@/hooks/useTheme";
@@ -15,6 +15,10 @@ describe("ThemeContextProvider", () => {
     document.head
       .querySelectorAll('meta[name="theme-color"]')
       .forEach((el) => el.remove());
+  });
+
+  afterEach(() => {
+    vi.restoreAllMocks();
   });
 
   it("initializes darkMode=true and adds 'dark' class by default", () => {
@@ -71,6 +75,22 @@ describe("ThemeContextProvider", () => {
     });
 
     expect(meta.getAttribute("content")).toBe("#e2e8f0");
+  });
+
+  it("falls back to dark mode when localStorage is blocked", () => {
+    const blocked = () => {
+      throw new DOMException("Access denied", "SecurityError");
+    };
+    vi.spyOn(Storage.prototype, "getItem").mockImplementation(blocked);
+    vi.spyOn(Storage.prototype, "setItem").mockImplementation(blocked);
+
+    const { result } = renderHook(() => useTheme(), { wrapper });
+
+    expect(result.current.darkMode).toBe(true);
+    act(() => {
+      result.current.toggleDarkMode();
+    });
+    expect(result.current.darkMode).toBe(false);
   });
 });
 

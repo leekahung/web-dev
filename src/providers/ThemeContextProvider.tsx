@@ -7,7 +7,12 @@ interface Props {
 
 export default function ThemeContextProvider({ children }: Props) {
   const [darkMode, setDarkMode] = useState(() => {
-    const isLight = localStorage.getItem("theme") === "light";
+    let isLight = false;
+    try {
+      isLight = localStorage.getItem("theme") === "light";
+    } catch {
+      // Storage blocked (e.g. site data disabled); fall back to dark.
+    }
     if (isLight) document.documentElement.classList.remove("dark");
     return !isLight;
   });
@@ -23,12 +28,15 @@ export default function ThemeContextProvider({ children }: Props) {
 
   useEffect(() => {
     const themeColor = document.querySelector('meta[name="theme-color"]');
+    try {
+      localStorage.setItem("theme", darkMode ? "dark" : "light");
+    } catch {
+      // Storage blocked; theme just won't persist across visits.
+    }
     if (darkMode) {
-      localStorage.setItem("theme", "dark");
       document.documentElement.classList.add("dark");
       themeColor?.setAttribute("content", "#1e293b");
     } else {
-      localStorage.setItem("theme", "light");
       document.documentElement.classList.remove("dark");
       themeColor?.setAttribute("content", "#e2e8f0");
     }
