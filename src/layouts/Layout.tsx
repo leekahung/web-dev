@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import useTheme from "@/hooks/useTheme";
 import { motion } from "motion/react";
 import SVGIcon from "@/shared/components/SVGIcon";
@@ -13,6 +14,14 @@ interface Props {
 
 export default function Layout({ children }: Props) {
   const { darkMode, toggleDarkMode } = useTheme();
+
+  useEffect(() => {
+    // Warm the cache with the other theme's photo so the first toggle doesn't paint it in
+    const otherPhoto = new Image();
+    otherPhoto.src = `${import.meta.env.BASE_URL}${
+      darkMode ? "overcast.webp" : "clear_night.webp"
+    }`;
+  }, [darkMode]);
 
   const imageMaskStyling = `
     [mask-image:linear-gradient(to_right,transparent,black_20%,black_80%,transparent),linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)]
@@ -38,7 +47,7 @@ export default function Layout({ children }: Props) {
         duration: 0.4,
         ease: "easeIn",
       }}
-      className="relative w-full dark:text-slate-200 bg-slate-200 dark:bg-slate-800 transition-all duration-1000"
+      className="relative w-full dark:text-slate-200 bg-slate-200 dark:bg-slate-800 transition-colors duration-300"
     >
       <a
         href="#main-content"
@@ -55,7 +64,7 @@ export default function Layout({ children }: Props) {
           className="w-full h-full object-cover object-center opacity-35"
         />
       </div>
-      <header className="fixed w-full h-20 top-0 z-50 bg-slate-200/80 dark:bg-slate-800/80 backdrop-blur-md transition-all duration-1000">
+      <header className="fixed w-full h-20 top-0 z-50 bg-slate-200/80 dark:bg-slate-800/80 backdrop-blur-md transition-colors duration-300">
         <div className="absolute top-5 left-10 lg:left-[10%] xl:left-[20%] flex gap-5">
           <ExternalLink to="https://github.com/leekahung">
             <img
@@ -100,7 +109,7 @@ export default function Layout({ children }: Props) {
       <main id="main-content" className="flex flex-col">
         {children}
       </main>
-      <footer className="fixed w-full h-20 bottom-0 z-50 bg-slate-200/80 dark:bg-slate-800/80 backdrop-blur-md transition-all duration-1000">
+      <footer className="fixed w-full h-20 bottom-0 z-50 bg-slate-200/80 dark:bg-slate-800/80 backdrop-blur-md transition-colors duration-300">
         <div className="flex flex-col items-center justify-center gap-1 w-full h-full text-sm">
           <em className="font-light">
             &#169; {new Date().getFullYear()} Ka Hung Lee
