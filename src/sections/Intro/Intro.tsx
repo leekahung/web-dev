@@ -91,9 +91,19 @@ export default function Intro() {
             <span aria-hidden="true">I build</span>
             <span
               aria-hidden="true"
-              className="inline-block"
+              className="inline-grid justify-items-start"
               style={{ perspective: "400px" }}
             >
+              {/* Invisible phrases reserve the widest width so the line doesn't re-center while typing */}
+              {PHRASES.map((p) => (
+                <span
+                  key={p.text}
+                  className="invisible col-start-1 row-start-1"
+                >
+                  {p.text}
+                  <Cursor />
+                </span>
+              ))}
               <AnimatePresence
                 mode="wait"
                 onExitComplete={() => {
@@ -106,7 +116,7 @@ export default function Intro() {
                 {phase === 0 ? (
                   <motion.span
                     key="typewriter"
-                    className={`inline-block ${PHRASES[0].color}`}
+                    className={`inline-block col-start-1 row-start-1 ${PHRASES[0].color}`}
                     exit={{ rotateX: 90, opacity: 0 }}
                     transition={{ duration: 0.45, ease: "easeIn" }}
                     style={{ transformOrigin: "50% 0%" }}
@@ -117,7 +127,7 @@ export default function Intro() {
                 ) : (
                   <motion.span
                     key={phase > LAST ? LAST : phase}
-                    className={`inline-block ${PHRASES[Math.min(phase, LAST)].color}`}
+                    className={`inline-block col-start-1 row-start-1 ${PHRASES[Math.min(phase, LAST)].color}`}
                     initial={{ rotateX: -90, opacity: 0 }}
                     animate={{ rotateX: 0, opacity: 1 }}
                     exit={{ rotateX: 90, opacity: 0 }}
