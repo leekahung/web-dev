@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import usePrefersReducedMotion from "@/hooks/usePrefersReducedMotion";
 import Shape from "./Shape";
 
 interface Props {
@@ -9,7 +10,9 @@ interface Props {
 export default function FallingShapes({ className }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [width, setWidth] = useState(0);
+  const shouldReduceMotion = usePrefersReducedMotion();
 
+  // Re-runs when reduced motion turns off, since the container only mounts then
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
@@ -20,7 +23,10 @@ export default function FallingShapes({ className }: Props) {
 
     observer.observe(el);
     return () => observer.disconnect();
-  }, []);
+  }, [shouldReduceMotion]);
+
+  // Purely decorative, so drop them rather than leave shapes fading in place
+  if (shouldReduceMotion) return null;
 
   const numShapes = Math.max(Math.floor(width / 100), 8);
 

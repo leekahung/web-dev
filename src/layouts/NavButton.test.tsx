@@ -38,6 +38,24 @@ describe("NavButton", () => {
     expect(toggle.getAttribute("aria-expanded")).toBe("false");
   });
 
+  it("closes the menu as soon as a section is chosen", () => {
+    render(<NavButton />);
+    const toggle = openMenu();
+
+    fireEvent.click(screen.getByRole("button", { name: "Projects" }));
+
+    expect(toggle.getAttribute("aria-expanded")).toBe("false");
+  });
+
+  it("returns focus to the toggle after a section is chosen", () => {
+    render(<NavButton />);
+    const toggle = openMenu();
+
+    fireEvent.click(screen.getByRole("button", { name: "Projects" }));
+
+    expect(document.activeElement).toBe(toggle);
+  });
+
   it("stays open on a click inside the nav", () => {
     render(<NavButton />);
     const toggle = openMenu();

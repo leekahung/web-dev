@@ -24,7 +24,7 @@ describe("ScrollDownButton", () => {
     expect(screen.getByText("Projects")).toBeTruthy();
   });
 
-  it("smooth-scrolls the target element into view on click", () => {
+  it("scrolls the target element into view on click", () => {
     const target = document.createElement("div");
     target.id = "projects";
     document.body.appendChild(target);
@@ -40,7 +40,7 @@ describe("ScrollDownButton", () => {
 
     fireEvent.click(screen.getByRole("button"));
 
-    expect(target.scrollIntoView).toHaveBeenCalledWith({ behavior: "smooth" });
+    expect(target.scrollIntoView).toHaveBeenCalled();
   });
 
   it("does not throw when the target element is missing", () => {

@@ -85,7 +85,7 @@ export default function Projects() {
     >
       <div
         id="projects"
-        className="scroll-mt-20 [@media(min-height:900px)]:scroll-mt-40"
+        className="scroll-mt-20 short:scroll-mt-14 tall:scroll-mt-40"
       />
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
@@ -129,8 +129,8 @@ export default function Projects() {
           transition: { duration: 0.8 },
         }}
       />
-      {/* -top-20 starts the shapes just below the intro's "Projects" scroll button (bottom-24) */}
-      <FallingShapes className="inset-x-0 -top-20 bottom-0" />
+      {/* Reaches up into the intro's bottom padding (pb-24, short:pb-16), ending just below its "Projects" scroll button */}
+      <FallingShapes className="inset-x-0 -top-20 short:-top-12 bottom-0" />
     </section>
   );
 }

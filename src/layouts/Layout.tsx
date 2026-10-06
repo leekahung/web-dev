@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import useTheme from "@/hooks/useTheme";
+import useScrollTo from "@/hooks/useScrollTo";
 import { motion } from "motion/react";
 import SVGIcon from "@/shared/components/SVGIcon";
 import ExternalLink from "@/shared/components/ExternalLink";
@@ -8,6 +9,8 @@ import ScrollToTopButton from "@/layouts/ScrollToTopButton";
 import NavButton from "./NavButton";
 import OrcIdIcon from "@/shared/components/icons/OrcIdIcon";
 import LogoIcon from "@/shared/components/icons/LogoIcon";
+import GitHubIcon from "@/shared/components/icons/GitHubIcon";
+import LinkedInIcon from "@/shared/components/icons/LinkedInIcon";
 
 interface Props {
   children: React.ReactNode;
@@ -15,6 +18,7 @@ interface Props {
 
 export default function Layout({ children }: Props) {
   const { darkMode, toggleDarkMode } = useTheme();
+  const scrollTo = useScrollTo();
 
   useEffect(() => {
     // Warm the cache with the other theme's photo so the first toggle doesn't paint it in
@@ -24,17 +28,16 @@ export default function Layout({ children }: Props) {
     }`;
   }, [darkMode]);
 
+  // Shared by the header and the bottom strip so both blend into the backdrop the same way
+  const blurBarStyling =
+    "bg-slate-200/80 dark:bg-slate-800/80 backdrop-blur-md transition-colors duration-300";
+
   const imageMaskStyling = `
     [mask-image:linear-gradient(to_right,transparent,black_20%,black_80%,transparent),linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)]
-    [mask-composite:source-in]
+    mask-intersect
     [mask-size:100%_80%]
-    [mask-position:center_center]
-    [mask-repeat:no-repeat]
-    [-webkit-mask-image:linear-gradient(to_right,transparent,black_20%,black_80%,transparent),linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)]
-    [-webkit-mask-composite:source-in]
-    [-webkit-mask-size:100%_80%]
-    [-webkit-mask-position:center_center]
-    [-webkit-mask-repeat:no-repeat]
+    mask-center
+    mask-no-repeat
     background-img-mask
     bg-gradient-to-t from-blue-400/20 via-blue-500/20 to-blue-600/20
     dark:bg-gradient-to-t dark:from-orange-300/15 dark:via-orange-400/15 dark:to-orange-500/15
@@ -65,28 +68,31 @@ export default function Layout({ children }: Props) {
           className="w-full h-full object-cover object-center opacity-35"
         />
       </div>
-      <header className="fixed w-full h-20 top-0 z-50 bg-slate-200/80 dark:bg-slate-800/80 backdrop-blur-md transition-colors duration-300">
-        <div className="absolute top-6 sm:top-5 left-6 sm:left-10 lg:left-[10%] xl:left-[20%] flex items-center gap-4 sm:gap-5">
+      <header className="fixed w-full h-20 short:h-14 top-0 z-50">
+        {/* Background and blur fade out toward the bottom so the header blends into the backdrop */}
+        <div
+          aria-hidden="true"
+          className={`absolute inset-0 -z-10 ${blurBarStyling} mask-b-from-60%`}
+        />
+        <div className="absolute top-6 sm:top-5 short:top-2 short:scale-80 short:origin-left left-6 sm:left-10 lg:left-1/10 xl:left-1/5 flex items-center gap-4 sm:gap-5">
           <button
             className="cursor-pointer hover:scale-110 transition-transform duration-300"
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            onClick={() => scrollTo(0)}
             aria-label="Back to top"
           >
             <LogoIcon />
           </button>
-          <ExternalLink to="https://github.com/leekahung">
-            <img
-              className="dark:invert h-8 w-8 sm:h-10 sm:w-10 hover:scale-110 transition-transform duration-300"
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
-              alt="GitHub Profile"
-            />
+          <ExternalLink
+            to="https://github.com/leekahung"
+            aria-label="GitHub Profile"
+          >
+            <GitHubIcon className="h-8 w-8 sm:h-10 sm:w-10 hover:scale-110 transition-transform duration-300" />
           </ExternalLink>
-          <ExternalLink to="https://www.linkedin.com/in/ka-hung-lee/">
-            <img
-              className="h-8 w-8 sm:h-10 sm:w-10 hover:scale-110 transition-transform duration-300"
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
-              alt="LinkedIn Profile"
-            />
+          <ExternalLink
+            to="https://www.linkedin.com/in/ka-hung-lee/"
+            aria-label="LinkedIn Profile"
+          >
+            <LinkedInIcon />
           </ExternalLink>
           <ExternalLink
             to="https://www.orcid.org/0000-0003-1429-7872"
@@ -95,7 +101,7 @@ export default function Layout({ children }: Props) {
             <OrcIdIcon />
           </ExternalLink>
         </div>
-        <div className="absolute top-6 sm:top-5 right-6 sm:right-10 lg:right-[10%] xl:right-[20%] z-10">
+        <div className="absolute top-6 sm:top-5 short:top-2 short:scale-80 short:origin-right right-6 sm:right-10 lg:right-1/10 xl:right-1/5 z-10">
           <button
             className="h-8 w-8 sm:h-10 sm:w-10 p-1.5 sm:p-2 cursor-pointer bg-blue-500 dark:bg-orange-300 rounded-full hover:scale-110 transition-transform duration-500"
             onClick={toggleDarkMode}
@@ -117,13 +123,18 @@ export default function Layout({ children }: Props) {
       <main id="main-content" className="flex flex-col">
         {children}
       </main>
-      <footer className="fixed w-full h-20 bottom-0 z-50 bg-slate-200/80 dark:bg-slate-800/80 backdrop-blur-md transition-colors duration-300">
+      <footer className="relative w-full h-20 z-50">
         <div className="flex flex-col items-center justify-center gap-1 w-full h-full text-sm">
           <em className="font-light">
             &#169; {new Date().getFullYear()} Ka Hung Lee
           </em>
         </div>
       </footer>
+      {/* Mirrors the header: content blurs and fades as it scrolls under the bottom edge */}
+      <div
+        aria-hidden="true"
+        className={`fixed bottom-0 w-full h-20 short:h-14 z-40 pointer-events-none ${blurBarStyling} mask-t-from-60%`}
+      />
       <NavButton />
       <ScrollToTopButton />
       <BackgroundBlob />

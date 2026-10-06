@@ -1,4 +1,5 @@
 import { motion, type HTMLMotionProps } from "motion/react";
+import useScrollTo from "@/hooks/useScrollTo";
 
 type ScrollDownButtonProps = {
   /** id of the section to smooth-scroll into view on click. */
@@ -22,14 +23,12 @@ export default function ScrollDownButton({
   className,
   reveal,
 }: ScrollDownButtonProps) {
+  const scrollTo = useScrollTo();
+
   return (
     <motion.button
       className={`flex flex-col items-center gap-1 opacity-75 transition-opacity duration-300 cursor-pointer ${className ?? ""}`}
-      onClick={() =>
-        document
-          .getElementById(targetId)
-          ?.scrollIntoView({ behavior: "smooth" })
-      }
+      onClick={() => scrollTo(document.getElementById(targetId))}
       initial={{ opacity: 0 }}
       whileHover={{ opacity: 1 }}
       aria-label={ariaLabel}

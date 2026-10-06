@@ -9,9 +9,7 @@ describe("Layout", () => {
     vi.unstubAllGlobals();
   });
 
-  it("smooth-scrolls to the top when the logo is clicked", () => {
-    // jsdom has no matchMedia; BackgroundBlob reads it on mount
-    vi.stubGlobal("matchMedia", () => ({ matches: false }));
+  it("scrolls to the top when the logo is clicked", () => {
     const scrollTo = vi.spyOn(window, "scrollTo").mockImplementation(() => {});
     render(
       <ThemeContextProvider>
@@ -20,6 +18,6 @@ describe("Layout", () => {
     );
 
     fireEvent.click(screen.getByRole("button", { name: "Back to top" }));
-    expect(scrollTo).toHaveBeenCalledWith({ top: 0, behavior: "smooth" });
+    expect(scrollTo).toHaveBeenCalledWith({ top: 0 });
   });
 });

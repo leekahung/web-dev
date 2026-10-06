@@ -13,7 +13,7 @@ export default function Section({ title, children }: Props) {
 
   return (
     <>
-      <div className="relative flex items-center justify-center flex-col gap-2 sm:gap-4">
+      <div className="relative flex items-center justify-center flex-col gap-2 sm:gap-4 short:flex-row short:justify-start short:gap-3">
         <IconButton
           onClick={() => {
             dialogRef.current?.showModal();
@@ -25,7 +25,7 @@ export default function Section({ title, children }: Props) {
         <p className="dark:peer-hover:text-orange-300 peer-hover:text-blue-500 peer-hover:font-semibold transition-colors duration-500 text-lg">
           {title}
         </p>
-        <span className="absolute -bottom-1 w-0 peer-hover:w-[60%] peer-hover:h-px peer-hover:bg-blue-500 dark:peer-hover:bg-orange-300 transition-all duration-300" />
+        <span className="absolute -bottom-1 w-0 peer-hover:w-3/5 peer-hover:h-px peer-hover:bg-blue-500 dark:peer-hover:bg-orange-300 transition-all duration-300" />
       </div>
       <dialog
         ref={dialogRef}

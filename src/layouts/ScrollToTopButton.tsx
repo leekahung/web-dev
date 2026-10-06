@@ -1,9 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import UpChevron from "../shared/components/icons/UpChevron";
+import useScrollTo from "@/hooks/useScrollTo";
 
 export default function ScrollToTopButton() {
   const [showScrollToTop, setShowScrollToTop] = useState(false);
+  const scrollTo = useScrollTo();
   const buttonRef = useRef<HTMLButtonElement>(null);
   const progressRef = useRef<HTMLDivElement>(null);
   const progressBarRef = useRef<HTMLDivElement>(null);
@@ -40,7 +42,7 @@ export default function ScrollToTopButton() {
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    scrollTo(0);
   };
 
   return (
@@ -55,7 +57,7 @@ export default function ScrollToTopButton() {
               duration: 0.5,
               ease: "easeInOut",
             }}
-            className="fixed bottom-5 right-6 sm:right-10 lg:right-[10%] xl:right-[20%] outline-1 rounded-full p-1 z-50 cursor-pointer hover:scale-105 hover:bg-slate-500 hover:text-slate-200 dark:hover:bg-slate-200 dark:hover:text-black transition duration-300"
+            className="fixed bottom-5 right-6 sm:right-10 lg:right-1/10 xl:right-1/5 outline-1 rounded-full p-1 z-50 cursor-pointer bg-slate-200 dark:bg-slate-800 hover:scale-105 hover:bg-slate-500 hover:text-slate-200 dark:hover:bg-slate-200 dark:hover:text-black transition duration-300"
             onClick={scrollToTop}
             ref={buttonRef}
             aria-label="Scroll to top"

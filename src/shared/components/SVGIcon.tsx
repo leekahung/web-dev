@@ -17,7 +17,7 @@ export default function SVGIcon({ svgStroke, svgPathD }: Props) {
       viewBox="0 0 24 24"
       strokeWidth="1.5"
       stroke={stroke}
-      className="md:group-hover:stroke-[oklch(62.3%_0.214_259.815)] md:dark:group-hover:stroke-[oklch(83.7%_0.128_66.29)] transition-colors duration-500"
+      className="md:group-hover:stroke-blue-500 md:dark:group-hover:stroke-orange-300 transition-colors duration-500"
     >
       <path strokeLinecap="round" strokeLinejoin="round" d={svgPathD} />
     </svg>

@@ -9,11 +9,11 @@ import useTypewriter from "@/hooks/useTypewriter";
 const PHRASES = [
   {
     text: "production-ready React apps",
-    color: "text-[#005A9E] dark:text-[#61DAFB]",
+    color: "text-react-deep dark:text-react",
   },
   {
     text: "open-source civic-tech tools",
-    color: "text-[#22543D] dark:text-[#5FD18D]",
+    color: "text-civic-deep dark:text-civic",
   },
   {
     text: "accessible, data-heavy UIs",
@@ -31,7 +31,7 @@ const FULL_PHRASE = `I build ${PHRASES.slice(0, LAST)
 
 function Cursor() {
   return (
-    <span className="inline-block w-px h-[1em] bg-black dark:bg-slate-200 ml-0.5 align-middle animate-[blink_1s_step-end_infinite]" />
+    <span className="inline-block w-px h-[1em] bg-black dark:bg-slate-200 ml-0.5 align-middle animate-blink motion-reduce:animate-none" />
   );
 }
 
@@ -77,15 +77,17 @@ export default function Intro() {
   return (
     <section
       aria-label="Introduction"
-      className="relative h-screen flex flex-col items-center justify-center gap-6 cursor-default"
+      className="relative min-h-svh grid grid-rows-[1fr_auto_1fr] justify-items-center gap-6 pt-24 pb-24 short:gap-4 short:pt-16 short:pb-16 cursor-default"
     >
-      <div className="flex flex-col items-center justify-center gap-4 sm:gap-6 bg-neutral-400/30 dark:bg-neutral-200/30 border border-black/15 dark:border-white/15 rounded-2xl py-6 px-4 sm:p-8 mx-4 sm:mx-0">
-        <div className="flex flex-col items-center gap-3 sm:gap-4">
-          <h1 className="text-2xl sm:text-3xl font-bold">
+      <div className="row-start-2 flex flex-col items-center justify-center gap-4 sm:gap-6 bg-neutral-400/30 dark:bg-neutral-200/30 border border-black/15 dark:border-white/15 rounded-2xl py-6 px-4 sm:p-8 short:py-4 mx-4 sm:mx-0 short:mx-4 short:flex-row">
+        <div className="flex flex-col items-center gap-3 sm:gap-4 short:items-start short:gap-2 short:text-left short-wide:grid short-wide:grid-cols-[auto_auto] short-wide:items-center short-wide:gap-x-6">
+          <h1 className="text-2xl sm:text-3xl font-bold short-wide:self-end">
             Hey there! I'm{" "}
-            <span className="text-blue-500 dark:text-orange-300">Ka Hung</span>
+            <span className="text-blue-500 dark:text-orange-300 whitespace-nowrap">
+              Ka Hung
+            </span>
           </h1>
-          <h2 className="text-base sm:text-xl max-w-75 sm:max-w-100 min-h-[2lh] sm:min-h-lh flex items-center gap-1 font-semibold">
+          <h2 className="text-sm xs:text-base sm:text-xl max-w-75 sm:max-w-100 min-h-lh flex items-center gap-1 font-semibold whitespace-nowrap short-wide:self-start">
             <span className="sr-only">{FULL_PHRASE}</span>
             {/* Animated text is hidden from screen readers, which get FULL_PHRASE instead */}
             <span aria-hidden="true">I build</span>
@@ -143,23 +145,23 @@ export default function Intro() {
               </AnimatePresence>
             </span>
           </h2>
-          <div>
-            <strong className="flex flex-wrap gap-2 items-center justify-center">
-              <span className="group inline-flex items-center gap-1.5 rounded-full px-3 py-0.5 bg-white/70 dark:bg-slate-900/80 bg-[linear-gradient(#005A9E1A,#005A9E1A)] dark:bg-[linear-gradient(#61DAFB1A,#61DAFB1A)] border border-[#005A9E]/40 dark:border-[#61DAFB]/40">
-                <span className="text-[#005A9E] dark:text-[#61DAFB] relative">
+          <div className="short-wide:col-start-2 short-wide:row-start-1 short-wide:row-span-2">
+            <strong className="flex flex-wrap gap-2 items-center justify-center short:justify-start short-wide:flex-col short-wide:items-start">
+              <span className="group inline-flex items-center gap-1.5 rounded-full px-3 py-0.5 bg-white/70 dark:bg-slate-900/80 bg-linear-to-r from-react-deep/10 to-react-deep/10 dark:from-react/10 dark:to-react/10 border border-react-deep/40 dark:border-react/40">
+                <span className="text-react-deep dark:text-react relative">
                   React
-                  <span className="absolute bottom-0.5 left-0 w-0 h-px bg-[#005A9E] dark:bg-[#61DAFB] group-hover:w-full transition-all duration-300" />
+                  <span className="absolute bottom-0.5 left-0 w-0 h-px bg-react-deep dark:bg-react group-hover:w-full transition-all duration-300" />
                 </span>
                 <span>3+ yrs</span>
               </span>
-              <span className="group inline-flex items-center gap-1.5 rounded-full px-3 py-0.5 bg-white/70 dark:bg-slate-900/80 bg-[linear-gradient(#22543D1A,#22543D1A)] dark:bg-[linear-gradient(#5FD18D1A,#5FD18D1A)] border border-[#22543D]/40 dark:border-[#5FD18D]/40">
-                <span className="text-[#22543D] dark:text-[#5FD18D] relative">
+              <span className="group inline-flex items-center gap-1.5 rounded-full px-3 py-0.5 bg-white/70 dark:bg-slate-900/80 bg-linear-to-r from-civic-deep/10 to-civic-deep/10 dark:from-civic/10 dark:to-civic/10 border border-civic-deep/40 dark:border-civic/40">
+                <span className="text-civic-deep dark:text-civic relative">
                   Civic-tech
-                  <span className="absolute bottom-0.5 left-0 w-0 h-px bg-[#22543D] dark:bg-[#5FD18D] group-hover:w-full transition-all duration-300" />
+                  <span className="absolute bottom-0.5 left-0 w-0 h-px bg-civic-deep dark:bg-civic group-hover:w-full transition-all duration-300" />
                 </span>
                 <span>Contributor</span>
               </span>
-              <span className="group inline-flex items-center gap-1.5 rounded-full px-3 py-0.5 bg-white/70 dark:bg-slate-900/80 bg-[linear-gradient(#b91c1c1A,#b91c1c1A)] dark:bg-[linear-gradient(#ffb86a1A,#ffb86a1A)] border border-red-700/40 dark:border-orange-300/40">
+              <span className="group inline-flex items-center gap-1.5 rounded-full px-3 py-0.5 bg-white/70 dark:bg-slate-900/80 bg-linear-to-r from-red-700/10 to-red-700/10 dark:from-orange-300/10 dark:to-orange-300/10 border border-red-700/40 dark:border-orange-300/40">
                 <span className="text-red-700 dark:text-orange-300 relative">
                   Research
                   <span className="absolute bottom-0.5 left-0 w-0 h-px bg-red-700 dark:bg-orange-300 group-hover:w-full transition-all duration-300" />
@@ -169,7 +171,7 @@ export default function Intro() {
             </strong>
           </div>
         </div>
-        <div className="grid grid-cols-2 w-52">
+        <div className="grid grid-cols-2 w-52 short:grid-cols-1 short:w-auto short:gap-2 short:shrink-0">
           <Section title="About">
             <span className="sr-only">About</span>
             <ProfileIcon />
@@ -184,7 +186,7 @@ export default function Intro() {
         targetId="projects"
         label="Projects"
         ariaLabel="Scroll to projects"
-        className="absolute bottom-24"
+        className="row-start-3 self-end"
         reveal={{
           animate: { opacity: 0.75 },
           transition: { delay: 0.3, duration: 0.5 },

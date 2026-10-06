@@ -1,17 +1,26 @@
 @import "tailwindcss";
 
 @theme {
+  --breakpoint-xs: 360px;
   --breakpoint-mid: 850px;
   --breakpoint-wide: 1250px;
-}
 
-@keyframes blink {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
+  /* Intro brand colours: the deep shade is for light mode, the bright one for dark */
+  --color-react: #61dafb;
+  --color-react-deep: #005a9e;
+  --color-civic: #5fd18d;
+  --color-civic-deep: #22543d;
+
+  --animate-blink: blink 1s step-end infinite;
+
+  @keyframes blink {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
   }
 }
 
@@ -27,10 +36,20 @@
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
+/* Short landscape screens, e.g. phones turned sideways */
+@custom-variant short (@media (max-height: 500px) and (orientation: landscape));
+@custom-variant short-wide (@media (max-height: 500px) and (orientation: landscape) and (min-width: 820px));
+@custom-variant tall (@media (min-height: 900px));
 
 @layer base {
   html {
     scrollbar-gutter: stable;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
   }
 
   html,
@@ -50,7 +69,9 @@
   scrollbar-width: none; /* Firefox */
 }
 
-@supports not (-webkit-mask-composite: source-in) {
+@supports not (
+  (mask-composite: intersect) or (-webkit-mask-composite: source-in)
+) {
   .background-img-mask {
     mask-image: radial-gradient(
       ellipse closest-side at center,
