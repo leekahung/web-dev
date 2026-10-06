@@ -4,8 +4,8 @@ export default function About() {
       <div className="h-30 w-30 sm:h-40 sm:w-40 rounded-full overflow-hidden relative ring-2 ring-blue-500 dark:ring-orange-300">
         <img
           src={`${import.meta.env.BASE_URL}self_photo.webp`}
-          alt="self photo"
-          className="object-cover scale-190 rounded-full w-full h-full object-[0%_0%]"
+          alt="Ka Hung Lee"
+          className="object-cover scale-190 rounded-full w-full h-full object-left-top"
         />
       </div>
       <p className="text-lg font-semibold sm:font-normal sm:text-2xl text-blue-500 dark:text-orange-300">
@@ -18,7 +18,7 @@ export default function About() {
             href="https://lateral.systems"
             target="_blank"
             rel="noopener noreferrer"
-            className="underline md:hover:text-orange-700/80 md:dark:hover:text-blue-200 transition-all duration-150"
+            className="underline md:hover:text-blue-500 md:dark:hover:text-orange-300 transition-all duration-150"
           >
             LATERAL.systems
           </a>
@@ -29,7 +29,7 @@ export default function About() {
             href="https://www.codepdx.org/"
             target="_blank"
             rel="noopener noreferrer"
-            className="underline md:hover:text-orange-700/80 md:dark:hover:text-blue-200 transition-all duration-150"
+            className="underline md:hover:text-blue-500 md:dark:hover:text-orange-300 transition-all duration-150"
           >
             Code PDX
           </a>
