@@ -31,7 +31,7 @@ export default function NavButton() {
   }, [showButtons]);
 
   const navButtonStyling =
-    "fixed bottom-5 left-10 lg:left-[10%] xl:left-[20%] z-50 px-2 py-1 rounded-full outline-1 cursor-pointer bg-slate-200 dark:bg-slate-800 hover:bg-slate-500 hover:text-slate-200 dark:hover:bg-slate-200 dark:hover:text-black will-change-transform";
+    "fixed bottom-5 left-6 sm:left-10 lg:left-[10%] xl:left-[20%] z-50 px-2 py-1 rounded-full outline-1 cursor-pointer bg-slate-200 dark:bg-slate-800 hover:bg-slate-500 hover:text-slate-200 dark:hover:bg-slate-200 dark:hover:text-black will-change-transform";
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });

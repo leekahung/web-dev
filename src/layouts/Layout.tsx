@@ -7,6 +7,7 @@ import BackgroundBlob from "@/animations/BackgroundBlob";
 import ScrollToTopButton from "@/layouts/ScrollToTopButton";
 import NavButton from "./NavButton";
 import OrcIdIcon from "@/shared/components/icons/OrcIdIcon";
+import LogoIcon from "@/shared/components/icons/LogoIcon";
 
 interface Props {
   children: React.ReactNode;
@@ -65,17 +66,24 @@ export default function Layout({ children }: Props) {
         />
       </div>
       <header className="fixed w-full h-20 top-0 z-50 bg-slate-200/80 dark:bg-slate-800/80 backdrop-blur-md transition-colors duration-300">
-        <div className="absolute top-5 left-10 lg:left-[10%] xl:left-[20%] flex gap-5">
+        <div className="absolute top-6 sm:top-5 left-6 sm:left-10 lg:left-[10%] xl:left-[20%] flex items-center gap-4 sm:gap-5">
+          <button
+            className="cursor-pointer hover:scale-110 transition-transform duration-300"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            aria-label="Back to top"
+          >
+            <LogoIcon />
+          </button>
           <ExternalLink to="https://github.com/leekahung">
             <img
-              className="dark:invert h-10 w-10 hover:scale-110 transition-transform duration-300"
+              className="dark:invert h-8 w-8 sm:h-10 sm:w-10 hover:scale-110 transition-transform duration-300"
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
               alt="GitHub Profile"
             />
           </ExternalLink>
           <ExternalLink to="https://www.linkedin.com/in/ka-hung-lee/">
             <img
-              className="h-10 w-10 hover:scale-110 transition-transform duration-300"
+              className="h-8 w-8 sm:h-10 sm:w-10 hover:scale-110 transition-transform duration-300"
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
               alt="LinkedIn Profile"
             />
@@ -87,9 +95,9 @@ export default function Layout({ children }: Props) {
             <OrcIdIcon />
           </ExternalLink>
         </div>
-        <div className="absolute top-5 right-10 lg:right-[10%] xl:right-[20%] z-10">
+        <div className="absolute top-6 sm:top-5 right-6 sm:right-10 lg:right-[10%] xl:right-[20%] z-10">
           <button
-            className="h-10 w-10 p-2 cursor-pointer bg-blue-500 dark:bg-orange-300 rounded-full hover:scale-110 transition-transform duration-500"
+            className="h-8 w-8 sm:h-10 sm:w-10 p-1.5 sm:p-2 cursor-pointer bg-blue-500 dark:bg-orange-300 rounded-full hover:scale-110 transition-transform duration-500"
             onClick={toggleDarkMode}
             aria-label={
               darkMode ? "Switch to light mode" : "Switch to dark mode"
