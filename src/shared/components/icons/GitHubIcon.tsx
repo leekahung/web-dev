@@ -1,6 +1,10 @@
-export default function GitHubIcon() {
+interface Props {
+  className?: string;
+}
+
+export default function GitHubIcon({ className = "w-6 h-6" }: Props) {
   return (
-    <div className="w-6 h-6 dark:invert">
+    <div className={`dark:invert ${className}`}>
       <svg viewBox="0 0 128 128">
         <g fill="#181616">
           <path
