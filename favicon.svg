@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-12 0 116 116">
+  <style>
+    .fg { fill: #1e293b; }
+    .accent { fill: #3b82f6; }
+    @media (prefers-color-scheme: dark) {
+      .fg { fill: #e2e8f0; }
+      .accent { fill: #fdba74; }
+    }
+  </style>
+  <g class="fg">
+    <rect x="0" y="0" width="20" height="20" rx="3" />
+    <rect x="0" y="24" width="20" height="20" rx="3" />
+    <rect x="0" y="48" width="20" height="20" rx="3" />
+    <rect x="0" y="72" width="20" height="20" rx="3" />
+    <rect x="0" y="96" width="20" height="20" rx="3" />
+    <rect x="48" y="24" width="20" height="20" rx="3" />
+    <rect x="72" y="0" width="20" height="20" rx="3" />
+    <rect x="48" y="72" width="20" height="20" rx="3" />
+    <rect x="72" y="96" width="20" height="20" rx="3" />
+  </g>
+  <rect class="accent" x="24" y="48" width="20" height="20" rx="3" />
+</svg>
